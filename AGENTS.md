@@ -8,28 +8,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ceps** (Codebase to Specification) is a one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into human-readable Markdown specifications. Its purpose is to bootstrap a spec-driven development workflow by extracting behavioral intent from existing code.
 
-**Current Status:** Phase 1 (Foundation) complete. KB API frozen. 62 tests passing with 90.71% coverage. Ready for Phase 2 parallelization (4 agents).
+**Current Status:** Phase 2 (I/O & Templates) complete. Full end-to-end pipeline working. 277 tests passing with 94.3% coverage. Ready for Phase 3 (Intelligence).
 
 ---
 
 ## Current Phase
 
-**Phase 2 — I/O & Templates (Ready to Start)**
+**Phase 3 — Intelligence (Ready to Start)**
 
-- **Status:** Phase 1 complete, KB API frozen, ready for parallel implementation
-- **Depends on:** Phase 1 (✅ Complete)
-- **Approach:** TDD-first, 4 parallel agents, ~3-4 agent-days per agent
+- **Status:** Phase 2 complete, end-to-end pipeline working, ready for intelligence layer
+- **Depends on:** Phase 2 (✅ Complete)
+- **Approach:** TDD-first, 2-3 parallel agents, ~3-4 agent-days per agent
 - **Agents:**
-  - **Agent 1:** Scanner & Loader (CTS-05)
-  - **Agent 2:** Parser & Patterns (CTS-05)
-  - **Agent 3:** Spec Generator (CTS-03, template mode)
-  - **Agent 4:** LLM Gateway (CTS-02, skeleton)
+  - **Agent 1:** KB Indices & Confidence Scoring (CTS-01)
+  - **Agent 2:** Reasoning & Ambiguity Resolver (CTS-06)
+  - **Agent 3:** Cross-link Validation & Phase Coordination (CTS-03, CTS-07)
 - **Deliverables:**
-  - File scanner with ignore rules
-  - TypeScript/Babel parser with fact extraction
-  - Template-based Markdown generator
-  - LLM Gateway skeleton with provider adapters
-- **Critical Checkpoint:** All agents depend on frozen KB API from Phase 1
+  - Call/import graphs and reverse-deps indices
+  - Confidence scoring algorithm (upgrade from stub)
+  - Framework pattern matching (Express, React basics)
+  - Intent lifting and iterative resolution
+  - Two-phase cross-link validation
+  - Open Question (QID) generation
+- **Critical Checkpoint:** All agents depend on Phase 2 pipeline (Scanner → Parser → KB → Generator)
 
 ---
 
@@ -159,27 +160,31 @@ ceps finalize --answers ./answers.md
 
 ## Implementation Status
 
-### ✅ Completed (Phases 0-1)
+### ✅ Completed (Phases 0-2)
 1. ~~Resolve outstanding questions in SADS-FEEDBACK.md~~ → **Done** (see CTS-Responses.md)
 2. ~~Create all Component Technical Specs (CTS)~~ → **Done** (all 7 CTS documents complete)
-3. ~~Create Phase 1 implementation plan~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2, reviewed twice and all critical bugs fixed)
+3. ~~Create Phase 1 implementation plan~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2)
 4. ~~Execute Phase 1 implementation~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2)
-   - ✅ Step 1: Test infrastructure setup (Vitest, CI, coverage)
-   - ✅ Step 2: Minimal CLI harness (TDD)
-   - ✅ Step 3: KB schema & data models (TDD)
-   - ✅ Step 4: ID generation (anchors & QIDs, TDD)
-   - ✅ Step 5: KB API contract (TDD, with stubs for Phase 3)
-   - ✅ Step 6: API documentation (docs/API.md)
-   - ✅ Step 7: Integration smoke test
-   - ✅ **KB API FROZEN** - Ready for Phase 2 parallelization
-   - ✅ **Results:** 62 tests passing, 90.71% coverage, all feedback integrated
+   - ✅ KB schema & API contract (TDD, frozen)
+   - ✅ Minimal CLI harness
+   - ✅ Test infrastructure (Vitest, CI, coverage)
+   - ✅ **Results:** 62 tests passing, 90.71% coverage
+5. ~~Execute Phase 2 implementation~~ → **Done** (2025-11-03)
+   - ✅ Scanner & Loader (Agent 1: 38 tests, 98.2% coverage)
+   - ✅ Parser & Patterns (Agent 2: 35 tests, 87.06% coverage)
+   - ✅ Spec Generator templates (Agent 3: 29 tests, 82.27% coverage)
+   - ✅ LLM Gateway skeleton (Agent 4: 110 tests, 97.96% coverage)
+   - ✅ Orchestrator integration (Scanner → Parser → KB → Generator)
+   - ✅ End-to-end smoke test (3 comprehensive integration tests)
+   - ✅ **Results:** 277 tests passing, 94.3% coverage, production-ready
 
-### 🔄 In Progress (Phase 2)
-5. **Phase 2 implementation:** Scanner (CTS-05), Parser (CTS-05), Generator (CTS-03), LLM Gateway (CTS-02)
-   - **4 parallel agents** (ready to start)
-   - All depend on frozen KB API ✅
+### 📋 Next (Phase 3)
+6. **Phase 3 implementation:** Indices, Reasoning (CTS-06), Linking
+   - **Status:** Ready to start
+   - **2-3 parallel agents**
+   - All depend on Phase 2 pipeline ✅
 
-### 📋 Next (Phase 3-6)
+### 📋 Future (Phase 4-6)
 6. Phase 3 implementation: Indices, Reasoning (CTS-06), Linking
    - **2-3 parallel agents**
 7. Phase 4 implementation: Grounding Validator (CTS-02), Gates (CTS-07)
@@ -303,6 +308,9 @@ After KB API Freeze:
 ### For Context
 - **CTS-Responses.md** — Resolved architectural questions
 - **PRD2.md** — Product vision and objectives
+
+### Process Documents
+- **PHASE_COMPLETION_CHECKLIST.md** — Standard steps for completing any phase (documentation updates, verification)
 
 ### Historical
 - **SADS-FEEDBACK.md** — Original architectural questions (now resolved in CTS-Responses.md)

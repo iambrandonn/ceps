@@ -1,27 +1,87 @@
-/**
- * Agent 1: Scanner & Loader - Monorepo Detection
- *
- * IMPLEMENTATION_PLAN_PHASE2.md §2, Step 1.2
- *
- * Responsible for:
- * - Detecting monorepo types (pnpm-workspaces, Lerna, Nx, Yarn)
- * - Building PackageMap from workspace globs
- * - Discovering packages and their files
- *
- * Dependencies:
- * - glob package (npm install glob)
- * - PackageMap type from ../types/index.js
- *
- * TDD Approach:
- * 1. Write tests in tests/unit/scanner/monorepo.test.ts first
- * 2. Implement detectMonorepo() and buildPackageMap() functions
- * 3. Target: ≥80% branch coverage
- *
- * Key interfaces:
- * - MonorepoDetectionResult: Detection outcome with type and globs
- * - detectMonorepo(): Detect monorepo configuration
- * - buildPackageMap(): Build package index from workspace globs
- */
+import * as fs from 'fs';
+import * as path from 'path';
+import { glob } from 'glob';
+import { PackageMap } from '../types';
 
-// TODO: Implement detectMonorepo() and buildPackageMap()
-// See IMPLEMENTATION_PLAN_PHASE2.md lines 393-480 for full implementation
+export interface MonorepoDetectionResult {
+  isMonorepo: boolean;
+  type?: 'pnpm-workspaces' | 'lerna' | 'nx' | 'yarn-workspaces';
+  workspaceGlobs?: string[];
+}
+
+export function detectMonorepo(
+  rootPath: string,
+  packageJson: any = {},
+  lernaJson?: any,
+  hasNxJson?: boolean
+): MonorepoDetectionResult {
+  // Check for Nx
+  if (hasNxJson || fs.existsSync(path.join(rootPath, 'nx.json'))) {
+    return {
+      isMonorepo: true,
+      type: 'nx',
+      workspaceGlobs: ['apps/*', 'libs/*', 'packages/*']
+    };
+  }
+
+  // Check for Lerna
+  if (lernaJson || fs.existsSync(path.join(rootPath, 'lerna.json'))) {
+    const lerna = lernaJson || JSON.parse(fs.readFileSync(path.join(rootPath, 'lerna.json'), 'utf8'));
+    return {
+      isMonorepo: true,
+      type: 'lerna',
+      workspaceGlobs: lerna.packages || ['packages/*']
+    };
+  }
+
+  // Check for pnpm/yarn workspaces
+  if (packageJson.workspaces) {
+    const globs = Array.isArray(packageJson.workspaces)
+      ? packageJson.workspaces
+      : packageJson.workspaces.packages || [];
+    return {
+      isMonorepo: true,
+      type: fs.existsSync(path.join(rootPath, 'pnpm-workspace.yaml'))
+        ? 'pnpm-workspaces'
+        : 'yarn-workspaces',
+      workspaceGlobs: globs
+    };
+  }
+
+  return { isMonorepo: false };
+}
+
+export async function buildPackageMap(
+  rootPath: string,
+  workspaceGlobs: string[]
+): Promise<PackageMap> {
+  const packages = [];
+
+  for (const pattern of workspaceGlobs) {
+    const matches = await glob(pattern, {
+      cwd: rootPath,
+      absolute: false
+    });
+
+    for (const match of matches) {
+      const pkgPath = path.join(rootPath, match);
+      const pkgJsonPath = path.join(pkgPath, 'package.json');
+
+      if (fs.existsSync(pkgJsonPath)) {
+        const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8'));
+
+        // Normalize path to POSIX format
+        const normalizedPath = match.replace(/\\/g, '/');
+
+        packages.push({
+          id: pkgJson.name || normalizedPath,
+          name: pkgJson.name || normalizedPath,
+          path: normalizedPath,
+          files: [] // Will be populated by scanner
+        });
+      }
+    }
+  }
+
+  return { packages };
+}

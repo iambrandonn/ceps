@@ -5,11 +5,13 @@ A one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into 
 ## Current Status
 
 **Phase 1: Foundation — COMPLETE ✅**
+**Phase 2: I/O & Templates — COMPLETE ✅**
 
-Phase 1 establishes the foundational contracts for the Knowledge Base and CLI infrastructure.
+### Phase 1: Foundation (Complete)
 
-### Completed Deliverables
+Phase 1 established the foundational contracts for the Knowledge Base and CLI infrastructure.
 
+**Completed Deliverables:**
 - ✅ Test infrastructure (Vitest, CI/CD, coverage enforcement ≥80%)
 - ✅ Minimal CLI harness with argument parsing
 - ✅ KB schema (Entity, Relation, Fact, FactSet, BehaviorChunk)
@@ -18,22 +20,32 @@ Phase 1 establishes the foundational contracts for the Knowledge Base and CLI in
 - ✅ API documentation
 - ✅ Integration smoke test
 
-### Test Results
-
+**Test Results:**
 ```
 Test Files  6 passed (6)
 Tests       62 passed (62)
-Coverage    90.71% statements, 92.3% branches (exceeds 80% requirement)
+Coverage    90.71% (exceeds 80% requirement)
 ```
 
-### Critical Bug Fixes
+### Phase 2: I/O & Templates (Complete)
 
-All critical bugs from the implementation plan have been addressed:
+Phase 2 delivers the full end-to-end pipeline from source code to Markdown specifications.
 
-1. **CRITICAL-1 & 2:** Deep clone in batch transactions (including nested arrays/objects)
-2. **CRITICAL-3:** Upsert semantics prevent duplicate index entries
-3. **CRITICAL-4:** Index updates when entity properties change
-4. **HIGH-1:** QID allocation is idempotent (same inputs → same QID)
+**Completed Deliverables:**
+- ✅ Scanner & Loader (file discovery, ignore rules, monorepo detection)
+- ✅ Parser & Patterns (TypeScript/Babel, fact extraction, dynamic pattern detection)
+- ✅ Spec Generator (root + per-directory specs with templates)
+- ✅ LLM Gateway (provider adapters, caching, budget tracking)
+- ✅ Orchestrator integration (Scanner → Parser → KB → Generator)
+- ✅ End-to-end smoke tests
+
+**Test Results:**
+```
+Test Files  22 passed (22)
+Tests       277 passed (277)
+Coverage    94.3% (exceeds 80% requirement)
+Duration    2.28s
+```
 
 ## Quick Start
 
@@ -122,13 +134,20 @@ ceps/
 
 ## Next Steps
 
-**Phase 2: I/O & Templates** (Ready to start after KB API Freeze)
+**Phase 3: Intelligence** (Ready to start)
 
-Phase 2 will implement 4 parallel workstreams:
-- **Agent 1:** Scanner & Loader (CTS-05)
-- **Agent 2:** Parser & Patterns (CTS-05)
-- **Agent 3:** Spec Generator (CTS-03, template mode)
-- **Agent 4:** LLM Gateway (CTS-02, skeleton)
+Phase 3 will implement 2-3 parallel workstreams:
+- **Agent 1:** KB Indices & Confidence Scoring (CTS-01)
+- **Agent 2:** Reasoning & Ambiguity Resolver (CTS-06)
+- **Agent 3:** Cross-link Validation & Phase Coordination (CTS-03, CTS-07)
+
+**Deliverables:**
+- Call/import graphs and reverse-deps indices
+- Confidence scoring algorithm (upgrade from stub)
+- Framework pattern matching (Express, React basics)
+- Intent lifting and iterative resolution
+- Two-phase cross-link validation
+- Open Question (QID) generation
 
 See [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) for the complete roadmap.
 

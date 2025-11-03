@@ -1,28 +1,43 @@
-/**
- * Agent 2: Parser & Patterns - Dynamic Pattern Detector
- *
- * IMPLEMENTATION_PLAN_PHASE2.md §2, Step 2.3
- *
- * Responsible for:
- * - Detecting patterns that reduce static resolvability
- * - Flagging: eval, Function constructor, Proxy, Reflect, dynamic imports
- * - Generating warnings (not errors) for dynamic patterns
- *
- * Dependencies:
- * - ts-morph (SourceFile, SyntaxKind)
- * - ParseError from ../types/index.js
- *
- * TDD Approach:
- * 1. Write tests in tests/unit/parser/pattern-detector.test.ts first
- * 2. Implement PatternDetector class with detect() method
- * 3. Test each dynamic pattern (eval, Proxy, dynamic import, etc.)
- * 4. Ensure safe code produces no warnings
- * 5. Target: ≥80% branch coverage
- *
- * Key interfaces:
- * - PatternDetector class: Main detector with detect() method
- * - detect(): Returns ParseError[] with warnings
- */
+import { SourceFile, SyntaxKind } from 'ts-morph';
+import { ParseError } from '../types/index.js';
 
-// TODO: Implement PatternDetector class
-// See IMPLEMENTATION_PLAN_PHASE2.md lines 1264-1310 for full implementation
+const DYNAMIC_PATTERNS = [
+  { pattern: /\beval\s*\(/, message: 'eval() reduces static resolvability' },
+  {
+    pattern: /\bnew\s+Function\s*\(/,
+    message: 'Function constructor reduces static resolvability',
+  },
+  { pattern: /\bnew\s+Proxy\s*\(/, message: 'Proxy usage may obscure property access' },
+  {
+    pattern: /\bReflect\.(get|set|has)\b/,
+    message: 'Reflect API may obscure access patterns',
+  },
+  {
+    pattern: /\[.*\]\s*=/,
+    message: 'Bracket notation on unknown object reduces resolvability',
+  },
+  {
+    pattern: /import\s*\(/,
+    message: 'dynamic import() detected - may reduce static resolvability',
+  },
+];
+
+export class PatternDetector {
+  detect(sourceFile: SourceFile, filePath: string): ParseError[] {
+    const warnings: ParseError[] = [];
+    const text = sourceFile.getFullText();
+
+    // Check for dynamic patterns using regex
+    for (const { pattern, message } of DYNAMIC_PATTERNS) {
+      if (pattern.test(text)) {
+        warnings.push({
+          filePath,
+          message: `Dynamic pattern detected: ${message}`,
+          severity: 'warning',
+        });
+      }
+    }
+
+    return warnings;
+  }
+}

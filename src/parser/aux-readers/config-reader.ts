@@ -1,23 +1,35 @@
-/**
- * Agent 2: Parser & Patterns - Config Reader
- *
- * IMPLEMENTATION_PLAN_PHASE2.md §2, Step 2.4
- *
- * Responsible for:
- * - Reading JSON/YAML config files
- * - Extracting configuration facts
- * - Creating factSets for config influences
- *
- * NOTE: Basic implementation for Phase 2; full support in Phase 6
- *
- * Dependencies:
- * - FactSet, Fact from ../../kb/models.js
- *
- * TDD Approach:
- * 1. Write tests first
- * 2. Implement ConfigReader class (simplified for Phase 2)
- * 3. Target: ≥80% branch coverage
- */
+import { FactSet, Fact } from '../../kb/models.js';
 
-// TODO: Implement ConfigReader class (simplified)
-// Full implementation deferred to Phase 6
+export class ConfigReader {
+  extractFacts(filePath: string, content: string): FactSet[] {
+    const factSets: FactSet[] = [];
+    const facts: Fact[] = [];
+
+    try {
+      // Try parsing as JSON
+      const config = JSON.parse(content);
+
+      // Extract top-level config keys
+      Object.keys(config).forEach((key) => {
+        facts.push({
+          subjectId: filePath,
+          predicate: 'config-key',
+          object: key,
+        });
+      });
+
+      if (facts.length > 0) {
+        factSets.push({
+          id: `${filePath}-config-facts`,
+          facts,
+          sources: [{ kind: 'aux', file: filePath, reader: 'config-reader' }],
+          evidenceScore: 80, // High confidence for config files
+        });
+      }
+    } catch (error) {
+      // Not valid JSON, skip
+    }
+
+    return factSets;
+  }
+}

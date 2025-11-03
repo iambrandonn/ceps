@@ -1,26 +1,36 @@
-/**
- * Agent 2: Parser & Patterns - Test Reader
- *
- * IMPLEMENTATION_PLAN_PHASE2.md §2, Step 2.4
- *
- * Responsible for:
- * - Extracting test case names from describe/it/test blocks
- * - Creating factSets with test intent clues
- * - Supporting Vitest/Jest syntax
- *
- * Dependencies:
- * - ts-morph (SourceFile)
- * - FactSet, Fact from ../../kb/models.js
- *
- * TDD Approach:
- * 1. Write tests first
- * 2. Implement TestReader class with extractFacts() method
- * 3. Target: ≥80% branch coverage
- *
- * Key interfaces:
- * - TestReader class: Reader with extractFacts() method
- * - extractFacts(): Returns FactSet[] with test case facts
- */
+import { SourceFile } from 'ts-morph';
+import { FactSet, Fact } from '../../kb/models.js';
 
-// TODO: Implement TestReader class
-// See IMPLEMENTATION_PLAN_PHASE2.md lines 1316-1354 for full implementation
+export class TestReader {
+  extractFacts(sourceFile: SourceFile, filePath: string): FactSet[] {
+    const factSets: FactSet[] = [];
+    const facts: Fact[] = [];
+
+    // Extract test names from describe/it blocks
+    sourceFile.forEachDescendant((node) => {
+      const text = node.getText();
+
+      if (text.includes('describe(') || text.includes('it(') || text.includes('test(')) {
+        const match = text.match(/['"`]([^'"`]+)['"`]/);
+        if (match) {
+          facts.push({
+            subjectId: filePath,
+            predicate: 'test-case',
+            object: match[1],
+          });
+        }
+      }
+    });
+
+    if (facts.length > 0) {
+      factSets.push({
+        id: `${filePath}-test-facts`,
+        facts,
+        sources: [{ kind: 'aux', file: filePath, reader: 'test-reader' }],
+        evidenceScore: 70, // Medium confidence for test intent
+      });
+    }
+
+    return factSets;
+  }
+}

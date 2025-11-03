@@ -1,14 +1,21 @@
 # ceps — High‑Level Implementation Plan (HLIP)
-**Date:** 2025-11-03
+**Date:** 2025-11-03 (Updated: Phase 2 complete)
 **Scope:** End‑to‑end plan to deliver ceps from architecture to MVP and production, aligned to SADS v1.1 and the CTS suite.
 **Audience:** AI agents, engineering reviewers, product.
-**Status:** Phase 1 complete (✅), Phase 2 ready to start
+**Status:** Phase 1 complete (✅), Phase 2 complete (✅), Phase 3 ready to start
 
 **Phase 1 Completion:**
 - ✅ KB API frozen and documented
 - ✅ 62 tests passing, 90.71% coverage
 - ✅ All feedback integrated
 - ✅ Ready for Phase 2 parallelization
+
+**Phase 2 Completion:**
+- ✅ End-to-end pipeline working (Scanner → Parser → KB → Generator)
+- ✅ 277 tests passing, 94.3% coverage
+- ✅ All 4 agent workstreams complete
+- ✅ Production-ready
+- ✅ Ready for Phase 3 (Intelligence)
 
 **Implementation approach:** This project will be implemented by AI agents using **Test-Driven Development (TDD)**. Milestones are structured for progressive delivery; agents should maximize parallelization wherever dependencies permit.
 
@@ -812,6 +819,16 @@ Since implementation will be performed by AI agents, workstream assignments shou
 8. **All development uses TDD workflow:** Red → Green → Refactor → Commit.
 9. Draft `answers.md` example format during M0 for M2 preparation.
 10. Golden-test harness runs on every commit in CI for determinism validation.
+
+**Phase completion:**
+11. **At the end of EVERY phase:** Follow the [Phase Completion Checklist](./PHASE_COMPLETION_CHECKLIST.md) to ensure consistent documentation updates across all phases.
+    - Update IMPLEMENTATION_PLAN.md (status + completion summary)
+    - Update AGENTS.md (move phase to completed section)
+    - Update IMPLEMENTATION_PLAN_PHASE{N}.md (add final results)
+    - Update README.md (add phase section, update next steps)
+    - Create PHASE{N}_COMPLETION_SUMMARY.md
+    - Create PHASE{N}_OVERALL_FEEDBACK.md (comprehensive review)
+    - See checklist for detailed step-by-step instructions
 
 ---
 

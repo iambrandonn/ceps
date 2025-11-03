@@ -1,31 +1,102 @@
-/**
- * Agent 1: Scanner & Loader - Main Scanner
- *
- * IMPLEMENTATION_PLAN_PHASE2.md §2, Step 1.3
- *
- * Responsible for:
- * - File discovery using glob patterns
- * - File classification (code/test/config/contract)
- * - Respecting ignore rules
- * - Producing deterministic FileIndex
- * - Integrating monorepo detection
- *
- * Dependencies:
- * - glob package
- * - ./ignore-rules.ts (IgnoreRules)
- * - ./monorepo.ts (detectMonorepo, buildPackageMap)
- * - FileIndex, FileEntry from ../types/index.js
- *
- * TDD Approach:
- * 1. Write tests in tests/unit/scanner/scanner.test.ts first
- * 2. Implement Scanner class with scan() method
- * 3. Ensure deterministic ordering (sort by path)
- * 4. Target: ≥80% branch coverage
- *
- * Key interfaces:
- * - Scanner class: Main scanner with scan() method
- * - scan(): Returns FileIndex with entries, packages, rootPath
- */
+import * as fs from 'fs';
+import * as path from 'path';
+import { glob } from 'glob';
+import { FileEntry, FileIndex, PackageMap } from '../types';
+import { IgnoreRules, IgnoreRulesOptions } from './ignore-rules';
+import { detectMonorepo, buildPackageMap } from './monorepo';
 
-// TODO: Implement Scanner class
-// See IMPLEMENTATION_PLAN_PHASE2.md lines 542-646 for full implementation
+export class Scanner {
+  private ignoreRules: IgnoreRules;
+
+  constructor(
+    private rootPath: string,
+    ignoreOptions: IgnoreRulesOptions = {}
+  ) {
+    this.ignoreRules = new IgnoreRules(rootPath, ignoreOptions);
+  }
+
+  async scan(): Promise<FileIndex> {
+    // Detect monorepo
+    const packageJsonPath = path.join(this.rootPath, 'package.json');
+    const packageJson = fs.existsSync(packageJsonPath)
+      ? JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))
+      : {};
+
+    const monorepoDetection = detectMonorepo(this.rootPath, packageJson);
+
+    let packages: PackageMap = { packages: [] };
+    if (monorepoDetection.isMonorepo && monorepoDetection.workspaceGlobs) {
+      packages = await buildPackageMap(this.rootPath, monorepoDetection.workspaceGlobs);
+    }
+
+    // Scan files
+    const pattern = '**/*.{ts,tsx,js,jsx,json,yaml,yml,sql}';
+    const files = await glob(pattern, {
+      cwd: this.rootPath,
+      absolute: true,
+      nodir: true,
+      dot: true // Include dotfiles (e.g., .eslintrc.yml)
+    });
+
+    const entries: FileEntry[] = [];
+
+    for (const absolutePath of files) {
+      const relativePath = path.relative(this.rootPath, absolutePath).replace(/\\/g, '/');
+
+      // Apply ignore rules
+      if (this.ignoreRules.shouldIgnore(relativePath)) {
+        continue;
+      }
+
+      const stats = fs.statSync(absolutePath);
+      const kind = this.classifyFile(relativePath);
+
+      // Determine package ID for monorepos
+      let packageId: string | undefined;
+      for (const pkg of packages.packages) {
+        if (relativePath.startsWith(pkg.path + '/')) {
+          packageId = pkg.id;
+          pkg.files.push(relativePath);
+          break;
+        }
+      }
+
+      entries.push({
+        path: relativePath,
+        absolutePath,
+        kind,
+        packageId,
+        size: stats.size
+      });
+    }
+
+    // Sort for deterministic ordering
+    entries.sort((a, b) => a.path.localeCompare(b.path));
+
+    return {
+      entries,
+      packages,
+      rootPath: this.rootPath
+    };
+  }
+
+  private classifyFile(filePath: string): FileEntry['kind'] {
+    // Test files
+    if (filePath.includes('.test.') || filePath.includes('.spec.') || filePath.includes('__tests__/')) {
+      return 'test';
+    }
+
+    // Contract files (OpenAPI, SQL)
+    if (filePath.includes('openapi') || filePath.includes('swagger') || filePath.endsWith('.sql')) {
+      return 'contract';
+    }
+
+    // Config files
+    if (filePath.endsWith('.json') || filePath.endsWith('.yaml') || filePath.endsWith('.yml')) {
+      return 'config';
+    }
+
+    // Code files
+    return 'code';
+  }
+}
