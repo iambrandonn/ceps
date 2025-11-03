@@ -1,0 +1,24 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+
+# Benchmarks
+
+# Fuzzing
+
+# Coverage
+lcov.info
+
+# Documentation
+
+# Claude
+.claude
