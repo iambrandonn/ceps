@@ -8,25 +8,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ceps** (Codebase to Specification) is a one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into human-readable Markdown specifications. Its purpose is to bootstrap a spec-driven development workflow by extracting behavioral intent from existing code.
 
-**Current Status:** Design complete. All 7 Component Technical Specs (CTS) finished. Ready for Phase 1 implementation. No source code has been written yet.
+**Current Status:** Phase 1 (Foundation) complete. KB API frozen. 62 tests passing with 90.71% coverage. Ready for Phase 2 parallelization (4 agents).
 
 ---
 
 ## Current Phase
 
-**Phase 1 — Foundation (Ready to Start)**
+**Phase 2 — I/O & Templates (Ready to Start)**
 
-- **Status:** Design complete, ready for implementation
-- **Plan:** IMPLEMENTATION_PLAN_PHASE1.md v1.2 (all critical bugs fixed)
-- **Approach:** TDD-first, sequential execution, ~4-6 agent-days
+- **Status:** Phase 1 complete, KB API frozen, ready for parallel implementation
+- **Depends on:** Phase 1 (✅ Complete)
+- **Approach:** TDD-first, 4 parallel agents, ~3-4 agent-days per agent
+- **Agents:**
+  - **Agent 1:** Scanner & Loader (CTS-05)
+  - **Agent 2:** Parser & Patterns (CTS-05)
+  - **Agent 3:** Spec Generator (CTS-03, template mode)
+  - **Agent 4:** LLM Gateway (CTS-02, skeleton)
 - **Deliverables:**
-  - Test infrastructure (CI, coverage, Vitest/Jest)
-  - Minimal CLI harness with argument parsing
-  - KB schema (Entity, Relation, Fact, FactSet, BehaviorChunk)
-  - ID generation (anchors, QIDs with collision handling)
-  - KB API contract (FROZEN after Phase 1)
-  - API documentation (docs/API.md)
-- **Critical Checkpoint:** KB API Freeze enables Phase 2 parallelization (4 agents)
+  - File scanner with ignore rules
+  - TypeScript/Babel parser with fact extraction
+  - Template-based Markdown generator
+  - LLM Gateway skeleton with provider adapters
+- **Critical Checkpoint:** All agents depend on frozen KB API from Phase 1
 
 ---
 
@@ -34,7 +37,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Implementation Plans
 1. **IMPLEMENTATION_PLAN.md** — 6-phase roadmap with parallelization strategy (4-7 concurrent agents in peak phases)
-2. **IMPLEMENTATION_PLAN_PHASE1.md v1.1** — Detailed TDD plan for KB, CLI, and test infrastructure (reviewed and revised)
+2. **IMPLEMENTATION_PLAN_PHASE1.md v1.2** — Detailed TDD plan for KB, CLI, and test infrastructure (✅ Complete)
 
 ### Component Technical Specifications (CTS)
 
@@ -156,24 +159,27 @@ ceps finalize --answers ./answers.md
 
 ## Implementation Status
 
-### ✅ Completed (Design Phase)
+### ✅ Completed (Phases 0-1)
 1. ~~Resolve outstanding questions in SADS-FEEDBACK.md~~ → **Done** (see CTS-Responses.md)
 2. ~~Create all Component Technical Specs (CTS)~~ → **Done** (all 7 CTS documents complete)
 3. ~~Create Phase 1 implementation plan~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2, reviewed twice and all critical bugs fixed)
+4. ~~Execute Phase 1 implementation~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2)
+   - ✅ Step 1: Test infrastructure setup (Vitest, CI, coverage)
+   - ✅ Step 2: Minimal CLI harness (TDD)
+   - ✅ Step 3: KB schema & data models (TDD)
+   - ✅ Step 4: ID generation (anchors & QIDs, TDD)
+   - ✅ Step 5: KB API contract (TDD, with stubs for Phase 3)
+   - ✅ Step 6: API documentation (docs/API.md)
+   - ✅ Step 7: Integration smoke test
+   - ✅ **KB API FROZEN** - Ready for Phase 2 parallelization
+   - ✅ **Results:** 62 tests passing, 90.71% coverage, all feedback integrated
 
-### 🔄 In Progress (Implementation Phase)
-4. **Execute Phase 1 implementation** (IMPLEMENTATION_PLAN_PHASE1.md v1.2)
-   - Step 1: Test infrastructure setup
-   - Step 2: Minimal CLI harness (TDD)
-   - Step 3: KB schema & data models (TDD)
-   - Step 4: ID generation (anchors & QIDs, TDD)
-   - Step 5: KB API contract (TDD, with stubs for Phase 3)
-   - Step 6: API documentation (docs/API.md)
-   - Step 7: Integration smoke test
+### 🔄 In Progress (Phase 2)
+5. **Phase 2 implementation:** Scanner (CTS-05), Parser (CTS-05), Generator (CTS-03), LLM Gateway (CTS-02)
+   - **4 parallel agents** (ready to start)
+   - All depend on frozen KB API ✅
 
-### 📋 Next (Phase 2-6)
-5. Phase 2 implementation: Scanner (CTS-05), Parser (CTS-05), Generator (CTS-03), LLM Gateway (CTS-02)
-   - **4 parallel agents** after KB API Freeze
+### 📋 Next (Phase 3-6)
 6. Phase 3 implementation: Indices, Reasoning (CTS-06), Linking
    - **2-3 parallel agents**
 7. Phase 4 implementation: Grounding Validator (CTS-02), Gates (CTS-07)

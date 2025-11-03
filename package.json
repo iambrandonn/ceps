@@ -1,0 +1,48 @@
+{
+  "name": "ceps",
+  "version": "0.1.0",
+  "description": "Codebase to Specification - Reverse engineer JS/TS codebases into human-readable Markdown specs",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ceps": "dist/orchestrator/index.js"
+  },
+  "scripts": {
+    "start": "tsx src/orchestrator/index.ts",
+    "build": "tsc",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src tests --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
+  },
+  "keywords": [
+    "documentation",
+    "specification",
+    "reverse-engineering",
+    "typescript",
+    "javascript"
+  ],
+  "author": "ceps team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "tsx": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@vitest/coverage-v8": "^1.2.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  }
+}
