@@ -1,7 +1,7 @@
-# ceps Knowledge Base API — v1.0 (Phase 1)
+# ceps Knowledge Base API — v1.1 (Phase 1-2)
 
-**Status:** FROZEN (no signature changes after Phase 1)
-**Date:** 2025-11-03
+**Status:** FROZEN (no signature changes to existing APIs)
+**Date:** 2025-11-03 (Updated with Phase 2 relation APIs)
 
 ---
 
@@ -145,6 +145,59 @@ Rolls back the batch transaction.
 
 ---
 
+## Relation Operations (Phase 2)
+
+### `insertRelation(relation: Relation): void`
+Inserts a relation into the KB.
+
+**Parameters:**
+- `relation`: Relation object with the following structure:
+  - `subjectId`: Entity ID (subject of the relation)
+  - `predicate`: Relation type ('imports', 'exports', 'calls', 'reads', 'writes', 'publishes', 'subscribes', 'uses-config', 'uses-env')
+  - `objectId`: Entity ID or module specifier (object of the relation)
+  - `source` (optional): Source provenance (kind, file, range)
+  - `details` (optional): Additional relation metadata
+
+**Behavior:**
+- Appends relation to internal relations array
+- Used by Parser to store import/export/call relations
+- Available in batch transactions (relations are cloned during batch)
+- No duplicate checking (relations can be inserted multiple times)
+
+**Errors:**
+- None (always succeeds)
+
+**Example:**
+```typescript
+kb.insertRelation({
+  subjectId: 'func-fetchUser-abc123',
+  predicate: 'calls',
+  objectId: 'func-validateUser-def456',
+  source: { kind: 'ast', file: 'src/api/users.ts' }
+});
+```
+
+### `getRelations(entityId?: string): Relation[]`
+Retrieves relations filtered by entity ID.
+
+**Parameters:**
+- `entityId` (optional): Filter relations by subject or object entity ID
+
+**Returns:**
+- If `entityId` provided: All relations where the entity appears as subject OR object
+- If no `entityId`: All relations in the KB
+
+**Example:**
+```typescript
+// Get all relations involving a specific entity
+const relations = kb.getRelations('func-fetchUser-abc123');
+
+// Get all relations in KB
+const allRelations = kb.getRelations();
+```
+
+---
+
 ## Stub APIs (Phase 3 Implementation)
 
 The following APIs are present but stubbed in Phase 1:
@@ -167,12 +220,10 @@ The following APIs are present but stubbed in Phase 1:
 
 ---
 
-## Deferred APIs (Not in Phase 1)
+## Deferred APIs (Not Yet Implemented)
 
 The following APIs will be added in later phases:
 
-- `insertRelation(relation: Relation): void` — Phase 2
-- `getRelations(entityId: string): Relation[]` — Phase 2
 - `buildCallGraph(): void` — Phase 3
 - `buildImportGraph(): void` — Phase 3
 - `computeReverseDeps(): void` — Phase 3

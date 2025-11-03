@@ -246,6 +246,31 @@ export class KnowledgeBase {
     return this.getActiveState().chunks.get(id);
   }
 
+  // -------- Relation Operations (Phase 2) --------
+
+  /**
+   * Insert a relation into the KB.
+   * Used by Parser in Phase 2 to store import/export/call relations.
+   */
+  insertRelation(relation: Relation): void {
+    const state = this.getActiveState();
+    state.relations.push(relation);
+  }
+
+  /**
+   * Get relations for a specific entity (by subject or object),
+   * or get all relations if no entityId is provided.
+   */
+  getRelations(entityId?: string): Relation[] {
+    const state = this.getActiveState();
+    if (!entityId) {
+      return [...state.relations];
+    }
+    return state.relations.filter(
+      (r) => r.subjectId === entityId || r.objectId === entityId
+    );
+  }
+
   // -------- Stub APIs (Phase 3 Implementation) --------
 
   /**

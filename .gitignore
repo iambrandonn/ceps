@@ -22,3 +22,5 @@ lcov.info
 
 # Claude
 .claude
+
+node_modules
