@@ -410,12 +410,202 @@ Each step must complete Phase -1 analysis before writing tests.
 
 ---
 
+## Step 2 Learnings: Type Safety and Documentation
+
+**Date:** 2025-11-04
+**Context:** Step 2 (Confidence Scoring) completed successfully on first iteration using Phase -1 process. Code review revealed 3 issues that tests didn't catch.
+
+### What Phase -1 Got Right
+
+Step 2 followed the Phase -1 process and **succeeded on first iteration**:
+- ✅ Read upstream code before designing algorithm
+- ✅ Validated actual predicates Phase 2 generates
+- ✅ Wrote integration test with debugging
+- ✅ Discovered only 6 of 14 signals available
+- ✅ Adjusted design before implementing
+
+**Result:** 0 schema mismatches, 0 design reworks, 356 tests passing on first try.
+
+### What Tests Still Missed (Process Gaps)
+
+Code review found 3 issues that tests didn't catch:
+
+#### Issue #1: Documentation Drift
+
+**Problem:** Acceptance criteria said "all reinforcers/penalties implemented" but only 6 of 14 signals were available.
+
+**Why Tests Missed:** Tests validated implementation correctly. Gap was in **process** - Phase -1 findings weren't propagated to acceptance criteria.
+
+**Fix:** Update acceptance doc AS PART OF Phase -1 workflow.
+
+#### Issue #2: Type System Violations
+
+**Problem:** `mergeFactSets` used wrong type for `allSources`, incompatible with `Source` type.
+
+**Why Tests Missed:** **Vitest doesn't run TypeScript type checking**. Runtime tests pass even with type violations.
+
+**Fix:** Add `pnpm typecheck` as required gate in workflow.
+
+#### Issue #3: Generated Artifacts Not Validated
+
+**Problem:** Spec generator showed private methods as public because they lacked `@internal` tags.
+
+**Why Tests Missed:** **No tests validate generated spec output** against code.
+
+**Fix:** Add spec validation tests (Phase 6).
+
+### New Mandatory Process Steps
+
+#### 5. Add Type Checking to Workflow
+
+**Add to every step's completion checklist:**
+
+```bash
+# Before committing
+pnpm test          # Runtime validation
+pnpm typecheck     # Type safety validation ⚠️ NEW
+pnpm lint          # Code quality
+```
+
+**Add to CI Pipeline:**
+```yaml
+- name: Test
+  run: pnpm test
+- name: Typecheck   # ⚠️ ADD THIS
+  run: pnpm typecheck
+- name: Lint
+  run: pnpm lint
+```
+
+**Why:** Vitest uses esbuild transform which is more lenient than `tsc --noEmit`. Type violations can pass tests but break type contracts.
+
+#### 6. Update Acceptance Criteria in Phase -1
+
+**Enhanced Phase -1 Checklist:**
+
+**E. Gap Analysis & Design Adjustment**
+- [ ] Compare plan's algorithm with available data
+- [ ] Adjust design to work with ACTUAL data (not idealized)
+- [ ] Document limitations based on real constraints
+- [ ] **⚠️ NEW:** Update acceptance criteria if scope changes
+- [ ] **⚠️ NEW:** Mark deferred features explicitly with rationale
+- [ ] Get approval for adjusted design if significantly different
+
+**Example:**
+```markdown
+## Acceptance Criteria
+
+- ✅ **Phase 3 reinforcers implemented** (4 of 7):
+  - ✅ +15 type annotations
+  - ✅ +10 callers≥3
+  - ✅ +5 callers 1-2
+  - ✅ +5 error handling
+  - ⏸️ **DEFERRED to Phase 6:** +10 test coverage (needs test-reader enhancement)
+  - ⏸️ **DEFERRED to Phase 6:** +5 complete JSDoc (needs JSDoc parser)
+  - ⏸️ **DEFERRED to Phase 6:** +5 config doc (needs config-reader)
+```
+
+**Why:** Acceptance docs are contracts. When Phase -1 reveals scope changes, the contract must update immediately.
+
+#### 7. Plan for Generated Artifact Validation (Phase 6)
+
+**Add to Phase 6 backlog:**
+
+```typescript
+// tests/unit/generator/spec-validation.test.ts
+
+describe('Spec Generation Validation', () => {
+  it('should not document private methods as public API', () => {
+    const spec = parseGeneratedSpec('src/kb/spec.md');
+    const privateMethodsInSpec = spec.methods.filter(m =>
+      m.visibility === 'Public' && isActuallyPrivate(m.name)
+    );
+    expect(privateMethodsInSpec).toHaveLength(0);
+  });
+
+  it('should document all public methods', () => {
+    const codePublicMethods = extractPublicMethods('src/kb/knowledge-base.ts');
+    const specPublicMethods = parseGeneratedSpec('src/kb/spec.md').methods;
+    expect(specPublicMethods.map(m => m.name)).toEqual(
+      expect.arrayContaining(codePublicMethods.map(m => m.name))
+    );
+  });
+
+  it('should have matching signatures between code and spec', () => {
+    const codeSignatures = extractSignatures('src/kb/knowledge-base.ts');
+    const specSignatures = parseGeneratedSpec('src/kb/spec.md').signatures;
+    codeSignatures.forEach(({ name, signature }) => {
+      expect(specSignatures[name]).toBe(signature);
+    });
+  });
+});
+```
+
+**Why:** Generated artifacts (specs, docs) need round-trip validation to catch discrepancies.
+
+---
+
+## Updated Step Completion Checklist
+
+**Before committing any step:**
+
+```bash
+# 1. Run tests
+pnpm test
+✓ 356 tests passing
+✓ ≥80% coverage
+
+# 2. Run type checking ⚠️ NEW
+pnpm typecheck
+✓ No TypeScript errors
+
+# 3. Run linter
+pnpm lint
+✓ No lint errors
+
+# 4. Verify acceptance criteria updated ⚠️ NEW
+- [ ] If Phase -1 revealed scope changes, acceptance doc updated
+- [ ] Deferred features marked explicitly with rationale
+- [ ] All implemented features marked as complete
+
+# 5. Create checkpoint commit
+git add -A
+git commit -m "[CHECKPOINT] Phase 3 Step N: Title"
+```
+
+---
+
+## Success Metrics Update
+
+**Original (after Step 0):**
+- Steps require ≤2 iterations each
+- Schema mismatches caught in Phase -1
+- Integration tests pass on first try
+
+**Updated (after Step 2):**
+- Steps require ≤2 iterations each ✅ (Step 2 = 1 iteration)
+- Schema mismatches caught in Phase -1 ✅ (0 schema issues)
+- Integration tests pass on first try ✅ (356 tests passing)
+- **NEW:** Type checking passes alongside tests
+- **NEW:** Acceptance docs updated when scope changes
+- **NEW:** No "undocumented limitations" in review
+
+---
+
 ## Summary
 
-**The Step 0 lesson:** Don't theorize about upstream data structure. **Look at it.**
+**Step 0 lesson:** Don't theorize about upstream data structure. **Look at it.**
 
-**The fix:** Mandatory "Phase -1: Upstream Data Analysis" before every implementation step.
+**Step 2 lesson:** Runtime tests aren't enough. **Type-check and document scope changes.**
 
-**The validation:** Each step should require ≤2 iterations (vs 4 for Step 0).
+**The enhanced workflow:**
+1. Phase -1: Upstream analysis + update acceptance docs
+2. RED: Integration test first, then unit tests
+3. GREEN: Implement with strong assertions
+4. REFACTOR: Clean up
+5. **VERIFY: Test + typecheck + lint**
+6. COMMIT: Checkpoint with complete docs
 
-**The outcome:** Faster implementation, fewer surprises, stronger tests, better code.
+**The validation:** Steps require ≤2 iterations AND pass both runtime + type checking.
+
+**The outcome:** Faster implementation, fewer surprises, stronger type safety, accurate documentation.
