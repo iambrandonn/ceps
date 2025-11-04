@@ -1,6 +1,6 @@
 # src/kb
 
-**Directory Overview:** This directory contains 42 entities.
+**Directory Overview:** This directory contains 52 entities.
 
 ## id-generation.ts
 
@@ -50,7 +50,7 @@ This function performs an operation.
 
 This class represents k b error.
 
-<a id="uRCTnPanMh"></a>
+<a id="QQ28i9H2ty"></a>
 
 ### KnowledgeBase
 
@@ -241,11 +241,114 @@ This method performs an operation.
 
 This method retrieves data.
 
-<a id="boPjOxxBVp"></a>
+<a id="EIgF1v95x7"></a>
+
+### replaceRelations
+
+**Signature:** `(relations: Relation[]): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="aYh0gG993Q"></a>
+
+### getConfidenceScore
+
+**Signature:** `(factSetIds: string[]): number`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="cWbqWyYfFJ"></a>
+
+### scoreToConfidenceBand
+
+**Signature:** `(score: number): Confidence`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="TgqSMsy50t"></a>
 
 ### scoreConfidence
 
-**Signature:** `(_factSetIds: string[]): Confidence`
+**Signature:** `(factSetIds: string[]): Confidence`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="ig3rcl5PMM"></a>
+
+### computeBaseEvidence
+
+**Signature:** `(factSet: FactSet): number`
+
+**Visibility:** Public (exported)
+
+This method computes values.
+
+<a id="0HhxRVYoM9"></a>
+
+### computeReinforcers
+
+**Signature:** `(factSet: FactSet): number`
+
+**Visibility:** Public (exported)
+
+This method computes values.
+
+<a id="fb9bBZeAof"></a>
+
+### computePenalties
+
+**Signature:** `(factSet: FactSet): number`
+
+**Visibility:** Public (exported)
+
+This method computes values.
+
+<a id="XRBtRDAUeR"></a>
+
+### mergeFactSets
+
+**Signature:** `(factSetIds: string[]): any`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="TmNvvoOCAM"></a>
+
+### getSubjectId
+
+**Signature:** `(factSet: FactSet): string`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+**Errors thrown:**
+- new Error('Empty factSet');
+
+<a id="cm7gL5Zfqw"></a>
+
+### hasFactPredicate
+
+**Signature:** `(factSet: FactSet, predicate: string): boolean`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="ov0rkokyXD"></a>
+
+### clamp
+
+**Signature:** `(value: number, min: number, max: number): number`
 
 **Visibility:** Public (exported)
 
@@ -360,7 +463,7 @@ This method performs an operation.
 **Errors thrown:**
 - new KBError('No batch in progress');
 
-<a id="BJu52csdZm"></a>
+<a id="O8vUjATUDX"></a>
 
 ### getCallGraph
 
@@ -390,7 +493,7 @@ This method retrieves data.
 
 This method retrieves data.
 
-<a id="yIOlVSxo9f"></a>
+<a id="xRJSSaPcDU"></a>
 
 ### buildReverseDepsCache
 

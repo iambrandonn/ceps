@@ -291,16 +291,232 @@ export class KnowledgeBase {
     this.invalidateGraphCaches();
   }
 
-  // -------- Stub APIs (Phase 3 Implementation) --------
+  // -------- Confidence Scoring (Phase 3 Step 2) --------
 
   /**
-   * Stub: Confidence scoring algorithm (Phase 3).
-   * Always returns "Medium" in Phase 1.
+   * Compute confidence score (0-100) for given factSets using weighted rule model.
+   *
+   * Algorithm:
+   *   confidence = base_evidence + Σ(reinforcers) - Σ(penalties)
+   *   confidence = clamp(confidence, 0, 100)
+   *
+   * Multi-factSet handling:
+   *   - Entities in practice accumulate multiple fact sets (e.g., AST facts, auxiliary facts)
+   *   - All supplied factSetIds are merged into a single unified fact collection
+   *   - Scoring is computed once on the merged facts to avoid dropping reinforcers/penalties
+   *   - Ensures consistent confidence values during intent lifting (Agent 2)
+   *
+   * @param factSetIds - Array of factSet IDs to score
+   * @returns Numeric score 0-100
    */
-  scoreConfidence(_factSetIds: string[]): Confidence {
-    // TODO Phase 3: Implement weighted scoring algorithm (CTS-01 §3)
-    return 'Medium';
+  getConfidenceScore(factSetIds: string[]): number {
+    if (factSetIds.length === 0) {
+      return 0;
+    }
+
+    // Merge all factSets into unified collection
+    const mergedFactSet = this.mergeFactSets(factSetIds);
+    if (!mergedFactSet) {
+      return 0;
+    }
+
+    let score = this.computeBaseEvidence(mergedFactSet);
+    score += this.computeReinforcers(mergedFactSet);
+    score -= this.computePenalties(mergedFactSet);
+
+    return this.clamp(score, 0, 100);
   }
+
+  /**
+   * Returns confidence band classification: 'High' (≥70), 'Medium' (40-69), 'Low' (<40).
+   *
+   * @param score - Numeric score 0-100
+   * @returns Confidence band
+   */
+  scoreToConfidenceBand(score: number): Confidence {
+    if (score >= 70) return 'High';
+    if (score >= 40) return 'Medium';
+    return 'Low';
+  }
+
+  /**
+   * Primary API: Compute confidence band for given factSets.
+   * Replaces Phase 2 stub implementation.
+   *
+   * @param factSetIds - Array of factSet IDs to score
+   * @returns Confidence band: 'High' | 'Medium' | 'Low'
+   */
+  scoreConfidence(factSetIds: string[]): Confidence {
+    const score = this.getConfidenceScore(factSetIds);
+    return this.scoreToConfidenceBand(score);
+  }
+
+  /**
+   * Compute base evidence score based on entity kind and facts.
+   */
+  private computeBaseEvidence(factSet: FactSet): number {
+    const subjectId = this.getSubjectId(factSet);
+    const entity = this.getEntity(subjectId);
+    if (!entity) {
+      return 20; // Default for unknown entity
+    }
+
+    const hasExport = entity.exported === true;
+    const hasJSDoc = this.hasFactPredicate(factSet, 'has-jsdoc');
+
+    switch (entity.kind) {
+      case 'function':
+        if (hasExport && hasJSDoc) return 40;
+        if (hasExport) return 30;
+        if (hasJSDoc) return 30;
+        return 20;
+
+      case 'class':
+        if (hasExport && hasJSDoc) return 40;
+        if (hasExport) return 30;
+        return 25;
+
+      case 'method':
+        if (hasJSDoc) return 35;
+        return 25;
+
+      case 'constant':
+      case 'config':
+        // Phase 3: No comment extraction yet, default to 25
+        return 25;
+
+      case 'endpoint':
+        return 45;
+
+      default:
+        return 20;
+    }
+  }
+
+  /**
+   * Compute reinforcers (additive bonuses).
+   * Phase 3 implements available signals only (4 of 7 from spec).
+   */
+  private computeReinforcers(factSet: FactSet): number {
+    let reinforcers = 0;
+
+    // Type annotations: +15
+    if (this.hasFactPredicate(factSet, 'has-signature')) {
+      reinforcers += 15;
+    }
+
+    // Caller count (from reverseDeps): +10 for ≥3, +5 for 1-2
+    const subjectId = this.getSubjectId(factSet);
+    const reverseDeps = this.getReverseDeps(subjectId);
+    if (reverseDeps.size >= 3) {
+      reinforcers += 10;
+    } else if (reverseDeps.size >= 1) {
+      reinforcers += 5;
+    }
+
+    // Error handling: +5 (from entity attributes)
+    const entity = this.getEntity(subjectId);
+    if (entity && (entity.attributes?.errors?.length ?? 0) > 0) {
+      reinforcers += 5;
+    }
+
+    // TODO Phase 6: Test coverage (+10) - needs test-reader enhancement
+    // TODO Phase 6: Config/env documented (+5) - needs config-reader enhancement
+    // TODO Phase 6: Complete JSDoc (+5) - needs JSDoc parser
+
+    return reinforcers;
+  }
+
+  /**
+   * Compute penalties (subtractive).
+   * Phase 3 implements available signals only (2 of 5 from spec).
+   */
+  private computePenalties(factSet: FactSet): number {
+    let penalties = 0;
+
+    // No type info: -10 (only for functions/methods that should have signatures)
+    // Exemption: classes, constants, configs, endpoints don't require signatures
+    const subjectId = this.getSubjectId(factSet);
+    const entity = this.getEntity(subjectId);
+    if (entity && (entity.kind === 'function' || entity.kind === 'method')) {
+      if (!this.hasFactPredicate(factSet, 'has-signature')) {
+        penalties += 10;
+      }
+    }
+
+    // Unused (no reverse deps): -5
+    const reverseDeps = this.getReverseDeps(subjectId);
+    if (reverseDeps.size === 0) {
+      penalties += 5;
+    }
+
+    // TODO Phase 6: Dynamic pattern (-20) - needs pattern detector
+    // TODO Phase 6: TODO/FIXME comment (-10) - needs comment extractor
+    // TODO Phase 6: High complexity (-5) - needs complexity analyzer
+
+    return penalties;
+  }
+
+  /**
+   * Helper: Merge multiple factSets into a unified factSet for scoring.
+   * Combines all facts from the supplied factSetIds into a single collection.
+   */
+  private mergeFactSets(factSetIds: string[]): FactSet | null {
+    const allFacts: Fact[] = [];
+    const allSources: Array<{ kind: 'ast' | 'test' | 'config' | 'llm'; file: string }> = [];
+    let subjectId: string | null = null;
+
+    for (const fsId of factSetIds) {
+      const factSet = this.getFactSet(fsId);
+      if (factSet) {
+        allFacts.push(...factSet.facts);
+        allSources.push(...factSet.sources);
+
+        // Extract subjectId from first fact (all facts in same factSet share subjectId)
+        if (!subjectId && factSet.facts.length > 0) {
+          subjectId = factSet.facts[0].subjectId;
+        }
+      }
+    }
+
+    if (allFacts.length === 0 || !subjectId) {
+      return null;
+    }
+
+    // Return merged factSet (id is synthetic, used only for scoring)
+    return {
+      id: `merged-${factSetIds.join('-')}`,
+      facts: allFacts,
+      sources: allSources,
+      evidenceScore: 100 // Not used in scoring algorithm
+    };
+  }
+
+  /**
+   * Helper: Extract subject ID from factSet (first fact's subjectId).
+   */
+  private getSubjectId(factSet: FactSet): string {
+    if (factSet.facts.length === 0) {
+      throw new Error('Empty factSet');
+    }
+    return factSet.facts[0].subjectId;
+  }
+
+  /**
+   * Helper: Check if factSet has a fact with given predicate.
+   */
+  private hasFactPredicate(factSet: FactSet, predicate: string): boolean {
+    return factSet.facts.some(f => f.predicate === predicate);
+  }
+
+  /**
+   * Helper: Clamp value to [min, max].
+   */
+  private clamp(value: number, min: number, max: number): number {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  // -------- Stub APIs (Phase 3 Future Implementation) --------
 
   /**
    * Stub: Query related entities by relation type (Phase 3).
@@ -419,7 +635,8 @@ export class KnowledgeBase {
 
     for (const relation of relations) {
       // Only include call relations with resolved objectId (non-null = entity ID)
-      if (relation.predicate === 'calls' && relation.objectId) {
+      // Must also check details.resolved === true to exclude unresolved relations
+      if (relation.predicate === 'calls' && relation.objectId && relation.details?.resolved === true) {
         if (!graph.has(relation.subjectId)) {
           graph.set(relation.subjectId, new Set());
         }

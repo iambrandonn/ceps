@@ -192,9 +192,10 @@ describe('KnowledgeBase', () => {
   });
 
   describe('Stub APIs (Phase 3)', () => {
-    it('should return Medium confidence for all factSets in Phase 1', () => {
-      const score = kb.scoreConfidence(['fs-1']);
-      expect(score).toBe('Medium');
+    it('should return Low confidence for non-existent factSets', () => {
+      // Phase 3 Step 2: Real confidence scoring implemented (stub replaced)
+      const score = kb.scoreConfidence(['fs-nonexistent']);
+      expect(score).toBe('Low');  // Returns 0 → 'Low' for missing factSets
     });
 
     it('should return empty array for neighbors (stubbed)', () => {
