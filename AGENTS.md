@@ -242,6 +242,50 @@ ceps finalize --answers ./answers.md
 
 ---
 
+## Test Creation Best Practices
+
+**Critical Lesson from Phase 3:** Tests must model realistic data to catch bugs that only appear in production scenarios.
+
+### For Pattern Matching & Component Integration Tests
+
+When testing code that selects from multiple candidates (e.g., pattern matchers, fact selectors, resolvers):
+
+1. **Model realistic upstream data structure**
+   - Don't cherry-pick facts/data - include ALL items that would realistically be present
+   - Example: If testing route matching with multiple calls, include arguments for ALL calls, not just the target call
+   - Understand how upstream components (parser, scanner, etc.) emit data
+
+2. **Test with "maximally polluted" datasets**
+   - Include competing candidates that share the same predicates/identifiers
+   - Example: Multiple `call-arg-0` facts from different calls, not just one
+   - This exposes selection logic bugs that simple tests miss
+
+3. **Understand predicate/identifier namespaces**
+   - Some predicates are reused per entity (e.g., `call-arg-0` appears once per call)
+   - Tests must verify you're selecting from the CORRECT entity, not just ANY entity
+   - Document namespace semantics in code comments
+
+4. **Assert both positive AND negative expectations**
+   - Check what SHOULD be present: `expect(result).toContain('/users')`
+   - Check what SHOULD NOT be present: `expect(result).not.toContain('/middleware')`
+   - Negative assertions catch selection bugs
+
+5. **Test boundary cases**
+   - Target is first, last, middle in list
+   - Nested structures (calls within calls, etc.)
+   - Edge cases (empty, missing, null, etc.)
+
+### Phase -1 Analysis (Mandatory Before Implementation)
+
+Before writing any tests, read upstream component output to understand:
+- What data structure will you receive?
+- What's included/excluded?
+- What's the order? What's unique vs. reused?
+
+**Reference:** See **TEST_COVERAGE_GAP_ANALYSIS.md** for detailed case study from Phase 3 Step 3 (pattern matching bugs that escaped initial tests).
+
+---
+
 ## Parallelization Strategy (IMPLEMENTATION_PLAN.md §4)
 
 ### Phase 1: Foundation (Sequential)

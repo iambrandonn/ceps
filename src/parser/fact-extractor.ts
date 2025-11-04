@@ -63,6 +63,33 @@ export class FactExtractor {
         });
       }
 
+      // Phase 3 Step 3: Extract parameter metadata
+      const parameters = func.getParameters();
+      facts.push({
+        subjectId: entityId,
+        predicate: 'param-count',
+        object: parameters.length,
+      });
+
+      if (parameters.length > 0) {
+        const paramNames = parameters.map(p => p.getName()).join(',');
+        facts.push({
+          subjectId: entityId,
+          predicate: 'param-names',
+          object: paramNames,
+        });
+      }
+
+      // Phase 3 Step 3: Detect JSX returns (React components)
+      const returnsJSX = this.detectJSXReturn(func);
+      if (returnsJSX) {
+        facts.push({
+          subjectId: entityId,
+          predicate: 'returns-jsx',
+          object: true,
+        });
+      }
+
       factSets.push({
         id: `${entityId}-facts`,
         facts,
@@ -72,6 +99,7 @@ export class FactExtractor {
 
       // v1.3 FIX: Extract call relations INSIDE function loop to reuse entityId
       // This avoids creating duplicate anchors for the same function
+      // Phase 3 Step 3: Also extract call expression details as facts
       func.forEachDescendant((node) => {
         if (node.getKind() === SyntaxKind.CallExpression) {
           const callExpr = node as CallExpression;
@@ -83,6 +111,25 @@ export class FactExtractor {
             predicate: 'calls',
             objectId: calleeExpr, // Simplified; Phase 3 will resolve to entity IDs
             source: { kind: 'ast', file: filePath },
+          });
+
+          // Phase 3 Step 3: Extract structured call facts for pattern detection
+          facts.push({
+            subjectId: entityId,
+            predicate: 'calls-expression',
+            object: calleeExpr,
+          });
+
+          // Extract literal arguments (strings, numbers)
+          const args = callExpr.getArguments();
+          args.forEach((arg, index) => {
+            if (Node.isStringLiteral(arg) || Node.isNumericLiteral(arg)) {
+              facts.push({
+                subjectId: entityId,
+                predicate: `call-arg-${index}`,
+                object: arg.getText().replace(/['"]/g, ''), // Remove quotes
+              });
+            }
           });
         }
       });
@@ -144,7 +191,39 @@ export class FactExtractor {
           },
         });
 
+        // Phase 3 Step 3: Create factSet for method with parameter metadata
+        const methodFacts: Fact[] = [
+          { subjectId: methodId, predicate: 'is-method', object: true },
+          { subjectId: methodId, predicate: 'has-signature', object: methodSignature },
+        ];
+
+        const methodParams = method.getParameters();
+        methodFacts.push({
+          subjectId: methodId,
+          predicate: 'param-count',
+          object: methodParams.length,
+        });
+
+        if (methodParams.length > 0) {
+          const paramNames = methodParams.map(p => p.getName()).join(',');
+          methodFacts.push({
+            subjectId: methodId,
+            predicate: 'param-names',
+            object: paramNames,
+          });
+        }
+
+        const returnsJSX = this.detectJSXReturn(method);
+        if (returnsJSX) {
+          methodFacts.push({
+            subjectId: methodId,
+            predicate: 'returns-jsx',
+            object: true,
+          });
+        }
+
         // v1.3 FIX: Extract call relations for methods (similar to functions)
+        // Phase 3 Step 3: Also extract call expression details as facts
         method.forEachDescendant((node) => {
           if (node.getKind() === SyntaxKind.CallExpression) {
             const callExpr = node as CallExpression;
@@ -157,7 +236,34 @@ export class FactExtractor {
               objectId: calleeExpr, // Simplified; Phase 3 will resolve to entity IDs
               source: { kind: 'ast', file: filePath },
             });
+
+            // Phase 3 Step 3: Extract structured call facts for pattern detection
+            methodFacts.push({
+              subjectId: methodId,
+              predicate: 'calls-expression',
+              object: calleeExpr,
+            });
+
+            // Extract literal arguments
+            const args = callExpr.getArguments();
+            args.forEach((arg, index) => {
+              if (Node.isStringLiteral(arg) || Node.isNumericLiteral(arg)) {
+                methodFacts.push({
+                  subjectId: methodId,
+                  predicate: `call-arg-${index}`,
+                  object: arg.getText().replace(/['"]/g, ''),
+                });
+              }
+            });
           }
+        });
+
+        // Add method factSet
+        factSets.push({
+          id: `${methodId}-facts`,
+          facts: methodFacts,
+          sources: [{ kind: 'ast', file: filePath }],
+          evidenceScore: 90,
         });
       });
     });
@@ -265,5 +371,29 @@ export class FactExtractor {
     });
 
     return errors;
+  }
+
+  /**
+   * Phase 3 Step 3: Detect if a function returns JSX (React component).
+   * Checks for:
+   * - JSX.Element or ReactElement in return type
+   * - JSX elements or self-closing elements in body
+   */
+  private detectJSXReturn(node: Node): boolean {
+    // Check return type annotation
+    if (Node.isFunctionDeclaration(node) || Node.isArrowFunction(node)) {
+      const returnType = node.getReturnType().getText();
+      if (returnType.includes('JSX.Element') || returnType.includes('ReactElement')) {
+        return true;
+      }
+
+      // Check for JSX elements in body
+      const hasJSXElement = node.getDescendantsOfKind(SyntaxKind.JsxElement).length > 0;
+      const hasJSXSelfClosing = node.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement).length > 0;
+
+      return hasJSXElement || hasJSXSelfClosing;
+    }
+
+    return false;
   }
 }

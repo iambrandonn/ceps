@@ -4,7 +4,7 @@
 
 ## fact-extractor.ts
 
-<a id="bwheA95x2U"></a>
+<a id="1ldywFfRCs"></a>
 
 ### FactExtractor
 
@@ -12,7 +12,7 @@
 
 This class represents fact extractor.
 
-<a id="jeUJrY5iX6"></a>
+<a id="1GrdPP6ljj"></a>
 
 ### extract
 
