@@ -13,6 +13,7 @@ export interface Pattern {
   framework: string;
   intent: string;
   priority: number;
+  confidence: number;  // Bonus to add to base confidence score
 }
 
 export class PatternMatcher {
@@ -66,6 +67,7 @@ export class PatternMatcher {
         framework: 'Express',
         intent: 'Error handling middleware (4-param signature)',
         priority: 90,
+        confidence: 15,  // Strong signal for error handlers
       };
     }
 
@@ -117,6 +119,7 @@ export class PatternMatcher {
         framework: 'Express',
         intent: `Handles ${method} requests to ${route}`,
         priority: 80,
+        confidence: 15,  // Strong signal for route handlers
       };
     }
 
@@ -146,6 +149,7 @@ export class PatternMatcher {
         framework: 'Express',
         intent: 'Middleware function that processes requests',
         priority: 70,
+        confidence: 10,  // Moderate signal for middleware
       };
     }
 
@@ -172,6 +176,7 @@ export class PatternMatcher {
         framework: 'React',
         intent: `Renders ${componentName} component`,
         priority: isExported ? 80 : 70, // Higher priority for exported components
+        confidence: 15,  // Strong signal for React components
       };
     }
 
@@ -193,6 +198,7 @@ export class PatternMatcher {
         framework: 'React',
         intent: 'Manages state using useState hook',
         priority: 75,
+        confidence: 10,  // Moderate signal for hooks
       };
     }
 
@@ -214,6 +220,7 @@ export class PatternMatcher {
         framework: 'React',
         intent: 'Side effect using useEffect hook',
         priority: 75,
+        confidence: 10,  // Moderate signal for hooks
       };
     }
 
@@ -235,6 +242,7 @@ export class PatternMatcher {
         framework: 'React',
         intent: 'Accesses context using useContext hook',
         priority: 75,
+        confidence: 10,  // Moderate signal for hooks
       };
     }
 
@@ -256,6 +264,7 @@ export class PatternMatcher {
         framework: 'React',
         intent: 'Creates mutable ref using useRef hook',
         priority: 75,
+        confidence: 10,  // Moderate signal for hooks
       };
     }
 
@@ -277,6 +286,7 @@ export class PatternMatcher {
         framework: 'React',
         intent: 'Memoizes value using useMemo hook',
         priority: 75,
+        confidence: 10,  // Moderate signal for hooks
       };
     }
 
@@ -298,6 +308,7 @@ export class PatternMatcher {
         framework: 'React',
         intent: 'Memoizes callback using useCallback hook',
         priority: 75,
+        confidence: 10,  // Moderate signal for hooks
       };
     }
 

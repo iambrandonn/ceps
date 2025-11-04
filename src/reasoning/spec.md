@@ -34,7 +34,7 @@ This method retrieves data.
 
 ## IntentLifter.ts
 
-<a id="qMZ3CPf9hT"></a>
+<a id="jQ9cEfXv1q"></a>
 
 ### IntentLifter
 
@@ -42,7 +42,7 @@ This method retrieves data.
 
 This class represents intent lifter.
 
-<a id="039lFUJcqB"></a>
+<a id="Jwz6Hlg0F2"></a>
 
 ### liftIntent
 
@@ -59,7 +59,7 @@ This method performs an operation.
 
 ## PatternMatcher.ts
 
-<a id="ZniGtThgOb"></a>
+<a id="DQFWYtZWdH"></a>
 
 ### PatternMatcher
 

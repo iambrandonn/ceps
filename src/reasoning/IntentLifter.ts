@@ -50,8 +50,18 @@ export class IntentLifter {
       ? this.buildPatternBasedText(entity, pattern, factSet)
       : this.buildGenericText(entity, factSet);
 
-    // Compute confidence using KB scoring algorithm
-    const confidence = this.kb.scoreConfidence(factSetIds);
+    // Compute confidence with pattern bonus
+    // Base confidence from KB (framework-agnostic)
+    let baseScore = this.kb.getConfidenceScore(factSetIds);
+
+    // Add pattern bonus if framework pattern detected
+    if (pattern) {
+      baseScore += pattern.confidence;
+      baseScore = Math.min(baseScore, 100);  // Clamp to max
+    }
+
+    // Convert final score to confidence band
+    const confidence = this.kb.scoreToConfidenceBand(baseScore);
 
     // Generate unique chunk ID
     const chunkId = this.generateChunkId(entity);
