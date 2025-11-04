@@ -24,6 +24,11 @@ export class KnowledgeBase {
   private state: KBState;
   private batch: KBState | null = null;
 
+  // Phase 3 Step 1: Graph index caches (lazy-built, invalidated on relation changes)
+  private callGraphCache: Map<string, Set<string>> | null = null;
+  private importGraphCache: Map<string, Set<string>> | null = null;
+  private reverseDepsCache: Map<string, Set<string>> | null = null;
+
   constructor() {
     this.state = this.createEmptyState();
   }
@@ -251,10 +256,14 @@ export class KnowledgeBase {
   /**
    * Insert a relation into the KB.
    * Used by Parser in Phase 2 to store import/export/call relations.
+   * Phase 3: Invalidates graph index caches.
    */
   insertRelation(relation: Relation): void {
     const state = this.getActiveState();
     state.relations.push(relation);
+
+    // Phase 3 Step 1: Invalidate graph caches
+    this.invalidateGraphCaches();
   }
 
   /**
@@ -269,6 +278,17 @@ export class KnowledgeBase {
     return state.relations.filter(
       (r) => r.subjectId === entityId || r.objectId === entityId
     );
+  }
+
+  /**
+   * Replace all relations in the KB with a new set (e.g., after resolution).
+   * Used by Step 0 (RelationResolver) and orchestrator to store resolved relations.
+   * Invalidates graph index caches.
+   */
+  replaceRelations(relations: Relation[]): void {
+    const state = this.getActiveState();
+    state.relations = [...relations]; // Deep copy to avoid external mutation
+    this.invalidateGraphCaches();
   }
 
   // -------- Stub APIs (Phase 3 Implementation) --------
@@ -378,5 +398,118 @@ export class KnowledgeBase {
       throw new KBError('No batch in progress');
     }
     this.batch = null;
+  }
+
+  // -------- Phase 3 Step 1: Graph Indices --------
+
+  /**
+   * Returns the call graph: Map from caller entity ID to set of callee entity IDs.
+   * Graph is built from resolved call relations (predicate='calls', objectId != null).
+   * After RelationResolver runs, objectId is either an entity ID or null (unresolved).
+   * Lazy-built and cached; invalidated on relation changes.
+   */
+  getCallGraph(): Map<string, Set<string>> {
+    if (this.callGraphCache) {
+      return this.callGraphCache;
+    }
+
+    // Build graph from resolved call relations
+    const graph = new Map<string, Set<string>>();
+    const relations = this.getActiveState().relations;
+
+    for (const relation of relations) {
+      // Only include call relations with resolved objectId (non-null = entity ID)
+      if (relation.predicate === 'calls' && relation.objectId) {
+        if (!graph.has(relation.subjectId)) {
+          graph.set(relation.subjectId, new Set());
+        }
+        graph.get(relation.subjectId)!.add(relation.objectId);
+      }
+    }
+
+    this.callGraphCache = graph;
+    return graph;
+  }
+
+  /**
+   * Returns the import graph: Map from importing file path to set of module specifiers.
+   * Graph is built from import relations (predicate='imports').
+   * Lazy-built and cached; invalidated on relation changes.
+   */
+  getImportGraph(): Map<string, Set<string>> {
+    if (this.importGraphCache) {
+      return this.importGraphCache;
+    }
+
+    const graph = new Map<string, Set<string>>();
+    const relations = this.getActiveState().relations;
+
+    for (const relation of relations) {
+      if (relation.predicate === 'imports' && relation.objectId) {
+        if (!graph.has(relation.subjectId)) {
+          graph.set(relation.subjectId, new Set());
+        }
+        graph.get(relation.subjectId)!.add(relation.objectId);
+      }
+    }
+
+    this.importGraphCache = graph;
+    return graph;
+  }
+
+  /**
+   * Returns the set of entities/files that depend on the given entity/file (reverse dependencies).
+   * Includes both 'calls' relations (entity-level) and 'imports' relations (file-level).
+   * Lazy-built and cached; invalidated on relation changes.
+   *
+   * @param entityIdOrPath - Entity ID or file path to query
+   * @returns Set of entity IDs or file paths that depend on the target
+   */
+  getReverseDeps(entityIdOrPath: string): Set<string> {
+    if (!this.reverseDepsCache) {
+      this.buildReverseDepsCache();
+    }
+
+    return this.reverseDepsCache!.get(entityIdOrPath) || new Set();
+  }
+
+  /**
+   * Build reverse dependencies cache by inverting call and import graphs.
+   * Captures both entity-level and file-level dependencies.
+   * For call relations, objectId null means unresolved (skipped).
+   */
+  private buildReverseDepsCache(): void {
+    const reverseDeps = new Map<string, Set<string>>();
+    const relations = this.getActiveState().relations;
+
+    // Invert edges from call and import relations
+    for (const relation of relations) {
+      // Include call relations with non-null objectId (resolved entity IDs)
+      if (relation.predicate === 'calls' && relation.objectId) {
+        if (!reverseDeps.has(relation.objectId)) {
+          reverseDeps.set(relation.objectId, new Set());
+        }
+        reverseDeps.get(relation.objectId)!.add(relation.subjectId);
+      }
+      // Include import relations
+      else if (relation.predicate === 'imports' && relation.objectId) {
+        if (!reverseDeps.has(relation.objectId)) {
+          reverseDeps.set(relation.objectId, new Set());
+        }
+        reverseDeps.get(relation.objectId)!.add(relation.subjectId);
+      }
+    }
+
+    this.reverseDepsCache = reverseDeps;
+  }
+
+  /**
+   * Invalidate all graph index caches.
+   * Called when relations are modified.
+   */
+  private invalidateGraphCaches(): void {
+    this.callGraphCache = null;
+    this.importGraphCache = null;
+    this.reverseDepsCache = null;
   }
 }

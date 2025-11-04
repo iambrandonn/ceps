@@ -1,6 +1,6 @@
 # src/kb
 
-**Directory Overview:** This directory contains 37 entities.
+**Directory Overview:** This directory contains 42 entities.
 
 ## id-generation.ts
 
@@ -50,7 +50,7 @@ This function performs an operation.
 
 This class represents k b error.
 
-<a id="pmPHIoNkIp"></a>
+<a id="uRCTnPanMh"></a>
 
 ### KnowledgeBase
 
@@ -221,7 +221,7 @@ This method performs an operation.
 
 This method retrieves data.
 
-<a id="P0pAccYbFN"></a>
+<a id="Od5sRW09Kq"></a>
 
 ### insertRelation
 
@@ -359,6 +359,56 @@ This method performs an operation.
 
 **Errors thrown:**
 - new KBError('No batch in progress');
+
+<a id="BJu52csdZm"></a>
+
+### getCallGraph
+
+**Signature:** `(): Map<string, Set<string>>`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="ewsWmKwQvj"></a>
+
+### getImportGraph
+
+**Signature:** `(): Map<string, Set<string>>`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="ZDva24Vg5q"></a>
+
+### getReverseDeps
+
+**Signature:** `(entityIdOrPath: string): Set<string>`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="yIOlVSxo9f"></a>
+
+### buildReverseDepsCache
+
+**Signature:** `(): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="cL87KVqOLq"></a>
+
+### invalidateGraphCaches
+
+**Signature:** `(): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
 
 ## models.ts
 
