@@ -301,6 +301,24 @@ export class KnowledgeBase {
   }
 
   /**
+   * Get all entities in the KB.
+   * Added for Phase 3 (needed by relation resolver and reasoning engine).
+   */
+  getAllEntities(): Entity[] {
+    const state = this.getActiveState();
+    return Array.from(state.entities.values());
+  }
+
+  /**
+   * Get all factSets in the KB.
+   * Added for Phase 3 (needed by reasoning engine).
+   */
+  getAllFactSets(): FactSet[] {
+    const state = this.getActiveState();
+    return Array.from(state.factSets.values());
+  }
+
+  /**
    * Allocate a QID for an ambiguity (idempotent).
    * Uses generateQID and tracks allocated QIDs.
    * FIX HIGH-1: Make idempotent (same inputs → same QID)

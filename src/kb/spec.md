@@ -1,6 +1,6 @@
 # src/kb
 
-**Directory Overview:** This directory contains 35 entities.
+**Directory Overview:** This directory contains 37 entities.
 
 ## id-generation.ts
 
@@ -50,7 +50,7 @@ This function performs an operation.
 
 This class represents k b error.
 
-<a id="G6csh91YIc"></a>
+<a id="pmPHIoNkIp"></a>
 
 ### KnowledgeBase
 
@@ -270,6 +270,26 @@ This method performs an operation.
 **Visibility:** Public (exported)
 
 This method performs an operation.
+
+<a id="ru1eRgbcPl"></a>
+
+### getAllEntities
+
+**Signature:** `(): Entity[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="3sbIbSqnUZ"></a>
+
+### getAllFactSets
+
+**Signature:** `(): FactSet[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
 
 <a id="Kf6xb5EDL4"></a>
 

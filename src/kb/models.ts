@@ -12,7 +12,7 @@ export interface Relation {
     | 'subscribes'
     | 'uses-config'
     | 'uses-env';
-  objectId?: string;
+  objectId?: string | null;  // null indicates unresolved relation (per STEP0 spec)
   details?: Record<string, unknown>;
   source?: Source;
 }
