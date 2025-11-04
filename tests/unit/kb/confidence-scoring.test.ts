@@ -1126,5 +1126,49 @@ describe('KnowledgeBase Confidence Scoring', () => {
       // base(30) + signature(+15) - unused(-5) = 40
       expect(score).toBe(40);
     });
+
+    it('should return 20 when entity not found in KB', () => {
+      // FactSet references entity that doesn't exist
+      const factSet: FactSet = {
+        id: 'fs-orphan',
+        facts: [
+          { subjectId: 'non-existent-entity', predicate: 'is-function', object: true }
+        ],
+        sources: [{ kind: 'ast', file: 'src/orphan.ts' }],
+        evidenceScore: 90
+      };
+      kb.insertFactSet(factSet);
+
+      const score = kb.getConfidenceScore([factSet.id]);
+
+      // Entity not found: base=20, unused penalty=-5 (no reverseDeps)
+      expect(score).toBe(15);
+    });
+
+    it('should handle unknown entity kind with default score', () => {
+      const unknownEntity: Entity = {
+        id: 'unknown-1',
+        kind: 'unknown-kind' as any,  // Simulate unknown kind
+        name: 'unknownThing',
+        path: 'src/unknown.ts',
+        exported: true
+      };
+      kb.insertEntity(unknownEntity);
+
+      const factSet: FactSet = {
+        id: 'fs-unknown',
+        facts: [
+          { subjectId: unknownEntity.id, predicate: 'some-predicate', object: true }
+        ],
+        sources: [{ kind: 'ast', file: 'src/unknown.ts' }],
+        evidenceScore: 90
+      };
+      kb.insertFactSet(factSet);
+
+      const score = kb.getConfidenceScore([factSet.id]);
+
+      // Unknown kind hits default case, base = 20, unused penalty = -5
+      expect(score).toBe(15);
+    });
   });
 });
