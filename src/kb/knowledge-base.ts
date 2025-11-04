@@ -1,5 +1,5 @@
-import { Entity, FactSet, BehaviorChunk, Relation } from './models.js';
-import { EntityKind, Confidence } from '../types/index.js';
+import { Entity, FactSet, BehaviorChunk, Relation, Fact } from './models.js';
+import { EntityKind, Confidence, Source } from '../types/index.js';
 import { generateQID } from './id-generation.js';
 
 export class KBError extends Error {
@@ -353,6 +353,7 @@ export class KnowledgeBase {
 
   /**
    * Compute base evidence score based on entity kind and facts.
+   * @internal
    */
   private computeBaseEvidence(factSet: FactSet): number {
     const subjectId = this.getSubjectId(factSet);
@@ -396,6 +397,7 @@ export class KnowledgeBase {
   /**
    * Compute reinforcers (additive bonuses).
    * Phase 3 implements available signals only (4 of 7 from spec).
+   * @internal
    */
   private computeReinforcers(factSet: FactSet): number {
     let reinforcers = 0;
@@ -430,6 +432,7 @@ export class KnowledgeBase {
   /**
    * Compute penalties (subtractive).
    * Phase 3 implements available signals only (2 of 5 from spec).
+   * @internal
    */
   private computePenalties(factSet: FactSet): number {
     let penalties = 0;
@@ -460,10 +463,11 @@ export class KnowledgeBase {
   /**
    * Helper: Merge multiple factSets into a unified factSet for scoring.
    * Combines all facts from the supplied factSetIds into a single collection.
+   * @internal
    */
   private mergeFactSets(factSetIds: string[]): FactSet | null {
     const allFacts: Fact[] = [];
-    const allSources: Array<{ kind: 'ast' | 'test' | 'config' | 'llm'; file: string }> = [];
+    const allSources: Source[] = [];
     let subjectId: string | null = null;
 
     for (const fsId of factSetIds) {
@@ -494,6 +498,7 @@ export class KnowledgeBase {
 
   /**
    * Helper: Extract subject ID from factSet (first fact's subjectId).
+   * @internal
    */
   private getSubjectId(factSet: FactSet): string {
     if (factSet.facts.length === 0) {
@@ -504,6 +509,7 @@ export class KnowledgeBase {
 
   /**
    * Helper: Check if factSet has a fact with given predicate.
+   * @internal
    */
   private hasFactPredicate(factSet: FactSet, predicate: string): boolean {
     return factSet.facts.some(f => f.predicate === predicate);
@@ -511,6 +517,7 @@ export class KnowledgeBase {
 
   /**
    * Helper: Clamp value to [min, max].
+   * @internal
    */
   private clamp(value: number, min: number, max: number): number {
     return Math.max(min, Math.min(max, value));

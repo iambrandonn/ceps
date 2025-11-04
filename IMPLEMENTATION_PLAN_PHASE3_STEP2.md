@@ -1221,14 +1221,26 @@ Expected: All tests pass.
 - ✅ `getConfidenceScore()` returns numeric score (0-100) for testing/transparency
 - ✅ `scoreToConfidenceBand()` converts scores to 'High' | 'Medium' | 'Low'
 - ✅ Base evidence computed correctly for all entity kinds (function, class, method, constant, endpoint)
-- ✅ All reinforcers implemented (+15 type, +10 callers≥3, +5 callers 1-2, +10 test, +5 JSDoc complete)
-- ✅ All penalties implemented (-20 dynamic, -10 TODO, -10 no type, -5 unused)
+- ✅ **Phase 3 reinforcers implemented** (4 of 7):
+  - ✅ +15 type annotations (has-signature predicate)
+  - ✅ +10 callers≥3, +5 callers 1-2 (getReverseDeps from Step 1)
+  - ✅ +5 error handling (entity.attributes.errors)
+  - ⏸️ **DEFERRED to Phase 6:** +10 test coverage (needs test-reader enhancement)
+  - ⏸️ **DEFERRED to Phase 6:** +5 complete JSDoc (needs JSDoc parser for @param/@returns)
+  - ⏸️ **DEFERRED to Phase 6:** +5 config documentation (needs config-reader enhancement)
+- ✅ **Phase 3 penalties implemented** (2 of 5):
+  - ✅ -10 no type info (functions/methods only)
+  - ✅ -5 unused (reverseDeps.size === 0)
+  - ⏸️ **DEFERRED to Phase 6:** -20 dynamic patterns (needs pattern detector)
+  - ⏸️ **DEFERRED to Phase 6:** -10 TODO/FIXME (needs comment extractor)
+  - ⏸️ **DEFERRED to Phase 6:** -5 high complexity (needs complexity analyzer)
 - ✅ Confidence clamped to [0, 100]
 - ✅ `scoreToConfidenceBand()` returns correct classification (High/Medium/Low with capitalized strings)
 - ✅ Multiple reinforcers/penalties combine correctly
 - ✅ Scores integrate with graph indices (reverseDeps for caller count)
 - ✅ Multiple factSets merged correctly before scoring (all facts aggregated)
 - ✅ Type penalty only applies to functions/methods (classes/constants/configs exempt)
+- ✅ **Phase -1 analysis complete:** Documented available vs unavailable signals in PHASE3_STEP2_PHASE_MINUS_ONE_ANALYSIS.md
 
 ---
 
