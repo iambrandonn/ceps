@@ -96,3 +96,13 @@ export function createBehaviorChunk(data: BehaviorChunk): BehaviorChunk {
   }
   return data;
 }
+
+// Phase 3 Step 4: OpenQuestion model
+export interface OpenQuestion {
+  qid: string;              // Format: Q-<entity-kind>-<counter>
+  entityId: string;
+  question: string;
+  confidence: number;       // Original score before band conversion
+  factSetIds: string[];
+  createdAt?: Date;
+}

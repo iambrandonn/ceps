@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { KnowledgeBase } from '../../../src/kb/knowledge-base';
-import { Entity, FactSet, BehaviorChunk } from '../../../src/kb/models';
+import { Entity, FactSet, BehaviorChunk, OpenQuestion } from '../../../src/kb/models';
 
 describe('KnowledgeBase', () => {
   let kb: KnowledgeBase;
@@ -226,6 +226,206 @@ describe('KnowledgeBase', () => {
       const qid3 = kb.allocateQID('src/test.ts', 'bar', 'missing-type');
       expect(qid3).not.toBe(qid1);
       expect(kb.validateQIDUniqueness(qid3)).toBe(false); // Also allocated
+    });
+  });
+
+  // Phase 3 Step 4: BehaviorChunk Extensions
+  describe('BehaviorChunk Extensions', () => {
+    it('should return all chunks via getAllChunks', () => {
+      kb.insertChunk({
+        id: 'c1',
+        targetEntityId: 'e1',
+        textDraft: 'text1',
+        confidence: 'High',
+        factSetIds: ['fs1']
+      });
+      kb.insertChunk({
+        id: 'c2',
+        targetEntityId: 'e2',
+        textDraft: 'text2',
+        confidence: 'Low',
+        factSetIds: ['fs2']
+      });
+
+      const chunks = kb.getAllChunks();
+      expect(chunks).toHaveLength(2);
+      expect(chunks.map(c => c.id)).toEqual(expect.arrayContaining(['c1', 'c2']));
+    });
+
+    it('should filter chunks by entity via getChunksByEntity', () => {
+      kb.insertChunk({
+        id: 'c1',
+        targetEntityId: 'e1',
+        textDraft: 'text1',
+        confidence: 'High',
+        factSetIds: ['fs1']
+      });
+      kb.insertChunk({
+        id: 'c2',
+        targetEntityId: 'e1',
+        textDraft: 'text2',
+        confidence: 'Medium',
+        factSetIds: ['fs2']
+      });
+      kb.insertChunk({
+        id: 'c3',
+        targetEntityId: 'e2',
+        textDraft: 'text3',
+        confidence: 'Low',
+        factSetIds: ['fs3']
+      });
+
+      const e1Chunks = kb.getChunksByEntity('e1');
+      expect(e1Chunks).toHaveLength(2);
+      expect(e1Chunks.map(c => c.id)).toEqual(expect.arrayContaining(['c1', 'c2']));
+      expect(e1Chunks.map(c => c.id)).not.toContain('c3');
+    });
+
+    it('should return empty array for non-existent entity', () => {
+      kb.insertChunk({
+        id: 'c1',
+        targetEntityId: 'e1',
+        textDraft: 'text',
+        confidence: 'High',
+        factSetIds: ['fs1']
+      });
+
+      const chunks = kb.getChunksByEntity('e-nonexistent');
+      expect(chunks).toEqual([]);
+    });
+
+    it('should update chunk confidence via updateChunk', () => {
+      kb.insertChunk({
+        id: 'c1',
+        targetEntityId: 'e1',
+        textDraft: 'text',
+        confidence: 'Medium',
+        factSetIds: ['fs1']
+      });
+
+      kb.updateChunk('c1', { confidence: 'High' });
+
+      const updated = kb.getChunk('c1');
+      expect(updated?.confidence).toBe('High');
+      expect(updated?.textDraft).toBe('text'); // Other fields unchanged
+    });
+
+    it('should update multiple fields via updateChunk', () => {
+      kb.insertChunk({
+        id: 'c1',
+        targetEntityId: 'e1',
+        textDraft: 'old text',
+        confidence: 'Medium',
+        factSetIds: ['fs1']
+      });
+
+      kb.updateChunk('c1', {
+        confidence: 'High',
+        textDraft: 'new text',
+        assumptions: ['Assumes valid input']
+      });
+
+      const updated = kb.getChunk('c1');
+      expect(updated?.confidence).toBe('High');
+      expect(updated?.textDraft).toBe('new text');
+      expect(updated?.assumptions).toEqual(['Assumes valid input']);
+    });
+
+    it('should throw error when updating non-existent chunk', () => {
+      expect(() => {
+        kb.updateChunk('c-nonexistent', { confidence: 'High' });
+      }).toThrow('Chunk c-nonexistent not found');
+    });
+  });
+
+  // Phase 3 Step 4: OpenQuestion Storage
+  describe('OpenQuestion Storage', () => {
+    it('should store and retrieve open questions', () => {
+      const oq: OpenQuestion = {
+        qid: 'Q-function-1',
+        entityId: 'e1',
+        question: 'What does this do?',
+        confidence: 25,
+        factSetIds: ['fs1']
+      };
+
+      kb.insertOpenQuestion(oq);
+
+      const retrieved = kb.getOpenQuestionsByEntity('e1');
+      expect(retrieved).toHaveLength(1);
+      expect(retrieved[0].qid).toBe('Q-function-1');
+      expect(retrieved[0].question).toBe('What does this do?');
+    });
+
+    it('should filter open questions by entity', () => {
+      kb.insertOpenQuestion({
+        qid: 'Q-function-1',
+        entityId: 'e1',
+        question: 'Q1',
+        confidence: 20,
+        factSetIds: ['fs1']
+      });
+      kb.insertOpenQuestion({
+        qid: 'Q-function-2',
+        entityId: 'e1',
+        question: 'Q2',
+        confidence: 25,
+        factSetIds: ['fs2']
+      });
+      kb.insertOpenQuestion({
+        qid: 'Q-class-1',
+        entityId: 'e2',
+        question: 'Q3',
+        confidence: 30,
+        factSetIds: ['fs3']
+      });
+
+      const e1Questions = kb.getOpenQuestionsByEntity('e1');
+      expect(e1Questions).toHaveLength(2);
+      expect(e1Questions.map(q => q.qid)).toEqual(expect.arrayContaining(['Q-function-1', 'Q-function-2']));
+      expect(e1Questions.map(q => q.qid)).not.toContain('Q-class-1');
+    });
+
+    it('should return empty array for entity with no questions', () => {
+      kb.insertOpenQuestion({
+        qid: 'Q-function-1',
+        entityId: 'e1',
+        question: '?',
+        confidence: 20,
+        factSetIds: ['fs1']
+      });
+
+      const questions = kb.getOpenQuestionsByEntity('e-nonexistent');
+      expect(questions).toEqual([]);
+    });
+
+    it('should return all open questions via getAllOpenQuestions', () => {
+      kb.insertOpenQuestion({
+        qid: 'Q-function-1',
+        entityId: 'e1',
+        question: '?',
+        confidence: 20,
+        factSetIds: ['fs1']
+      });
+      kb.insertOpenQuestion({
+        qid: 'Q-class-1',
+        entityId: 'e2',
+        question: '?',
+        confidence: 30,
+        factSetIds: ['fs2']
+      });
+
+      const all = kb.getAllOpenQuestions();
+      expect(all).toHaveLength(2);
+      expect(all.map(q => q.qid)).toEqual(expect.arrayContaining(['Q-function-1', 'Q-class-1']));
+    });
+
+    it('should handle empty open questions gracefully', () => {
+      const all = kb.getAllOpenQuestions();
+      expect(all).toEqual([]);
+
+      const byEntity = kb.getOpenQuestionsByEntity('e1');
+      expect(byEntity).toEqual([]);
     });
   });
 });

@@ -1,6 +1,6 @@
 # src/kb
 
-**Directory Overview:** This directory contains 36 entities.
+**Directory Overview:** This directory contains 42 entities.
 
 ## id-generation.ts
 
@@ -50,7 +50,7 @@ This function performs an operation.
 
 This class represents k b error.
 
-<a id="YP4JvwKx3Q"></a>
+<a id="kxRW72KyC0"></a>
 
 ### KnowledgeBase
 
@@ -146,6 +146,69 @@ This method performs an operation.
 ### getChunk
 
 **Signature:** `(id: string): any`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="pXM1YRY9rt"></a>
+
+### getAllChunks
+
+**Signature:** `(): BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="XxC82zDJ7f"></a>
+
+### getChunksByEntity
+
+**Signature:** `(entityId: string): BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="DFeVxJzcJc"></a>
+
+### updateChunk
+
+**Signature:** `(id: string, updates: Partial<BehaviorChunk>): void`
+
+**Visibility:** Public (exported)
+
+This method modifies data.
+
+**Errors thrown:**
+- new KBError(`Chunk ${id} not found`);
+
+<a id="aM8atzhc6L"></a>
+
+### insertOpenQuestion
+
+**Signature:** `(oq: OpenQuestion): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="hUXPFFhkwT"></a>
+
+### getOpenQuestionsByEntity
+
+**Signature:** `(entityId: string): OpenQuestion[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="LO8UwtcUUA"></a>
+
+### getAllOpenQuestions
+
+**Signature:** `(): OpenQuestion[]`
 
 **Visibility:** Public (exported)
 

@@ -1,6 +1,36 @@
 # src/reasoning
 
-**Directory Overview:** This directory contains 7 entities.
+**Directory Overview:** This directory contains 10 entities.
+
+## ambiguity-resolver.ts
+
+<a id="FEdm0bgUHf"></a>
+
+### AmbiguityResolver
+
+**Visibility:** Public (exported)
+
+This class represents ambiguity resolver.
+
+<a id="Lrop4qPveS"></a>
+
+### resolve
+
+**Signature:** `(options: ResolutionOptions = {}): import("/src/reasoning/ambiguity-resolver").ResolutionResult`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="8B5rnEONBA"></a>
+
+### getAmbiguityQueue
+
+**Signature:** `(): import("/src/reasoning/ambiguity-resolver").AmbiguityItem[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
 
 ## IntentLifter.ts
 
