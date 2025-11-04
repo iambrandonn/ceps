@@ -1,10 +1,10 @@
 # src/parser
 
-**Directory Overview:** This directory contains 9 entities.
+**Directory Overview:** This directory contains 7 entities.
 
 ## fact-extractor.ts
 
-<a id="Vzl2OscxqX"></a>
+<a id="bwheA95x2U"></a>
 
 ### FactExtractor
 
@@ -12,37 +12,11 @@
 
 This class represents fact extractor.
 
-<a id="kwusv5nqQ9"></a>
+<a id="jeUJrY5iX6"></a>
 
 ### extract
 
 **Signature:** `(sourceFile: SourceFile, filePath: string): import("/src/parser/fact-extractor").ExtractionResult`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="w7Mqp42aey"></a>
-
-### detectSideEffects
-
-**Signature:** `(node: Node): string[]`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-**Side effects:**
-- network
-- storage
-- filesystem
-- database
-
-<a id="mDWx30npBD"></a>
-
-### detectErrors
-
-**Signature:** `(node: Node): string[]`
 
 **Visibility:** Public (exported)
 

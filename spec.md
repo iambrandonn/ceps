@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 133 exported entities.
+This project contains 103 exported entities.
 
 ## Conventions
 

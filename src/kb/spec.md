@@ -1,6 +1,6 @@
 # src/kb
 
-**Directory Overview:** This directory contains 52 entities.
+**Directory Overview:** This directory contains 36 entities.
 
 ## id-generation.ts
 
@@ -58,66 +58,6 @@ This class represents k b error.
 
 This class represents knowledge base.
 
-<a id="SsXcZhJr4Z"></a>
-
-### createEmptyState
-
-**Signature:** `(): KBState`
-
-**Visibility:** Public (exported)
-
-This method persists data.
-
-<a id="XICE34LPSN"></a>
-
-### getActiveState
-
-**Signature:** `(): KBState`
-
-**Visibility:** Public (exported)
-
-This method retrieves data.
-
-<a id="GOwdaZ3IQh"></a>
-
-### deepCloneEntity
-
-**Signature:** `(entity: Entity): Entity`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="Dcf0I5rZCa"></a>
-
-### deepCloneFactSet
-
-**Signature:** `(factSet: FactSet): FactSet`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="TO6ojQZaN1"></a>
-
-### deepCloneBehaviorChunk
-
-**Signature:** `(chunk: BehaviorChunk): BehaviorChunk`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="b8ibfG9MTr"></a>
-
-### deepCloneState
-
-**Signature:** `(state: KBState): KBState`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
 <a id="j51xwK0SPP"></a>
 
 ### insertEntity
@@ -140,16 +80,6 @@ This method modifies data.
 
 **Errors thrown:**
 - new KBError(`Entity not found: ${id}`);
-
-<a id="9o7TxUMGvS"></a>
-
-### removeFromIndices
-
-**Signature:** `(entity: Entity, state: KBState): void`
-
-**Visibility:** Public (exported)
-
-This method removes data.
 
 <a id="z9DK4gI6Aw"></a>
 
@@ -276,79 +206,6 @@ This method performs an operation.
 ### scoreConfidence
 
 **Signature:** `(factSetIds: string[]): Confidence`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="ig3rcl5PMM"></a>
-
-### computeBaseEvidence
-
-**Signature:** `(factSet: FactSet): number`
-
-**Visibility:** Public (exported)
-
-This method computes values.
-
-<a id="0HhxRVYoM9"></a>
-
-### computeReinforcers
-
-**Signature:** `(factSet: FactSet): number`
-
-**Visibility:** Public (exported)
-
-This method computes values.
-
-<a id="fb9bBZeAof"></a>
-
-### computePenalties
-
-**Signature:** `(factSet: FactSet): number`
-
-**Visibility:** Public (exported)
-
-This method computes values.
-
-<a id="8eZR8z5s8q"></a>
-
-### mergeFactSets
-
-**Signature:** `(factSetIds: string[]): any`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="TmNvvoOCAM"></a>
-
-### getSubjectId
-
-**Signature:** `(factSet: FactSet): string`
-
-**Visibility:** Public (exported)
-
-This method retrieves data.
-
-**Errors thrown:**
-- new Error('Empty factSet');
-
-<a id="cm7gL5Zfqw"></a>
-
-### hasFactPredicate
-
-**Signature:** `(factSet: FactSet, predicate: string): boolean`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="ov0rkokyXD"></a>
-
-### clamp
-
-**Signature:** `(value: number, min: number, max: number): number`
 
 **Visibility:** Public (exported)
 
@@ -492,26 +349,6 @@ This method retrieves data.
 **Visibility:** Public (exported)
 
 This method retrieves data.
-
-<a id="xRJSSaPcDU"></a>
-
-### buildReverseDepsCache
-
-**Signature:** `(): void`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="cL87KVqOLq"></a>
-
-### invalidateGraphCaches
-
-**Signature:** `(): void`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
 
 ## models.ts
 

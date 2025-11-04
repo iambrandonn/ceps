@@ -1,0 +1,1 @@
+{"version":3,"file":"pattern-detector.d.ts","sourceRoot":"","sources":["../../src/parser/pattern-detector.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAc,MAAM,UAAU,CAAC;AAClD,OAAO,EAAE,UAAU,EAAE,MAAM,mBAAmB,CAAC;AAuB/C,qBAAa,eAAe;IAC1B,MAAM,CAAC,UAAU,EAAE,UAAU,EAAE,QAAQ,EAAE,MAAM,GAAG,UAAU,EAAE;CAiB/D"}

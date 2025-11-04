@@ -1,6 +1,6 @@
 # src/scanner
 
-**Directory Overview:** This directory contains 7 entities.
+**Directory Overview:** This directory contains 6 entities.
 
 ## ignore-rules.ts
 
@@ -72,14 +72,4 @@ This method performs an operation.
 
 **Side effects:**
 - filesystem
-
-<a id="3X6HIgeLjg"></a>
-
-### classifyFile
-
-**Signature:** `(filePath: string): FileEntry`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
 

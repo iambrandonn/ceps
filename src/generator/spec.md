@@ -1,6 +1,6 @@
 # src/generator
 
-**Directory Overview:** This directory contains 12 entities.
+**Directory Overview:** This directory contains 7 entities.
 
 ## markdown-renderer.ts
 
@@ -17,36 +17,6 @@ This class represents markdown renderer.
 ### renderEntity
 
 **Signature:** `(entity: Entity, chunks?: BehaviorChunk[]): string`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="Js0eGa8s2z"></a>
-
-### generateTemplateProse
-
-**Signature:** `(entity: Entity): string`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="Ojo8s65Wji"></a>
-
-### inferPurpose
-
-**Signature:** `(name: string): string`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="RBCJyy9agR"></a>
-
-### humanizeName
-
-**Signature:** `(name: string): string`
 
 **Visibility:** Public (exported)
 
@@ -77,26 +47,6 @@ This method performs an operation.
 ### generateDirectorySpecs
 
 **Signature:** `(projectRoot: string): Record<string, string>`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
-
-<a id="8GsBztRKpO"></a>
-
-### getDirectories
-
-**Signature:** `(): string[]`
-
-**Visibility:** Public (exported)
-
-This method retrieves data.
-
-<a id="GGcdb65xLF"></a>
-
-### groupByFile
-
-**Signature:** `(entities: Entity[]): Record<string, Entity[]>`
 
 **Visibility:** Public (exported)
 

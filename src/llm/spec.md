@@ -1,6 +1,6 @@
 # src/llm
 
-**Directory Overview:** This directory contains 25 entities.
+**Directory Overview:** This directory contains 24 entities.
 
 ## budget.ts
 
@@ -151,16 +151,6 @@ This method retrieves data.
 **Visibility:** Public (exported)
 
 This method retrieves data.
-
-<a id="Abl0jBKqsQ"></a>
-
-### cleanupExpired
-
-**Signature:** `(): void`
-
-**Visibility:** Public (exported)
-
-This method performs an operation.
 
 ## gateway.ts
 

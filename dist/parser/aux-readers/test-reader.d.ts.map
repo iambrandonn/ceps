@@ -1,0 +1,1 @@
+{"version":3,"file":"test-reader.d.ts","sourceRoot":"","sources":["../../../src/parser/aux-readers/test-reader.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,UAAU,CAAC;AACtC,OAAO,EAAE,OAAO,EAAQ,MAAM,oBAAoB,CAAC;AAEnD,qBAAa,UAAU;IACrB,YAAY,CAAC,UAAU,EAAE,UAAU,EAAE,QAAQ,EAAE,MAAM,GAAG,OAAO,EAAE;CA+BlE"}

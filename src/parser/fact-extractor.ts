@@ -107,8 +107,13 @@ export class FactExtractor {
         visibility: isExported ? 'public' : 'internal',
       });
 
-      // Extract methods
+      // Extract methods (skip private methods - they shouldn't be in public API)
       cls.getMethods().forEach((method) => {
+        // Skip private methods - they're implementation details, not public API
+        if (method.hasModifier(SyntaxKind.PrivateKeyword)) {
+          return;
+        }
+
         const methodName = method.getName();
 
         // v1.3 FIX: Use content-based anchoring (consistent with functions)
