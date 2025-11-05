@@ -1,0 +1,22 @@
+{
+  "name": "Numeric Drift (2x Forward)",
+  "description": "LLM claims 10 seconds timeout when fact shows 5000ms (5 seconds) - 2x difference triggers fallback",
+  "category": "numeric",
+  "severity": "high",
+  "expectedOutcome": "fallback",
+  "draftText": "API_TIMEOUT is configured to 10 seconds to allow for slow network conditions.",
+  "factSetIds": ["fs-api-config"],
+  "metadata": {
+    "chunkId": "chunk-numeric-drift-1",
+    "targetEntityId": "const-API_TIMEOUT",
+    "factSetIds": ["fs-api-config"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "numeric",
+      "reasonPattern": "does not match"
+    }
+  ],
+  "notes": "Text says 10s but fact is 3000ms (3s). After conversion: 3s vs 10s = 3.33x ratio ≥ 2.0 → fallback per CTS-02 §4.2."
+}

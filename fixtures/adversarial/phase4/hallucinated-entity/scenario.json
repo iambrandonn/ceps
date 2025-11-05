@@ -1,0 +1,22 @@
+{
+  "name": "Hallucinated Entity",
+  "description": "LLM mentions an entity (AdminService) that doesn't exist in the KB",
+  "category": "entity",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "UserService integrates with AdminService to check admin permissions before processing requests.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-hallucinated-1",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "entity",
+      "reasonPattern": "AdminService.*not found"
+    }
+  ],
+  "notes": "AdminService is mentioned but not present in fs-user-service entities. Should trigger entity validation failure."
+}

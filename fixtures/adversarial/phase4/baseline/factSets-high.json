@@ -1,0 +1,80 @@
+{
+  "description": "High-confidence factSets for adversarial testing",
+  "factSets": [
+    {
+      "id": "fs-user-service",
+      "facts": [
+        { "subjectId": "class-UserService", "predicate": "is-class", "object": true },
+        { "subjectId": "class-UserService", "predicate": "has-method", "object": "validateUser" },
+        { "subjectId": "class-UserService", "predicate": "http-method", "object": "POST" },
+        { "subjectId": "class-UserService", "predicate": "timeout-ms", "object": 5000 }
+      ],
+      "sources": [{ "kind": "ast", "file": "src/services/user-service.ts" }],
+      "evidenceScore": 90
+    },
+    {
+      "id": "fs-api-config",
+      "facts": [
+        { "subjectId": "const-API_TIMEOUT", "predicate": "timeout-ms", "object": 3000 },
+        { "subjectId": "const-MAX_RETRIES", "predicate": "retry-count", "object": 3 },
+        { "subjectId": "const-CACHE_TTL", "predicate": "ttl-ms", "object": 60000 }
+      ],
+      "sources": [{ "kind": "ast", "file": "src/config/api.ts" }],
+      "evidenceScore": 95
+    },
+    {
+      "id": "fs-http-handler",
+      "facts": [
+        { "subjectId": "func-handleRequest", "predicate": "http-method", "object": "GET" },
+        { "subjectId": "func-handleRequest", "predicate": "route", "object": "/api/users" },
+        { "subjectId": "func-handleRequest", "predicate": "calls", "object": "UserService" }
+      ],
+      "sources": [{ "kind": "ast", "file": "src/routes/users.ts" }],
+      "evidenceScore": 85
+    }
+  ],
+  "entities": [
+    {
+      "id": "class-UserService",
+      "kind": "class",
+      "name": "UserService",
+      "path": "src/services/user-service.ts",
+      "exported": true
+    },
+    {
+      "id": "method-validateUser",
+      "kind": "method",
+      "name": "validateUser",
+      "path": "src/services/user-service.ts",
+      "exported": false
+    },
+    {
+      "id": "const-API_TIMEOUT",
+      "kind": "constant",
+      "name": "API_TIMEOUT",
+      "path": "src/config/api.ts",
+      "exported": true
+    },
+    {
+      "id": "const-MAX_RETRIES",
+      "kind": "constant",
+      "name": "MAX_RETRIES",
+      "path": "src/config/api.ts",
+      "exported": true
+    },
+    {
+      "id": "const-CACHE_TTL",
+      "kind": "constant",
+      "name": "CACHE_TTL",
+      "path": "src/config/api.ts",
+      "exported": true
+    },
+    {
+      "id": "func-handleRequest",
+      "kind": "function",
+      "name": "handleRequest",
+      "path": "src/routes/users.ts",
+      "exported": true
+    }
+  ]
+}

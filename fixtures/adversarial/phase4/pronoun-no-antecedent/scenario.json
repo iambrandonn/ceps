@@ -1,0 +1,22 @@
+{
+  "name": "Pronoun Without Antecedent",
+  "description": "Chunk starts with 'It' pronoun without establishing an antecedent entity first",
+  "category": "pronoun",
+  "severity": "medium",
+  "expectedOutcome": "retry",
+  "draftText": "It validates user credentials and returns a boolean result.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-pronoun-1",
+    "targetEntityId": "method-validateUser",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "pronoun",
+      "reasonPattern": "pronoun.*antecedent"
+    }
+  ],
+  "notes": "Sentence starts with pronoun 'It' without prior mention of validateUser or any noun."
+}

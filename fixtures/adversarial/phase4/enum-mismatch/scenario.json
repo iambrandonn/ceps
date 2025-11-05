@@ -1,0 +1,22 @@
+{
+  "name": "Enum Mismatch",
+  "description": "LLM uses POST method when fact shows GET - enum validation failure",
+  "category": "enum",
+  "severity": "medium",
+  "expectedOutcome": "retry",
+  "draftText": "The handleRequest function accepts FETCH method requests to retrieve user data.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-enum-1",
+    "targetEntityId": "func-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "enum",
+      "reasonPattern": "FETCH"
+    }
+  ],
+  "notes": "Text says POST but fact says GET. Enum validation should catch this mismatch."
+}

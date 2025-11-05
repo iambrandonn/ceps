@@ -1,0 +1,30 @@
+{
+  "name": "Mixed Validation Failures",
+  "description": "Multiple validation rules fail: hallucinated entity, enum mismatch, and pronoun without antecedent",
+  "category": "mixed",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "It handles FETCH requests via UnknownService to retrieve user data.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-mixed-1",
+    "targetEntityId": "func-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "pronoun",
+      "reasonPattern": "pronoun.*antecedent"
+    },
+    {
+      "rule": "enum",
+      "reasonPattern": "FETCH"
+    },
+    {
+      "rule": "entity",
+      "reasonPattern": "UnknownService.*not found"
+    }
+  ],
+  "notes": "Tests multiple failures: pronoun 'It', invalid HTTP method 'FETCH', hallucinated 'UnknownService'."
+}

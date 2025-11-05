@@ -1,0 +1,63 @@
+{
+  "status": "retry",
+  "diagnostics": [
+    {
+      "chunkId": "chunk-auth-service-validate",
+      "rule": "entity",
+      "reason": "Referenced entity 'AdminService' not found in KB",
+      "context": {
+        "expected": "AdminService",
+        "actual": null,
+        "location": "line 3"
+      }
+    },
+    {
+      "chunkId": "chunk-api-timeout",
+      "rule": "numeric",
+      "reason": "Numeric value 10 s does not match fact 5000 ms (converts to 5.00 s, rounds to 5)",
+      "context": {
+        "expected": {
+          "value": 5000,
+          "unit": "ms"
+        },
+        "actual": {
+          "value": 10,
+          "unit": "s",
+          "convertedFactValue": 5,
+          "roundedFactValue": 5
+        }
+      }
+    },
+    {
+      "chunkId": "chunk-http-handler",
+      "rule": "enum",
+      "reason": "Enum value \"FETCH\" has incorrect case. Expected \"GET\" (case-sensitive)",
+      "context": {
+        "expected": "GET",
+        "actual": "FETCH"
+      }
+    },
+    {
+      "chunkId": "chunk-user-service",
+      "rule": "scope",
+      "reason": "Entity 'PaymentService' is outside declared factSetIds scope",
+      "context": {
+        "expected": ["fs-user-service", "fs-auth"],
+        "actual": "PaymentService"
+      }
+    },
+    {
+      "chunkId": "chunk-processor",
+      "rule": "pronoun",
+      "reason": "Pronoun 'It' at start of chunk has no antecedent",
+      "context": {
+        "location": "sentence 1"
+      }
+    }
+  ],
+  "retryMetadata": {
+    "attemptCount": 1,
+    "promptKey": "R1",
+    "guidance": "Failed rules: entity, numeric, enum, scope, pronoun. Issues: Referenced entity 'AdminService' not found in KB; Numeric value 10 s does not match fact 5000 ms (converts to 5.00 s, rounds to 5); Enum value \"FETCH\" has incorrect case. Expected \"GET\" (case-sensitive); Entity 'PaymentService' is outside declared factSetIds scope; Pronoun 'It' at start of chunk has no antecedent"
+  }
+}

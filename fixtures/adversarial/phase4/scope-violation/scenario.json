@@ -1,0 +1,22 @@
+{
+  "name": "Scope Violation",
+  "description": "Chunk mentions entity from outside declared factSetIds scope",
+  "category": "scope",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "UserService calls CacheService to store frequently accessed data.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-scope-1",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "entity",
+      "reasonPattern": "CacheService.*not found"
+    }
+  ],
+  "notes": "handleRequest exists in fs-http-handler, not fs-user-service. Should fail scope validation."
+}
