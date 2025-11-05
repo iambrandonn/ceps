@@ -189,7 +189,7 @@ This method retrieves data.
 
 ## gateway.ts
 
-<a id="p7mMRMTiO4"></a>
+<a id="B53yJx2fY9"></a>
 
 ### LLMGateway
 

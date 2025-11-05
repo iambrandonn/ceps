@@ -338,13 +338,15 @@ export class SpecGenerator {
     let attempt = 0;
     let promptKey: 'O' | 'R1' | 'R2' = 'O';
     const maxAttempts = 3;
+    const guidance: string[] = []; // Accumulate validation failures for retry guidance
 
     while (attempt < maxAttempts) {
       try {
-        // Call LLM Gateway with current prompt key
+        // Call LLM Gateway with current prompt key and guidance
         const llmDraft = await this.llmGateway!.summarize(factSets, 'spec-ready', {
           deterministic: this.deterministicMode,
           promptKey,
+          guidance: guidance.length > 0 ? guidance : undefined,
         });
 
         // Validate with grounding validator if available
@@ -366,6 +368,9 @@ export class SpecGenerator {
             // Retry with stricter prompt
             attempt++;
             promptKey = attempt === 1 ? 'R1' : 'R2';
+            // Extract guidance from diagnostics for next retry
+            const reasons = result.diagnostics.map(d => d.reason).filter(r => r);
+            guidance.push(...reasons);
             // Log retry reason and collect diagnostics
             const reason = result.diagnostics[0]?.reason || 'unknown';
             console.debug(`Retry ${attempt} for ${entity.id}: ${reason}`);
