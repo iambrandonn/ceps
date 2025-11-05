@@ -181,12 +181,12 @@ class Fake2 {}
     });
 
     it('should preserve order while deduplicating', () => {
-      const text = 'Alpha Beta Alpha Gamma Beta';
+      const text = 'UserService AdminService UserService ConfigService AdminService';
       const identifiers = extractIdentifiers(text);
 
       // First occurrence order should be preserved
-      expect(identifiers.indexOf('Alpha')).toBeLessThan(identifiers.indexOf('Beta'));
-      expect(identifiers.indexOf('Beta')).toBeLessThan(identifiers.indexOf('Gamma'));
+      expect(identifiers.indexOf('UserService')).toBeLessThan(identifiers.indexOf('AdminService'));
+      expect(identifiers.indexOf('AdminService')).toBeLessThan(identifiers.indexOf('ConfigService'));
     });
   });
 });
