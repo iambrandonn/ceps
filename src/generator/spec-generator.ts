@@ -17,16 +17,59 @@
 import * as path from 'path';
 import { KnowledgeBase } from '../kb/knowledge-base.js';
 import { MarkdownRenderer } from './markdown-renderer.js';
-import { Entity } from '../kb/models.js';
+import { Entity, FactSet } from '../kb/models.js';
 import { FileIndex } from '../types/index.js';
+import type { LLMGateway } from '../llm/gateway.js';
+import type { BudgetTracker } from '../llm/budget.js';
+import type { Validator, ChunkMetadata } from '../validation/types.js';
+import { withBudgetHelper } from '../llm/budget-helpers.js';
+
+export interface GeneratorOptions {
+  llmEnabled?: boolean;
+  deterministicMode?: boolean;
+  llmGateway?: LLMGateway;
+  validator?: Validator;
+  budgetTracker?: BudgetTracker;
+}
+
+export interface GeneratorMetrics {
+  llmPolished: number;
+  templateFallback: number;
+  budgetExhausted: boolean;
+  warnings: string[];
+}
 
 export class SpecGenerator {
   private renderer: MarkdownRenderer;
   private fileIndex?: FileIndex;
+  private llmGateway?: LLMGateway;
+  private validator?: Validator;
+  private budgetTracker?: BudgetTracker;
+  private llmEnabled: boolean;
+  private deterministicMode: boolean;
+  private metrics: GeneratorMetrics;
 
-  constructor(private kb: KnowledgeBase, fileIndex?: FileIndex) {
+  constructor(private kb: KnowledgeBase, fileIndex?: FileIndex, options?: GeneratorOptions) {
     this.renderer = new MarkdownRenderer();
     this.fileIndex = fileIndex;
+    this.llmGateway = options?.llmGateway;
+    this.validator = options?.validator;
+    this.budgetTracker = options?.budgetTracker;
+    this.llmEnabled = options?.llmEnabled ?? false;
+    this.deterministicMode = options?.deterministicMode ?? false;
+    this.metrics = {
+      llmPolished: 0,
+      templateFallback: 0,
+      budgetExhausted: false,
+      warnings: [],
+    };
+  }
+
+  /**
+   * Get generator metrics
+   */
+  getMetrics(): GeneratorMetrics {
+    return { ...this.metrics };
   }
 
   /**
@@ -171,5 +214,173 @@ export class SpecGenerator {
     }
 
     return grouped;
+  }
+
+  /**
+   * Async version of generateDirectorySpecs with LLM polish support
+   */
+  async generateDirectorySpecsAsync(projectRoot: string): Promise<Record<string, string>> {
+    if (!this.llmEnabled) {
+      // LLM disabled - use synchronous template generation
+      return this.generateDirectorySpecs(projectRoot);
+    }
+
+    const specs: Record<string, string> = {};
+
+    // Monorepo: Generate per-package specs
+    if (this.fileIndex?.packages.packages && this.fileIndex.packages.packages.length > 0) {
+      for (const pkg of this.fileIndex.packages.packages) {
+        const pkgEntities = this.kb.listExported().filter(e => e.packageId === pkg.id);
+
+        if (pkgEntities.length === 0) continue;
+
+        let md = '';
+        md += `# ${pkg.name}\n\n`;
+        md += `**Package:** ${pkg.path}\n\n`;
+        md += `**Exported entities:** ${pkgEntities.length}\n\n`;
+
+        // Group by file within package
+        const byFile = this.groupByFile(pkgEntities);
+
+        for (const [file, fileEntities] of Object.entries(byFile)) {
+          md += `## ${path.basename(file)}\n\n`;
+
+          for (const entity of fileEntities) {
+            md += await this.renderEntityWithLLM(entity);
+          }
+        }
+
+        specs[`${pkg.path}/spec.md`] = md;
+      }
+    } else {
+      // Non-monorepo: Generate per-directory specs
+      const directories = this.getDirectories();
+
+      for (const dir of directories) {
+        const entities = this.kb.listExported().filter(e => path.dirname(e.path) === dir);
+
+        if (entities.length === 0) continue;
+
+        let md = '';
+        md += `# ${dir}\n\n`;
+        md += `**Directory Overview:** This directory contains ${entities.length} entities.\n\n`;
+
+        const byFile = this.groupByFile(entities);
+
+        for (const [file, fileEntities] of Object.entries(byFile)) {
+          md += `## ${path.basename(file)}\n\n`;
+
+          for (const entity of fileEntities) {
+            md += await this.renderEntityWithLLM(entity);
+          }
+        }
+
+        specs[`${dir}/spec.md`] = md;
+      }
+    }
+
+    return specs;
+  }
+
+  /**
+   * Render entity with optional LLM polish
+   */
+  private async renderEntityWithLLM(entity: Entity): Promise<string> {
+    // Generate template draft
+    const templateDraft = this.generateChunkDraft(entity);
+
+    // If LLM not enabled, return template
+    if (!this.llmEnabled || !this.llmGateway) {
+      return templateDraft;
+    }
+
+    // Apply LLM polish
+    const factSets = this.kb.getFactSetsBySubject(entity.id);
+    return await this.applyLLMPolish(entity, factSets, templateDraft);
+  }
+
+  /**
+   * Generate template draft from entity (deterministic template output)
+   */
+  private generateChunkDraft(entity: Entity): string {
+    // Use existing renderer for template generation
+    return this.renderer.renderEntity(entity);
+  }
+
+  /**
+   * Apply LLM polish to chunk with budget/validator integration
+   */
+  private async applyLLMPolish(
+    entity: Entity,
+    factSets: FactSet[],
+    templateDraft: string
+  ): Promise<string> {
+    // Check budget
+    if (this.budgetTracker) {
+      // Estimate tokens for this chunk (simple heuristic: ~100 tokens per entity)
+      const estimate = 100;
+      const budgetCheck = withBudgetHelper(this.budgetTracker, 'chunk', estimate);
+
+      if (!budgetCheck.allowed) {
+        // Budget exhausted - fall back to template
+        this.metrics.templateFallback++;
+        this.metrics.budgetExhausted = true;
+        const warning = `Budget exhausted for entity ${entity.id}, falling back to template`;
+        this.metrics.warnings.push(warning);
+        console.warn(warning);
+        return templateDraft;
+      }
+    }
+
+    try {
+      // Call LLM Gateway
+      const llmDraft = await this.llmGateway!.summarize(factSets, 'spec-ready', {
+        deterministic: this.deterministicMode,
+      });
+
+      // Validate with grounding validator if available
+      if (this.validator) {
+        const metadata: ChunkMetadata = {
+          chunkId: `chunk-${entity.id}`,
+          targetEntityId: entity.id,
+          factSetIds: factSets.map(fs => fs.id),
+          confidence: this.mapConfidenceBand(entity.confidence),
+        };
+
+        const result = this.validator.validate(llmDraft, metadata.factSetIds, metadata);
+
+        if (result.status === 'accept') {
+          // Validation passed
+          this.metrics.llmPolished++;
+          return llmDraft;
+        } else {
+          // Validation failed - fall back to template
+          this.metrics.templateFallback++;
+          const warning = `Validation failed for entity ${entity.id}, using template`;
+          this.metrics.warnings.push(warning);
+          return templateDraft;
+        }
+      } else {
+        // No validator - accept LLM output
+        this.metrics.llmPolished++;
+        return llmDraft;
+      }
+    } catch (error) {
+      // LLM call failed - fall back to template
+      this.metrics.templateFallback++;
+      const warning = `LLM error for entity ${entity.id}: ${error}, using template`;
+      this.metrics.warnings.push(warning);
+      console.warn(warning);
+      return templateDraft;
+    }
+  }
+
+  /**
+   * Map numeric confidence to band
+   */
+  private mapConfidenceBand(confidence: number): 'High' | 'Medium' | 'Low' {
+    if (confidence >= 70) return 'High';
+    if (confidence >= 40) return 'Medium';
+    return 'Low';
   }
 }

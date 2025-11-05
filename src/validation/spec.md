@@ -1,6 +1,6 @@
 # src/validation
 
-**Directory Overview:** This directory contains 21 entities.
+**Directory Overview:** This directory contains 24 entities.
 
 ## cross-link-validator.ts
 
@@ -41,6 +41,18 @@ This method performs an operation.
 **Visibility:** Public (exported)
 
 This method validates input.
+
+## diagnostic-renderer.ts
+
+<a id="IXMn5N0dcn"></a>
+
+### renderDiagnostics
+
+**Signature:** `(diagnostics: GroundingDiagnostic[], options: DiagnosticRenderOptions): string`
+
+**Visibility:** Public (exported)
+
+This function performs an operation.
 
 ## entity-name-index.ts
 
@@ -225,4 +237,24 @@ This class represents numeric validator.
 **Visibility:** Public (exported)
 
 This method validates input.
+
+## retry-controller.ts
+
+<a id="2AdawA57CI"></a>
+
+### RetryController
+
+**Visibility:** Public (exported)
+
+This class represents retry controller.
+
+<a id="rchFZJu5n1"></a>
+
+### decide
+
+**Signature:** `(validationResult: GroundingResult, metadata: ChunkMetadata, attemptCount: number): import("/src/validation/retry-controller").RetryDecision`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
 

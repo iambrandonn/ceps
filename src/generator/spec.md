@@ -1,6 +1,6 @@
 # src/generator
 
-**Directory Overview:** This directory contains 7 entities.
+**Directory Overview:** This directory contains 9 entities.
 
 ## markdown-renderer.ts
 
@@ -24,13 +24,23 @@ This method performs an operation.
 
 ## spec-generator.ts
 
-<a id="6JceEg6FPP"></a>
+<a id="QCMYSGjvAt"></a>
 
 ### SpecGenerator
 
 **Visibility:** Public (exported)
 
 This class represents spec generator.
+
+<a id="s6O2VO9LDd"></a>
+
+### getMetrics
+
+**Signature:** `(): import("/src/generator/spec-generator").GeneratorMetrics`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
 
 <a id="OmJvJQI27D"></a>
 
@@ -47,6 +57,16 @@ This method performs an operation.
 ### generateDirectorySpecs
 
 **Signature:** `(projectRoot: string): Record<string, string>`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="SyCQscVRDk"></a>
+
+### generateDirectorySpecsAsync
+
+**Signature:** `(projectRoot: string): Promise<Record<string, string>>`
 
 **Visibility:** Public (exported)
 
