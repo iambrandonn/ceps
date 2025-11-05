@@ -1,6 +1,41 @@
 # src/llm
 
-**Directory Overview:** This directory contains 25 entities.
+**Directory Overview:** This directory contains 28 entities.
+
+## budget-helpers.ts
+
+<a id="a6kbpSw21k"></a>
+
+### withBudgetHelper
+
+**Signature:** `(tracker: BudgetTracker, kind: string, estimate: number): import("/src/llm/budget-helpers").BudgetCheckResult`
+
+**Visibility:** Public (exported)
+
+This function performs an operation.
+
+<a id="aHhb281GAp"></a>
+
+### estimateTokens
+
+**Signature:** `(text: string, provider: string): number`
+
+**Visibility:** Public (exported)
+
+This function performs an operation.
+
+<a id="xAHlOEQOQg"></a>
+
+### validateCostGate
+
+**Signature:** `(tracker: BudgetTracker, fixtureType: string): boolean`
+
+**Visibility:** Public (exported)
+
+This function validates input.
+
+**Errors thrown:**
+- new Error(`Unknown fixture type: ${fixtureType}`);
 
 ## budget.ts
 

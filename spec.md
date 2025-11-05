@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 188 exported entities.
+This project contains 233 exported entities.
 
 ## Conventions
 
@@ -29,7 +29,9 @@ Per-directory specifications:
 - [src/llm](./src/llm/spec.md)
 - [src/llm/adapters](./src/llm/adapters/spec.md)
 - [src/orchestrator](./src/orchestrator/spec.md)
+- [src/orchestrator/gates](./src/orchestrator/gates/spec.md)
 - [src/orchestrator/mocks](./src/orchestrator/mocks/spec.md)
+- [src/orchestrator/rendering](./src/orchestrator/rendering/spec.md)
 - [src/orchestrator/types](./src/orchestrator/types/spec.md)
 - [src/parser](./src/parser/spec.md)
 - [src/parser/aux-readers](./src/parser/aux-readers/spec.md)
@@ -37,6 +39,7 @@ Per-directory specifications:
 - [src/scanner](./src/scanner/spec.md)
 - [src/types](./src/types/spec.md)
 - [src/validation](./src/validation/spec.md)
+- [src/validation/lexicon](./src/validation/lexicon/spec.md)
 - [tests/fixtures/tiny-express/src](./tests/fixtures/tiny-express/src/spec.md)
 - [tests/fixtures/tiny-express/src/middleware](./tests/fixtures/tiny-express/src/middleware/spec.md)
 - [tests/fixtures/tiny-express/src/routes](./tests/fixtures/tiny-express/src/routes/spec.md)

@@ -4,7 +4,7 @@
 
 ## cli.ts
 
-<a id="gcSNCt5Elc"></a>
+<a id="HiDsoYnfBC"></a>
 
 ### parseArgs
 
@@ -17,8 +17,13 @@ This function performs an operation.
 **Errors thrown:**
 - new Error('--max-workers requires a value');
 - new Error('--max-workers must be a positive integer');
+- new Error('--llm requires a value');
+- new Error('--llm must be either "on" or "off"');
+- new Error('--llm-provider requires a value');
+- new Error('--llm-model requires a value');
+- new Error('--llm-budget requires a value');
 
-<a id="lPEJ9a15T8"></a>
+<a id="TJpbnoBFmd"></a>
 
 ### validateArgs
 
@@ -32,6 +37,10 @@ This function validates input.
 - filesystem
 
 **Errors thrown:**
+- new Error(
+        `Invalid provider: ${args.llmProvider}. Supported: ${validProviders.join(', ')}`
+      );
+- new Error('--llm-budget must be a positive integer');
 - new Error(`Project root does not exist: ${args.projectRoot}`);
 - new Error(`Project root is not a directory: ${args.projectRoot}`);
 

@@ -1,0 +1,22 @@
+{
+  "aggregate": ["combine", "accumulate", "collect", "group"],
+  "authorize": ["authenticate", "permit", "allow", "grant"],
+  "cache": ["memoize", "buffer"],
+  "compute": ["calculate", "determine", "evaluate"],
+  "configure": ["setup", "initialize", "set"],
+  "emit": ["send", "broadcast"],
+  "fetch": ["retrieve", "get", "obtain", "load"],
+  "filter": ["select", "extract", "refine"],
+  "guard": ["protect", "secure", "defend"],
+  "map": ["transform", "convert", "translate"],
+  "monitor": ["track", "watch"],
+  "normalize": ["standardize", "regularize"],
+  "parse": ["decode", "interpret", "analyze"],
+  "persist": ["save", "write", "record", "store"],
+  "publish": ["release", "issue", "output", "dispatch"],
+  "retry": ["reattempt", "repeat"],
+  "route": ["direct", "forward"],
+  "schedule": ["queue", "enqueue", "plan"],
+  "subscribe": ["listen", "register", "observe"],
+  "validate": ["check", "verify", "confirm", "test"]
+}
