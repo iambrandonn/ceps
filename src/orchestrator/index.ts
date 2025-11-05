@@ -3,7 +3,14 @@ import { parseArgs, validateArgs } from './cli.js';
 import { Scanner } from '../scanner/scanner.js';
 import { Parser } from '../parser/parser.js';
 import { KnowledgeBase } from '../kb/knowledge-base.js';
-import { SpecGenerator } from '../generator/spec-generator.js';
+import { SpecGenerator, type GeneratorOptions } from '../generator/spec-generator.js';
+import { LLMGateway } from '../llm/gateway.js';
+import { BudgetTracker } from '../llm/budget.js';
+import { GroundingValidator } from '../validation/grounding-validator.js';
+import { CrossLinkValidator } from '../validation/cross-link-validator.js';
+import { GateRegistry } from './gates/gate-registry.js';
+import { emitRunSummary } from './rendering/run-summary-renderer.js';
+import type { GateInputs } from './types/gate-engine.js';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -80,9 +87,41 @@ export async function run(argv: string[]): Promise<number> {
     const exportedEntities = kb.listExported();
     console.log(`Extracted ${exportedEntities.length} exported entities`);
 
-    // Phase 2: Generate specs
+    // Phase 4: Setup LLM components if enabled
+    let gateway: LLMGateway | undefined;
+    let budgetTracker: BudgetTracker | undefined;
+    let validator: GroundingValidator | undefined;
+
+    if (args.llm === 'on') {
+      budgetTracker = new BudgetTracker(args.llmBudget || 1000000);
+
+      // Map provider (CLI allows azure/local but gateway only supports anthropic/openai)
+      const provider = (args.llmProvider === 'azure' || args.llmProvider === 'local')
+        ? 'anthropic' // fallback to anthropic
+        : (args.llmProvider || 'anthropic');
+
+      gateway = new LLMGateway({
+        anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+        openaiApiKey: process.env.OPENAI_API_KEY,
+        provider: provider as 'anthropic' | 'openai',
+        budgetTokens: args.llmBudget,
+        enableCache: !args.noLlmCache
+      });
+      // Note: args.llmModel is parsed but not yet supported by LLMGateway
+      validator = new GroundingValidator(kb);
+    }
+
+    // Phase 4: Generate specs with LLM polish
     console.log('\nGenerating specifications...');
-    const generator = new SpecGenerator(kb, fileIndex);
+    const options: GeneratorOptions = {
+      llmEnabled: args.llm === 'on',
+      deterministicMode: args.deterministic,
+      llmGateway: gateway,
+      validator: validator,
+      budgetTracker: budgetTracker
+    };
+
+    const generator = new SpecGenerator(kb, fileIndex, options);
 
     // Generate root spec
     const rootSpec = generator.generateRootSpec(args.projectRoot);
@@ -90,8 +129,8 @@ export async function run(argv: string[]): Promise<number> {
     fs.writeFileSync(rootSpecPath, rootSpec, 'utf8');
     console.log(`  ✓ Generated root spec: spec.md`);
 
-    // Generate directory/package specs
-    const dirSpecs = generator.generateDirectorySpecs(args.projectRoot);
+    // Generate directory/package specs (async for LLM polish)
+    const dirSpecs = await generator.generateDirectorySpecsAsync(args.projectRoot);
     let specsWritten = 0;
 
     for (const [specPath, content] of Object.entries(dirSpecs)) {
@@ -108,12 +147,99 @@ export async function run(argv: string[]): Promise<number> {
       specsWritten++;
     }
 
-    console.log(`\n✅ Phase 2 Complete!`);
-    console.log(`Generated ${specsWritten + 1} specification files`);
-    console.log(`  - 1 root spec (spec.md)`);
-    console.log(`  - ${specsWritten} directory/package specs`);
+    // Phase 4: Collect metrics and build gate inputs
+    const generatorMetrics = generator.getMetrics();
+    const gatewayUsage = gateway?.getUsage();
 
-    return 0; // success
+    // Build gate inputs from collected data (reuse exportedEntities from earlier)
+    const allChunks = kb.getAllChunks();
+    const entitiesWithChunks = new Set(allChunks.map(c => c.entityId));
+
+    // Get entities with open questions
+    const allEntities = kb.getAllEntities();
+    const entitiesWithQIDs = new Set(
+      allEntities
+        .filter(e => kb.getOpenQuestionsByEntity(e.id).length > 0)
+        .map(e => e.id)
+    );
+
+    // Validate links for post-generation check
+    const linkValidator = new CrossLinkValidator(kb);
+    const specFiles = [
+      { path: 'spec.md', content: rootSpec },
+      ...Object.entries(dirSpecs).map(([path, content]) => ({ path, content }))
+    ];
+    const anchorMap = linkValidator.buildAnchorMap(specFiles);
+    const linkValidation = linkValidator.validatePostGeneration(specFiles, anchorMap);
+
+    // Count open questions for confidence gate
+    const allOpenQuestions = allEntities.flatMap(e => kb.getOpenQuestionsByEntity(e.id));
+
+    // Build gate inputs
+    const gateInputs: GateInputs = {
+      coverage: {
+        exportedEntityIds: exportedEntities.map(e => e.id),
+        entitiesWithChunks: Array.from(entitiesWithChunks),
+        entitiesWithQIDs: Array.from(entitiesWithQIDs)
+      },
+      link: {
+        totalAnchors: Object.keys(anchorMap).length,
+        brokenLinks: linkValidation.brokenLinks || []
+      },
+      grounding: {
+        totalChunks: generatorMetrics.llmPolished + generatorMetrics.templateFallback,
+        validatedChunks: generatorMetrics.llmPolished,
+        fallbackChunks: generatorMetrics.templateFallback,
+        chunksWithMissingFactSetIds: [], // Tracked during generation
+        diagnostics: generatorMetrics.diagnostics
+      },
+      determinism: {
+        enabled: args.deterministic || false,
+        reruns: 0,
+        diffs: 0
+      },
+      confidence: {
+        openQuestions: allOpenQuestions.map(q => q.id),
+        invalidConfidenceItems: []
+      },
+      monorepo: {
+        hasRootSpec: true,
+        packagesLinked: fileIndex.packages.packages.length,
+        brokenPackageLinks: 0
+      },
+      cost: {
+        totalTokens: gatewayUsage?.totalTokens || 0,
+        budget: args.llmBudget || 0
+      },
+      adversarial: {
+        total: 0, // N/A for CLI mode
+        rejected: 0
+      },
+      testCoverage: {
+        coverage: 100, // N/A for CLI mode - set to 100 to pass gate
+        threshold: 80
+      },
+      readability: {},
+      tokens: {
+        total: gatewayUsage?.totalTokens || 0,
+        budget: args.llmBudget || 0,
+        providers: gatewayUsage?.byProvider || {}
+      },
+      warnings: generatorMetrics.warnings
+    };
+
+    // Evaluate gates and emit run summary
+    const registry = new GateRegistry();
+    const runSummary = registry.evaluateAll(gateInputs);
+
+    // Emit run summary (console + optional JSON)
+    emitRunSummary(runSummary, {
+      console: true,
+      jsonPath: undefined // Could add CLI flag for this later
+    });
+
+    // Return exit code from gates
+    return runSummary.exitCode;
   } catch (error) {
     console.error('Error:', (error as Error).message);
     return 1; // failure

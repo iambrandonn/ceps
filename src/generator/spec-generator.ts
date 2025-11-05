@@ -37,6 +37,7 @@ export interface GeneratorMetrics {
   templateFallback: number;
   budgetExhausted: boolean;
   warnings: string[];
+  diagnostics: Array<import('../validation/types.js').GroundingDiagnostic>;
 }
 
 export class SpecGenerator {
@@ -62,6 +63,7 @@ export class SpecGenerator {
       templateFallback: 0,
       budgetExhausted: false,
       warnings: [],
+      diagnostics: [],
     };
   }
 
@@ -364,9 +366,10 @@ export class SpecGenerator {
             // Retry with stricter prompt
             attempt++;
             promptKey = attempt === 1 ? 'R1' : 'R2';
-            // Log retry reason
+            // Log retry reason and collect diagnostics
             const reason = result.diagnostics[0]?.reason || 'unknown';
             console.debug(`Retry ${attempt} for ${entity.id}: ${reason}`);
+            this.metrics.diagnostics.push(...result.diagnostics);
             continue; // Try again with stricter prompt
           } else {
             // Fallback (either immediate fallback or max retries exhausted)
@@ -375,6 +378,8 @@ export class SpecGenerator {
             const warning = `Validation failed for entity ${entity.id}: ${reason}, using template`;
             this.metrics.warnings.push(warning);
             console.warn(warning);
+            // Collect diagnostics from final failure
+            this.metrics.diagnostics.push(...result.diagnostics);
             return templateDraft;
           }
         } else {
