@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 149 exported entities.
+This project contains 188 exported entities.
 
 ## Conventions
 
@@ -29,6 +29,8 @@ Per-directory specifications:
 - [src/llm](./src/llm/spec.md)
 - [src/llm/adapters](./src/llm/adapters/spec.md)
 - [src/orchestrator](./src/orchestrator/spec.md)
+- [src/orchestrator/mocks](./src/orchestrator/mocks/spec.md)
+- [src/orchestrator/types](./src/orchestrator/types/spec.md)
 - [src/parser](./src/parser/spec.md)
 - [src/parser/aux-readers](./src/parser/aux-readers/spec.md)
 - [src/reasoning](./src/reasoning/spec.md)

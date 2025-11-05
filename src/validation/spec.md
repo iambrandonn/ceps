@@ -1,6 +1,6 @@
 # src/validation
 
-**Directory Overview:** This directory contains 9 entities.
+**Directory Overview:** This directory contains 16 entities.
 
 ## cross-link-validator.ts
 
@@ -61,6 +61,76 @@ This class represents entity name index.
 **Visibility:** Public (exported)
 
 This method performs an operation.
+
+## identifier-extractor.ts
+
+<a id="VOh17TplwO"></a>
+
+### extractIdentifiers
+
+**Signature:** `(text: string): string[]`
+
+**Visibility:** Public (exported)
+
+This function performs an operation.
+
+<a id="1Tu8hgrGQ7"></a>
+
+### IdentifierExtractor
+
+**Visibility:** Public (exported)
+
+This class represents identifier extractor.
+
+<a id="hQ83ovBm41"></a>
+
+### extract
+
+**Signature:** `(text: string): string[]`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+## identifier-validator.ts
+
+<a id="oK9SKwhkun"></a>
+
+### IdentifierValidator
+
+**Visibility:** Public (exported)
+
+This class represents identifier validator.
+
+<a id="7iUwNcCEI6"></a>
+
+### validate
+
+**Signature:** `(identifiers: string[], factSetIds: string[]): ValidationResult`
+
+**Visibility:** Public (exported)
+
+This method validates input.
+
+<a id="9SicnGDgmn"></a>
+
+### validateRelations
+
+**Signature:** `(subjectEntityId: string, targetIdentifiers: string[], factSetIds: string[]): ValidationResult`
+
+**Visibility:** Public (exported)
+
+This method validates input.
+
+<a id="IqtK4Pb78K"></a>
+
+### validatePronouns
+
+**Signature:** `(text: string): ValidationResult`
+
+**Visibility:** Public (exported)
+
+This method validates input.
 
 ## mock-validator.ts
 

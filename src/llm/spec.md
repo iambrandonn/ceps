@@ -1,6 +1,6 @@
 # src/llm
 
-**Directory Overview:** This directory contains 24 entities.
+**Directory Overview:** This directory contains 25 entities.
 
 ## budget.ts
 
@@ -154,7 +154,7 @@ This method retrieves data.
 
 ## gateway.ts
 
-<a id="XXtaBdWsYR"></a>
+<a id="p7mMRMTiO4"></a>
 
 ### LLMGateway
 
@@ -243,6 +243,16 @@ This method retrieves data.
 ### clearCache
 
 **Signature:** `(): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="JWnJ0dh3Nd"></a>
+
+### summarize
+
+**Signature:** `(factSets: FactSet[], style: string, options: SummarizeOptions = {}): Promise<string>`
 
 **Visibility:** Public (exported)
 

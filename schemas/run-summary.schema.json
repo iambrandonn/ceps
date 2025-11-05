@@ -1,0 +1,175 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ceps.dev/schemas/run-summary.json",
+  "title": "ceps Run Summary",
+  "description": "Phase 4 orchestrator run summary schema (runtime gates, validation results, telemetry)",
+  "type": "object",
+  "required": ["gates", "validation", "tokens", "warnings", "exitCode", "timestamp", "version"],
+  "properties": {
+    "gates": {
+      "type": "object",
+      "required": ["coverage", "link", "grounding", "determinism", "confidence", "monorepo"],
+      "properties": {
+        "coverage": {
+          "type": "object",
+          "required": ["status", "exported", "documented", "qids"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "exported": { "type": "integer", "minimum": 0 },
+            "documented": { "type": "integer", "minimum": 0 },
+            "qids": { "type": "integer", "minimum": 0 },
+            "details": { "type": "object" }
+          }
+        },
+        "link": {
+          "type": "object",
+          "required": ["status", "anchors", "broken"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "anchors": { "type": "integer", "minimum": 0 },
+            "broken": { "type": "integer", "minimum": 0 },
+            "brokenLinks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["sourceFile", "lineNumber", "targetAnchor"],
+                "properties": {
+                  "sourceFile": { "type": "string" },
+                  "lineNumber": { "type": "integer", "minimum": 1 },
+                  "targetAnchor": { "type": "string" }
+                }
+              }
+            },
+            "details": { "type": "object" }
+          }
+        },
+        "grounding": {
+          "type": "object",
+          "required": ["status", "chunks", "validated", "fallback"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "chunks": { "type": "integer", "minimum": 0 },
+            "validated": { "type": "integer", "minimum": 0 },
+            "fallback": { "type": "integer", "minimum": 0 },
+            "missingFactSetIds": { "type": "integer", "minimum": 0 },
+            "details": { "type": "object" }
+          }
+        },
+        "determinism": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "reruns": { "type": "integer", "minimum": 0 },
+            "diffs": { "type": "integer", "minimum": 0 },
+            "details": { "type": "object" }
+          }
+        },
+        "confidence": {
+          "type": "object",
+          "required": ["status", "openQuestions"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "openQuestions": { "type": "integer", "minimum": 0 },
+            "invalid": { "type": "integer", "minimum": 0 },
+            "details": { "type": "object" }
+          }
+        },
+        "monorepo": {
+          "type": "object",
+          "required": ["status", "hasRootSpec", "packagesLinked"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "hasRootSpec": { "type": "boolean" },
+            "packagesLinked": { "type": "integer", "minimum": 0 },
+            "brokenPackageLinks": { "type": "integer", "minimum": 0 },
+            "details": { "type": "object" }
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "required": ["cost", "adversarial", "testCoverage", "readability"],
+      "properties": {
+        "cost": {
+          "type": "object",
+          "required": ["status", "budget", "used", "remaining"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "budget": { "type": "number", "minimum": 0 },
+            "used": { "type": "number", "minimum": 0 },
+            "remaining": { "type": "number" },
+            "perFixture": {
+              "type": "object",
+              "additionalProperties": { "type": "number", "minimum": 0 }
+            },
+            "details": { "type": "object" }
+          }
+        },
+        "adversarial": {
+          "type": "object",
+          "required": ["status", "total", "rejected", "pass"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "total": { "type": "integer", "minimum": 0 },
+            "rejected": { "type": "integer", "minimum": 0 },
+            "pass": { "type": "boolean" },
+            "details": { "type": "object" }
+          }
+        },
+        "testCoverage": {
+          "type": "object",
+          "required": ["status", "coverage", "threshold", "pass"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "coverage": { "type": "number", "minimum": 0, "maximum": 100 },
+            "threshold": { "type": "number", "minimum": 0, "maximum": 100 },
+            "pass": { "type": "boolean" },
+            "details": { "type": "object" }
+          }
+        },
+        "readability": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": { "enum": ["pass", "fail", "skip"] },
+            "avgScore": { "type": "number", "minimum": 0, "maximum": 10 },
+            "threshold": { "type": "number", "minimum": 0, "maximum": 10 },
+            "pass": { "type": "boolean" },
+            "reviewLogPath": { "type": "string" },
+            "details": { "type": "object" }
+          }
+        }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "required": ["total", "budget", "providers"],
+      "properties": {
+        "total": { "type": "number", "minimum": 0 },
+        "budget": { "type": "number", "minimum": 0 },
+        "providers": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exitCode": {
+      "enum": [0, 1, 2, 3],
+      "description": "Exit codes: 0=success, 1=internal error, 2=gate failure, 3=snapshot mismatch"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "string",
+      "description": "Schema version tag"
+    }
+  }
+}
