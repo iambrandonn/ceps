@@ -1,0 +1,101 @@
+{
+  "_comment": "Phase 4 WS-F2/WS-H Run Summary Schema",
+  "_description": "This schema defines the run summary structure for Phase 4 orchestrator gates. Fields marked [WS-F2] are provided by generator metrics. Fields marked [WS-H] are provided by orchestrator.",
+
+  "gates": {
+    "_provider": "WS-H (Orchestrator)",
+    "coverage": {
+      "status": "pass",
+      "exported": 45,
+      "documented": 45,
+      "qids": 0
+    },
+    "link": {
+      "status": "pass",
+      "anchors": 123,
+      "broken": 0
+    },
+    "grounding": {
+      "status": "pass",
+      "chunks": 287,
+      "validated": 245,
+      "fallback": 42
+    },
+    "cost": {
+      "status": "pass",
+      "threshold": 30000,
+      "actual": 28450
+    },
+    "adversarial": {
+      "status": "pass",
+      "total": 23,
+      "rejected": 23
+    },
+    "determinism": {
+      "status": "pass",
+      "reruns": 2,
+      "diffs": 0
+    }
+  },
+
+  "tokens": {
+    "_provider": "WS-F2 (Generator metrics via LLMGateway.getUsage())",
+    "total": 28450,
+    "budget": 30000,
+    "providers": {
+      "anthropic": 28450
+    }
+  },
+
+  "chunks": {
+    "_provider": "WS-F2 (Generator metrics via SpecGenerator.getMetrics())",
+    "total": 287,
+    "llmPolished": 245,
+    "templateFallback": 42
+  },
+
+  "warnings": {
+    "_provider": "WS-F2 (Generator metrics via SpecGenerator.getMetrics())",
+    "_type": "string[]",
+    "_example": [
+      "LLM budget exhausted: 5 chunks fell back to template",
+      "Validation failed for entity user-handler: unrecoverable error"
+    ]
+  },
+
+  "exit_code": {
+    "_provider": "WS-H (Orchestrator)",
+    "_description": "0 = all gates pass, 1 = one or more gates fail",
+    "_value": 0
+  },
+
+  "_ws_f2_interface": {
+    "_comment": "Interface provided by WS-F2 for WS-H integration",
+    "GeneratorMetrics": {
+      "llmPolished": "number - Count of chunks successfully polished by LLM",
+      "templateFallback": "number - Count of chunks that fell back to template",
+      "budgetExhausted": "boolean - True if token budget was exhausted",
+      "warnings": "string[] - Array of warning messages from generation process"
+    },
+    "LLMGatewayUsage": {
+      "total": "number - Total tokens used across all providers",
+      "byProvider": "Record<string, number> - Token usage per provider"
+    }
+  },
+
+  "_ws_h_responsibilities": {
+    "_comment": "What WS-H (orchestrator) needs to implement",
+    "tasks": [
+      "Evaluate all gates (coverage, link, grounding, cost, adversarial, determinism)",
+      "Aggregate generator metrics into run summary",
+      "Aggregate LLM gateway usage into run summary",
+      "Determine exit_code based on gate results",
+      "Write run-summary.json to output directory"
+    ]
+  },
+
+  "_integration_example": {
+    "_comment": "Example code for WS-H to integrate WS-F2 metrics",
+    "typescript": "const generator = new SpecGenerator(kb, fileIndex, options);\nawait generator.generateDirectorySpecsAsync(projectRoot);\nconst metrics = generator.getMetrics();\nconst usage = gateway.getUsage();\n\n// Build run summary\nconst runSummary = {\n  tokens: {\n    total: usage.total,\n    budget: options.budgetTracker.getLimit(),\n    providers: usage.byProvider\n  },\n  chunks: {\n    total: metrics.llmPolished + metrics.templateFallback,\n    llmPolished: metrics.llmPolished,\n    templateFallback: metrics.templateFallback\n  },\n  warnings: metrics.warnings,\n  gates: evaluateGates(generator, kb),\n  exit_code: allGatesPass ? 0 : 1\n};"
+  }
+}
