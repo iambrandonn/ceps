@@ -177,9 +177,6 @@ export class IdentifierValidator {
       while ((pronounMatch = pronouns.exec(sentence)) !== null) {
         const pronoun = pronounMatch[2]; // Extract pronoun without whitespace
 
-        // Check if there's an antecedent in recent sentences (including current)
-        const hasAntecedent = recentIdentifiers.flat().length > 0;
-
         // Special case: if pronoun is first word of first sentence, it's invalid
         if (i === 0 && sentence.trim().startsWith(pronoun)) {
           diagnostics.push({
@@ -190,12 +187,29 @@ export class IdentifierValidator {
           continue;
         }
 
-        if (!hasAntecedent) {
-          diagnostics.push({
-            chunkId: 'unknown',
-            rule: 'pronoun',
-            reason: `Pronoun "${pronoun}" without antecedent in previous sentences`,
-          });
+        // Check if there's an appropriate antecedent
+        const pluralPronouns = ['They', 'These', 'Those'];
+        const isPluralPronoun = pluralPronouns.includes(pronoun);
+        const allRecentIdentifiers = recentIdentifiers.flat();
+
+        if (isPluralPronoun) {
+          // Plural pronouns need multiple identifiers as antecedent
+          if (allRecentIdentifiers.length < 2) {
+            diagnostics.push({
+              chunkId: 'unknown',
+              rule: 'pronoun',
+              reason: `Pronoun "${pronoun}" without plural antecedent in previous sentences`,
+            });
+          }
+        } else {
+          // Singular pronouns just need any antecedent
+          if (allRecentIdentifiers.length === 0) {
+            diagnostics.push({
+              chunkId: 'unknown',
+              rule: 'pronoun',
+              reason: `Pronoun "${pronoun}" without antecedent in previous sentences`,
+            });
+          }
         }
       }
     }
@@ -239,16 +253,40 @@ export class IdentifierValidator {
    * @returns Entity ID if found in scope, null otherwise
    */
   private findEntityInScope(entityIds: string[], factSetIds: string[]): string | null {
+    // First pass: check if entity is directly in factSets (as subjectId)
     for (const entityId of entityIds) {
-      // Check if this entity appears in any of the declared factSets
       for (const factSetId of factSetIds) {
         const factSet = this.kb.getFactSet(factSetId);
         if (factSet) {
-          // Check if any fact in this factSet references this entity
           const hasEntity = factSet.facts.some(f => f.subjectId === entityId);
           if (hasEntity) {
             return entityId;
           }
+        }
+      }
+    }
+
+    // Second pass: check if entity is related to any entity in factSets
+    // (e.g., called by, imported by an entity in scope)
+    const callGraph = this.kb.getCallGraph();
+    const entitiesInScope = new Set<string>();
+
+    // Collect all entities (subjectIds) in declared factSets
+    for (const factSetId of factSetIds) {
+      const factSet = this.kb.getFactSet(factSetId);
+      if (factSet) {
+        for (const fact of factSet.facts) {
+          entitiesInScope.add(fact.subjectId);
+        }
+      }
+    }
+
+    // Check if any candidate entity is called by entities in scope
+    for (const entityId of entityIds) {
+      for (const scopeEntity of entitiesInScope) {
+        const callees = callGraph.get(scopeEntity);
+        if (callees && callees.has(entityId)) {
+          return entityId;
         }
       }
     }

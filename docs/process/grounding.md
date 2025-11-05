@@ -586,3 +586,156 @@ RunSummary {
 6. Coordinate with WS-F2 on telemetry schema final alignment
 
 **Stage A0 complete. Schema frozen and validated. Ready for Stage A.**
+
+---
+
+## WS-H Progress Update (2025-11-05 PM)
+
+### Completed Stages
+
+**Stage A0: Schema Freeze ✅**
+- RunSummary TypeScript interface defined
+- JSON Schema created and validated
+- 10 schema contract tests passing
+
+**Stage A: Interface Alignment & Mocks ✅**
+- Mock gate evaluators for all runtime and validation gates
+- 25 gate evaluator contract tests passing
+- Interface types frozen for WS-F2 coordination
+
+**Stage B: Runtime Gate Evaluators ✅**
+- Production implementations for: Coverage, Link, Grounding, Determinism, Confidence, Monorepo
+- All gates follow CTS-07 §5 specifications
+- 19 gate engine tests passing
+
+**Stage B2: Validation Gate Evaluators ✅**
+- Production implementations for: Cost, Adversarial, Test Coverage, Readability
+- Advisory-only behavior (no exit code impact)
+- Integrated into gate engine tests
+
+**Stage C: Exit Code Policy ✅**
+- GateRegistry.computeExitCode() implements SADS §6.3 semantics
+- Exit codes: 0 (success), 1 (internal error), 2 (gate failure), 3 (snapshot mismatch)
+- Tested in gate engine test suite
+
+**Stage D: Run Summary Rendering ✅**
+- JSON rendering with schema validation
+- Console table rendering with symbols (✓/✗/○)
+- 14 renderer tests passing
+- Support for JSON file output and console display
+
+### Test Coverage Summary
+
+**Total orchestrator tests: 79 (all passing)**
+- run-summary-schema.test.ts: 10 tests
+- gate-evaluators-contract.test.ts: 25 tests
+- gate-engine.test.ts: 19 tests
+- run-summary-renderer.test.ts: 14 tests
+- orchestrator.test.ts: 11 tests (Phase 3 regression)
+
+### Artifacts Created
+
+**Types:**
+- `src/orchestrator/types/run-summary.ts` (RunSummary interface + factory)
+- `src/orchestrator/types/gate-engine.ts` (Gate evaluator interfaces)
+- `schemas/run-summary.schema.json` (JSON Schema)
+
+**Implementations:**
+- `src/orchestrator/gates/runtime-gates.ts` (6 runtime gate evaluators)
+- `src/orchestrator/gates/validation-gates.ts` (4 validation gate evaluators)
+- `src/orchestrator/gates/gate-registry.ts` (Orchestration & exit code logic)
+- `src/orchestrator/rendering/run-summary-renderer.ts` (JSON & console renderers)
+
+**Mocks:**
+- `src/orchestrator/mocks/mock-gate-evaluators.ts` (Configurable test mocks)
+
+### Next Steps
+
+**Stage E: CLI Validation (pending)**
+- Add Phase 4 flags: --llm-provider, --llm-model, --llm-budget, --no-llm-cache
+- Implement validation rules per Phase 4 §3.2
+- ~10 CLI validation tests
+
+**Stage F: Integration Tests (pending)**
+- Execute fixtures with gate scenarios (all pass, runtime failures, validation warnings)
+- Verify exit codes and run summary structure
+- Test JSON output against schema
+
+**Estimated Completion:** Stage E + F = ~2-3 hours
+
+---
+
+## WS-F1 Progress Update (2025-11-05 PM)
+
+### Completed Stages
+
+**Stage A0: Phase-1 Analysis ✅**
+- Reviewed KB APIs (getAllEntities, getCallGraph, etc.)
+- Captured fact schemas from Phase 3 parser
+- Documented findings in fixtures/adversarial/phase4/baseline/fact-schemas.json
+
+**Stage A1: Interface Definition & Freeze ✅**
+- Defined ValidationOutcome, GroundingDiagnostic, ChunkMetadata, GroundingResult types
+- Created Validator interface
+- Implemented MockValidator with schema validation
+- 11 contract tests passing
+- **UNBLOCKED WS-F2 and WS-H**
+
+**Stage A2: Entity Name Index ✅**
+- Implemented EntityNameIndex with O(n) build, O(k) lookup
+- Handles exact matches, collisions, qualified names (ClassName.methodName)
+- 14 tests passing
+- Performance: <50ms build for 1000 entities, <5ms lookup
+
+**Stage B: Identifier, Scope & Pronoun Validation ✅**
+- Implemented identifier extraction (backticked, PascalCase, camelCase, dotted paths)
+- Implemented KB lookup with scope validation
+- Enhanced scope to include call graph relations
+- Implemented pronoun validation with singular/plural distinction
+- 29 tests passing
+- **Files:**
+  - `src/validation/identifier-extractor.ts` (regex-based extraction)
+  - `src/validation/identifier-validator.ts` (KB validation)
+  - `src/validation/__tests__/validator-identifiers.test.ts`
+
+### Test Coverage Summary
+
+**Total validation tests: 69 (all passing)**
+- validator-contract.test.ts: 11 tests
+- entity-name-index.test.ts: 14 tests
+- validator-identifiers.test.ts: 29 tests
+- cross-link-validator.test.ts: 16 tests (Phase 3)
+- cross-link-validator-integration.test.ts: 7 tests (Phase 3)
+- feedback-verification.test.ts: 7 tests (Phase 3)
+- phase-minus-1-analysis.test.ts: 5 tests (Phase 3)
+
+**Project-wide: 629 tests passing, no regressions**
+
+### Next Steps
+
+**Stage C: Numeric & Enum Guardrails (Day 4, ~12 tests)**
+- Extract numeric literals from draft text
+- Compare against factSet numeric predicates (±5% tolerance)
+- Enum value validation against allowed sets
+- Test with adversarial cases (hallucinated numbers, wrong enums)
+
+**Stage D: Lexicon Normalization (Day 5 AM, ~8 tests)**
+- Implement terminology normalizer per CTS-02 §3.8
+- Map synonyms (e.g., "function" ↔ "method" for class methods)
+- Test with multi-term variations
+
+**Stage E: Retry Controller & Template Fallback (Day 5 PM-6, ~10 tests)**
+- Implement retry decision logic (R1: entity, R2: numeric/enum)
+- Template fallback after 2 retries
+- Test adversarial inputs that force fallback
+
+**Stage F: Diagnostics & Deterministic Debug (Day 7 AM, ~6 tests)**
+- Implement diagnostic formatting with context
+- Test deterministic output format
+
+**Stage G: Integration, Adversarial & Regression (Day 7 PM-8, ~12 tests)**
+- End-to-end validation with real behavior chunks
+- Adversarial cases from fixtures/adversarial/phase4/
+- Regression suite for all rules
+
+**Estimated Timeline:** Stages C-G = ~4-5 days
