@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 116 exported entities.
+This project contains 120 exported entities.
 
 ## Conventions
 
@@ -34,4 +34,5 @@ Per-directory specifications:
 - [src/reasoning](./src/reasoning/spec.md)
 - [src/scanner](./src/scanner/spec.md)
 - [src/types](./src/types/spec.md)
+- [src/validation](./src/validation/spec.md)
 
