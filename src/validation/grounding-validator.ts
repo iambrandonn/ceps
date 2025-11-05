@@ -76,6 +76,11 @@ export class GroundingValidator {
   /**
    * Determine validation status from diagnostics.
    *
+   * Per CTS-02 §4.2: strict equality with nearest-integer rounding.
+   * Fallback criteria:
+   * - Large numeric differences (rounded values differ by >2x)
+   * - Systematic hallucinations (wrong dimension, unknown units)
+   *
    * @param diagnostics - All collected diagnostics
    * @returns Validation status
    */
@@ -86,14 +91,22 @@ export class GroundingValidator {
 
     // Check for unrecoverable errors (immediate fallback)
     const hasUnrecoverableError = diagnostics.some(d => {
-      // Numeric errors beyond tolerance (>50% difference)
-      if (d.rule === 'numeric' && d.reason.includes('beyond tolerance')) {
-        // Extract percentage from reason like "100.0%" or "50.0%"
-        const match = d.reason.match(/(\d+\.\d+)%/);
-        if (match) {
-          const percentage = parseFloat(match[1]);
-          if (percentage > 50) {
-            return true; // Too large a diff, fallback
+      if (d.rule === 'numeric') {
+        // Extract rounded values from context if available
+        const context = d.context as any;
+
+        if (context?.actual &&
+            typeof context.actual.roundedFactValue === 'number' &&
+            typeof context.actual.value === 'number') {
+          const factValue = context.actual.roundedFactValue;
+          const textValue = context.actual.value;
+          const ratio = Math.max(factValue, textValue) / Math.min(factValue, textValue);
+
+          // If rounded values differ by 2x or more, treat as unrecoverable
+          // Example: 5 vs 10 seconds (2x difference) → fallback
+          // Example: 5 vs 6 seconds (1.2x difference) → retry
+          if (ratio >= 2.0) {
+            return true;
           }
         }
       }

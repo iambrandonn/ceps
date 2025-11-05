@@ -155,7 +155,7 @@ describe('GroundingValidator Integration', () => {
 
       const result = validator.validate(draftText, ['fs-config'], metadata);
 
-      // Should be fallback due to numeric tolerance violation
+      // Should be fallback due to 2x numeric difference (5 vs 10 seconds)
       expect(result.status).toBe('fallback');
       expect(result.diagnostics.some(d => d.rule === 'numeric')).toBe(true);
     });

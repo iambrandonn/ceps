@@ -1,8 +1,11 @@
 /**
  * Phase 4 WS-F1 Stage C: Numeric & Enum Validation Tests
  *
- * Tests for validating numeric claims with unit conversion and tolerance.
- * Tests enum validation against allowed value registries.
+ * Tests for validating numeric claims per CTS-02 §4.2:
+ * - Unit conversion (ms ↔ s, B ↔ KB, etc.)
+ * - **Strict equality** after normalization
+ * - Allow rounding to **nearest integer** for human-friendly units
+ * - Enum validation (exact match required)
  *
  * TDD: Write ALL tests BEFORE implementation (Red phase).
  */
@@ -158,8 +161,8 @@ describe('NumericValidator', () => {
     });
   });
 
-  describe('Rounding Tolerance (5%)', () => {
-    it('should accept rounding within 5% tolerance', () => {
+  describe('Nearest Integer Rounding (CTS-02)', () => {
+    it('should accept nearest-integer rounding for human-friendly units', () => {
       const entity = createEntity({
         id: 'func-poll',
         kind: 'function',
@@ -179,14 +182,14 @@ describe('NumericValidator', () => {
       };
       kb.insertFactSet(factSet);
 
-      // Text says "5 seconds" (5000ms) vs fact 5123ms (2.4% difference - within 5%)
+      // Text says "5 seconds" vs fact 5123ms → 5.123s rounds to 5 ✅
       const result = validator.validate('Polls every 5 seconds.', ['fs-poller']);
 
       expect(result.valid).toBe(true);
       expect(result.diagnostics).toHaveLength(0);
     });
 
-    it('should reject rounding beyond 5% tolerance', () => {
+    it('should reject when rounded value does not match text', () => {
       const entity = createEntity({
         id: 'func-retry',
         kind: 'function',
@@ -206,13 +209,13 @@ describe('NumericValidator', () => {
       };
       kb.insertFactSet(factSet);
 
-      // Text says "6 seconds" (6000ms) vs fact 5123ms (17% difference - beyond 5%)
+      // Text says "6 seconds" vs fact 5123ms → 5.123s rounds to 5, not 6 ❌
       const result = validator.validate('Retries every 6 seconds.', ['fs-retry']);
 
       expect(result.valid).toBe(false);
       expect(result.diagnostics).toHaveLength(1);
       expect(result.diagnostics[0].rule).toBe('numeric');
-      expect(result.diagnostics[0].reason).toContain('beyond tolerance');
+      expect(result.diagnostics[0].reason).toContain('does not match');
     });
   });
 
