@@ -8,29 +8,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ceps** (Codebase to Specification) is a one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into human-readable Markdown specifications. Its purpose is to bootstrap a spec-driven development workflow by extracting behavioral intent from existing code.
 
-**Current Status:** Phase 2 (I/O & Templates) complete. Full end-to-end pipeline working. 277 tests passing with 94.3% coverage. Ready for Phase 3 (Intelligence).
+**Current Status:** Phase 4 (Grounding & Polish) complete. LLM integration, validator gates, and run summaries are in production with 62 test files / 823 tests (3 skipped) passing and 93.42% coverage. Preparing for Phase 5 (Finalization).
 
 ---
 
 ## Current Phase
 
-**Phase 3 — Intelligence (Ready to Start)**
+**Phase 5 — Finalization (Ready to Start)**
 
-- **Status:** Phase 2 complete, end-to-end pipeline working, ready for intelligence layer
-- **Depends on:** Phase 2 (✅ Complete)
-- **Approach:** TDD-first, 2-3 parallel agents, ~3-4 agent-days per agent
+- **Status:** Phase 4 gating, validator, and LLM polish are complete; Finalization Engine is the next sequential milestone.
+- **Depends on:** Phase 4 (✅ Complete)
+- **Approach:** TDD-first, sequential delivery (1 agent) with tight integration to the existing pipeline.
 - **Agents:**
-  - **Agent 1:** KB Indices & Confidence Scoring (CTS-01)
-  - **Agent 2:** Reasoning & Ambiguity Resolver (CTS-06)
-  - **Agent 3:** Cross-link Validation & Phase Coordination (CTS-03, CTS-07)
+  - **Agent 1:** Finalization Engine (CTS-04)
 - **Deliverables:**
-  - Call/import graphs and reverse-deps indices
-  - Confidence scoring algorithm (upgrade from stub)
-  - Framework pattern matching (Express, React basics)
-  - Intent lifting and iterative resolution
-  - Two-phase cross-link validation
-  - Open Question (QID) generation
-- **Critical Checkpoint:** All agents depend on Phase 2 pipeline (Scanner → Parser → KB → Generator)
+  - Snapshot/Merkle capture and verification
+  - `answers.md` ingestion and QID resolution workflow
+  - Reverse-deps scoping (caps honoured)
+  - Selective re-analysis and spec patching
+  - Finalization summaries appended to impacted specs
+- **Critical Checkpoint:** Phase 4 gates remain green; finalization run must respect snapshot integrity.
 
 ---
 
@@ -160,7 +157,7 @@ ceps finalize --answers ./answers.md
 
 ## Implementation Status
 
-### ✅ Completed (Phases 0-2)
+### ✅ Completed (Phases 0-4)
 1. ~~Resolve outstanding questions in SADS-FEEDBACK.md~~ → **Done** (see CTS-Responses.md)
 2. ~~Create all Component Technical Specs (CTS)~~ → **Done** (all 7 CTS documents complete)
 3. ~~Create Phase 1 implementation plan~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2)
@@ -177,22 +174,24 @@ ceps finalize --answers ./answers.md
    - ✅ Orchestrator integration (Scanner → Parser → KB → Generator)
    - ✅ End-to-end smoke test (3 comprehensive integration tests)
    - ✅ **Results:** 277 tests passing, 94.3% coverage, production-ready
+6. ~~Execute Phase 3 implementation~~ → **Done**
+   - ✅ KB indices & reverse-deps graph with confidence scoring API
+   - ✅ Reasoning & Ambiguity Resolver lifts behavior intent and triages QIDs
+   - ✅ Two-phase cross-link validation & deterministic anchor enforcement in Spec Generator
+   - ✅ Orchestrator phase coordination & deterministic mode wiring
+7. ~~Execute Phase 4 implementation~~ → **Done**
+   - ✅ WS-F1 grounding validator, adversarial suite, lexicon workflow
+   - ✅ WS-F2 LLM polish integration, budget enforcement, CLI flag matrix
+   - ✅ WS-H runtime/validation gates, exit codes, and run summary telemetry
+   - ✅ **Results:** 62 test files, 823 tests passed (3 skipped), 93.42% coverage; gates and budgets enforced
 
-### 📋 Next (Phase 3)
-6. **Phase 3 implementation:** Indices, Reasoning (CTS-06), Linking
-   - **Status:** Ready to start
-   - **2-3 parallel agents**
-   - All depend on Phase 2 pipeline ✅
+### 📋 Next (Phase 5)
+- **Phase 5 implementation:** Finalization Engine (CTS-04), sequential
+  - Impact-scoped re-analysis, snapshot verification, answers ingestion, summary append
 
-### 📋 Future (Phase 4-6)
-6. Phase 3 implementation: Indices, Reasoning (CTS-06), Linking
-   - **2-3 parallel agents**
-7. Phase 4 implementation: Grounding Validator (CTS-02), Gates (CTS-07)
-   - **2 parallel agents**
-8. Phase 5 implementation: Finalization Engine (CTS-04)
-   - **Sequential** (1 agent)
-9. Phase 6 implementation: Framework patterns, performance, documentation
-   - **5-7 parallel agents**
+### 📋 Future (Phase 6)
+- Phase 6 implementation: Framework patterns, performance, documentation
+  - **5-7 parallel agents**
 
 ---
 

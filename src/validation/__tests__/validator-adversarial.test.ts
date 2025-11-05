@@ -9,7 +9,8 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import { GroundingValidator } from '../grounding-validator.js';
 import { KnowledgeBase } from '../../kb/knowledge-base.js';
 import { createEntity } from '../../kb/models.js';
-import type { Entity, FactSet, ChunkMetadata } from '../../kb/models.js';
+import type { Entity, FactSet } from '../../kb/models.js';
+import type { ChunkMetadata } from '../types.js';
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 

@@ -351,11 +351,12 @@ export class SpecGenerator {
 
         // Validate with grounding validator if available
         if (this.validator) {
+          const factSetIds = factSets.map(fs => fs.id);
           const metadata: ChunkMetadata = {
             chunkId: `chunk-${entity.id}`,
             targetEntityId: entity.id,
-            factSetIds: factSets.map(fs => fs.id),
-            confidence: this.mapConfidenceBand(entity.confidence),
+            factSetIds,
+            confidence: this.kb.scoreConfidence(factSetIds),
           };
 
           const result = this.validator.validate(llmDraft, metadata.factSetIds, metadata);

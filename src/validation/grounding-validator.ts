@@ -66,9 +66,8 @@ export class GroundingValidator {
       status,
       diagnostics: allDiagnostics,
       retryMetadata: status === 'retry' ? {
-        attemptCount: 0,
+        attempt: 0,
         promptKey: 'R1',
-        guidance: this.buildGuidance(allDiagnostics),
       } : undefined,
     };
   }

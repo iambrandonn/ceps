@@ -41,7 +41,6 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
       name: 'testFunction',
       exported: true,
       path: 'src/test.ts',
-      confidence: 70,
       packageId: undefined,
     };
     kb.insertEntity(entity);
@@ -196,7 +195,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
       // Create budget tracker with very small limit
       const smallBudget = new BudgetTracker(10);
       // Exhaust budget
-      smallBudget.recordUsage('chunk', 15);
+      smallBudget.recordUsage('chunk', 15, 0, 0, 0);
 
       const options: GeneratorOptions = {
         llmEnabled: true,
@@ -218,7 +217,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
       const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
       const smallBudget = new BudgetTracker(10);
-      smallBudget.recordUsage('chunk', 15);
+      smallBudget.recordUsage('chunk', 15, 0, 0, 0);
 
       const options: GeneratorOptions = {
         llmEnabled: true,
@@ -240,7 +239,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
 
     it('should increment templateFallback counter on budget exhaustion', async () => {
       const smallBudget = new BudgetTracker(10);
-      smallBudget.recordUsage('chunk', 15);
+      smallBudget.recordUsage('chunk', 15, 0, 0, 0);
 
       const options: GeneratorOptions = {
         llmEnabled: true,
@@ -286,7 +285,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
       await generator.generateDirectorySpecsAsync('.');
 
       // Verify validator was called with correct metadata
-      const validateCalls = mockValidator.validate.mock.calls;
+      const validateCalls = (mockValidator.validate as any).mock.calls;
       if (validateCalls.length > 0) {
         const [, , metadata] = validateCalls[0];
         expect(metadata).toHaveProperty('targetEntityId');
@@ -306,7 +305,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
       await generator.generateDirectorySpecsAsync('.');
 
       // Verify validator was called with factSetIds
-      const validateCalls = mockValidator.validate.mock.calls;
+      const validateCalls = (mockValidator.validate as any).mock.calls;
       if (validateCalls.length > 0) {
         const [, factSetIds] = validateCalls[0];
         expect(Array.isArray(factSetIds)).toBe(true);
@@ -326,7 +325,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
       await generator.generateDirectorySpecsAsync('.');
 
       // Verify validator was called with confidence
-      const validateCalls = mockValidator.validate.mock.calls;
+      const validateCalls = (mockValidator.validate as any).mock.calls;
       if (validateCalls.length > 0) {
         const [, , metadata] = validateCalls[0];
         expect(metadata).toHaveProperty('confidence');

@@ -153,7 +153,7 @@ export async function run(argv: string[]): Promise<number> {
 
     // Build gate inputs from collected data (reuse exportedEntities from earlier)
     const allChunks = kb.getAllChunks();
-    const entitiesWithChunks = new Set(allChunks.map(c => c.entityId));
+    const entitiesWithChunks = new Set(allChunks.map(c => c.targetEntityId));
 
     // Get entities with open questions
     const allEntities = kb.getAllEntities();
@@ -199,7 +199,7 @@ export async function run(argv: string[]): Promise<number> {
         diffs: 0
       },
       confidence: {
-        openQuestions: allOpenQuestions.map(q => q.id),
+        openQuestions: allOpenQuestions.length,
         invalidConfidenceItems: []
       },
       monorepo: {
@@ -223,7 +223,11 @@ export async function run(argv: string[]): Promise<number> {
       tokens: {
         total: gatewayUsage?.totalTokens || 0,
         budget: args.llmBudget || 0,
-        providers: gatewayUsage?.byProvider || {}
+        providers: gatewayUsage?.byProvider
+          ? Object.fromEntries(
+              Object.entries(gatewayUsage.byProvider).map(([k, v]) => [k, v.totalTokens])
+            )
+          : {}
       },
       warnings: generatorMetrics.warnings
     };

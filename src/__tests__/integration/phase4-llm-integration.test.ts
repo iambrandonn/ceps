@@ -399,7 +399,7 @@ describe('Phase 4 LLM Integration (WS-F2 Stage G)', () => {
 
       const tracker = new BudgetTracker(budget);
       // Pre-exhaust budget
-      tracker.recordUsage('test', budget + 1);
+      tracker.recordUsage('test', budget + 1, 0, 0, 0);
 
       const validator = new MockValidator();
       validator.setNextResult({ status: 'accept', diagnostics: [] });

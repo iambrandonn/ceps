@@ -42,7 +42,7 @@ describe('LLM Gateway Interface Contracts (CTS-02 §6)', () => {
           facts: [
             { subjectId: 'entity-1', predicate: 'has-type', object: 'function' },
           ],
-          sources: [{ file: 'test.ts', line: 1 }],
+          sources: [{ kind: 'ast', file: 'test.ts' }],
           evidenceScore: 90,
         },
       ];
@@ -204,7 +204,6 @@ describe('LLM Gateway Interface Contracts (CTS-02 §6)', () => {
       ];
 
       try {
-        // @ts-expect-error - Method doesn't exist yet
         await gateway.summarize(factSets, 'spec-ready', {});
       } catch {
         // Expected to fail in RED phase

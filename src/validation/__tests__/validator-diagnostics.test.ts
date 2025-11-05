@@ -118,7 +118,7 @@ describe('DiagnosticRenderer', () => {
           context: {
             timestamp: Date.now(),
             data: 'important',
-          },
+          } as any,
         },
       ];
 
@@ -142,7 +142,7 @@ describe('DiagnosticRenderer', () => {
           reason: 'Test',
           context: {
             generatedId: 'xyz-789',
-          },
+          } as any,
         },
       ];
 
@@ -169,7 +169,7 @@ describe('DiagnosticRenderer', () => {
           reason: 'Entity outside scope',
           context: {
             factSetIds: ['fs-user-service', 'fs-auth'],
-          },
+          } as any,
         },
       ];
 

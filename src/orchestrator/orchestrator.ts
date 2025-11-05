@@ -403,7 +403,7 @@ export class Orchestrator extends EventEmitter {
     // Build gate inputs from collected data
     const exportedEntities = this.kb.listExported();
     const allChunks = this.kb.getAllChunks();
-    const entitiesWithChunks = new Set(allChunks.map(c => c.entityId));
+    const entitiesWithChunks = new Set(allChunks.map(c => c.targetEntityId));
 
     // Get entities with open questions
     const allEntities = this.kb.getAllEntities();
@@ -449,7 +449,7 @@ export class Orchestrator extends EventEmitter {
         diffs: 0
       },
       confidence: {
-        openQuestions: allOpenQuestions.map(q => q.id),
+        openQuestions: allOpenQuestions.length,
         invalidConfidenceItems: []
       },
       monorepo: {
@@ -473,7 +473,11 @@ export class Orchestrator extends EventEmitter {
       tokens: {
         total: gatewayUsage?.totalTokens || 0,
         budget: 0,
-        providers: gatewayUsage?.byProvider || {}
+        providers: gatewayUsage?.byProvider
+          ? Object.fromEntries(
+              Object.entries(gatewayUsage.byProvider).map(([k, v]) => [k, v.totalTokens])
+            )
+          : {}
       },
       warnings: generatorMetrics.warnings
     };

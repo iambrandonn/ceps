@@ -1,8 +1,8 @@
 # ceps — High‑Level Implementation Plan (HLIP)
-**Date:** 2025-11-03 (Updated: Phase 2 complete)
+**Date:** 2025-11-03 (Updated: Phase 4 complete)
 **Scope:** End‑to‑end plan to deliver ceps from architecture to MVP and production, aligned to SADS v1.1 and the CTS suite.
 **Audience:** AI agents, engineering reviewers, product.
-**Status:** Phase 1 complete (✅), Phase 2 complete (✅), Phase 3 ready to start
+**Status:** Phases 1-4 complete (✅); Phase 5 ready to start
 
 **Phase 1 Completion:**
 - ✅ KB API frozen and documented
@@ -14,8 +14,21 @@
 - ✅ End-to-end pipeline working (Scanner → Parser → KB → Generator)
 - ✅ 277 tests passing, 94.3% coverage
 - ✅ All 4 agent workstreams complete
-- ✅ Production-ready
-- ✅ Ready for Phase 3 (Intelligence)
+- ✅ Production-ready baseline
+
+**Phase 3 Completion:**
+- ✅ KB indices & reverse-dependency graph published (WS-A)
+- ✅ Confidence scoring API upgraded from stub and integrated with reasoning (WS-A/WS-D)
+- ✅ Reasoning & Ambiguity Resolver promotes intent and triages QIDs (WS-D)
+- ✅ Two-phase cross-link validation and deterministic anchor enforcement in Spec Generator (WS-E)
+- ✅ Orchestrator phase coordination, deterministic mode, and link audits (WS-H)
+
+**Phase 4 Completion:**
+- ✅ Grounding Validator & adversarial suite (WS-F1) with lexicon workflow and diagnostics
+- ✅ LLM polish integration, budget enforcement, CLI flag matrix (WS-F2)
+- ✅ Runtime + validation gates, exit codes, and run summary telemetry (WS-H)
+- ✅ All gates passing with deterministic template fallback preserved
+- ✅ **Results:** 62 test files, 823 tests passed (3 skipped), 93.42% coverage
 
 **Implementation approach:** This project will be implemented by AI agents using **Test-Driven Development (TDD)**. Milestones are structured for progressive delivery; agents should maximize parallelization wherever dependencies permit.
 

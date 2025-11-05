@@ -1,5 +1,7 @@
 # ceps — Phase 4 Implementation Plan (Grounding & Polish)
 
+**Status:** ✅ Completed — WS-F1, WS-F2, and WS-H merged with gates passing (62 test files, 823 tests · 93.42% coverage).
+
 ## 1. Context & Goals
 - Elevate the Phase 2/3 pipeline into an LLM-grounded flow that satisfies SADS §8 grounding guarantees and the High-Level Implementation Plan (HLIP) M1 milestone.
 - Enforce Coverage, Link, Grounding, and Determinism gates at the orchestrator layer so every run exits with explicit pass/fail semantics while keeping existing M0 gates green.
@@ -31,8 +33,7 @@
 3. Lookup identifiers via the validator-maintained name index built from KB `getAllEntities()` and constrain matches to the chunk’s factSetId scope; reject if absent or mismatched kind.
 4. Validate numeric/enum claims against factSet payloads with the following rules:
    - Permit unit conversion using standard rates (ms↔s, KB↔MB, etc.).
-   - Allow nearest-integer rounding when `|converted - original| / original ≤ 0.05`.
-   - Examples: `5123ms` → “5 seconds” (5000ms, 2.4% delta) ✅; `5123ms` → “6 seconds” (6000ms, 17% delta) ❌; `127KB` → “0.1 MB” (128KB, 0.8% delta) ✅.
+   - Require strict equality after normalization; allow **only** nearest-integer rounding for human-friendly units (e.g., `5000ms` ↔ “5 seconds”).
    - Enums must match exactly; no tolerance window.
 5. Ensure no out-of-scope references (chunk must only cite its declared factSetIds).
 6. On failure, emit diagnostic + retry signal; after second failure, trigger template fallback and log warning.
@@ -297,7 +298,7 @@ Orchestrator → Gate Engine → Run Summary / Exit Code
 
 | Workstream | CTS / SADS References | Plan Elaborations & Notes |
 |------------|-----------------------|---------------------------|
-| **WS-F1 Grounding Validator** | CTS-02 §4.2 (validation rules), §4.3 (outcomes), §4.4 (retry prompts), §6 (validator interface); SADS §8 (Grounding) | Adds numeric tolerance formula (≤5% delta), pronoun heuristic, lexicon JSON format/workflow, diagnostics schema, adversarial coverage, and optional metadata parameter for diagnostics when invoking `validate`. |
+| **WS-F1 Grounding Validator** | CTS-02 §4.2 (validation rules), §4.3 (outcomes), §4.4 (retry prompts), §6 (validator interface); SADS §8 (Grounding) | Adds strict-equality numeric checks with nearest-integer rounding, pronoun heuristic, lexicon JSON format/workflow, diagnostics schema, adversarial coverage, and optional metadata parameter for diagnostics when invoking `validate`. |
 | **WS-F2 LLM Gateway Integration** | CTS-02 §2–§6 (CLI, prompting, fallback, gateway APIs), CTS-07 §3–§4 (lifecycle, budgeting), §7–§10 (determinism, telemetry) | Wraps CTS `summarize`, `validate`, and `withBudget`; specifies tokenizer guidance, CLI validation UX, fallback logging, run-summary metrics. |
 | **WS-H Orchestrator Gates** | CTS-07 §5–§11 (phase coordination, gates, exit codes, metrics); SADS §6.3 (exit codes), §10 (product gates) | Implements gate sequencing, exit codes, structured run summary; introduces supplemental validation gates (Cost, Readability, Adversarial, Test Coverage) for Phase 4 acceptance. |
 | **Cross-Cutting Documentation & Artifacts** | CTS-02 §7 (acceptance), CTS-07 §12 (observability) | Ensures `docs/cli.md`, `docs/validator-api.md`, tracker updates, and artifact archives capture CTS contracts and runtime metrics. |

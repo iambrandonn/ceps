@@ -4,8 +4,10 @@ A one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into 
 
 ## Current Status
 
-**Phase 1: Foundation — COMPLETE ✅**
-**Phase 2: I/O & Templates — COMPLETE ✅**
+**Phase 1: Foundation — COMPLETE ✅**  
+**Phase 2: I/O & Templates — COMPLETE ✅**  
+**Phase 3: Intelligence — COMPLETE ✅**  
+**Phase 4: Grounding & Polish — COMPLETE ✅**
 
 ### Phase 1: Foundation (Complete)
 
@@ -45,6 +47,33 @@ Test Files  22 passed (22)
 Tests       277 passed (277)
 Coverage    94.3% (exceeds 80% requirement)
 Duration    2.28s
+```
+
+### Phase 3: Intelligence (Complete)
+
+Phase 3 adds the intelligence layer so ceps can reason about intent, confidence, and cross-file relationships.
+
+**Completed Deliverables:**
+- ✅ KB indices, reverse-dependency graphs, and confidence scoring API upgrades (WS-A)
+- ✅ Reasoning & Ambiguity Resolver with iterative lifting and QID triage (WS-D)
+- ✅ Two-phase cross-link validation and deterministic anchor enforcement in Spec Generator (WS-E)
+- ✅ Orchestrator coordination, deterministic mode, and link audit tooling (WS-H)
+
+### Phase 4: Grounding & Polish (Complete)
+
+Phase 4 delivers the grounding validator, LLM polish integration, and runtime gates that enforce SADS §10 quality bars.
+
+**Completed Deliverables:**
+- ✅ Grounding validator, lexicon pipeline, diagnostics, and adversarial suite (WS-F1)
+- ✅ LLM polish integration, budget governor, CLI flag matrix, and deterministic template fallback (WS-F2)
+- ✅ Runtime + validation gates, structured run summary, and exit code enforcement (WS-H)
+
+**Test Results:**
+```
+Test Files  62 passed (62)
+Tests       823 passed | 3 skipped (826)
+Coverage    93.42% (overall, --coverage run)
+Duration    5.57s
 ```
 
 ## Quick Start
