@@ -1,6 +1,6 @@
 # src/orchestrator
 
-**Directory Overview:** This directory contains 3 entities.
+**Directory Overview:** This directory contains 8 entities.
 
 ## cli.ts
 
@@ -49,4 +49,54 @@ This function performs an operation.
 
 **Side effects:**
 - filesystem
+
+## orchestrator.ts
+
+<a id="lLguhmXutC"></a>
+
+### Orchestrator
+
+**Visibility:** Public (exported)
+
+This class represents orchestrator.
+
+<a id="a9rpQpThu3"></a>
+
+### run
+
+**Signature:** `(): Promise<void>`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="0VkuvO050d"></a>
+
+### runUntil
+
+**Signature:** `(targetPhase: PipelinePhase): Promise<void>`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="GHRwJlWdUe"></a>
+
+### getKnowledgeBase
+
+**Signature:** `(): import("/src/kb/knowledge-base").KnowledgeBase`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="2lDjctGoZ7"></a>
+
+### getStatus
+
+**Signature:** `(): import("/src/orchestrator/orchestrator").PipelineStatus`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
 

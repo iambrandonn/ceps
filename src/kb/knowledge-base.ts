@@ -248,6 +248,25 @@ export class KnowledgeBase {
     return this.getActiveState().factSets.get(id);
   }
 
+  /**
+   * Get all factSets that have facts with the given entityId as subjectId.
+   * Used by IntentLifter and Orchestrator to gather facts for an entity.
+   *
+   * @param entityId - Entity ID to search for
+   * @returns Array of factSets containing facts about this entity
+   */
+  getFactSetsBySubject(entityId: string): FactSet[] {
+    const state = this.getActiveState();
+    const result: FactSet[] = [];
+    for (const factSet of state.factSets.values()) {
+      // Check if any fact in this factSet has matching subjectId
+      if (factSet.facts.some(f => f.subjectId === entityId)) {
+        result.push(factSet);
+      }
+    }
+    return result;
+  }
+
   // -------- BehaviorChunk Operations --------
   insertChunk(chunk: BehaviorChunk): void {
     this.getActiveState().chunks.set(chunk.id, chunk);
