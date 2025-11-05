@@ -698,26 +698,45 @@ RunSummary {
   - `src/validation/identifier-validator.ts` (KB validation)
   - `src/validation/__tests__/validator-identifiers.test.ts`
 
+**Stage C: Numeric & Enum Guardrails ✅**
+- Implemented fact schema interpreter for parsing numeric facts
+  - Handles strings ("5000 ms"), objects, percentages ("50%")
+  - Normalizes to {value, unit} format
+- Implemented numeric validator with unit conversion
+  - Time units: ms, s, min, h
+  - Data units: B, KB, MB, GB
+  - Percentage normalization
+  - ±5% tolerance for rounding
+  - Predicate parsing to infer units ("interval-ms" → ms)
+  - Unit normalization ("seconds" → "s")
+  - Prose word filtering ("100 items")
+- Implemented enum registry and validation
+  - HTTP methods, status codes, log levels, content types
+  - Case-sensitive matching
+- 36 tests passing (23 fact schema + 13 numeric validator)
+- **Files:**
+  - `src/validation/fact-schema-interpreter.ts` (numeric fact parsing)
+  - `src/validation/numeric-validator.ts` (numeric & enum validation)
+  - `src/validation/enums.ts` (enum registry)
+  - `src/validation/__tests__/fact-schema-interpreter.test.ts`
+  - `src/validation/__tests__/validator-numeric.test.ts`
+
 ### Test Coverage Summary
 
-**Total validation tests: 69 (all passing)**
+**Total validation tests: 105 (all passing)**
 - validator-contract.test.ts: 11 tests
 - entity-name-index.test.ts: 14 tests
 - validator-identifiers.test.ts: 29 tests
+- fact-schema-interpreter.test.ts: 23 tests ✨ NEW
+- validator-numeric.test.ts: 13 tests ✨ NEW
 - cross-link-validator.test.ts: 16 tests (Phase 3)
 - cross-link-validator-integration.test.ts: 7 tests (Phase 3)
 - feedback-verification.test.ts: 7 tests (Phase 3)
 - phase-minus-1-analysis.test.ts: 5 tests (Phase 3)
 
-**Project-wide: 629 tests passing, no regressions**
+**Project-wide: 665 tests passing, 0 regressions** (36 tests added in Stage C)
 
 ### Next Steps
-
-**Stage C: Numeric & Enum Guardrails (Day 4, ~12 tests)**
-- Extract numeric literals from draft text
-- Compare against factSet numeric predicates (±5% tolerance)
-- Enum value validation against allowed sets
-- Test with adversarial cases (hallucinated numbers, wrong enums)
 
 **Stage D: Lexicon Normalization (Day 5 AM, ~8 tests)**
 - Implement terminology normalizer per CTS-02 §3.8
