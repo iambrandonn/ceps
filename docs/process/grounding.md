@@ -736,12 +736,47 @@ RunSummary {
 
 **Project-wide: 665 tests passing, 0 regressions** (36 tests added in Stage C)
 
-### Next Steps
+**Stage D: Lexicon Normalization ✅**
+- Created lexicon JSON with 20 canonical verbs and synonyms
+  - Canonical verbs: aggregate, authorize, cache, compute, configure, emit, fetch, filter, guard, map, monitor, normalize, parse, persist, publish, retry, route, schedule, subscribe, validate
+  - Alphabetically sorted, no duplicate synonyms
+- Implemented lexicon loader with case-insensitive lookup
+  - Reverse map: synonym → canonical (O(1) lookup)
+  - Singleton pattern with default loader
+  - Standalone `normalizeTerm()` function
+- Created lint script (`npm run lexicon:lint`)
+  - Validates alphabetical ordering
+  - Detects duplicate synonyms
+  - Checks minimum 20 canonicals
+- Documented workflow in `docs/process/lexicon-updates.md`
+  - Adding synonyms process
+  - Adding canonical verbs
+  - Lint command usage
+- 14 tests passing
+- **Files:**
+  - `src/validation/lexicon/ceps.lexicon.json` (canonical verbs)
+  - `src/validation/lexicon/lexicon-loader.ts` (loader)
+  - `scripts/lint-lexicon.cjs` (linter)
+  - `docs/process/lexicon-updates.md` (workflow)
+  - `src/validation/__tests__/validator-lexicon.test.ts`
 
-**Stage D: Lexicon Normalization (Day 5 AM, ~8 tests)**
-- Implement terminology normalizer per CTS-02 §3.8
-- Map synonyms (e.g., "function" ↔ "method" for class methods)
-- Test with multi-term variations
+### Test Coverage Summary
+
+**Total validation tests: 119 (all passing)**
+- validator-contract.test.ts: 11 tests
+- entity-name-index.test.ts: 14 tests
+- validator-identifiers.test.ts: 29 tests
+- fact-schema-interpreter.test.ts: 23 tests
+- validator-numeric.test.ts: 13 tests
+- validator-lexicon.test.ts: 14 tests ✨ NEW
+- cross-link-validator.test.ts: 16 tests (Phase 3)
+- cross-link-validator-integration.test.ts: 7 tests (Phase 3)
+- feedback-verification.test.ts: 7 tests (Phase 3)
+- phase-minus-1-analysis.test.ts: 5 tests (Phase 3)
+
+**Project-wide: 718 tests passing** (includes 39 new WS-H tests + 14 Stage D tests)
+
+### Next Steps
 
 **Stage E: Retry Controller & Template Fallback (Day 5 PM-6, ~10 tests)**
 - Implement retry decision logic (R1: entity, R2: numeric/enum)
