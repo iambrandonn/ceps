@@ -1,6 +1,6 @@
 # src/validation
 
-**Directory Overview:** This directory contains 7 entities.
+**Directory Overview:** This directory contains 9 entities.
 
 ## cross-link-validator.ts
 
@@ -41,6 +41,26 @@ This method performs an operation.
 **Visibility:** Public (exported)
 
 This method validates input.
+
+## entity-name-index.ts
+
+<a id="5Pz0ZZNGul"></a>
+
+### EntityNameIndex
+
+**Visibility:** Public (exported)
+
+This class represents entity name index.
+
+<a id="2Rj2fNT2o7"></a>
+
+### find
+
+**Signature:** `(name: string): string[]`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
 
 ## mock-validator.ts
 

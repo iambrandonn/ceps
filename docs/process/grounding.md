@@ -45,6 +45,18 @@ Record updates using ISO timestamps.
   - UNBLOCKS: WS-F2 and WS-H can now proceed with parallel development!
   - Next: Stage A2 (Entity Name Index) - Day 2
 
+2025-11-05T08:15:00Z — [WS-F1] Stage A2 (Entity Name Index) COMPLETE ✅
+  - EntityNameIndex implementation complete: O(n) build, O(k) lookup
+  - Handles exact matches, collisions (same name/different paths), qualified names (ClassName.methodName)
+  - Tests passing: 14 tests (src/validation/__tests__/entity-name-index.test.ts)
+  - Coverage: handles 1000+ entities efficiently (build <50ms, lookup <5ms)
+  - Artifacts:
+    - src/validation/entity-name-index.ts (index implementation)
+    - src/validation/__tests__/entity-name-index.test.ts (14 tests)
+  - Workaround: KB lacks name-based lookup → validator maintains local cache
+  - All 512 tests passing (no regressions)
+  - Next: Stage B (Identifier, Scope & Pronoun Validation) - Days 3-4
+
 2025-11-??T??:??Z — [Workstream] Milestone description, key artifacts/paths, next dependency unblocked.
 ```
 
