@@ -132,13 +132,19 @@ export class GateRegistry {
 
   /**
    * Compute exit code based on gate results.
-   * Per SADS §6.3:
-   * - 0: success (all runtime gates pass or skip)
-   * - 2: runtime gate failure
-   * - (1 and 3 handled by orchestrator: config errors and snapshot mismatch)
+   * Per SADS §6.3 and Phase 4 acceptance criteria:
+   * - 0: success (all gates pass or skip)
+   * - 1: test failure (test coverage gate fails)
+   * - 2: gate failure (runtime gates, cost, adversarial fail)
+   * - 3: snapshot mismatch (Phase 5, handled by orchestrator)
    */
   private computeExitCode(summary: RunSummary): 0 | 1 | 2 | 3 {
-    // Check if any runtime gate failed
+    // Test Coverage gate failure → exit 1 (test failure, highest priority)
+    if (summary.validation.testCoverage.status === 'fail') {
+      return 1;
+    }
+
+    // Runtime gate failures → exit 2
     const runtimeGateFailed =
       summary.gates.coverage.status === 'fail' ||
       summary.gates.link.status === 'fail' ||
@@ -147,10 +153,16 @@ export class GateRegistry {
       summary.gates.confidence.status === 'fail' ||
       summary.gates.monorepo.status === 'fail';
 
-    if (runtimeGateFailed) {
+    // Cost and Adversarial gate failures also → exit 2 (per Phase 4 acceptance criteria)
+    const validationGateFailed =
+      summary.validation.cost.status === 'fail' ||
+      summary.validation.adversarial.status === 'fail';
+
+    if (runtimeGateFailed || validationGateFailed) {
       return 2; // Gate failure
     }
 
+    // Only Readability is truly advisory (does not affect exit code)
     return 0; // Success
   }
 
@@ -173,16 +185,30 @@ export class GateRegistry {
   }
 
   /**
-   * Get list of failed validation gates for warnings.
+   * Get list of all gates that cause exit code 2 (runtime + cost + adversarial).
+   * Per Phase 4 acceptance criteria, Cost and Adversarial gate failures exit with code 2.
    * @param summary - Run summary
-   * @returns Array of failed validation gate names
+   * @returns Array of failed gate names that cause exit 2
+   */
+  getFailedGatesExitCode2(summary: RunSummary): string[] {
+    const failed = [...this.getFailedRuntimeGates(summary)];
+
+    if (summary.validation.cost.status === 'fail') failed.push('cost');
+    if (summary.validation.adversarial.status === 'fail') failed.push('adversarial');
+
+    return failed;
+  }
+
+  /**
+   * Get list of failed validation gates for warnings (advisory only).
+   * Per Phase 4 acceptance criteria, only Readability is truly advisory.
+   * @param summary - Run summary
+   * @returns Array of failed validation gate names (advisory gates only)
    */
   getFailedValidationGates(summary: RunSummary): string[] {
     const failed: string[] = [];
 
-    if (summary.validation.cost.status === 'fail') failed.push('cost');
-    if (summary.validation.adversarial.status === 'fail') failed.push('adversarial');
-    if (summary.validation.testCoverage.status === 'fail') failed.push('testCoverage');
+    // Only Readability is advisory - doesn't affect exit code
     if (summary.validation.readability.status === 'fail') failed.push('readability');
 
     return failed;

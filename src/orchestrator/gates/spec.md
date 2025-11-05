@@ -1,10 +1,10 @@
 # src/orchestrator/gates
 
-**Directory Overview:** This directory contains 26 entities.
+**Directory Overview:** This directory contains 27 entities.
 
 ## gate-registry.ts
 
-<a id="sz40fvC59T"></a>
+<a id="NctTIgBv8d"></a>
 
 ### GateRegistry
 
@@ -52,7 +52,17 @@ This method performs an operation.
 
 This method retrieves data.
 
-<a id="VGGUh0WhnD"></a>
+<a id="kghernsxnH"></a>
+
+### getFailedGatesExitCode2
+
+**Signature:** `(summary: RunSummary): string[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="fszmWPzpKL"></a>
 
 ### getFailedValidationGates
 

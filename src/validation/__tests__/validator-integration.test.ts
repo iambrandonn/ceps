@@ -23,8 +23,7 @@ describe('GroundingValidator Integration', () => {
   });
 
   describe('Happy Path (High Confidence)', () => {
-    // TODO: Fix method resolution in scope validation
-    it.skip('should accept well-grounded chunk with all validations passing', () => {
+    it('should accept well-grounded chunk with all validations passing', () => {
       // Setup: Create realistic KB with entities and facts
       const userServiceEntity = createEntity({
         id: 'class-UserService',
@@ -260,6 +259,56 @@ describe('GroundingValidator Integration', () => {
       expect(result.status).toBe('retry');
       expect(result.diagnostics.some(d => d.rule === 'scope')).toBe(true);
       expect(result.diagnostics.some(d => d.reason.includes('AdminService'))).toBe(true);
+    });
+  });
+
+  describe('Structural Relationships (Accept)', () => {
+    it('should accept entities referenced via has-method predicate', () => {
+      // This test verifies that methods referenced via has-method are in scope
+      const classEntity = createEntity({
+        id: 'class-AuthService',
+        kind: 'class',
+        name: 'AuthService',
+        path: 'src/auth.ts',
+        exported: true,
+      });
+
+      const methodEntity = createEntity({
+        id: 'method-login',
+        kind: 'method',
+        name: 'login',
+        path: 'src/auth.ts',
+        exported: false,
+      });
+
+      kb.insertEntity(classEntity);
+      kb.insertEntity(methodEntity);
+
+      const factSet: FactSet = {
+        id: 'fs-auth',
+        facts: [
+          { subjectId: 'class-AuthService', predicate: 'is-class', object: true },
+          { subjectId: 'class-AuthService', predicate: 'has-method', object: 'login' },
+        ],
+        sources: [{ kind: 'ast', file: 'src/auth.ts' }],
+        evidenceScore: 90,
+      };
+
+      kb.insertFactSet(factSet);
+
+      const draftText = 'AuthService provides a login method for authentication.';
+
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-auth',
+        targetEntityId: 'class-AuthService',
+        factSetIds: ['fs-auth'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-auth'], metadata);
+
+      expect(result.status).toBe('accept');
+      expect(result.diagnostics).toHaveLength(0);
     });
   });
 

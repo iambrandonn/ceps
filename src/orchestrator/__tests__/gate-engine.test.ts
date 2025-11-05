@@ -177,8 +177,8 @@ describe('Gate Engine', () => {
 
       expect(summary.validation.cost.status).toBe('fail');
       expect(summary.validation.cost.remaining).toBe(-2000);
-      // Exit code should still be 0 (validation gates don't affect it)
-      expect(summary.exitCode).toBe(0);
+      // Cost gate failures cause exit code 2 (per Phase 4 acceptance criteria)
+      expect(summary.exitCode).toBe(2);
     });
 
     it('should detect per-fixture threshold violations', () => {
@@ -200,7 +200,7 @@ describe('Gate Engine', () => {
       );
     });
 
-    it('should report adversarial gate failure without affecting exit code', () => {
+    it('should report adversarial gate failure with exit code 2', () => {
       const inputs = createDefaultInputs();
       inputs.adversarial = {
         total: 20,
@@ -211,10 +211,11 @@ describe('Gate Engine', () => {
 
       expect(summary.validation.adversarial.status).toBe('fail');
       expect(summary.validation.adversarial.pass).toBe(false);
-      expect(summary.exitCode).toBe(0);
+      // Adversarial gate failures cause exit code 2 (per Phase 4 acceptance criteria)
+      expect(summary.exitCode).toBe(2);
     });
 
-    it('should report test coverage failure without affecting exit code', () => {
+    it('should report test coverage failure with exit code 1', () => {
       const inputs = createDefaultInputs();
       inputs.testCoverage = {
         coverage: 75,
@@ -225,7 +226,8 @@ describe('Gate Engine', () => {
 
       expect(summary.validation.testCoverage.status).toBe('fail');
       expect(summary.validation.testCoverage.pass).toBe(false);
-      expect(summary.exitCode).toBe(0);
+      // Test coverage failures cause exit code 1 (test failure, per Phase 4 acceptance criteria)
+      expect(summary.exitCode).toBe(1);
     });
 
     it('should skip readability gate when no review data', () => {
@@ -290,25 +292,36 @@ describe('Gate Engine', () => {
       expect(failedGates).toContain('link');
     });
 
-    it('should not be affected by validation gate failures', () => {
+    it('should prioritize test coverage failure (exit 1) over other gate failures (exit 2)', () => {
       const inputs = createDefaultInputs();
-      // Fail all validation gates
+      // Fail test coverage, cost, and adversarial gates
       inputs.cost.totalTokens = 20000;
       inputs.cost.budget = 10000;
       inputs.adversarial.rejected = 10;
       inputs.testCoverage.coverage = 50;
+
+      const summary = registry.evaluateAll(inputs);
+
+      // Test coverage exit 1 takes precedence (per Phase 4 acceptance criteria)
+      expect(summary.exitCode).toBe(1);
+      expect(summary.validation.testCoverage.status).toBe('fail');
+      expect(summary.validation.cost.status).toBe('fail');
+      expect(summary.validation.adversarial.status).toBe('fail');
+    });
+
+    it('should not be affected by only readability gate failure', () => {
+      const inputs = createDefaultInputs();
+      // Only fail readability gate (truly advisory)
       inputs.readability = { avgScore: 4, threshold: 7 };
 
       const summary = registry.evaluateAll(inputs);
 
-      // Exit code should still be 0 (validation gates don't affect it)
+      // Only readability is advisory (doesn't affect exit code)
       expect(summary.exitCode).toBe(0);
 
       const failedValidationGates = registry.getFailedValidationGates(summary);
-      expect(failedValidationGates).toContain('cost');
-      expect(failedValidationGates).toContain('adversarial');
-      expect(failedValidationGates).toContain('testCoverage');
       expect(failedValidationGates).toContain('readability');
+      expect(failedValidationGates).toHaveLength(1);
     });
   });
 

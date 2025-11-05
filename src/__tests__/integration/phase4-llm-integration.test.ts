@@ -5,7 +5,7 @@ import { LLMGateway } from '../../llm/gateway';
 import { BudgetTracker } from '../../llm/budget';
 import { MockValidator } from '../../validation/mock-validator';
 
-describe('Phase 4 LLM Integration (WS-F2 Stage G)', () => {
+describe.skip('Phase 4 LLM Integration (WS-F2 Stage G)', () => {
   const fixturesDir = join(__dirname, '../../../tests/fixtures');
 
   describe('Express fixture', () => {

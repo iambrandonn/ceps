@@ -1,6 +1,6 @@
 # src/validation
 
-**Directory Overview:** This directory contains 24 entities.
+**Directory Overview:** This directory contains 26 entities.
 
 ## cross-link-validator.ts
 
@@ -106,6 +106,26 @@ This constant defines e n u m_ r e g i s t r y.
 
 This function performs an operation.
 
+## grounding-validator.ts
+
+<a id="VzcTl7MRor"></a>
+
+### GroundingValidator
+
+**Visibility:** Public (exported)
+
+This class represents grounding validator.
+
+<a id="yoOKWMGIO0"></a>
+
+### validate
+
+**Signature:** `(draftText: string, factSetIds: string[], metadata: ChunkMetadata): GroundingResult`
+
+**Visibility:** Public (exported)
+
+This method validates input.
+
 ## identifier-extractor.ts
 
 <a id="VOh17TplwO"></a>
@@ -138,7 +158,7 @@ This method performs an operation.
 
 ## identifier-validator.ts
 
-<a id="8G0ZySCpuC"></a>
+<a id="bY0HYz1NsC"></a>
 
 ### IdentifierValidator
 

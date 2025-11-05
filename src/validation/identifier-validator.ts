@@ -291,6 +291,38 @@ export class IdentifierValidator {
       }
     }
 
+    // Third pass: check for structural relationships (has-method, has-property, etc.)
+    // If a method/property is referenced by an entity in scope, it should be in scope
+    const structuralPredicates = new Set([
+      'has-method',
+      'has-property',
+      'has-parameter',
+      'has-field',
+      'returns',
+      'throws',
+    ]);
+
+    for (const entityId of entityIds) {
+      // Get the entity to check its name
+      const entity = this.kb.getEntity(entityId);
+      if (!entity) continue;
+
+      // Check if any entity in scope has a structural relationship with this entity's name
+      for (const factSetId of factSetIds) {
+        const factSet = this.kb.getFactSet(factSetId);
+        if (factSet) {
+          for (const fact of factSet.facts) {
+            if (structuralPredicates.has(fact.predicate)) {
+              // Check if the object matches the entity's name
+              if (fact.object === entity.name) {
+                return entityId;
+              }
+            }
+          }
+        }
+      }
+    }
+
     return null;
   }
 }

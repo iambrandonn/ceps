@@ -108,59 +108,87 @@ describe('Gate Integration Scenarios', () => {
     });
   });
 
-  describe('Validation Gate Failures', () => {
-    it('should return exit code 0 even when cost gate fails', () => {
+  describe('Cost and Adversarial Gate Failures (Exit Code 2)', () => {
+    it('should return exit code 2 when cost gate fails', () => {
       const registry = new GateRegistry();
       const inputs = createCostFailureInputs();
       const summary = registry.evaluateAll(inputs);
 
-      // Validation gates don't affect exit code
-      expect(summary.exitCode).toBe(0);
+      // Cost gate failures cause exit code 2 (per Phase 4 acceptance criteria)
+      expect(summary.exitCode).toBe(2);
       expect(summary.validation.cost.status).toBe('fail');
 
-      const failedValidationGates = registry.getFailedValidationGates(summary);
-      expect(failedValidationGates).toContain('cost');
+      const failedGates = registry.getFailedGatesExitCode2(summary);
+      expect(failedGates).toContain('cost');
     });
 
-    it('should return exit code 0 even when adversarial gate fails', () => {
+    it('should return exit code 2 when adversarial gate fails', () => {
       const registry = new GateRegistry();
       const inputs = createAdversarialFailureInputs();
       const summary = registry.evaluateAll(inputs);
 
-      expect(summary.exitCode).toBe(0);
+      // Adversarial gate failures cause exit code 2 (per Phase 4 acceptance criteria)
+      expect(summary.exitCode).toBe(2);
       expect(summary.validation.adversarial.status).toBe('fail');
 
-      const failedValidationGates = registry.getFailedValidationGates(summary);
-      expect(failedValidationGates).toContain('adversarial');
+      const failedGates = registry.getFailedGatesExitCode2(summary);
+      expect(failedGates).toContain('adversarial');
     });
+  });
 
-    it('should return exit code 0 when all validation gates fail', () => {
+  describe('Test Coverage Gate Failures (Exit Code 1)', () => {
+    it('should return exit code 1 when test coverage gate fails', () => {
       const registry = new GateRegistry();
-      const inputs = createAllValidationFailuresInputs();
+      const inputs = createTestCoverageFailureInputs();
       const summary = registry.evaluateAll(inputs);
 
-      // Advisory gates don't affect exit code
+      // Test coverage failures cause exit code 1 (test failure)
+      expect(summary.exitCode).toBe(1);
+      expect(summary.validation.testCoverage.status).toBe('fail');
+    });
+
+    it('should prioritize test coverage failure (exit 1) over gate failures (exit 2)', () => {
+      const registry = new GateRegistry();
+      const inputs = createTestCoverageAndRuntimeFailureInputs();
+      const summary = registry.evaluateAll(inputs);
+
+      // Exit 1 takes precedence over exit 2
+      expect(summary.exitCode).toBe(1);
+      expect(summary.validation.testCoverage.status).toBe('fail');
+      expect(summary.gates.coverage.status).toBe('fail');
+    });
+  });
+
+  describe('Readability Gate (Advisory Only)', () => {
+    it('should return exit code 0 when only readability gate fails', () => {
+      const registry = new GateRegistry();
+      const inputs = createReadabilityFailureInputs();
+      const summary = registry.evaluateAll(inputs);
+
+      // Readability is the only truly advisory gate
       expect(summary.exitCode).toBe(0);
+      expect(summary.validation.readability.status).toBe('fail');
 
       const failedValidationGates = registry.getFailedValidationGates(summary);
-      expect(failedValidationGates.length).toBeGreaterThan(0);
+      expect(failedValidationGates).toContain('readability');
     });
   });
 
   describe('Mixed Failures', () => {
-    it('should return exit code 2 when both runtime and validation gates fail', () => {
+    it('should return exit code 2 when both runtime and cost gates fail', () => {
       const registry = new GateRegistry();
       const inputs = createMixedFailuresInputs();
       const summary = registry.evaluateAll(inputs);
 
-      // Runtime gate failure takes precedence
+      // Both runtime and cost gate failures → exit 2
       expect(summary.exitCode).toBe(2);
 
       const failedRuntimeGates = registry.getFailedRuntimeGates(summary);
-      const failedValidationGates = registry.getFailedValidationGates(summary);
+      const failedGatesExitCode2 = registry.getFailedGatesExitCode2(summary);
 
       expect(failedRuntimeGates.length).toBeGreaterThan(0);
-      expect(failedValidationGates.length).toBeGreaterThan(0);
+      expect(failedGatesExitCode2).toContain('coverage');
+      expect(failedGatesExitCode2).toContain('cost');
     });
   });
 
@@ -334,14 +362,37 @@ function createAdversarialFailureInputs(): GateInputs {
 }
 
 /**
- * Creates inputs where all validation gates fail.
+ * Creates inputs where test coverage gate fails.
  */
-function createAllValidationFailuresInputs(): GateInputs {
+function createTestCoverageFailureInputs(): GateInputs {
   const inputs = createAllPassInputs();
-  inputs.cost = { totalTokens: 12000, budget: 10000 };
-  inputs.adversarial = { total: 20, rejected: 15 };
   inputs.testCoverage = { coverage: 70, threshold: 80 }; // Below threshold
-  inputs.tokens = { total: 12000, budget: 10000, providers: { anthropic: 12000 } };
+  return inputs;
+}
+
+/**
+ * Creates inputs where test coverage and runtime gates fail.
+ */
+function createTestCoverageAndRuntimeFailureInputs(): GateInputs {
+  const inputs = createAllPassInputs();
+  inputs.testCoverage = { coverage: 70, threshold: 80 };
+  inputs.coverage = {
+    exportedEntityIds: ['e1', 'e2', 'e3'],
+    entitiesWithChunks: ['e1'],
+    entitiesWithQIDs: []
+  };
+  return inputs;
+}
+
+/**
+ * Creates inputs where readability gate fails.
+ */
+function createReadabilityFailureInputs(): GateInputs {
+  const inputs = createAllPassInputs();
+  inputs.readability = {
+    avgScore: 4.5,
+    threshold: 7.0
+  };
   return inputs;
 }
 
