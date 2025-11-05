@@ -1,6 +1,6 @@
 # src/validation
 
-**Directory Overview:** This directory contains 16 entities.
+**Directory Overview:** This directory contains 21 entities.
 
 ## cross-link-validator.ts
 
@@ -61,6 +61,38 @@ This class represents entity name index.
 **Visibility:** Public (exported)
 
 This method performs an operation.
+
+## enums.ts
+
+<a id="VCSppH1pAx"></a>
+
+### getAllowedEnumValues
+
+**Signature:** `(predicate: string): Set<string>`
+
+**Visibility:** Public (exported)
+
+This function retrieves data.
+
+<a id="gowsZSHYNJ"></a>
+
+### ENUM_REGISTRY
+
+**Visibility:** Public (exported)
+
+This constant defines e n u m_ r e g i s t r y.
+
+## fact-schema-interpreter.ts
+
+<a id="V8KZFfkdkN"></a>
+
+### parseFactNumeric
+
+**Signature:** `(factValue: unknown): import("/src/validation/fact-schema-interpreter").NumericFact`
+
+**Visibility:** Public (exported)
+
+This function performs an operation.
 
 ## identifier-extractor.ts
 
@@ -169,6 +201,26 @@ This method performs an operation.
 ### validate
 
 **Signature:** `(_draft: string, _factSetIds: string[], _metadata: ChunkMetadata): GroundingResult`
+
+**Visibility:** Public (exported)
+
+This method validates input.
+
+## numeric-validator.ts
+
+<a id="N7rGlSSihK"></a>
+
+### NumericValidator
+
+**Visibility:** Public (exported)
+
+This class represents numeric validator.
+
+<a id="f9aN8HHXes"></a>
+
+### validate
+
+**Signature:** `(draftText: string, factSetIds: string[]): ValidationResult`
 
 **Visibility:** Public (exported)
 
