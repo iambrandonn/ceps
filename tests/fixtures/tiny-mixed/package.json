@@ -1,0 +1,9 @@
+{
+  "name": "tiny-mixed",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Mixed confidence scenarios for Phase 3 integration testing",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

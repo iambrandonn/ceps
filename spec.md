@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 126 exported entities.
+This project contains 144 exported entities.
 
 ## Conventions
 
@@ -35,4 +35,13 @@ Per-directory specifications:
 - [src/scanner](./src/scanner/spec.md)
 - [src/types](./src/types/spec.md)
 - [src/validation](./src/validation/spec.md)
+- [tests/fixtures/tiny-express/src](./tests/fixtures/tiny-express/src/spec.md)
+- [tests/fixtures/tiny-express/src/middleware](./tests/fixtures/tiny-express/src/middleware/spec.md)
+- [tests/fixtures/tiny-express/src/routes](./tests/fixtures/tiny-express/src/routes/spec.md)
+- [tests/fixtures/tiny-express/src/utils](./tests/fixtures/tiny-express/src/utils/spec.md)
+- [tests/fixtures/tiny-mixed/src](./tests/fixtures/tiny-mixed/src/spec.md)
+- [tests/fixtures/tiny-react/src](./tests/fixtures/tiny-react/src/spec.md)
+- [tests/fixtures/tiny-react/src/hooks](./tests/fixtures/tiny-react/src/hooks/spec.md)
+- [tests/fixtures/tiny-react/src/utils](./tests/fixtures/tiny-react/src/utils/spec.md)
+- [tests/fixtures/tiny-validation-failures/src](./tests/fixtures/tiny-validation-failures/src/spec.md)
 

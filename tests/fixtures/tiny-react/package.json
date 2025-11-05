@@ -1,0 +1,13 @@
+{
+  "name": "tiny-react",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Minimal React components for Phase 3 integration testing",
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}
