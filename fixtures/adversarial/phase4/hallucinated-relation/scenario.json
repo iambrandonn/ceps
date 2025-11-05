@@ -1,0 +1,22 @@
+{
+  "name": "Hallucinated Relation",
+  "description": "LLM claims a call relationship that doesn't exist in the call graph",
+  "category": "relation",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "UserService.validateUser calls AuthService.checkPermissions to verify user access levels.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-hallucinated-relation",
+    "targetEntityId": "method-validateUser",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "entity",
+      "reasonPattern": "AuthService.*not found|checkPermissions.*not found"
+    }
+  ],
+  "notes": "The draft claims validateUser calls checkPermissions, but this relationship doesn't exist in the KB. Should trigger entity validation failure for the non-existent method."
+}

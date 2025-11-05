@@ -1,0 +1,205 @@
+/**
+ * Phase 4 WS-F1 Stage F: Diagnostic Formatting Tests
+ *
+ * Tests for deterministic diagnostic output with --debug flag.
+ * Ensures consistent, meaningful diagnostics for debugging.
+ *
+ * TDD: Write ALL tests BEFORE implementation (Red phase).
+ */
+import { describe, it, expect } from 'vitest';
+import { renderDiagnostics } from '../diagnostic-renderer.js';
+describe('DiagnosticRenderer', () => {
+    describe('Debug Off (No Output)', () => {
+        it('should return empty string when debug is off', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'chunk-1',
+                    rule: 'entity',
+                    reason: 'Unknown entity',
+                },
+            ];
+            const options = {
+                debug: false,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            expect(result).toBe('');
+        });
+    });
+    describe('Debug On (Sorted Output)', () => {
+        it('should output diagnostics sorted by chunkId, rule, reason', () => {
+            const diagnostics = [
+                { chunkId: 'chunk-2', rule: 'numeric', reason: 'Value out of range' },
+                { chunkId: 'chunk-1', rule: 'entity', reason: 'Unknown entity' },
+                { chunkId: 'chunk-1', rule: 'entity', reason: 'Another issue' },
+                { chunkId: 'chunk-1', rule: 'enum', reason: 'Invalid enum' },
+            ];
+            const options = {
+                debug: true,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            // Parse lines and check order
+            const lines = result.trim().split('\n').filter(l => l.trim());
+            expect(lines.length).toBeGreaterThan(0);
+            // First diagnostic should be chunk-1, entity (alphabetically first)
+            expect(lines[0]).toContain('chunk-1');
+            expect(lines[0]).toContain('entity');
+            // Last should be chunk-2
+            const lastLine = lines[lines.length - 1];
+            expect(lastLine).toContain('chunk-2');
+        });
+        it('should include context when provided', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'chunk-1',
+                    rule: 'numeric',
+                    reason: 'Value mismatch',
+                    context: {
+                        expected: { value: 5000, unit: 'ms' },
+                        actual: { value: 6000, unit: 'ms' },
+                    },
+                },
+            ];
+            const options = {
+                debug: true,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            expect(result).toContain('expected');
+            expect(result).toContain('actual');
+            expect(result).toContain('5000');
+            expect(result).toContain('6000');
+        });
+        it('should include location when provided', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'chunk-1',
+                    rule: 'entity',
+                    reason: 'Unknown identifier',
+                    context: {
+                        location: 'src/services/user-service.ts:42',
+                    },
+                },
+            ];
+            const options = {
+                debug: true,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            expect(result).toContain('location');
+            expect(result).toContain('user-service.ts:42');
+        });
+    });
+    describe('Strip Non-Deterministic Values', () => {
+        it('should strip timestamps from context', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'chunk-1',
+                    rule: 'entity',
+                    reason: 'Test',
+                    context: {
+                        timestamp: Date.now(),
+                        data: 'important',
+                    },
+                },
+            ];
+            const options = {
+                debug: true,
+                stripNonDeterministic: true,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            expect(result).not.toContain('timestamp');
+            expect(result).toContain('data');
+            expect(result).toContain('important');
+        });
+        it('should strip random IDs from output', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'random-abc123',
+                    rule: 'entity',
+                    reason: 'Test',
+                    context: {
+                        generatedId: 'xyz-789',
+                    },
+                },
+            ];
+            const options = {
+                debug: true,
+                stripNonDeterministic: true,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            // Should still have structure but sanitized
+            // In text format, rule appears in brackets like [entity]
+            expect(result).toContain('[entity]');
+            expect(result).toContain('Test');
+        });
+    });
+    describe('FactSet ID Included', () => {
+        it('should include factSetId when available', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'chunk-1',
+                    rule: 'scope',
+                    reason: 'Entity outside scope',
+                    context: {
+                        factSetIds: ['fs-user-service', 'fs-auth'],
+                    },
+                },
+            ];
+            const options = {
+                debug: true,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            expect(result).toContain('factSetIds');
+            expect(result).toContain('fs-user-service');
+            expect(result).toContain('fs-auth');
+        });
+    });
+    describe('Format Options', () => {
+        it('should support JSON format', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'chunk-1',
+                    rule: 'entity',
+                    reason: 'Unknown entity',
+                },
+            ];
+            const options = {
+                debug: true,
+                format: 'json',
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            // Should be valid JSON
+            expect(() => JSON.parse(result)).not.toThrow();
+            const parsed = JSON.parse(result);
+            expect(parsed).toBeInstanceOf(Array);
+            expect(parsed[0]).toHaveProperty('chunkId');
+            expect(parsed[0]).toHaveProperty('rule');
+        });
+        it('should support text format (default)', () => {
+            const diagnostics = [
+                {
+                    chunkId: 'chunk-1',
+                    rule: 'entity',
+                    reason: 'Unknown entity',
+                },
+            ];
+            const options = {
+                debug: true,
+                format: 'text',
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            expect(result).toContain('chunk-1');
+            expect(result).toContain('entity');
+            expect(result).toContain('Unknown entity');
+        });
+    });
+    describe('Empty Diagnostics', () => {
+        it('should handle empty diagnostics array', () => {
+            const diagnostics = [];
+            const options = {
+                debug: true,
+            };
+            const result = renderDiagnostics(diagnostics, options);
+            expect(result).toBe('');
+        });
+    });
+});
+//# sourceMappingURL=validator-diagnostics.test.js.map

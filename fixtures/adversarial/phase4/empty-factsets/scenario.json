@@ -1,0 +1,17 @@
+{
+  "name": "Empty FactSets",
+  "description": "Chunk references empty factSetIds array (no grounding data available)",
+  "category": "scope",
+  "severity": "high",
+  "expectedOutcome": "accept",
+  "draftText": "The authentication system validates user credentials and manages session tokens.",
+  "factSetIds": [],
+  "metadata": {
+    "chunkId": "chunk-empty-factsets",
+    "targetEntityId": "unknown",
+    "factSetIds": [],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "Empty factSetIds means there's no grounding data available for validation. The validator accepts by default when there are no factSets to validate against (nothing to check)."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Scope Violation Indirect",
+  "description": "LLM references an entity accessible via call chain but not in declared factSetIds",
+  "category": "scope",
+  "severity": "medium",
+  "expectedOutcome": "retry",
+  "draftText": "The handleRequest function delegates to CacheManager to determine cache expiration times.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-scope-indirect",
+    "targetEntityId": "function-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "entity",
+      "reasonPattern": "CacheManager.*not found"
+    }
+  ],
+  "notes": "CacheManager doesn't exist in any factSet. This tests scope validation where an entity reference is outside the declared factSetIds, even if it might be related via the call graph."
+}

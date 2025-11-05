@@ -1,0 +1,22 @@
+{
+  "name": "Cross-Chunk Pronoun",
+  "description": "Pronoun references entity from a different chunk (no antecedent in current scope)",
+  "category": "pronoun",
+  "severity": "medium",
+  "expectedOutcome": "retry",
+  "draftText": "It handles POST requests efficiently using the configured timeout values.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-cross-pronoun",
+    "targetEntityId": "function-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "pronoun",
+      "reasonPattern": "pronoun.*no valid antecedent|it.*without antecedent"
+    }
+  ],
+  "notes": "The draft starts with 'It' but there's no prior entity reference in this chunk to serve as antecedent. The pronoun might refer to something from a previous chunk, which violates chunk-level grounding."
+}

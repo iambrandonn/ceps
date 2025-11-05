@@ -1,0 +1,22 @@
+{
+  "name": "Numeric Unit Unknown",
+  "description": "LLM uses an unsupported unit that can't be converted",
+  "category": "numeric",
+  "severity": "medium",
+  "expectedOutcome": "retry",
+  "draftText": "The API_TIMEOUT is set to 0.05 parsecs to ensure rapid response times.",
+  "factSetIds": ["fs-api-config"],
+  "metadata": {
+    "chunkId": "chunk-unit-unknown",
+    "targetEntityId": "const-API_TIMEOUT",
+    "factSetIds": ["fs-api-config"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "numeric",
+      "reasonPattern": "parsecs|unsupported unit|cannot convert"
+    }
+  ],
+  "notes": "Parsecs is not a supported time unit. The validator should fail to convert between ms (KB unit) and parsecs (text unit), triggering numeric validation failure."
+}

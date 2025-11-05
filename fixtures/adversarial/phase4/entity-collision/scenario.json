@@ -1,0 +1,17 @@
+{
+  "name": "Entity Collision",
+  "description": "Multiple entities with same name in different scopes (ambiguous reference)",
+  "category": "entity",
+  "severity": "medium",
+  "expectedOutcome": "accept",
+  "draftText": "The handleRequest function processes incoming requests and supports the GET method for data retrieval.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-entity-collision",
+    "targetEntityId": "function-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "This tests the case where entity names might collide across different scopes. Since handleRequest, GET, and POST are all present in fs-http-handler factSet, this should ACCEPT. The validator should handle entity resolution within the correct scope."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Enum Case Mismatch",
+  "description": "HTTP method with incorrect casing (should be uppercase per HTTP spec)",
+  "category": "enum",
+  "severity": "medium",
+  "expectedOutcome": "retry",
+  "draftText": "The handleRequest function supports Get and Post methods for retrieving and submitting data.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-enum-case",
+    "targetEntityId": "function-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "enum",
+      "reasonPattern": "incorrect case|Get.*Expected.*GET|Post.*Expected.*POST"
+    }
+  ],
+  "notes": "HTTP methods must be uppercase (GET, POST) per RFC specification. 'Get' and 'Post' with incorrect casing should trigger enum validation failure."
+}

@@ -1,0 +1,49 @@
+/**
+ * Phase 4 WS-F1: Grounding Validator (Main Entry Point)
+ *
+ * Orchestrates all validation rules to ensure LLM-generated behavior chunks
+ * remain grounded in factSets per SADS §8 and CTS-02 specifications.
+ *
+ * Validation Pipeline:
+ * 1. Identifier extraction and KB lookup
+ * 2. Scope validation (factSetIds)
+ * 3. Numeric and enum validation
+ * 4. Pronoun resolution
+ * 5. Lexicon normalization (future integration)
+ */
+import type { KnowledgeBase } from '../kb/knowledge-base.js';
+import type { GroundingResult, ChunkMetadata } from './types.js';
+/**
+ * GroundingValidator orchestrates all validation rules.
+ * Main entry point for Phase 4 grounding validation.
+ */
+export declare class GroundingValidator {
+    private kb;
+    private identifierValidator;
+    private numericValidator;
+    constructor(kb: KnowledgeBase);
+    /**
+     * Validate behavior chunk text against KB factSets.
+     *
+     * @param draftText - LLM-generated behavior chunk text
+     * @param factSetIds - Array of factSet IDs chunk is allowed to reference
+     * @param metadata - Chunk metadata
+     * @returns Grounding result with status and diagnostics
+     */
+    validate(draftText: string, factSetIds: string[], metadata: ChunkMetadata): GroundingResult;
+    /**
+     * Determine validation status from diagnostics.
+     *
+     * @param diagnostics - All collected diagnostics
+     * @returns Validation status
+     */
+    private determineStatus;
+    /**
+     * Build retry guidance from diagnostics.
+     *
+     * @param diagnostics - Validation diagnostics
+     * @returns Guidance string
+     */
+    private buildGuidance;
+}
+//# sourceMappingURL=grounding-validator.d.ts.map

@@ -1,0 +1,22 @@
+{
+  "name": "Qualified Name Mismatch",
+  "description": "LLM uses incorrect qualified name format (e.g., User.Service vs UserService)",
+  "category": "entity",
+  "severity": "medium",
+  "expectedOutcome": "retry",
+  "draftText": "The User.Service class provides authentication and authorization functionality.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-qualified-name",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "entity",
+      "reasonPattern": "User\\.Service.*not found|User.*not found"
+    }
+  ],
+  "notes": "KB has 'UserService' (single identifier), but text uses 'User.Service' (dotted path). The incorrect qualified name should not match and should trigger entity validation failure."
+}

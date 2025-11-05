@@ -1,0 +1,17 @@
+{
+  "name": "Backtick Extraction",
+  "description": "Identifier in backticks should be recognized and validated",
+  "category": "entity",
+  "severity": "low",
+  "expectedOutcome": "accept",
+  "draftText": "The `UserService` class provides the `validateUser` method for authentication.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-backtick",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "Identifiers wrapped in backticks (markdown code style) should be extracted and validated. Since UserService and validateUser both exist in fs-user-service, this should ACCEPT. Tests that identifier extraction handles backtick formatting."
+}

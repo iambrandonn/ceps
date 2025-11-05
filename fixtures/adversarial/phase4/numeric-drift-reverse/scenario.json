@@ -1,0 +1,22 @@
+{
+  "name": "Numeric Drift Reverse",
+  "description": "LLM understates the numeric value (KB says larger value, text says smaller)",
+  "category": "numeric",
+  "severity": "high",
+  "expectedOutcome": "fallback",
+  "draftText": "The API_TIMEOUT is configured to 1 second to ensure rapid response times.",
+  "factSetIds": ["fs-api-config"],
+  "metadata": {
+    "chunkId": "chunk-numeric-reverse",
+    "targetEntityId": "const-API_TIMEOUT",
+    "factSetIds": ["fs-api-config"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "numeric",
+      "reasonPattern": "1.*does not match.*3000|rounds to 3"
+    }
+  ],
+  "notes": "KB says 3000ms (3s), text says 1s. This is a 3x ratio difference, triggering fallback per CTS-02 (≥2x threshold)."
+}

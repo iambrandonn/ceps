@@ -15,14 +15,38 @@
  */
 import * as path from 'path';
 import { MarkdownRenderer } from './markdown-renderer.js';
+import { withBudgetHelper } from '../llm/budget-helpers.js';
 export class SpecGenerator {
     kb;
     renderer;
     fileIndex;
-    constructor(kb, fileIndex) {
+    llmGateway;
+    validator;
+    budgetTracker;
+    llmEnabled;
+    deterministicMode;
+    metrics;
+    constructor(kb, fileIndex, options) {
         this.kb = kb;
         this.renderer = new MarkdownRenderer();
         this.fileIndex = fileIndex;
+        this.llmGateway = options?.llmGateway;
+        this.validator = options?.validator;
+        this.budgetTracker = options?.budgetTracker;
+        this.llmEnabled = options?.llmEnabled ?? false;
+        this.deterministicMode = options?.deterministicMode ?? false;
+        this.metrics = {
+            llmPolished: 0,
+            templateFallback: 0,
+            budgetExhausted: false,
+            warnings: [],
+        };
+    }
+    /**
+     * Get generator metrics
+     */
+    getMetrics() {
+        return { ...this.metrics };
     }
     /**
      * Generate root spec.md content
@@ -139,6 +163,174 @@ export class SpecGenerator {
             grouped[entity.path].push(entity);
         }
         return grouped;
+    }
+    /**
+     * Async version of generateDirectorySpecs with LLM polish support
+     */
+    async generateDirectorySpecsAsync(projectRoot) {
+        if (!this.llmEnabled) {
+            // LLM disabled - use synchronous template generation
+            return this.generateDirectorySpecs(projectRoot);
+        }
+        const specs = {};
+        // Monorepo: Generate per-package specs
+        if (this.fileIndex?.packages.packages && this.fileIndex.packages.packages.length > 0) {
+            for (const pkg of this.fileIndex.packages.packages) {
+                const pkgEntities = this.kb.listExported().filter(e => e.packageId === pkg.id);
+                if (pkgEntities.length === 0)
+                    continue;
+                let md = '';
+                md += `# ${pkg.name}\n\n`;
+                md += `**Package:** ${pkg.path}\n\n`;
+                md += `**Exported entities:** ${pkgEntities.length}\n\n`;
+                // Group by file within package
+                const byFile = this.groupByFile(pkgEntities);
+                for (const [file, fileEntities] of Object.entries(byFile)) {
+                    md += `## ${path.basename(file)}\n\n`;
+                    for (const entity of fileEntities) {
+                        md += await this.renderEntityWithLLM(entity);
+                    }
+                }
+                specs[`${pkg.path}/spec.md`] = md;
+            }
+        }
+        else {
+            // Non-monorepo: Generate per-directory specs
+            const directories = this.getDirectories();
+            for (const dir of directories) {
+                const entities = this.kb.listExported().filter(e => path.dirname(e.path) === dir);
+                if (entities.length === 0)
+                    continue;
+                let md = '';
+                md += `# ${dir}\n\n`;
+                md += `**Directory Overview:** This directory contains ${entities.length} entities.\n\n`;
+                const byFile = this.groupByFile(entities);
+                for (const [file, fileEntities] of Object.entries(byFile)) {
+                    md += `## ${path.basename(file)}\n\n`;
+                    for (const entity of fileEntities) {
+                        md += await this.renderEntityWithLLM(entity);
+                    }
+                }
+                specs[`${dir}/spec.md`] = md;
+            }
+        }
+        return specs;
+    }
+    /**
+     * Render entity with optional LLM polish
+     */
+    async renderEntityWithLLM(entity) {
+        // Generate template draft
+        const templateDraft = this.generateChunkDraft(entity);
+        // If LLM not enabled, return template
+        if (!this.llmEnabled || !this.llmGateway) {
+            return templateDraft;
+        }
+        // Apply LLM polish
+        const factSets = this.kb.getFactSetsBySubject(entity.id);
+        return await this.applyLLMPolish(entity, factSets, templateDraft);
+    }
+    /**
+     * Generate template draft from entity (deterministic template output)
+     */
+    generateChunkDraft(entity) {
+        // Use existing renderer for template generation
+        return this.renderer.renderEntity(entity);
+    }
+    /**
+     * Apply LLM polish to chunk with budget/validator integration and retry logic
+     */
+    async applyLLMPolish(entity, factSets, templateDraft) {
+        // Check budget
+        if (this.budgetTracker) {
+            // Estimate tokens for this chunk (simple heuristic: ~100 tokens per entity)
+            const estimate = 100;
+            const budgetCheck = withBudgetHelper(this.budgetTracker, 'chunk', estimate);
+            if (!budgetCheck.allowed) {
+                // Budget exhausted - fall back to template
+                this.metrics.templateFallback++;
+                this.metrics.budgetExhausted = true;
+                const warning = `Budget exhausted for entity ${entity.id}, falling back to template`;
+                this.metrics.warnings.push(warning);
+                console.warn(warning);
+                return templateDraft;
+            }
+        }
+        // Retry loop: O → R1 → R2 → fallback
+        let attempt = 0;
+        let promptKey = 'O';
+        const maxAttempts = 3;
+        while (attempt < maxAttempts) {
+            try {
+                // Call LLM Gateway with current prompt key
+                const llmDraft = await this.llmGateway.summarize(factSets, 'spec-ready', {
+                    deterministic: this.deterministicMode,
+                    promptKey,
+                });
+                // Validate with grounding validator if available
+                if (this.validator) {
+                    const metadata = {
+                        chunkId: `chunk-${entity.id}`,
+                        targetEntityId: entity.id,
+                        factSetIds: factSets.map(fs => fs.id),
+                        confidence: this.mapConfidenceBand(entity.confidence),
+                    };
+                    const result = this.validator.validate(llmDraft, metadata.factSetIds, metadata);
+                    if (result.status === 'accept') {
+                        // Validation passed - use LLM draft
+                        this.metrics.llmPolished++;
+                        return llmDraft;
+                    }
+                    else if (result.status === 'retry' && attempt < maxAttempts - 1) {
+                        // Retry with stricter prompt
+                        attempt++;
+                        promptKey = attempt === 1 ? 'R1' : 'R2';
+                        // Log retry reason
+                        const reason = result.diagnostics[0]?.reason || 'unknown';
+                        console.debug(`Retry ${attempt} for ${entity.id}: ${reason}`);
+                        continue; // Try again with stricter prompt
+                    }
+                    else {
+                        // Fallback (either immediate fallback or max retries exhausted)
+                        this.metrics.templateFallback++;
+                        const reason = result.diagnostics[0]?.reason || 'validation failed';
+                        const warning = `Validation failed for entity ${entity.id}: ${reason}, using template`;
+                        this.metrics.warnings.push(warning);
+                        console.warn(warning);
+                        return templateDraft;
+                    }
+                }
+                else {
+                    // No validator - accept LLM output
+                    this.metrics.llmPolished++;
+                    return llmDraft;
+                }
+            }
+            catch (error) {
+                // LLM call failed - fall back to template
+                this.metrics.templateFallback++;
+                const warning = `LLM error for entity ${entity.id}: ${error}, using template`;
+                this.metrics.warnings.push(warning);
+                console.warn(warning);
+                return templateDraft;
+            }
+        }
+        // Max retries exhausted - fall back to template
+        this.metrics.templateFallback++;
+        const warning = `Max retries exhausted for entity ${entity.id}, using template`;
+        this.metrics.warnings.push(warning);
+        console.warn(warning);
+        return templateDraft;
+    }
+    /**
+     * Map numeric confidence to band
+     */
+    mapConfidenceBand(confidence) {
+        if (confidence >= 70)
+            return 'High';
+        if (confidence >= 40)
+            return 'Medium';
+        return 'Low';
     }
 }
 //# sourceMappingURL=spec-generator.js.map

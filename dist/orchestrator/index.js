@@ -4,6 +4,9 @@ import { Scanner } from '../scanner/scanner.js';
 import { Parser } from '../parser/parser.js';
 import { KnowledgeBase } from '../kb/knowledge-base.js';
 import { SpecGenerator } from '../generator/spec-generator.js';
+import { LLMGateway } from '../llm/gateway.js';
+import { BudgetTracker } from '../llm/budget.js';
+import { GroundingValidator } from '../validation/grounding-validator.js';
 import * as fs from 'fs';
 import * as path from 'path';
 const VERSION = '0.2.0';
@@ -65,16 +68,43 @@ export async function run(argv) {
         }
         const exportedEntities = kb.listExported();
         console.log(`Extracted ${exportedEntities.length} exported entities`);
-        // Phase 2: Generate specs
+        // Phase 4: Setup LLM components if enabled
+        let gateway;
+        let budgetTracker;
+        let validator;
+        if (args.llm === 'on') {
+            budgetTracker = new BudgetTracker(args.llmBudget || 1000000);
+            // Map provider (CLI allows azure/local but gateway only supports anthropic/openai)
+            const provider = (args.llmProvider === 'azure' || args.llmProvider === 'local')
+                ? 'anthropic' // fallback to anthropic
+                : (args.llmProvider || 'anthropic');
+            gateway = new LLMGateway({
+                anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+                openaiApiKey: process.env.OPENAI_API_KEY,
+                provider: provider,
+                budgetTokens: args.llmBudget,
+                enableCache: !args.noLlmCache
+            });
+            // Note: args.llmModel is parsed but not yet supported by LLMGateway
+            validator = new GroundingValidator(kb);
+        }
+        // Phase 4: Generate specs with LLM polish
         console.log('\nGenerating specifications...');
-        const generator = new SpecGenerator(kb, fileIndex);
+        const options = {
+            llmEnabled: args.llm === 'on',
+            deterministicMode: args.deterministic,
+            llmGateway: gateway,
+            validator: validator,
+            budgetTracker: budgetTracker
+        };
+        const generator = new SpecGenerator(kb, fileIndex, options);
         // Generate root spec
         const rootSpec = generator.generateRootSpec(args.projectRoot);
         const rootSpecPath = path.join(args.projectRoot, 'spec.md');
         fs.writeFileSync(rootSpecPath, rootSpec, 'utf8');
         console.log(`  ✓ Generated root spec: spec.md`);
-        // Generate directory/package specs
-        const dirSpecs = generator.generateDirectorySpecs(args.projectRoot);
+        // Generate directory/package specs (async for LLM polish)
+        const dirSpecs = await generator.generateDirectorySpecsAsync(args.projectRoot);
         let specsWritten = 0;
         for (const [specPath, content] of Object.entries(dirSpecs)) {
             const fullPath = path.join(args.projectRoot, specPath);
@@ -87,10 +117,25 @@ export async function run(argv) {
             console.log(`  ✓ Generated spec: ${specPath}`);
             specsWritten++;
         }
-        console.log(`\n✅ Phase 2 Complete!`);
+        // Phase 4: Collect metrics for run summary
+        const generatorMetrics = generator.getMetrics();
+        const gatewayUsage = gateway?.getUsage();
+        console.log(`\n✅ Phase ${args.llm === 'on' ? '4' : '2'} Complete!`);
         console.log(`Generated ${specsWritten + 1} specification files`);
         console.log(`  - 1 root spec (spec.md)`);
         console.log(`  - ${specsWritten} directory/package specs`);
+        if (args.llm === 'on' && gatewayUsage) {
+            console.log(`\nLLM Polish Summary:`);
+            console.log(`  - LLM polished: ${generatorMetrics.llmPolished} chunks`);
+            console.log(`  - Template fallback: ${generatorMetrics.templateFallback} chunks`);
+            console.log(`  - Tokens used: ${gatewayUsage.totalTokens}`);
+            if (generatorMetrics.warnings.length > 0) {
+                console.log(`\nWarnings:`);
+                for (const warning of generatorMetrics.warnings) {
+                    console.log(`  ⚠ ${warning}`);
+                }
+            }
+        }
         return 0; // success
     }
     catch (error) {

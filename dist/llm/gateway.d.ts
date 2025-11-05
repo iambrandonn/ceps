@@ -15,6 +15,7 @@
  */
 import type { CompletionOptions } from './adapters/anthropic';
 import { UsageStats } from './budget';
+import type { FactSet } from '../kb/models.js';
 export type Provider = 'anthropic' | 'openai';
 export interface GatewayOptions {
     anthropicApiKey?: string;
@@ -23,6 +24,12 @@ export interface GatewayOptions {
     budgetTokens?: number;
     enableCache?: boolean;
     cacheTTLMs?: number;
+}
+export interface SummarizeOptions {
+    deterministic?: boolean;
+    model?: string;
+    temperature?: number;
+    promptKey?: 'O' | 'R1' | 'R2';
 }
 export declare class LLMGateway {
     private adapters;
@@ -63,5 +70,19 @@ export declare class LLMGateway {
      * Clear cache
      */
     clearCache(): void;
+    /**
+     * Summarize factSets into fluent prose (CTS-02 §6)
+     *
+     * @param factSets - Array of factSets to summarize
+     * @param style - Style guide version (e.g., 'spec-ready')
+     * @param options - Summarization options
+     * @returns Promise resolving to summarized text
+     */
+    summarize(factSets: FactSet[], style: string, options?: SummarizeOptions): Promise<string>;
+    /**
+     * Build prompt for summarize() operation
+     * @private
+     */
+    private buildSummarizePrompt;
 }
 //# sourceMappingURL=gateway.d.ts.map

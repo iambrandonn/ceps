@@ -126,10 +126,12 @@ describe('Adversarial Suite (Automated)', () => {
     expect(scenarioDirs.length).toBeGreaterThan(0);
   });
 
-  // Rejection rate test: all adversarial scenarios should fail validation
-  it('should reject 100% of adversarial scenarios', () => {
+  // Summary test: verify all scenarios match their expected outcomes
+  it('should correctly validate all adversarial scenarios', () => {
     let totalScenarios = 0;
-    let rejectedScenarios = 0;
+    let correctOutcomes = 0;
+    let expectedRejects = 0;
+    let actualRejects = 0;
 
     for (const scenarioDir of scenarioDirs) {
       const scenarioPath = join(ADVERSARIAL_DIR, scenarioDir, 'scenario.json');
@@ -150,13 +152,30 @@ describe('Adversarial Suite (Automated)', () => {
         scenario.metadata
       );
 
+      // Count scenarios expected to reject (not accept)
+      if (scenario.expectedOutcome === 'retry' || scenario.expectedOutcome === 'fallback') {
+        expectedRejects++;
+      }
+
+      // Count actual rejections
       if (result.status === 'retry' || result.status === 'fallback') {
-        rejectedScenarios++;
+        actualRejects++;
+      }
+
+      // Count correct outcomes
+      if (result.status === scenario.expectedOutcome) {
+        correctOutcomes++;
       }
     }
 
-    const rejectionRate = totalScenarios > 0 ? rejectedScenarios / totalScenarios : 0;
-    expect(rejectionRate).toBe(1.0); // 100% rejection rate
-    expect(totalScenarios).toBeGreaterThan(0); // Ensure scenarios exist
+    const accuracyRate = totalScenarios > 0 ? correctOutcomes / totalScenarios : 0;
+
+    // All scenarios should match their expected outcomes (100% accuracy)
+    expect(accuracyRate).toBe(1.0);
+    expect(totalScenarios).toBeGreaterThan(0);
+
+    // Verify we have a mix of accept and reject scenarios
+    expect(expectedRejects).toBeGreaterThan(0);
+    expect(expectedRejects).toBeLessThan(totalScenarios);
   });
 });

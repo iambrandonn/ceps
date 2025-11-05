@@ -1,4 +1,4 @@
-import { Entity, FactSet, BehaviorChunk, Relation } from './models.js';
+import { Entity, FactSet, BehaviorChunk, Relation, OpenQuestion } from './models.js';
 import { Confidence } from '../types/index.js';
 export declare class KBError extends Error {
     constructor(message: string);
@@ -24,8 +24,46 @@ export declare class KnowledgeBase {
     listExported(): Entity[];
     insertFactSet(factSet: FactSet): void;
     getFactSet(id: string): FactSet | undefined;
+    /**
+     * Get all factSets that have facts with the given entityId as subjectId.
+     * Used by IntentLifter and Orchestrator to gather facts for an entity.
+     *
+     * @param entityId - Entity ID to search for
+     * @returns Array of factSets containing facts about this entity
+     */
+    getFactSetsBySubject(entityId: string): FactSet[];
     insertChunk(chunk: BehaviorChunk): void;
     getChunk(id: string): BehaviorChunk | undefined;
+    /**
+     * Phase 3 Step 4: Returns all behavior chunks in the KB.
+     * Used by AmbiguityResolver to iterate over chunks during resolution.
+     */
+    getAllChunks(): BehaviorChunk[];
+    /**
+     * Phase 3 Step 4: Returns all behavior chunks associated with a given entity.
+     * Used for cross-reference analysis (finding chunks for callees).
+     */
+    getChunksByEntity(entityId: string): BehaviorChunk[];
+    /**
+     * Phase 3 Step 4: Updates a behavior chunk with partial updates (e.g., confidence promotion).
+     * Used by AmbiguityResolver to promote chunk confidence during iteration.
+     */
+    updateChunk(id: string, updates: Partial<BehaviorChunk>): void;
+    /**
+     * Inserts an open question (QID) into the KB.
+     * Used by AmbiguityResolver to store generated QIDs for Low confidence items.
+     */
+    insertOpenQuestion(oq: OpenQuestion): void;
+    /**
+     * Returns all open questions associated with a given entity.
+     * Used by AmbiguityResolver to build ambiguity queue.
+     */
+    getOpenQuestionsByEntity(entityId: string): OpenQuestion[];
+    /**
+     * Returns all open questions in the KB.
+     * Used by Spec Generator to emit QID sections.
+     */
+    getAllOpenQuestions(): OpenQuestion[];
     /**
      * Insert a relation into the KB.
      * Used by Parser in Phase 2 to store import/export/call relations.

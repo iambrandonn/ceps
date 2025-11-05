@@ -1,6 +1,6 @@
 # src/orchestrator
 
-**Directory Overview:** This directory contains 8 entities.
+**Directory Overview:** This directory contains 9 entities.
 
 ## cli.ts
 
@@ -46,7 +46,7 @@ This function validates input.
 
 ## index.ts
 
-<a id="jGCgdikVQf"></a>
+<a id="DJ7xsSrrMf"></a>
 
 ### run
 
@@ -61,7 +61,7 @@ This function performs an operation.
 
 ## orchestrator.ts
 
-<a id="lLguhmXutC"></a>
+<a id="dGIaDD1ek1"></a>
 
 ### Orchestrator
 
@@ -69,7 +69,7 @@ This function performs an operation.
 
 This class represents orchestrator.
 
-<a id="a9rpQpThu3"></a>
+<a id="y58zvd9Mxy"></a>
 
 ### run
 
@@ -104,6 +104,16 @@ This method retrieves data.
 ### getStatus
 
 **Signature:** `(): import("/src/orchestrator/orchestrator").PipelineStatus`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="4JYM9algAR"></a>
+
+### getRunSummary
+
+**Signature:** `(): any`
 
 **Visibility:** Public (exported)
 

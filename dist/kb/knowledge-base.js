@@ -25,6 +25,7 @@ export class KnowledgeBase {
             byKind: new Map(),
             exported: new Set(),
             qids: new Set(),
+            openQuestions: new Map(),
         };
     }
     getActiveState() {
@@ -88,6 +89,8 @@ export class KnowledgeBase {
             exported: new Set(state.exported),
             // Clone QIDs Set
             qids: new Set(state.qids),
+            // Clone openQuestions Map (Phase 3 Step 4)
+            openQuestions: new Map(Array.from(state.openQuestions.entries()).map(([k, v]) => [k, { ...v, factSetIds: [...v.factSetIds] }])),
         };
     }
     // -------- Entity Operations --------
@@ -193,12 +196,85 @@ export class KnowledgeBase {
     getFactSet(id) {
         return this.getActiveState().factSets.get(id);
     }
+    /**
+     * Get all factSets that have facts with the given entityId as subjectId.
+     * Used by IntentLifter and Orchestrator to gather facts for an entity.
+     *
+     * @param entityId - Entity ID to search for
+     * @returns Array of factSets containing facts about this entity
+     */
+    getFactSetsBySubject(entityId) {
+        const state = this.getActiveState();
+        const result = [];
+        for (const factSet of state.factSets.values()) {
+            // Check if any fact in this factSet has matching subjectId
+            if (factSet.facts.some(f => f.subjectId === entityId)) {
+                result.push(factSet);
+            }
+        }
+        return result;
+    }
     // -------- BehaviorChunk Operations --------
     insertChunk(chunk) {
         this.getActiveState().chunks.set(chunk.id, chunk);
     }
     getChunk(id) {
         return this.getActiveState().chunks.get(id);
+    }
+    /**
+     * Phase 3 Step 4: Returns all behavior chunks in the KB.
+     * Used by AmbiguityResolver to iterate over chunks during resolution.
+     */
+    getAllChunks() {
+        const state = this.getActiveState();
+        return Array.from(state.chunks.values());
+    }
+    /**
+     * Phase 3 Step 4: Returns all behavior chunks associated with a given entity.
+     * Used for cross-reference analysis (finding chunks for callees).
+     */
+    getChunksByEntity(entityId) {
+        const state = this.getActiveState();
+        return Array.from(state.chunks.values())
+            .filter(chunk => chunk.targetEntityId === entityId);
+    }
+    /**
+     * Phase 3 Step 4: Updates a behavior chunk with partial updates (e.g., confidence promotion).
+     * Used by AmbiguityResolver to promote chunk confidence during iteration.
+     */
+    updateChunk(id, updates) {
+        const state = this.getActiveState();
+        const existing = state.chunks.get(id);
+        if (!existing) {
+            throw new KBError(`Chunk ${id} not found`);
+        }
+        state.chunks.set(id, { ...existing, ...updates });
+    }
+    // -------- OpenQuestion Operations (Phase 3 Step 4) --------
+    /**
+     * Inserts an open question (QID) into the KB.
+     * Used by AmbiguityResolver to store generated QIDs for Low confidence items.
+     */
+    insertOpenQuestion(oq) {
+        const state = this.getActiveState();
+        state.openQuestions.set(oq.qid, oq);
+    }
+    /**
+     * Returns all open questions associated with a given entity.
+     * Used by AmbiguityResolver to build ambiguity queue.
+     */
+    getOpenQuestionsByEntity(entityId) {
+        const state = this.getActiveState();
+        return Array.from(state.openQuestions.values())
+            .filter(oq => oq.entityId === entityId);
+    }
+    /**
+     * Returns all open questions in the KB.
+     * Used by Spec Generator to emit QID sections.
+     */
+    getAllOpenQuestions() {
+        const state = this.getActiveState();
+        return Array.from(state.openQuestions.values());
     }
     // -------- Relation Operations (Phase 2) --------
     /**

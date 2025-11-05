@@ -1,0 +1,17 @@
+{
+  "name": "Confidence Downgrade",
+  "description": "Low-confidence entity referenced in high-confidence chunk",
+  "category": "entity",
+  "severity": "low",
+  "expectedOutcome": "accept",
+  "draftText": "UserService handles authentication by validating user credentials against stored records.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-confidence-downgrade",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "This tests referencing entities that exist but might have lower confidence scores. Since all entities in baseline have high evidence scores (85-95), this should ACCEPT. The validator doesn't currently filter by confidence at entity reference level."
+}

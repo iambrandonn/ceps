@@ -1,0 +1,17 @@
+{
+  "name": "Numeric Drift Small",
+  "description": "Small numeric drift within nearest-integer rounding tolerance (should accept)",
+  "category": "numeric",
+  "severity": "low",
+  "expectedOutcome": "accept",
+  "draftText": "UserService has a timeout of 5 seconds to ensure reliable request processing.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-numeric-small",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "KB has timeout-ms: 5000 which converts to exactly 5s. Nearest-integer rounding: 5.0 rounds to 5. This should ACCEPT with no diagnostics."
+}

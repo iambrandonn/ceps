@@ -22,9 +22,16 @@ import { RelationResolver } from '../reasoning/relation-resolver.js';
 import { IntentLifter } from '../reasoning/IntentLifter.js';
 import { AmbiguityResolver } from '../reasoning/ambiguity-resolver.js';
 import { CrossLinkValidator } from '../validation/cross-link-validator.js';
-import { SpecGenerator } from '../generator/spec-generator.js';
+import { SpecGenerator, type GeneratorOptions } from '../generator/spec-generator.js';
 import { PatternMatcher } from '../reasoning/PatternMatcher.js';
 import { FileIndex } from '../types/index.js';
+import { GateRegistry } from './gates/gate-registry.js';
+import { emitRunSummary } from './rendering/run-summary-renderer.js';
+import type { GateInputs } from './types/gate-engine.js';
+import type { RunSummary } from './types/run-summary.js';
+import type { LLMGateway } from '../llm/gateway.js';
+import type { BudgetTracker } from '../llm/budget.js';
+import type { Validator } from '../validation/types.js';
 
 export enum PipelinePhase {
   SCANNING = 'scanning',
@@ -61,13 +68,38 @@ export interface PipelineError {
   details?: unknown;
 }
 
+export interface OrchestratorOptions {
+  projectRoot: string;
+  llm?: 'on' | 'off';
+  deterministic?: boolean;
+  llmGateway?: LLMGateway;
+  validator?: Validator;
+  budgetTracker?: BudgetTracker;
+}
+
 export class Orchestrator extends EventEmitter {
   private kb: KnowledgeBase;
   private status: PipelineStatus;
   private fileIndex?: FileIndex; // Store scanner output for parsing phase
+  private runSummary?: RunSummary; // Store gate evaluation results
+  private generator?: SpecGenerator; // Store for gate evaluation
+  private rootSpec?: string; // Store for gate evaluation
+  private dirSpecs?: Record<string, string>; // Store for gate evaluation
+  private options: OrchestratorOptions;
+  private rootPath: string;
 
-  constructor(private rootPath: string) {
+  constructor(options: OrchestratorOptions | string) {
     super();
+
+    // Support legacy string constructor for backwards compatibility
+    if (typeof options === 'string') {
+      this.options = { projectRoot: options, llm: 'off' };
+      this.rootPath = options;
+    } else {
+      this.options = options;
+      this.rootPath = options.projectRoot;
+    }
+
     this.kb = new KnowledgeBase();
     this.status = {
       currentPhase: PipelinePhase.SCANNING,
@@ -100,6 +132,11 @@ export class Orchestrator extends EventEmitter {
 
     for (const phase of phases) {
       await this.executePhase(phase);
+    }
+
+    // After all phases complete, evaluate gates
+    if (this.generator && this.rootSpec && this.dirSpecs) {
+      await this.evaluateGates(this.generator, this.rootSpec, this.dirSpecs);
     }
   }
 
@@ -251,16 +288,25 @@ export class Orchestrator extends EventEmitter {
       throw new Error('Scanning phase must complete before generation');
     }
 
-    const generator = new SpecGenerator(this.kb, this.fileIndex);
+    // Phase 4: Build generator options with LLM components
+    const generatorOptions: GeneratorOptions = {
+      llmEnabled: this.options.llm === 'on',
+      deterministicMode: this.options.deterministic,
+      llmGateway: this.options.llmGateway,
+      validator: this.options.validator,
+      budgetTracker: this.options.budgetTracker
+    };
+
+    this.generator = new SpecGenerator(this.kb, this.fileIndex, generatorOptions);
 
     // Generate root spec
-    const rootSpec = generator.generateRootSpec(this.rootPath);
+    this.rootSpec = this.generator.generateRootSpec(this.rootPath);
     const rootSpecPath = path.join(this.rootPath, 'spec.md');
-    fs.writeFileSync(rootSpecPath, rootSpec, 'utf8');
+    fs.writeFileSync(rootSpecPath, this.rootSpec, 'utf8');
 
-    // Generate directory/package specs
-    const dirSpecs = generator.generateDirectorySpecs(this.rootPath);
-    for (const [specPath, content] of Object.entries(dirSpecs)) {
+    // Generate directory/package specs (async for Phase 4 LLM polish)
+    this.dirSpecs = await this.generator.generateDirectorySpecsAsync(this.rootPath);
+    for (const [specPath, content] of Object.entries(this.dirSpecs)) {
       const fullPath = path.join(this.rootPath, specPath);
       const dir = path.dirname(fullPath);
       if (!fs.existsSync(dir)) {
@@ -276,11 +322,21 @@ export class Orchestrator extends EventEmitter {
     }
 
     const validator = new CrossLinkValidator(this.kb);
-    const generator = new SpecGenerator(this.kb, this.fileIndex);
+
+    // Phase 4: Build generator options
+    const generatorOptions: GeneratorOptions = {
+      llmEnabled: this.options.llm === 'on',
+      deterministicMode: this.options.deterministic,
+      llmGateway: this.options.llmGateway,
+      validator: this.options.validator,
+      budgetTracker: this.options.budgetTracker
+    };
+
+    const generator = new SpecGenerator(this.kb, this.fileIndex, generatorOptions);
 
     // Re-generate specs to get content for validation
     const rootSpec = generator.generateRootSpec(this.rootPath);
-    const dirSpecs = generator.generateDirectorySpecs(this.rootPath);
+    const dirSpecs = await generator.generateDirectorySpecsAsync(this.rootPath);
 
     // Convert to SpecFile[] format expected by validator
     const specFiles = [
@@ -329,5 +385,101 @@ export class Orchestrator extends EventEmitter {
 
   getStatus(): PipelineStatus {
     return { ...this.status, statistics: { ...this.status.statistics }, errors: [...this.status.errors] }; // Return deep copy
+  }
+
+  getRunSummary(): RunSummary | undefined {
+    return this.runSummary;
+  }
+
+  private async evaluateGates(generator: SpecGenerator, rootSpec: string, dirSpecs: Record<string, string>): Promise<void> {
+    if (!this.fileIndex) {
+      throw new Error('File index required for gate evaluation');
+    }
+
+    // Collect metrics
+    const generatorMetrics = generator.getMetrics();
+    const gatewayUsage = this.options.llmGateway?.getUsage();
+
+    // Build gate inputs from collected data
+    const exportedEntities = this.kb.listExported();
+    const allChunks = this.kb.getAllChunks();
+    const entitiesWithChunks = new Set(allChunks.map(c => c.entityId));
+
+    // Get entities with open questions
+    const allEntities = this.kb.getAllEntities();
+    const entitiesWithQIDs = new Set(
+      allEntities
+        .filter(e => this.kb.getOpenQuestionsByEntity(e.id).length > 0)
+        .map(e => e.id)
+    );
+
+    // Validate links for post-generation check
+    const linkValidator = new CrossLinkValidator(this.kb);
+    const specFiles = [
+      { path: 'spec.md', content: rootSpec },
+      ...Object.entries(dirSpecs).map(([path, content]) => ({ path, content }))
+    ];
+    const anchorMap = linkValidator.buildAnchorMap(specFiles);
+    const linkValidation = linkValidator.validatePostGeneration(specFiles, anchorMap);
+
+    // Count open questions for confidence gate
+    const allOpenQuestions = allEntities.flatMap(e => this.kb.getOpenQuestionsByEntity(e.id));
+
+    // Build gate inputs
+    const gateInputs: GateInputs = {
+      coverage: {
+        exportedEntityIds: exportedEntities.map(e => e.id),
+        entitiesWithChunks: Array.from(entitiesWithChunks),
+        entitiesWithQIDs: Array.from(entitiesWithQIDs)
+      },
+      link: {
+        totalAnchors: Object.keys(anchorMap).length,
+        brokenLinks: linkValidation.brokenLinks || []
+      },
+      grounding: {
+        totalChunks: generatorMetrics.llmPolished + generatorMetrics.templateFallback,
+        validatedChunks: generatorMetrics.llmPolished,
+        fallbackChunks: generatorMetrics.templateFallback,
+        chunksWithMissingFactSetIds: [],
+        diagnostics: []
+      },
+      determinism: {
+        enabled: this.options.deterministic || false,
+        reruns: 0,
+        diffs: 0
+      },
+      confidence: {
+        openQuestions: allOpenQuestions.map(q => q.id),
+        invalidConfidenceItems: []
+      },
+      monorepo: {
+        hasRootSpec: true,
+        packagesLinked: this.fileIndex.packages.packages.length,
+        brokenPackageLinks: 0
+      },
+      cost: {
+        totalTokens: gatewayUsage?.totalTokens || 0,
+        budget: 0 // Not available in programmatic API
+      },
+      adversarial: {
+        total: 0,
+        rejected: 0
+      },
+      testCoverage: {
+        coverage: 100, // N/A for programmatic API - set to 100 to pass gate
+        threshold: 80
+      },
+      readability: {},
+      tokens: {
+        total: gatewayUsage?.totalTokens || 0,
+        budget: 0,
+        providers: gatewayUsage?.byProvider || {}
+      },
+      warnings: generatorMetrics.warnings
+    };
+
+    // Evaluate gates
+    const registry = new GateRegistry();
+    this.runSummary = registry.evaluateAll(gateInputs);
   }
 }

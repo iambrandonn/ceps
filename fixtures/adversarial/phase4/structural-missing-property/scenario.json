@@ -1,0 +1,22 @@
+{
+  "name": "Structural Missing Property",
+  "description": "LLM claims entity has a property that doesn't exist in KB facts",
+  "category": "relation",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "The UserService class maintains a userCache property for storing frequently accessed user data.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-missing-property",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "entity",
+      "reasonPattern": "userCache.*not found"
+    }
+  ],
+  "notes": "KB doesn't show userCache as a property of UserService. The hallucinated property reference should trigger entity validation failure."
+}

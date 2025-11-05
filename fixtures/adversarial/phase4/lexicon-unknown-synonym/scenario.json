@@ -1,0 +1,17 @@
+{
+  "name": "Lexicon Unknown Synonym",
+  "description": "LLM uses a verb/term not in the lexicon (if lexicon enforcement is enabled)",
+  "category": "lexicon",
+  "severity": "low",
+  "expectedOutcome": "accept",
+  "draftText": "UserService fabricates user validation responses based on permission levels.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-lexicon-unknown",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "The word 'fabricates' is not in the lexicon. However, per grounding-completion.md §2 'Known Issues', lexicon is loaded but not actively used in validation pipeline (marked as future integration). This should currently ACCEPT."
+}

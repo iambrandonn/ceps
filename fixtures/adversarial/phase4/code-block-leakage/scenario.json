@@ -1,0 +1,17 @@
+{
+  "name": "Code Block Leakage",
+  "description": "Identifiers in code blocks should NOT be extracted as prose references",
+  "category": "entity",
+  "severity": "medium",
+  "expectedOutcome": "accept",
+  "draftText": "UserService validates users. Example:\n```typescript\nconst result = NonExistentService.process();\n```\nThe validation ensures proper authentication.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-code-block",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "NonExistentService appears only in a code example block, not in prose. The validator should NOT extract identifiers from code blocks (fenced with backticks), so this should ACCEPT despite the non-existent entity in the code example."
+}

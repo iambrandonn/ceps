@@ -59,4 +59,12 @@ export declare function createFactSet(data: Partial<FactSet> & {
     evidenceScore: number;
 }): FactSet;
 export declare function createBehaviorChunk(data: BehaviorChunk): BehaviorChunk;
+export interface OpenQuestion {
+    qid: string;
+    entityId: string;
+    question: string;
+    confidence: number;
+    factSetIds: string[];
+    createdAt?: Date;
+}
 //# sourceMappingURL=models.d.ts.map

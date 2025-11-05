@@ -130,5 +130,50 @@ export class LLMGateway {
     clearCache() {
         this.cache.clear();
     }
+    /**
+     * Summarize factSets into fluent prose (CTS-02 §6)
+     *
+     * @param factSets - Array of factSets to summarize
+     * @param style - Style guide version (e.g., 'spec-ready')
+     * @param options - Summarization options
+     * @returns Promise resolving to summarized text
+     */
+    async summarize(factSets, style, options = {}) {
+        // Build prompt from factSets
+        const prompt = this.buildSummarizePrompt(factSets, style, options);
+        // Prepare completion options
+        const completionOptions = {
+            model: options.model,
+            temperature: options.deterministic ? 0 : (options.temperature ?? 0.3),
+        };
+        // Delegate to completions() method
+        return this.completions(prompt, completionOptions);
+    }
+    /**
+     * Build prompt for summarize() operation
+     * @private
+     */
+    buildSummarizePrompt(factSets, style, options) {
+        // Format factSets as structured data
+        const factsText = factSets
+            .map((fs, idx) => {
+            const factsFormatted = fs.facts
+                .map((f) => `  - ${f.subjectId} ${f.predicate}${f.object !== undefined ? ` ${JSON.stringify(f.object)}` : ''}`)
+                .join('\n');
+            return `FactSet ${idx + 1} (id: ${fs.id}, evidence: ${fs.evidenceScore}):\n${factsFormatted}`;
+        })
+            .join('\n\n');
+        // CTS-02 §3: Original prompt (O)
+        return `Write a concise paragraph describing the behavior using only the facts provided.
+Use canonical names; do not add entities, relations, or numbers not present in the facts.
+If unsure, return NEEDS_QUESTION.
+
+Style: ${style}
+${options.deterministic ? 'Mode: Deterministic (no paraphrasing variance)\n' : ''}
+Facts:
+${factsText}
+
+Output:`;
+    }
 }
 //# sourceMappingURL=gateway.js.map

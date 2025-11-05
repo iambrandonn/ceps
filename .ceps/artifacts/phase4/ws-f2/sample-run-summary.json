@@ -1,0 +1,86 @@
+{
+  "gates": {
+    "coverage": {
+      "status": "pass",
+      "exported": 45,
+      "documented": 45,
+      "qids": 0
+    },
+    "link": {
+      "status": "pass",
+      "anchors": 123,
+      "broken": 0
+    },
+    "grounding": {
+      "status": "pass",
+      "chunks": 287,
+      "validated": 245,
+      "fallback": 42
+    },
+    "determinism": {
+      "status": "skip",
+      "reruns": 0,
+      "diffs": 0
+    },
+    "confidence": {
+      "status": "pass",
+      "openQuestions": 5
+    },
+    "monorepo": {
+      "status": "skip",
+      "hasRootSpec": true,
+      "packagesLinked": 0
+    }
+  },
+  "validation": {
+    "cost": {
+      "status": "pass",
+      "budget": 30000,
+      "used": 28450,
+      "remaining": 1550
+    },
+    "adversarial": {
+      "status": "pass",
+      "total": 23,
+      "rejected": 23,
+      "pass": true
+    },
+    "testCoverage": {
+      "status": "pass",
+      "coverage": 85.3,
+      "threshold": 80,
+      "pass": true
+    },
+    "readability": {
+      "status": "skip"
+    }
+  },
+  "tokens": {
+    "total": 28450,
+    "budget": 30000,
+    "providers": {
+      "anthropic": 28450
+    }
+  },
+  "warnings": [
+    "Budget approaching limit (95% used)"
+  ],
+  "exitCode": 0,
+  "timestamp": "2025-11-05T12:15:00.000Z",
+  "version": "phase4-ws-h",
+  "_comments": {
+    "source": "WS-F2 Sample Run Summary",
+    "scenario": "Express fixture with LLM polish (mock-backed)",
+    "ws-f2-contributions": {
+      "tokens": "Collected via LLMGateway.getUsage()",
+      "grounding.validated": "LLM polished chunks count",
+      "grounding.fallback": "Template fallback count",
+      "warnings": "Budget/retry warnings from generator"
+    },
+    "ws-h-contributions": {
+      "gates": "All gate evaluation results",
+      "validation": "All validation gate results",
+      "exitCode": "Computed from gate statuses"
+    }
+  }
+}

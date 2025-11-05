@@ -1,0 +1,22 @@
+{
+  "name": "Numeric Percentage Mismatch",
+  "description": "Percentage value doesn't match decimal equivalent in KB",
+  "category": "numeric",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "The MAX_RETRIES constant is set to 50% to balance reliability with performance.",
+  "factSetIds": ["fs-api-config"],
+  "metadata": {
+    "chunkId": "chunk-percentage",
+    "targetEntityId": "const-MAX_RETRIES",
+    "factSetIds": ["fs-api-config"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "numeric",
+      "reasonPattern": "50.*does not match.*3|percentage"
+    }
+  ],
+  "notes": "KB shows MAX_RETRIES = 3 (integer), but text says 50%. Even if interpreted as 0.5 (decimal), this doesn't match 3. Should trigger numeric validation failure."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Structural Missing Method",
+  "description": "LLM claims entity has a method that doesn't exist in KB facts",
+  "category": "relation",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "UserService provides a deleteUser method for removing user accounts from the system.",
+  "factSetIds": ["fs-user-service"],
+  "metadata": {
+    "chunkId": "chunk-missing-method",
+    "targetEntityId": "class-UserService",
+    "factSetIds": ["fs-user-service"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "entity",
+      "reasonPattern": "deleteUser.*not found"
+    }
+  ],
+  "notes": "KB shows UserService has validateUser method, but draft claims it has deleteUser. The non-existent method reference should trigger entity validation failure."
+}
