@@ -193,14 +193,14 @@ export class MockValidator implements Validator {
 ---
 
 ### Stage C – Numeric & Enum Guardrails (Day 4)
-**Goal:** Validate numeric claims (unit conversion + tolerance) and enums.
+**Goal:** Validate numeric claims per CTS-02 §4.2 (strict equality + nearest-integer rounding) and enums.
 **Test file:** `src/validation/__tests__/validator-numeric.test.ts`.
 
 #### TDD Test Order (each failing before code):
 1. `numeric.exactMatch` – `delay 5000ms` vs fact `5000` (ms) → accept
 2. `numeric.unitConversion` – `5 seconds` vs fact `5000`ms → accept
-3. `numeric.roundingWithinTolerance` – `5123ms` vs `5 seconds` → accept (2.4% delta)
-4. `numeric.roundingBeyondTolerance` – `5123ms` vs `6 seconds` → fallback
+3. `numeric.nearestIntegerRounding` – `5123ms` vs `5 seconds` → accept (5.123s rounds to 5)
+4. `numeric.roundedValueMismatch` – `5123ms` vs `6 seconds` → retry (5.123s rounds to 5, not 6)
 5. `numeric.reverseConversion` – `0.1 MB` vs `102400`B → accept
 6. `numeric.percentConversion` – `50%` vs `0.5` → accept
 7. `numeric.stringFactObject` – fact object `"5000 ms"` → handled via parser schema interpreter
@@ -220,14 +220,18 @@ export class MockValidator implements Validator {
 #### Implementation Highlights
 - **Unit conversion tables:** time (ms, s, min, h), data (B, KB, MB, GB), percent.
 - **Fact schema interpreter (`src/validation/fact-schema-interpreter.ts`):** from Stage A0 fact examples (strings like `"5000ms"`), parse number + unit.
-- **Tolerance formula:** `Math.abs(converted - original) / original <= 0.05`.
+- **CTS-02 §4.2 validation logic:**
+  1. Convert fact value to text's unit (human-friendly direction)
+  2. Round converted fact to nearest integer: `Math.round(convertedFactValue)`
+  3. Compare with strict equality: `roundedFactValue !== textValue` → diagnostic
+- **Fallback criteria:** Ratio-based (≥2.0x difference) for unrecoverable errors (e.g., 5s vs 10s)
 - **Enum registry:** static map per predicate; keep in `src/validation/enums.ts`.
-- **Diagnostics:** include `expected` vs `actual` values, units.
+- **Diagnostics:** include `expected` vs `actual` values, units, rounded values.
 
 #### Completion Criteria
 - [ ] 12+ tests written → pass.
 - [ ] `docs/validator-api.md` updated with conversion table & enum registry reference.
-- [ ] Rationale for 5% tolerance logged in tracker (link to Phase 4 §3.1).
+- [ ] CTS-02 §4.2 compliance verified (strict equality + nearest-integer rounding).
 - [ ] Coverage ≥80% for numeric/enums modules.
 
 ---
@@ -321,7 +325,7 @@ export class MockValidator implements Validator {
 - Scenarios:
   1. Happy path chunk (High confidence) → `accept`.
   2. Chunk with unknown entity → `retry`.
-  3. Chunk with numeric drift beyond tolerance → `fallback`.
+  3. Chunk with large numeric drift (≥2x difference) → `fallback`.
 - Ensure tests fail before Stage B–F finish, pass after.
 
 #### G.2 Adversarial Suite Runner
@@ -379,7 +383,7 @@ Ensure `pnpm test:coverage` runs green after each stage with ≥80% branch cover
 |-------------|-----------------|
 | Validator module (`src/validation/*`) | Interfaces frozen Day 1; synchronous API; tested via unit + integration suites |
 | Entity name index | Handles collisions, qualified names, cached per run |
-| Numeric/enum guardrails | Conversion tolerance ≤5%; enum registry documented; false positives ≤5% |
+| Numeric/enum guardrails | CTS-02 §4.2 compliant (strict equality + nearest-integer rounding); enum registry documented; false positives ≤5% |
 | Lexicon + workflow | Initial 20 canonical entries; lint command; update guide |
 | Retry controller | CTS-02 prompts (O/R1/R2) embedded; fallback warnings; template reuse |
 | Diagnostics | Deterministic JSON; sample in `docs/examples/validator-diagnostics.json` |
