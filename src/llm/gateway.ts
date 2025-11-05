@@ -36,6 +36,7 @@ export interface SummarizeOptions {
   deterministic?: boolean;
   model?: string;
   temperature?: number;
+  promptKey?: 'O' | 'R1' | 'R2';
 }
 
 export class LLMGateway {

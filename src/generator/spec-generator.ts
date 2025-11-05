@@ -308,7 +308,7 @@ export class SpecGenerator {
   }
 
   /**
-   * Apply LLM polish to chunk with budget/validator integration
+   * Apply LLM polish to chunk with budget/validator integration and retry logic
    */
   private async applyLLMPolish(
     entity: Entity,
@@ -332,47 +332,72 @@ export class SpecGenerator {
       }
     }
 
-    try {
-      // Call LLM Gateway
-      const llmDraft = await this.llmGateway!.summarize(factSets, 'spec-ready', {
-        deterministic: this.deterministicMode,
-      });
+    // Retry loop: O → R1 → R2 → fallback
+    let attempt = 0;
+    let promptKey: 'O' | 'R1' | 'R2' = 'O';
+    const maxAttempts = 3;
 
-      // Validate with grounding validator if available
-      if (this.validator) {
-        const metadata: ChunkMetadata = {
-          chunkId: `chunk-${entity.id}`,
-          targetEntityId: entity.id,
-          factSetIds: factSets.map(fs => fs.id),
-          confidence: this.mapConfidenceBand(entity.confidence),
-        };
+    while (attempt < maxAttempts) {
+      try {
+        // Call LLM Gateway with current prompt key
+        const llmDraft = await this.llmGateway!.summarize(factSets, 'spec-ready', {
+          deterministic: this.deterministicMode,
+          promptKey,
+        });
 
-        const result = this.validator.validate(llmDraft, metadata.factSetIds, metadata);
+        // Validate with grounding validator if available
+        if (this.validator) {
+          const metadata: ChunkMetadata = {
+            chunkId: `chunk-${entity.id}`,
+            targetEntityId: entity.id,
+            factSetIds: factSets.map(fs => fs.id),
+            confidence: this.mapConfidenceBand(entity.confidence),
+          };
 
-        if (result.status === 'accept') {
-          // Validation passed
+          const result = this.validator.validate(llmDraft, metadata.factSetIds, metadata);
+
+          if (result.status === 'accept') {
+            // Validation passed - use LLM draft
+            this.metrics.llmPolished++;
+            return llmDraft;
+          } else if (result.status === 'retry' && attempt < maxAttempts - 1) {
+            // Retry with stricter prompt
+            attempt++;
+            promptKey = attempt === 1 ? 'R1' : 'R2';
+            // Log retry reason
+            const reason = result.diagnostics[0]?.reason || 'unknown';
+            console.debug(`Retry ${attempt} for ${entity.id}: ${reason}`);
+            continue; // Try again with stricter prompt
+          } else {
+            // Fallback (either immediate fallback or max retries exhausted)
+            this.metrics.templateFallback++;
+            const reason = result.diagnostics[0]?.reason || 'validation failed';
+            const warning = `Validation failed for entity ${entity.id}: ${reason}, using template`;
+            this.metrics.warnings.push(warning);
+            console.warn(warning);
+            return templateDraft;
+          }
+        } else {
+          // No validator - accept LLM output
           this.metrics.llmPolished++;
           return llmDraft;
-        } else {
-          // Validation failed - fall back to template
-          this.metrics.templateFallback++;
-          const warning = `Validation failed for entity ${entity.id}, using template`;
-          this.metrics.warnings.push(warning);
-          return templateDraft;
         }
-      } else {
-        // No validator - accept LLM output
-        this.metrics.llmPolished++;
-        return llmDraft;
+      } catch (error) {
+        // LLM call failed - fall back to template
+        this.metrics.templateFallback++;
+        const warning = `LLM error for entity ${entity.id}: ${error}, using template`;
+        this.metrics.warnings.push(warning);
+        console.warn(warning);
+        return templateDraft;
       }
-    } catch (error) {
-      // LLM call failed - fall back to template
-      this.metrics.templateFallback++;
-      const warning = `LLM error for entity ${entity.id}: ${error}, using template`;
-      this.metrics.warnings.push(warning);
-      console.warn(warning);
-      return templateDraft;
     }
+
+    // Max retries exhausted - fall back to template
+    this.metrics.templateFallback++;
+    const warning = `Max retries exhausted for entity ${entity.id}, using template`;
+    this.metrics.warnings.push(warning);
+    console.warn(warning);
+    return templateDraft;
   }
 
   /**
