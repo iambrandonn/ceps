@@ -66,16 +66,19 @@ Scanner → Parser → KB → Reasoning → Generator (with LLM polish)
 ### WS-H Responsibilities
 
 WS-H owns:
-- **Gate evaluation**: Coverage, Link, Grounding, Determinism, Confidence, Monorepo (runtime gates that affect exit code)
-- **Validation gates**: Cost, Adversarial, Test Coverage, Readability (advisory only)
+- **Gate evaluation**: Coverage, Link, Grounding, Determinism, Confidence, Monorepo (runtime gates → exit 2)
+- **Cost & Adversarial gates**: Exit code 2 on failure (per Phase 4 acceptance criteria)
+- **Test Coverage gate**: Exit code 1 on failure (test failure)
+- **Readability gate**: Advisory only (exit code 0)
 - **Run summary**: JSON + console output with gate results, token usage, warnings
-- **Exit code enforcement**: Per SADS §6.3 (0=success, 1=internal error, 2=gate failure, 3=snapshot mismatch)
+- **Exit code enforcement**: Per SADS §6.3 (0=success, 1=test failure, 2=gate failure, 3=snapshot mismatch)
 - **CLI validation**: Ensuring flag combinations are valid before pipeline starts
 
 ### Key Design Principles
 
 1. **Runtime gates affect exit code** (exit 2 on failure)
-2. **Validation gates are advisory** (failures logged as warnings, exit code 0)
+2. **Cost & Adversarial gates also exit with code 2** (per Phase 4 acceptance criteria)
+3. **Test Coverage gate exits with code 1** (test failure, highest priority)
 3. **Deterministic output** when `--deterministic` flag supplied
 4. **Schema-validated run summaries** (JSON Schema compliance)
 5. **TDD-first development** (Red → Green → Refactor → Commit)
@@ -141,13 +144,13 @@ interface GateInputs {
 ### ✅ Stage B2: Validation Gate Evaluators
 
 **Artifacts:**
-- `src/orchestrator/gates/validation-gates.ts` — 4 advisory gate evaluators
+- `src/orchestrator/gates/validation-gates.ts` — 4 validation gate evaluators
 
-**Implemented Gates:**
-1. **CostGateEvaluator**: Token budget tracking (advisory only)
-2. **AdversarialGateEvaluator**: Validator test suite verification
-3. **TestCoverageGateEvaluator**: Branch coverage monitoring
-4. **ReadabilityGateEvaluator**: Manual review scores (optional)
+**Implemented Gates (per Phase 4 acceptance criteria):**
+1. **CostGateEvaluator**: Token budget tracking (exit 2 on failure)
+2. **AdversarialGateEvaluator**: Validator test suite verification (exit 2 on failure)
+3. **TestCoverageGateEvaluator**: Branch coverage monitoring (exit 1 on failure)
+4. **ReadabilityGateEvaluator**: Manual review scores (advisory only, exit 0)
 
 ### ✅ Stage C: Exit Code Policy
 
@@ -197,8 +200,8 @@ Runtime Gates (affect exit code):
   ✓ [PASS ] Confidence       5 open questions
   ○ [SKIP ] Monorepo         not a monorepo
 
-Validation Gates (advisory only):
-─────────────────────────────────────────────────────────
+Validation Gates (Cost/Adversarial → exit 2, Test Coverage → exit 1, Readability → advisory):
+────────────────────────────────────────────────────────────────────────────────────────────
   ✓ [PASS ] Cost             28450/30000 tokens (1550 remaining)
   ✓ [PASS ] Adversarial      23/23 rejected
   ✓ [PASS ] Test Coverage    85.3% (threshold: 80%)
@@ -307,17 +310,25 @@ it('should reject unsupported provider with actionable error', () => {
    - Grounding failure (missing factSetIds)
    - Expected: exit code 2
 
-3. **Validation Gate Failures:**
-   - Cost gate: budget exceeded
-   - Adversarial gate: some cases not rejected
-   - Test coverage: below threshold
+3. **Cost & Adversarial Gate Failures:**
+   - Cost gate: budget exceeded → exit code 2
+   - Adversarial gate: some cases not rejected → exit code 2
+   - Expected: exit code 2 (per Phase 4 acceptance criteria)
+
+4. **Test Coverage Gate Failure:**
+   - Test coverage: below threshold → exit code 1
+   - Expected: exit code 1 (test failure, highest priority)
+
+5. **Readability Gate Failure:**
+   - Readability: below threshold → exit code 0
    - Expected: exit code 0 (advisory only)
 
-4. **Mixed Failures:**
-   - Runtime gate failure + validation gate failure
-   - Expected: exit code 2 (runtime takes precedence)
+6. **Mixed Failures:**
+   - Test coverage failure takes precedence (exit 1 over exit 2)
+   - Runtime + cost failures both exit with code 2
+   - Expected: correct exit code priority (1 > 2 > 0)
 
-5. **JSON Output Validation:**
+7. **JSON Output Validation:**
    - Run gate evaluation
    - Emit JSON summary
    - Validate against schema
@@ -1239,23 +1250,28 @@ You have a clear path forward. Follow the TDD workflow (Red → Green → Refact
   - Flag interaction warnings
   - --no-llm-cache validation
 
-**Stage F: Integration Tests** ✅
-- Created `gate-integration.test.ts` with 13 comprehensive tests
+**Stage F: Integration Tests** ✅ (CORRECTED per feedback)
+- Created `gate-integration.test.ts` with 15 comprehensive tests
 - Test scenarios cover:
   - All gates pass (exit code 0)
   - Runtime gate failures (exit code 2)
-  - Validation gate failures (exit code 0, advisory)
-  - Multiple/mixed failures
+  - Cost & Adversarial gate failures (exit code 2, per Phase 4 acceptance criteria)
+  - Test Coverage gate failure (exit code 1, highest priority)
+  - Readability gate failure (exit code 0, advisory only)
+  - Multiple/mixed failures with exit code priority (1 > 2 > 0)
   - Schema validation
   - Skip gate handling
 - All helper functions implemented for creating test inputs
 
-### Final Results
+### Final Results (CORRECTED per feedback)
 
-**Test Count:** 118 orchestrator tests (all passing, 0 regressions)
+**Test Count:** 121 orchestrator tests (all passing, 0 regressions)
 - Exceeded expected count of ~101 tests
-- 26 CLI tests (expected ~10)
-- 13 integration tests (expected ~12)
+- 26 CLI tests (Stage E)
+- 15 integration tests (Stage F, corrected)
+- 20 gate engine tests (includes corrected exit code logic)
+
+**Total Project Tests:** 777 passing (59 more than initial completion)
 
 **Artifacts Created/Modified:**
 - ✅ `src/orchestrator/__tests__/gate-integration.test.ts` (NEW, 13 tests)
@@ -1303,7 +1319,16 @@ You have a clear path forward. Follow the TDD workflow (Red → Green → Refact
 
 ---
 
-**WS-H Status: COMPLETE ✅**
+**WS-H Status: COMPLETE ✅ (CORRECTED)**
 
 Phase 4 WS-H (Orchestrator Gates & Run Summary) successfully completed all stages (A0-F).
+
+**CORRECTION (Post-Review):** Initial implementation incorrectly classified Cost, Adversarial, and Test Coverage gates as advisory (exit 0). Per Phase 4 acceptance criteria:
+- **Cost gate**: exit 2 on failure (NOT advisory)
+- **Adversarial gate**: exit 2 on failure (NOT advisory)
+- **Test Coverage gate**: exit 1 on failure (test failure, highest priority)
+- **Readability gate**: advisory only (exit 0)
+
+All code and tests have been corrected. 777 tests passing.
+
 Ready for integration testing with WS-F1 and WS-F2.

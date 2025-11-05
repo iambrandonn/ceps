@@ -798,7 +798,9 @@ RunSummary {
 
 ## WS-H Phase 4: Final Completion (2025-11-05 Evening)
 
-### Stages E & F Complete ✅
+**IMPORTANT:** Initial implementation contained a critical error - incorrectly classified Cost, Adversarial, and Test Coverage gates as advisory (exit 0). Per Phase 4 acceptance criteria, these gates should exit with codes 2, 2, and 1 respectively. All code and tests corrected post-review. See correction details below.
+
+### Stages E & F Complete ✅ (CORRECTED)
 
 **Stage E: CLI Validation ✅**
 - Phase 4 LLM flags already implemented in cli.ts
@@ -810,28 +812,31 @@ RunSummary {
   - --no-llm-cache validation
 - All error messages match Phase 4 spec requirements
 
-**Stage F: Integration Tests ✅**
-- Created gate-integration.test.ts with 13 comprehensive tests
-- Test scenarios:
+**Stage F: Integration Tests ✅ (CORRECTED)**
+- Created gate-integration.test.ts with 15 comprehensive tests
+- Test scenarios (corrected per Phase 4 acceptance criteria):
   - All gates pass (exit code 0)
   - Runtime gate failures (exit code 2): coverage, link, grounding
-  - Validation gate failures (exit code 0, advisory only)
-  - Multiple runtime failures
-  - Mixed runtime + validation failures
+  - Cost & Adversarial gate failures (exit code 2) ← CORRECTED
+  - Test Coverage gate failure (exit code 1, highest priority) ← CORRECTED
+  - Readability gate failure (exit code 0, advisory only) ← CORRECTED
+  - Multiple/mixed failures with exit code priority (1 > 2 > 0)
   - Schema validation across all scenarios
   - Skip gate handling
 - All tests passing with realistic inputs
 
-### Final Test Count
+### Final Test Count (CORRECTED)
 
-**Total orchestrator tests: 118 (all passing, 0 regressions)**
+**Total orchestrator tests: 121 (all passing, 0 regressions)**
 - run-summary-schema.test.ts: 10 tests
 - gate-evaluators-contract.test.ts: 25 tests
-- gate-engine.test.ts: 19 tests
+- gate-engine.test.ts: 20 tests ← CORRECTED (+1 test)
 - run-summary-renderer.test.ts: 14 tests
 - cli-llm-flags.test.ts: 26 tests ✨ Stage E
-- gate-integration.test.ts: 13 tests ✨ Stage F
+- gate-integration.test.ts: 15 tests ✨ Stage F (CORRECTED: +2 tests)
 - orchestrator.test.ts: 11 tests (Phase 3 regression)
+
+**Total project tests: 777 passing** (59 more than initial 718)
 
 ### Artifacts Summary
 
@@ -856,6 +861,32 @@ All acceptance criteria met:
 - ✅ 118 tests passing (expected ~101, exceeded expectations)
 
 **Ready for Phase 4 integration with WS-F1 and WS-F2.**
+
+---
+
+### Post-Review Correction Summary
+
+**Issue Identified:** Initial implementation incorrectly classified Cost, Adversarial, and Test Coverage gates as "validation/CI gates (reporting only)" that never influenced exit code.
+
+**Correct Behavior (Per Phase 4 Acceptance Criteria):**
+- **Cost gate**: exit 2 on failure (NOT advisory)
+- **Adversarial gate**: exit 2 on failure (NOT advisory)
+- **Test Coverage gate**: exit 1 on failure (test failure, highest priority)
+- **Readability gate**: advisory only (exit 0)
+
+**Changes Made:**
+1. **gate-registry.ts**: Updated `computeExitCode()` to check Test Coverage (exit 1), then Cost/Adversarial (exit 2)
+2. **gate-registry.ts**: Added `getFailedGatesExitCode2()` method for gates causing exit 2
+3. **gate-registry.ts**: Updated `getFailedValidationGates()` to only return advisory gates (readability)
+4. **gate-engine.test.ts**: Corrected 4 tests to expect exit codes 1/2 instead of 0
+5. **gate-integration.test.ts**: Added 2 new test scenarios, corrected assertions
+6. **Documentation**: Updated WS-H.md and grounding.md to reflect correct gate semantics
+
+**Final Status:**
+- ✅ All 777 tests passing (121 orchestrator tests)
+- ✅ Exit code priority: 1 (test failure) > 2 (gate failure) > 0 (success)
+- ✅ Gate categorization matches Phase 4 acceptance criteria
+- ✅ Ready for WS-F1/WS-F2 integration
 
 ---
 
