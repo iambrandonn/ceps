@@ -1,0 +1,122 @@
+{
+  "description": "Phase-1 Analysis: Representative fact schemas from Phase 3 parser",
+  "analyzed_date": "2025-11-05",
+  "source": "tests/unit/reasoning/pattern-matcher.test.ts, tests/unit/parser/fact-extractor.test.ts",
+  "samples": {
+    "high_confidence": [
+      {
+        "factSetId": "fs-express-route-1",
+        "targetEntity": "func-getUserById",
+        "facts": [
+          {"predicate": "calls-expression", "object": "app.get", "type": "string"},
+          {"predicate": "call-arg-0", "object": "/users/:id", "type": "string"},
+          {"predicate": "has-signature", "object": "(req: Request, res: Response): void", "type": "string"},
+          {"predicate": "has-jsdoc", "object": true, "type": "boolean"},
+          {"predicate": "param-count", "object": 2, "type": "number"}
+        ],
+        "confidence": 85
+      },
+      {
+        "factSetId": "fs-http-client-1",
+        "targetEntity": "func-fetchUser",
+        "facts": [
+          {"predicate": "calls-expression", "object": "fetch", "type": "string"},
+          {"predicate": "call-arg-0", "object": "/api/users", "type": "string"},
+          {"predicate": "has-async", "object": true, "type": "boolean"},
+          {"predicate": "has-error-handler", "object": true, "type": "boolean"}
+        ],
+        "confidence": 80
+      },
+      {
+        "factSetId": "fs-class-method-1",
+        "targetEntity": "method-UserService-validate",
+        "facts": [
+          {"predicate": "belongs-to-class", "object": "UserService", "type": "string"},
+          {"predicate": "has-signature", "object": "(user: User): boolean", "type": "string"},
+          {"predicate": "has-jsdoc", "object": true, "type": "boolean"},
+          {"predicate": "visibility", "object": "public", "type": "string"}
+        ],
+        "confidence": 78
+      }
+    ],
+    "medium_confidence": [
+      {
+        "factSetId": "fs-middleware-1",
+        "targetEntity": "func-authMiddleware",
+        "facts": [
+          {"predicate": "calls-expression", "object": "app.use", "type": "string"},
+          {"predicate": "param-count", "object": 3, "type": "number"},
+          {"predicate": "param-names", "object": "req,res,next", "type": "string"}
+        ],
+        "confidence": 55
+      },
+      {
+        "factSetId": "fs-config-reader-1",
+        "targetEntity": "const-DB_CONFIG",
+        "facts": [
+          {"predicate": "reads-env", "object": "DATABASE_URL", "type": "string"},
+          {"predicate": "has-default", "object": "localhost:5432", "type": "string"}
+        ],
+        "confidence": 50
+      }
+    ],
+    "low_confidence": [
+      {
+        "factSetId": "fs-dynamic-1",
+        "targetEntity": "func-dynamicLoader",
+        "facts": [
+          {"predicate": "uses-dynamic-import", "object": true, "type": "boolean"},
+          {"predicate": "calls-expression", "object": "require", "type": "string"}
+        ],
+        "confidence": 25
+      }
+    ]
+  },
+  "predicate_types": {
+    "string_predicates": [
+      "calls-expression",
+      "call-arg-0",
+      "call-arg-1",
+      "has-signature",
+      "param-names",
+      "belongs-to-class",
+      "visibility",
+      "reads-env",
+      "has-default"
+    ],
+    "number_predicates": [
+      "param-count",
+      "timeout-ms",
+      "retry-count",
+      "max-connections"
+    ],
+    "boolean_predicates": [
+      "has-jsdoc",
+      "has-async",
+      "has-error-handler",
+      "uses-dynamic-import",
+      "exported"
+    ],
+    "enum_predicates": {
+      "http-method": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"],
+      "log-level": ["debug", "info", "warn", "error"],
+      "visibility": ["public", "private", "protected"]
+    }
+  },
+  "notes": {
+    "numeric_formats": [
+      "Direct numbers: {predicate: 'param-count', object: 3}",
+      "String with units: {predicate: 'timeout', object: '5000ms'}",
+      "Object format: {predicate: 'timeout', object: {value: 5000, unit: 'ms'}}"
+    ],
+    "kb_api_findings": [
+      "getAllEntities() - Available ✓",
+      "getEntity(id) - Available ✓",
+      "getRelations(entityId?) - Available ✓",
+      "getCallGraph() - Available ✓",
+      "getImportGraph() - Available ✓",
+      "getReverseDeps(entityId) - Available ✓",
+      "NO name-based lookup - Need validator-local index ✗"
+    ]
+  }
+}
