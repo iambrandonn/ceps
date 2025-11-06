@@ -1,0 +1,27 @@
+{
+  "patchedFiles": [
+    {
+      "path": "spec.md",
+      "sectionsUpdated": [
+        {
+          "entityId": "QuVnACVfXW",
+          "entityName": "render"
+        }
+      ]
+    },
+    {
+      "path": "src/spec.md",
+      "sectionsUpdated": [
+        {
+          "entityId": "QuVnACVfXW",
+          "entityName": "render"
+        }
+      ]
+    }
+  ],
+  "failedEntities": [],
+  "resolvedQids": [
+    "q:GR0v81JJWV"
+  ],
+  "warnings": []
+}

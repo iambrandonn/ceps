@@ -22,7 +22,7 @@ export interface ReanalysisOptions {
 }
 export interface FailedEntity {
     entityId: string;
-    reason: 'llm-failure' | 'grounding-reject' | 'kb-inconsistency';
+    reason: 'llm-failure' | 'grounding-reject' | 'kb-inconsistency' | 'anchor-missing' | 'spec-missing';
     details: string;
     originalChunk?: BehaviorChunk;
 }

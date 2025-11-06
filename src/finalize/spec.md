@@ -1,6 +1,6 @@
 # src/finalize
 
-**Directory Overview:** This directory contains 6 entities.
+**Directory Overview:** This directory contains 7 entities.
 
 ## answers.ts
 
@@ -74,4 +74,19 @@ This function performs an operation.
 **Visibility:** Public (exported)
 
 This class represents snapshot mismatch error.
+
+## spec-patcher.ts
+
+<a id="vrydbUpGHG"></a>
+
+### patchSpecificationFiles
+
+**Signature:** `(projectRoot: string, kb: KnowledgeBase, impactReport: ImpactReport, reanalysis: ReanalysisResult, options: SpecPatchOptions = {}): import("/src/finalize/spec-patcher").SpecPatchReport`
+
+**Visibility:** Public (exported)
+
+This function modifies data.
+
+**Side effects:**
+- filesystem
 

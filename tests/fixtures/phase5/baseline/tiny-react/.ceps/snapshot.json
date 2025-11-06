@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "0f912cc94b8b0b5242e2f4e1bb4ba35ae4c3dc61197d94e9d0814ac43488d65a",
-  "generatedAt": "1970-01-01T00:00:00.000Z",
+  "rootHash": "58101c9781c60603b6aa503af466de8f9d8f73327e636adef145aaab93b9927a",
+  "generatedAt": "2025-11-06T15:25:23.083Z",
   "files": [
     {
       "path": "answers.md",
@@ -18,6 +18,11 @@
       "path": "answers.report.json",
       "hash": "c7807b5f7862024ce0c7d25c02e29e67cc83be4c8bb65078b324c8f0827690e0",
       "bytes": 599
+    },
+    {
+      "path": "finalization.summary.json",
+      "hash": "6e542383533c186e406fccbc4ab90abb2cd020040c5514f84e0dfb1df4e3cf19",
+      "bytes": 441
     },
     {
       "path": "impact.report.json",

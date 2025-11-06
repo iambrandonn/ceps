@@ -184,30 +184,41 @@ export interface ReanalysisResult {
 - **Fixtures:** `tests/fixtures/phase5/baseline/tiny-react/answers.md` exercises the grammar; golden outputs (`answers.parse.json`, `answers.report.json`) ensure deterministic parsing/ingestion.
 
 ## 4. Spec Generator Patch Mode
-- **Anchor-based replacement**
-  1. Parse existing Markdown into block segments keyed by `<a id="<entityId>"></a>` markers (current renderer emits these per entity).
-  2. For each impacted entity, regenerate its Markdown snippet (file heading, metadata, behaviour bullets, open questions) using updated KB chunks.
-  3. Replace the old block with the new one, preserving surrounding whitespace.
-  4. If an entity moves (path change), update directory spec membership by relocating blocks based on `entity.path`.
-- **Finalization Summary**
-  - Insert immediately after the document title (`# …`) as:
+- **Anchor map + block replacement**
+  1. Pre-parse each impacted `spec.md` into an ordered table keyed by `<a id="<entityId>"></a>` lines; unknown anchors surface a `FailedEntity` (`reason: 'anchor-missing'`).
+  2. Regenerate Markdown for successful entities via `MarkdownRenderer.renderEntity`, passing refreshed behaviour chunks and open-question lists filtered to exclude QIDs queued for resolution.
+  3. Apply replacements from bottom-to-top to avoid index drift, then normalise trailing newlines before rejoining the file.
+  4. Spec files missing on disk register `FailedEntity` entries (`reason: 'spec-missing'`) and leave answers/QIDs untouched.
+- **Open Question reconciliation**
+  - Resolved QIDs are removed only after their sections write successfully: `kb.updateChunk` (or `kb.insertChunk`) persists the new behaviour draft, then `kb.markQIDResolved` clears the Open Question and attached answer.
+  - Failures leave KB state unchanged so the orchestrator can emit partial-success diagnostics (exit code `4`).
+- **Finalization Summary block**
+  - Inserted immediately after the leading `# …` heading. The deterministic form is:
     ```
     ## Finalization Summary
     - Resolved QIDs: <count>
-    - Updated Sections: <comma-separated anchor slugs>
+    - Updated Sections: <display name (entityId), …>
     - Notes:
-      - <QID> …description…
+      - q:<id>: <first non-empty line of the answer>
     ```
-  - Deterministic mode omits timestamps; non-deterministic runs may append `- Ran on 2025-11-05T12:34:56Z`.
-  - Summaries stack newest-first with blank line separation.
-- **Handling Open Questions**
-  - Generator will be updated to emit unresolved QIDs inline (e.g., under a dedicated “Open Questions” subheading per entity). This change is prerequisite before Step 1 so finalization can physically remove resolved entries.
-  - When a QID is resolved, the patcher removes the corresponding bullet; if all QIDs cleared, the entire Open Questions subsection is pruned.
-- **FactSet attribution**
-  - Regenerated content continues to derive from KB behaviour chunks; factSet linkage remains in KB rather than Markdown. No inline metadata is required at this stage, but we will emit hidden HTML comments (`<!-- factSetIds: [...] -->`) if later validation needs to confirm grounding.
-- **Determinism safeguards**
-  - Root spec currently embeds `new Date().toISOString()` which breaks deterministic mode; Step 1 will guard this behind `deterministicMode` and reuse the persisted `generatedAt` timestamp.
-  - Patching enforces consistent newline handling (LF) and avoids trailing whitespace to ensure diff stability.
+  - Non-deterministic runs append `- Finalized: <ISO timestamp>` and prepend the newest summary while retaining previous entries.
+  - Root `spec.md` receives an aggregated summary (union of sections/QIDs across all touched files).
+- **Filesystem guarantees**
+  - Writes use a temp file + atomic rename to avoid truncated specs.
+  - Output normalises to LF endings and prunes redundant blank lines to keep deterministic diffs.
+- **SpecPatchReport contract**
+  ```typescript
+  interface SpecPatchReport {
+    patchedFiles: Array<{ path: string; sectionsUpdated: Array<{ entityId: string; entityName: string }> }>;
+    failedEntities: FailedEntity[];
+    resolvedQids: string[];
+    warnings: string[];
+  }
+  ```
+  - `patchedFiles` are sorted deterministically by path; each `sectionsUpdated` list is alphabetised by display name.
+  - `failedEntities` mirrors `ReanalysisResult.failedEntities` with additional `'anchor-missing'` and `'spec-missing'` reasons.
+  - `resolvedQids` contain only QIDs whose sections were successfully written; failures leave QIDs untouched.
+  - `warnings` aggregates diagnostics from reanalysis plus patch-specific messages (e.g., reconciled snapshot, temp write issues).
 
 ## 5. Orchestrator Finalization Phase
 - **CLI surface**

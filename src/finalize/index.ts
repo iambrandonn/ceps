@@ -24,3 +24,10 @@ export {
   type FailedEntity,
   SnapshotMismatchError
 } from './reanalysis.js';
+
+export {
+  patchSpecificationFiles,
+  type SpecPatchOptions,
+  type SpecPatchReport,
+  type PatchedSection
+} from './spec-patcher.js';

@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "f28874a2f0d0ac84da2cc374f7697a0456ac35d67fefb310c641ed31e79f9c2c",
-  "generatedAt": "2025-11-06T13:47:19.095Z",
+  "rootHash": "8efd6a793f54377f3a2fa05d68155a3c7ad43d007220adf15ee7bf8f440b417a",
+  "generatedAt": "2025-11-06T15:28:57.951Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -86,8 +86,8 @@
     },
     {
       "path": "docs/phase5-finalization-architecture.md",
-      "hash": "e41de715aba284a12556f3a905a0856546dd05a4a522c16502256928593458f1",
-      "bytes": 19870
+      "hash": "19d99f62cd9081ab810086fb68c5e61959dafbeb7c7bc8c4f8938fc8651e8fa5",
+      "bytes": 20417
     },
     {
       "path": "docs/process/grounding-completion.md",
@@ -120,14 +120,34 @@
       "bytes": 6555
     },
     {
-      "path": "FEEDBACK_TO_REVIEWER_1.md",
-      "hash": "d4bcf91ec784333104a1b15552c14b46f1a8eb25c1b4ab241c1c342411e98a50",
-      "bytes": 1654
+      "path": "FEEDBACK_01_IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
+      "hash": "5efa33aa834c13c756d07584d5d173455fb223d007fcf178652ae467848ed35a",
+      "bytes": 19201
     },
     {
-      "path": "FEEDBACK-04-01.md",
-      "hash": "4313fc2a5b15343ea8057d77c92955cbd2df5d4cd3abec66d7615a9e927ec2db",
-      "bytes": 23448
+      "path": "FEEDBACK_02_IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
+      "hash": "610c46aeb4991a1b71dc87ad1980e450061f8ef5c05f4b1ed9141c83d74c2443",
+      "bytes": 11578
+    },
+    {
+      "path": "FEEDBACK_03_IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
+      "hash": "0c52d4dfcb2a05b893c92c877044fee4fc29fbdcc4b9c391bb539db9c2bd20c4",
+      "bytes": 6763
+    },
+    {
+      "path": "FEEDBACK_TO_REVIEWER.md",
+      "hash": "7f91e8dd389ddcc12553b75c4296b099632fe53352a154766f3ea7397314c884",
+      "bytes": 3200
+    },
+    {
+      "path": "FEEDBACK-05-01.md",
+      "hash": "8e690d0b1f2cd2c9664161a6a136b0266bcde1f0931a71c04cc1ca2a0fe74c65",
+      "bytes": 21309
+    },
+    {
+      "path": "FEEDBACK-05-02.md",
+      "hash": "79c945b5be62731c1f474ffb41af96dafc7fde6908b53242d35f65c686aa0163",
+      "bytes": 15559
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -375,6 +395,11 @@
       "bytes": 9173
     },
     {
+      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
+      "hash": "6fa58eb2edc8007ee095aca83dcabb480f37c9ef538108b999c493de7322458d",
+      "bytes": 9186
+    },
+    {
       "path": "IMPLEMENTATION_PLAN_PHASE5.md",
       "hash": "75e1e2e97d0934f51670b21b9858dad0e791403ab1209f868a80f96e72ea0dac",
       "bytes": 10955
@@ -530,6 +555,11 @@
       "bytes": 9141
     },
     {
+      "path": "src/finalize/__tests__/spec-patcher.test.ts",
+      "hash": "1ee4f92a443be2483e75633f31047e27d555635ed1957f6c5edd50cca63f3480",
+      "bytes": 15200
+    },
+    {
       "path": "src/finalize/answers.ts",
       "hash": "806a79da664c14ca7e36555a55d77304352a14426bbbc6e4c9b94ced956559e5",
       "bytes": 6310
@@ -541,13 +571,18 @@
     },
     {
       "path": "src/finalize/index.ts",
-      "hash": "cc98b4a08ecb3fd9176a9071d9b7be05052a022ceca9d4016652f301c51e1b4b",
-      "bytes": 535
+      "hash": "5bb236e30cb8dde9b0362a827a899ba0c23b108f97719c93526370c27ef191af",
+      "bytes": 671
     },
     {
       "path": "src/finalize/reanalysis.ts",
-      "hash": "410ffec8175f8a2d2411a60e1071cb0764cee47396261293f99248c960e5f059",
-      "bytes": 15125
+      "hash": "cc48dc7252c93200989283a7a442f3825b2a135c623a1713a8e93788d4411efd",
+      "bytes": 15183
+    },
+    {
+      "path": "src/finalize/spec-patcher.ts",
+      "hash": "f617f82bf4a24cc2450ebe1d1e0de48d30fafdffcb08b6e2aa244c0195eb936c",
+      "bytes": 16079
     },
     {
       "path": "src/generator/__tests__/llm-orchestration.test.ts",
@@ -806,8 +841,8 @@
     },
     {
       "path": "src/snapshot/capture.ts",
-      "hash": "4fc7eed62fbcdb867807da32ffe693ed2d1cf8438e0878dceaf7a12d3bbcc077",
-      "bytes": 2640
+      "hash": "7fd0235ba289fec374f5ce28462547699dd7bc510db625c6f9dbf316abd7653d",
+      "bytes": 2677
     },
     {
       "path": "src/snapshot/hash.ts",
@@ -998,6 +1033,11 @@
       "path": "tests/fixtures/phase5/baseline/tiny-react/answers.report.json",
       "hash": "c7807b5f7862024ce0c7d25c02e29e67cc83be4c8bb65078b324c8f0827690e0",
       "bytes": 599
+    },
+    {
+      "path": "tests/fixtures/phase5/baseline/tiny-react/finalization.summary.json",
+      "hash": "6e542383533c186e406fccbc4ab90abb2cd020040c5514f84e0dfb1df4e3cf19",
+      "bytes": 441
     },
     {
       "path": "tests/fixtures/phase5/baseline/tiny-react/impact.report.json",

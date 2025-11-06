@@ -16,7 +16,9 @@ const DEFAULT_EXCLUDE = [
   '**/spec.md',
   'spec.md',
   '.ceps/**',
-  '**/.ceps/**'
+  '**/.ceps/**',
+  'expected/**',
+  '**/expected/**'
 ];
 
 const ALLOWED_EXTENSIONS = new Set([
