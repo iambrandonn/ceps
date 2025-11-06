@@ -13,10 +13,10 @@
  * NOTE: Phase 2 is skeleton only (no grounding validator yet)
  * Grounding Validator will be added in Phase 4
  */
-import { AnthropicAdapter } from './adapters/anthropic';
-import { OpenAIAdapter } from './adapters/openai';
-import { LLMCache } from './cache';
-import { BudgetTracker } from './budget';
+import { AnthropicAdapter } from './adapters/anthropic.js';
+import { OpenAIAdapter } from './adapters/openai.js';
+import { LLMCache } from './cache.js';
+import { BudgetTracker } from './budget.js';
 export class LLMGateway {
     adapters = {};
     currentProvider;

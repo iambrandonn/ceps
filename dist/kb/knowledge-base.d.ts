@@ -232,5 +232,25 @@ export declare class KnowledgeBase {
      * Called when relations are modified.
      */
     private invalidateGraphCaches;
+    /**
+     * Serialize KB state to JSON string.
+     * Used for persisting KB between baseline and finalize runs.
+     */
+    serialize(): string;
+    /**
+     * Deserialize KB state from JSON string.
+     * Throws if version mismatch or invalid JSON.
+     */
+    deserialize(json: string): void;
+    /**
+     * Serialize KB to file.
+     * Creates parent directories if needed.
+     */
+    serializeToFile(filepath: string): Promise<void>;
+    /**
+     * Deserialize KB from file.
+     * Throws if file does not exist or is invalid.
+     */
+    deserializeFromFile(filepath: string): Promise<void>;
 }
 //# sourceMappingURL=knowledge-base.d.ts.map

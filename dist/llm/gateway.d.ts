@@ -13,8 +13,8 @@
  * NOTE: Phase 2 is skeleton only (no grounding validator yet)
  * Grounding Validator will be added in Phase 4
  */
-import type { CompletionOptions } from './adapters/anthropic';
-import { UsageStats } from './budget';
+import type { CompletionOptions } from './adapters/anthropic.js';
+import { UsageStats } from './budget.js';
 import type { FactSet } from '../kb/models.js';
 export type Provider = 'anthropic' | 'openai';
 export interface GatewayOptions {
@@ -66,7 +66,7 @@ export declare class LLMGateway {
     /**
      * Get cache statistics
      */
-    getCacheStats(): import("./cache").CacheStats;
+    getCacheStats(): import("./cache.js").CacheStats;
     /**
      * Clear cache
      */

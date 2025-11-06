@@ -929,8 +929,8 @@ export class KnowledgeBase {
 
     // Restore open questions
     for (const oq of parsed.openQuestions || []) {
-      this.state.openQuestions.set(oq.id, oq);
-      this.state.qids.add(oq.id);
+      this.state.openQuestions.set(oq.qid, oq);
+      this.state.qids.add(oq.qid);
     }
 
     // Restore answers
@@ -943,9 +943,9 @@ export class KnowledgeBase {
    * Serialize KB to file.
    * Creates parent directories if needed.
    */
-  serializeToFile(filepath: string): void {
-    const fs = require('fs');
-    const path = require('path');
+  async serializeToFile(filepath: string): Promise<void> {
+    const fs = await import('fs');
+    const path = await import('path');
 
     const dir = path.dirname(filepath);
     if (!fs.existsSync(dir)) {
@@ -960,8 +960,8 @@ export class KnowledgeBase {
    * Deserialize KB from file.
    * Throws if file does not exist or is invalid.
    */
-  deserializeFromFile(filepath: string): void {
-    const fs = require('fs');
+  async deserializeFromFile(filepath: string): Promise<void> {
+    const fs = await import('fs');
 
     if (!fs.existsSync(filepath)) {
       throw new KBError(`KB state file not found: ${filepath}`);

@@ -12,6 +12,7 @@
  * - Partial execution support (runUntil for testing)
  */
 import { EventEmitter } from 'events';
+import { performance } from 'perf_hooks';
 import * as fs from 'fs';
 import * as path from 'path';
 import { KnowledgeBase } from '../kb/knowledge-base.js';
@@ -251,6 +252,9 @@ export class Orchestrator extends EventEmitter {
         const snapshotPath = path.join(this.rootPath, '.ceps', 'snapshot.json');
         const snapshot = await captureSnapshot({ root: this.rootPath });
         writeSnapshot(snapshot, snapshotPath);
+        // Phase 5: Save KB state for finalization
+        const kbStatePath = path.join(this.rootPath, '.ceps', 'kb-state.json');
+        await this.kb.serializeToFile(kbStatePath);
     }
     async runPostValidation() {
         if (!this.fileIndex) {
@@ -307,6 +311,150 @@ export class Orchestrator extends EventEmitter {
     }
     getRunSummary() {
         return this.runSummary;
+    }
+    /**
+     * Phase 5 Step 6: Finalization workflow
+     * Orchestrates answer-guided re-analysis and spec patching.
+     */
+    async runFinalize(config) {
+        const startTime = performance.now();
+        // Phase 1: Initialization & Validation
+        console.log('Phase 1: Loading KB state and verifying snapshot...');
+        // Deserialize KB from saved state
+        const kbStatePath = path.join(this.rootPath, '.ceps', 'kb-state.json');
+        await this.kb.deserializeFromFile(kbStatePath);
+        console.log(`  ✓ KB state loaded (${this.kb.getAllEntities().length} entities)`);
+        // Verify snapshot
+        const { verifySnapshot } = await import('../snapshot/index.js');
+        const snapshotPath = path.join(this.rootPath, '.ceps', 'snapshot.json');
+        const verification = await verifySnapshot(this.rootPath, snapshotPath, { reconcile: config.reconcile });
+        if (!verification.match) {
+            if (!config.reconcile) {
+                console.error('  ✗ Snapshot mismatch detected');
+                if (verification.mismatch) {
+                    console.error(`    Changed: ${verification.mismatch.changed.length} files`);
+                    console.error(`    Added: ${verification.mismatch.added.length} files`);
+                    console.error(`    Removed: ${verification.mismatch.removed.length} files`);
+                }
+                throw new Error('Snapshot mismatch: use --reconcile to proceed anyway');
+            }
+            else {
+                console.warn('  ⚠ Snapshot mismatch detected (continuing with --reconcile)');
+            }
+        }
+        else {
+            console.log('  ✓ Snapshot verified');
+        }
+        // Phase 2: Answers & Impact
+        console.log('\nPhase 2: Parsing answers and computing impact...');
+        const { parseAnswersFromFile, ingestAnswers } = await import('../finalize/answers.js');
+        const { computeImpactReport } = await import('../finalize/impact-scope.js');
+        const answerParseResult = parseAnswersFromFile(config.answersPath);
+        if (answerParseResult.errors.length > 0) {
+            console.error('  ✗ Answer parsing errors:');
+            answerParseResult.errors.forEach(err => {
+                console.error(`    Line ${err.line}: ${err.message}`);
+            });
+            throw new Error('Failed to parse answers.md');
+        }
+        const ingestionReport = ingestAnswers(this.kb, answerParseResult);
+        console.log(`  ✓ Parsed ${ingestionReport.summary.validCount} answers`);
+        if (ingestionReport.summary.unknownCount > 0) {
+            console.warn(`  ⚠ ${ingestionReport.summary.unknownCount} unknown QIDs`);
+        }
+        const resolvedQids = ingestionReport.validAnswers.map(a => a.qid);
+        const impactReport = computeImpactReport(this.kb, resolvedQids, {
+            scope: config.scope,
+            maxHops: config.maxHops,
+            maxNodes: config.maxNodes
+        });
+        console.log(`  ✓ Impact scope: ${impactReport.impactedEntities.length} entities`);
+        if (impactReport.diagnostics.capped) {
+            console.warn(`  ⚠ Scope capped at ${config.maxNodes} nodes`);
+        }
+        // Phase 3: Re-Analysis & Patching (skip if dry-run)
+        if (config.dryRun) {
+            console.log('\nDry-run mode: skipping re-analysis and patching');
+            const runtimeMs = performance.now() - startTime;
+            const summary = {
+                exitCode: 0,
+                status: 'success',
+                resolvedQids: resolvedQids.length,
+                patchedFiles: 0,
+                updatedEntities: 0,
+                failedEntities: 0,
+                resolvedQidList: resolvedQids,
+                patchedFilePaths: [],
+                failedEntityDetails: [],
+                warnings: answerParseResult.warnings,
+                impactDiagnostics: {
+                    hopsTraversed: impactReport.diagnostics.hopsTraversed,
+                    nodesTraversed: impactReport.diagnostics.nodesTraversed,
+                    capped: impactReport.diagnostics.capped
+                },
+                metrics: {
+                    tokensUsed: 0,
+                    runtimeMs,
+                    snapshotVerified: verification.match
+                }
+            };
+            return { summary, exitCode: 0 };
+        }
+        console.log('\nPhase 3: Re-analyzing impacted entities...');
+        const { reanalyzeEntities } = await import('../finalize/reanalysis.js');
+        const reanalysisResult = await reanalyzeEntities(this.kb, impactReport, {
+            deterministicMode: config.deterministicMode,
+            llmEnabled: config.llmEnabled,
+            llmBudgetTokens: undefined, // Budget tracked by budgetTracker itself
+            reasoningEnabled: true,
+            llmGateway: config.llmGateway,
+            validator: config.validator,
+            budgetTracker: config.budgetTracker
+        });
+        console.log(`  ✓ Re-analyzed ${reanalysisResult.metrics.entitiesProcessed} entities`);
+        if (reanalysisResult.failedEntities.length > 0) {
+            console.warn(`  ⚠ ${reanalysisResult.failedEntities.length} entities failed`);
+        }
+        console.log('\nPhase 4: Patching specifications...');
+        const { patchSpecificationFiles } = await import('../finalize/spec-patcher.js');
+        const patchReport = patchSpecificationFiles(this.rootPath, this.kb, impactReport, reanalysisResult, {
+            deterministic: config.deterministicMode
+        });
+        console.log(`  ✓ Patched ${patchReport.patchedFiles.length} spec files`);
+        console.log(`  ✓ Resolved ${patchReport.resolvedQids.length} QIDs`);
+        // Update KB state
+        const kbStatePathFinal = path.join(this.rootPath, '.ceps', 'kb-state.json');
+        await this.kb.serializeToFile(kbStatePathFinal);
+        console.log('  ✓ KB state updated');
+        // Phase 4: Summary & Exit
+        const runtimeMs = performance.now() - startTime;
+        const exitCode = patchReport.failedEntities.length > 0 ? 4 : 0;
+        const summary = {
+            exitCode,
+            status: exitCode === 0 ? 'success' : 'partial-success',
+            resolvedQids: patchReport.resolvedQids.length,
+            patchedFiles: patchReport.patchedFiles.length,
+            updatedEntities: reanalysisResult.metrics.entitiesProcessed - reanalysisResult.failedEntities.length,
+            failedEntities: reanalysisResult.failedEntities.length,
+            resolvedQidList: patchReport.resolvedQids,
+            patchedFilePaths: patchReport.patchedFiles.map(f => f.path),
+            failedEntityDetails: patchReport.failedEntities.map(f => ({
+                entityId: f.entityId,
+                reason: f.reason
+            })),
+            warnings: [...answerParseResult.warnings, ...patchReport.warnings],
+            impactDiagnostics: {
+                hopsTraversed: impactReport.diagnostics.hopsTraversed,
+                nodesTraversed: impactReport.diagnostics.nodesTraversed,
+                capped: impactReport.diagnostics.capped
+            },
+            metrics: {
+                tokensUsed: reanalysisResult.metrics.tokensUsed,
+                runtimeMs,
+                snapshotVerified: verification.match
+            }
+        };
+        return { summary, exitCode };
     }
     async evaluateGates(generator, rootSpec, dirSpecs) {
         if (!this.fileIndex) {

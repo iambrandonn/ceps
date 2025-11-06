@@ -1,5 +1,5 @@
-import { FileIndex } from '../types';
-import { IgnoreRulesOptions } from './ignore-rules';
+import { FileIndex } from '../types/index.js';
+import { IgnoreRulesOptions } from './ignore-rules.js';
 export declare class Scanner {
     private rootPath;
     private ignoreRules;

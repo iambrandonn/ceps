@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "b79ef90c4cca24d68245ff21721ac9fc28e127799bfa64d10583dd8f34978ea7",
-  "generatedAt": "2025-11-06T18:14:24.398Z",
+  "rootHash": "ccb6ba94e03c7cba6a0a1cd0bb856bdea15c53e8d801d9c0b732f831d0b93e14",
+  "generatedAt": "2025-11-06T19:31:24.717Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -118,16 +118,6 @@
       "path": "docs/ws-f2-telemetry.md",
       "hash": "3ac777dc50b995f0d32745da18f6d672d6dc9a42844dcda34d9de484517aa6c0",
       "bytes": 6555
-    },
-    {
-      "path": "FEEDBACK_TO_REVIEWER.md",
-      "hash": "0aa443bc819454746b14a25e5bd1bd427b4f2ad80380e3d3ee4c52488d739022",
-      "bytes": 8010
-    },
-    {
-      "path": "FEEDBACK-PHASE5-STEP6-01.md",
-      "hash": "a4055f34dfd3d2922ba89f6868125155fec77f31aad2199a3f2d8cf1653a7651",
-      "bytes": 14016
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -385,6 +375,11 @@
       "bytes": 10733
     },
     {
+      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP7.md",
+      "hash": "a98b12d5ca496dd422ddbb71b3c588432617507018932c1036ccecbaa01f6672",
+      "bytes": 8186
+    },
+    {
       "path": "IMPLEMENTATION_PLAN_PHASE5.md",
       "hash": "6b2e5f4e5b3079c9456d35da92e513dc5ad3d827385f46fdb2abb1361d8dd089",
       "bytes": 11894
@@ -596,8 +591,8 @@
     },
     {
       "path": "src/kb/__tests__/kb-serialization.test.ts",
-      "hash": "ad65c4072763441c442019345f29ba74f09718ae0834364d82b393db2db94a60",
-      "bytes": 8192
+      "hash": "bc9e16a32a36a96c9a1da132270a6926557326beca350beac2051d0f37659b4b",
+      "bytes": 8254
     },
     {
       "path": "src/kb/id-generation.ts",
@@ -606,8 +601,8 @@
     },
     {
       "path": "src/kb/knowledge-base.ts",
-      "hash": "52c0d2cbbb3a594cb83131cb08c0d604e1b9b87695ee0396c388d2bdbcecf5e2",
-      "bytes": 29937
+      "hash": "96dc9faca08441a5a9feb4e22103bc2a2c3e6f9d5aa16ceae715f8f0e3a92855",
+      "bytes": 29984
     },
     {
       "path": "src/kb/models.ts",
@@ -656,8 +651,8 @@
     },
     {
       "path": "src/llm/gateway.ts",
-      "hash": "2a2a5b0bf920dfede5cfd0337bc3b74c82038a4837f0f365fe99610d1f0546df",
-      "bytes": 7774
+      "hash": "e2cf228492fa1dd769febf8719935a45617d85d98c9b67c8e81b200d1d77bd50",
+      "bytes": 7789
     },
     {
       "path": "src/orchestrator/__tests__/cli-finalize-flags.test.ts",
@@ -731,8 +726,8 @@
     },
     {
       "path": "src/orchestrator/orchestrator.ts",
-      "hash": "0bc14af75822bce0b9dbea162d6a80c6fb4fba005b9c7c30bd1298c1bf2d3d1c",
-      "bytes": 24286
+      "hash": "9d104c2840250b6f630bbdb22dff4d824945d460c381e84c0cc249abf6a7c629",
+      "bytes": 24304
     },
     {
       "path": "src/orchestrator/rendering/run-summary-renderer.ts",
@@ -811,13 +806,13 @@
     },
     {
       "path": "src/scanner/monorepo.ts",
-      "hash": "65f1b0865bfce4e28b5880b4e9de7298c3ffaead177cd344297c8936f4568059",
-      "bytes": 2299
+      "hash": "4d3894031fe74c52f527b706f8a3c3b1411946e19f05e6a238fd274964fe8b7d",
+      "bytes": 2308
     },
     {
       "path": "src/scanner/scanner.ts",
-      "hash": "d21f14d31800c247694bf65a81d43361b7040d930241817308dcc706c0699dbb",
-      "bytes": 2884
+      "hash": "096c9c3a396480b042f0debea3625b98ab8d2a73a914280bb3f092761aade8e1",
+      "bytes": 2899
     },
     {
       "path": "src/snapshot/__tests__/capture.test.ts",
@@ -1053,6 +1048,11 @@
       "path": "tests/fixtures/phase5/baseline/tiny-react/reanalysis.success.json",
       "hash": "4471bd2b607e4cea687cbee4674b3186101b0a3ebe42574d158e15f3edf59f74",
       "bytes": 535
+    },
+    {
+      "path": "tests/fixtures/phase5/baseline/tiny-react/src/Button.tsx",
+      "hash": "ecb252d2cacef358aca0cfa374c8139f05f3f1eb1dcf1487fb37943b36552055",
+      "bytes": 40
     },
     {
       "path": "tests/fixtures/README.md",

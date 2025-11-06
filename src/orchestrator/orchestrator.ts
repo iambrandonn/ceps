@@ -331,7 +331,7 @@ export class Orchestrator extends EventEmitter {
 
     // Phase 5: Save KB state for finalization
     const kbStatePath = path.join(this.rootPath, '.ceps', 'kb-state.json');
-    this.kb.serializeToFile(kbStatePath);
+    await this.kb.serializeToFile(kbStatePath);
   }
 
   private async runPostValidation(): Promise<void> {
@@ -436,7 +436,7 @@ export class Orchestrator extends EventEmitter {
 
     // Deserialize KB from saved state
     const kbStatePath = path.join(this.rootPath, '.ceps', 'kb-state.json');
-    this.kb.deserializeFromFile(kbStatePath);
+    await this.kb.deserializeFromFile(kbStatePath);
     console.log(`  ✓ KB state loaded (${this.kb.getAllEntities().length} entities)`);
 
     // Verify snapshot
@@ -559,7 +559,7 @@ export class Orchestrator extends EventEmitter {
 
     // Update KB state
     const kbStatePathFinal = path.join(this.rootPath, '.ceps', 'kb-state.json');
-    this.kb.serializeToFile(kbStatePathFinal);
+    await this.kb.serializeToFile(kbStatePathFinal);
     console.log('  ✓ KB state updated');
 
     // Phase 4: Summary & Exit

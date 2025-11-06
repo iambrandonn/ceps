@@ -14,11 +14,11 @@
  * Grounding Validator will be added in Phase 4
  */
 
-import { AnthropicAdapter } from './adapters/anthropic';
-import { OpenAIAdapter } from './adapters/openai';
-import type { CompletionOptions, TokenUsage } from './adapters/anthropic';
-import { LLMCache } from './cache';
-import { BudgetTracker, UsageStats } from './budget';
+import { AnthropicAdapter } from './adapters/anthropic.js';
+import { OpenAIAdapter } from './adapters/openai.js';
+import type { CompletionOptions, TokenUsage } from './adapters/anthropic.js';
+import { LLMCache } from './cache.js';
+import { BudgetTracker, UsageStats } from './budget.js';
 import type { FactSet } from '../kb/models.js';
 
 export type Provider = 'anthropic' | 'openai';

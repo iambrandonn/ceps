@@ -1,4 +1,4 @@
-import { PackageMap } from '../types';
+import { PackageMap } from '../types/index.js';
 export interface MonorepoDetectionResult {
     isMonorepo: boolean;
     type?: 'pnpm-workspaces' | 'lerna' | 'nx' | 'yarn-workspaces';

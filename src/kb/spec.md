@@ -50,7 +50,7 @@ This function performs an operation.
 
 This class represents k b error.
 
-<a id="Lx0C7yyVdt"></a>
+<a id="iwzxkJuwci"></a>
 
 ### KnowledgeBase
 
@@ -476,7 +476,7 @@ This method retrieves data.
 
 This method performs an operation.
 
-<a id="bccfv7flS1"></a>
+<a id="6vqm147RuS"></a>
 
 ### deserialize
 
@@ -489,11 +489,11 @@ This method performs an operation.
 **Errors thrown:**
 - new KBError(`KB version mismatch: expected 1.0, got ${parsed.version}`);
 
-<a id="iUyHhpsCU2"></a>
+<a id="NwUvyDyQpk"></a>
 
 ### serializeToFile
 
-**Signature:** `(filepath: string): void`
+**Signature:** `(filepath: string): Promise<void>`
 
 **Visibility:** Public (exported)
 
@@ -502,11 +502,11 @@ This method performs an operation.
 **Side effects:**
 - filesystem
 
-<a id="jDYpOhcpHc"></a>
+<a id="iQa6hcHRFT"></a>
 
 ### deserializeFromFile
 
-**Signature:** `(filepath: string): void`
+**Signature:** `(filepath: string): Promise<void>`
 
 **Visibility:** Public (exported)
 

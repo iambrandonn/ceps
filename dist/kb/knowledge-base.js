@@ -736,5 +736,88 @@ export class KnowledgeBase {
         this.importGraphCache = null;
         this.reverseDepsCache = null;
     }
+    // -------- Phase 5 Step 6: KB Serialization --------
+    /**
+     * Serialize KB state to JSON string.
+     * Used for persisting KB between baseline and finalize runs.
+     */
+    serialize() {
+        const state = this.getActiveState();
+        const serialized = {
+            version: '1.0',
+            entities: Array.from(state.entities.values()),
+            relations: state.relations,
+            factSets: Array.from(state.factSets.values()),
+            chunks: Array.from(state.chunks.values()),
+            openQuestions: Array.from(state.openQuestions.values()),
+            answers: Array.from(state.answers.values())
+        };
+        return JSON.stringify(serialized, null, 2);
+    }
+    /**
+     * Deserialize KB state from JSON string.
+     * Throws if version mismatch or invalid JSON.
+     */
+    deserialize(json) {
+        const parsed = JSON.parse(json);
+        // Validate version
+        if (parsed.version !== '1.0') {
+            throw new KBError(`KB version mismatch: expected 1.0, got ${parsed.version}`);
+        }
+        // Clear existing state
+        this.state = this.createEmptyState();
+        this.invalidateGraphCaches();
+        // Restore entities
+        for (const entity of parsed.entities || []) {
+            this.insertEntity(entity);
+        }
+        // Restore relations
+        for (const relation of parsed.relations || []) {
+            this.insertRelation(relation);
+        }
+        // Restore factSets
+        for (const factSet of parsed.factSets || []) {
+            this.insertFactSet(factSet);
+        }
+        // Restore chunks
+        for (const chunk of parsed.chunks || []) {
+            this.insertChunk(chunk);
+        }
+        // Restore open questions
+        for (const oq of parsed.openQuestions || []) {
+            this.state.openQuestions.set(oq.qid, oq);
+            this.state.qids.add(oq.qid);
+        }
+        // Restore answers
+        for (const answer of parsed.answers || []) {
+            this.state.answers.set(answer.qid, answer);
+        }
+    }
+    /**
+     * Serialize KB to file.
+     * Creates parent directories if needed.
+     */
+    async serializeToFile(filepath) {
+        const fs = await import('fs');
+        const path = await import('path');
+        const dir = path.dirname(filepath);
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+        const json = this.serialize();
+        fs.writeFileSync(filepath, json, 'utf8');
+    }
+    /**
+     * Deserialize KB from file.
+     * Throws if file does not exist or is invalid.
+     */
+    async deserializeFromFile(filepath) {
+        const fs = await import('fs');
+        if (!fs.existsSync(filepath)) {
+            throw new KBError(`KB state file not found: ${filepath}`);
+        }
+        const json = fs.readFileSync(filepath, 'utf8');
+        this.deserialize(json);
+    }
 }
 //# sourceMappingURL=knowledge-base.js.map

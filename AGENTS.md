@@ -8,26 +8,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ceps** (Codebase to Specification) is a one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into human-readable Markdown specifications. Its purpose is to bootstrap a spec-driven development workflow by extracting behavioral intent from existing code.
 
-**Current Status:** Phase 4 (Grounding & Polish) complete. LLM integration, validator gates, and run summaries are in production with 62 test files / 823 tests (3 skipped) passing and 93.42% coverage. Preparing for Phase 5 (Finalization).
+**Current Status:** Phase 5 (Finalization) complete. Answer-guided re-analysis, snapshot verification, and spec patching are in production with 78 test files / 935 tests (3 skipped) passing and 93%+ coverage. Ready for Phase 6 (Production Hardening).
 
 ---
 
 ## Current Phase
 
-**Phase 5 — Finalization (Ready to Start)**
+**Phase 6 — Production Hardening (Ready to Start)**
 
-- **Status:** Phase 4 gating, validator, and LLM polish are complete; Finalization Engine is the next sequential milestone.
-- **Depends on:** Phase 4 (✅ Complete)
-- **Approach:** TDD-first, sequential delivery (1 agent) with tight integration to the existing pipeline.
+- **Status:** Phase 5 finalization is complete; framework patterns and performance optimization are the next milestones.
+- **Depends on:** Phase 5 (✅ Complete)
+- **Approach:** High parallelization (5-7 agents) for framework patterns + performance + documentation.
 - **Agents:**
-  - **Agent 1:** Finalization Engine (CTS-04)
+  - **Agent 1:** Express pattern library (routes, middleware, error handling, config)
+  - **Agent 2:** React pattern library (components, hooks, context, side effects)
+  - **Agent 3:** Redux pattern library (actions, reducers, selectors, middleware)
+  - **Agent 4:** GraphQL pattern library (schema, resolvers, mutations, subscriptions)
+  - **Agent 5:** HTTP clients pattern library (Axios/Fetch with error handling, retries)
+  - **Agent 6:** Performance optimization (worker pools, memory, telemetry)
+  - **Agent 7:** Documentation & UX polish
 - **Deliverables:**
-  - Snapshot/Merkle capture and verification
-  - `answers.md` ingestion and QID resolution workflow
-  - Reverse-deps scoping (caps honoured)
-  - Selective re-analysis and spec patching
-  - Finalization summaries appended to impacted specs
-- **Critical Checkpoint:** Phase 4 gates remain green; finalization run must respect snapshot integrity.
+  - >90% pattern accuracy for Tier 0 frameworks
+  - Performance targets met on large repos
+  - Complete user-facing documentation
+- **Critical Checkpoint:** M3 gates pass; production-ready release.
 
 ---
 
@@ -184,14 +188,20 @@ ceps finalize --answers ./answers.md
    - ✅ WS-F2 LLM polish integration, budget enforcement, CLI flag matrix
    - ✅ WS-H runtime/validation gates, exit codes, and run summary telemetry
    - ✅ **Results:** 62 test files, 823 tests passed (3 skipped), 93.42% coverage; gates and budgets enforced
+8. ~~Execute Phase 5 implementation~~ → **Done** (2025-11-06)
+   - ✅ Snapshot capture & verification (Merkle tree)
+   - ✅ answers.md parsing & ingestion (multi-line support, validation)
+   - ✅ Impact scoping (reverse-deps with hops/nodes caps)
+   - ✅ Selective re-analysis pipeline (template + LLM modes)
+   - ✅ Spec patching & Finalization Summary generation
+   - ✅ CLI finalize command (dry-run, reconcile, cap flags)
+   - ✅ End-to-end validation (LLM-off mode)
+   - ✅ **Results:** 78 test files, 935 tests passed (3 skipped), 93%+ coverage
+   - ✅ **Critical Fixes:** QID deserialization bug, ESM imports, async KB methods
 
-### 📋 Next (Phase 5)
-- **Phase 5 implementation:** Finalization Engine (CTS-04), sequential
-  - Impact-scoped re-analysis, snapshot verification, answers ingestion, summary append
-
-### 📋 Future (Phase 6)
-- Phase 6 implementation: Framework patterns, performance, documentation
-  - **5-7 parallel agents**
+### 📋 Next (Phase 6)
+- **Phase 6 implementation:** Framework patterns, performance, documentation
+  - **5-7 parallel agents** for Express, React, Redux, GraphQL, HTTP clients + performance + docs
 
 ---
 

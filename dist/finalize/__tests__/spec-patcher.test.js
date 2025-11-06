@@ -18,8 +18,8 @@ describe('patchSpecificationFiles', () => {
             deterministic: true,
             timestamp: () => '1970-01-01T00:00:00.000Z'
         });
-        const expectedSpec = fs.readFileSync(path.join(FIXTURE_ROOT, 'spec.finalize.after.md'), 'utf8');
-        const expectedDirSpec = fs.readFileSync(path.join(FIXTURE_ROOT, 'src/spec.finalize.after.md'), 'utf8');
+        const expectedSpec = fs.readFileSync(path.join(FIXTURE_ROOT, 'expected/root.spec.md'), 'utf8');
+        const expectedDirSpec = fs.readFileSync(path.join(FIXTURE_ROOT, 'expected/src/spec.md'), 'utf8');
         const expectedSummary = JSON.parse(fs.readFileSync(path.join(FIXTURE_ROOT, 'finalization.summary.json'), 'utf8'));
         const actualSpec = fs.readFileSync(path.join(workdir, 'spec.md'), 'utf8');
         const actualDirSpec = fs.readFileSync(path.join(workdir, 'src/spec.md'), 'utf8');
@@ -177,8 +177,8 @@ describe('patchSpecificationFiles', () => {
         const secondRunKb = buildKnowledgeBase();
         ingestFixtureAnswers(secondRunKb, workdir);
         patchSpecificationFiles(workdir, secondRunKb, impactReport, reanalysis, deterministicOptions);
-        const expectedRoot = ensureTrailingNewline(fs.readFileSync(path.join(FIXTURE_ROOT, 'spec.finalize.after.md'), 'utf8'));
-        const expectedDir = ensureTrailingNewline(fs.readFileSync(path.join(FIXTURE_ROOT, 'src/spec.finalize.after.md'), 'utf8'));
+        const expectedRoot = ensureTrailingNewline(fs.readFileSync(path.join(FIXTURE_ROOT, 'expected/root.spec.md'), 'utf8'));
+        const expectedDir = ensureTrailingNewline(fs.readFileSync(path.join(FIXTURE_ROOT, 'expected/src/spec.md'), 'utf8'));
         const afterSecondRoot = fs.readFileSync(path.join(workdir, 'spec.md'), 'utf8');
         const afterSecondDir = fs.readFileSync(path.join(workdir, 'src/spec.md'), 'utf8');
         expect(normalizeSpecContent(afterSecondRoot)).toEqual(normalizeSpecContent(firstRoot));

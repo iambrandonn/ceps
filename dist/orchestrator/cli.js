@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 export function parseArgs(argv) {
     const args = {
+        command: 'baseline',
         projectRoot: process.cwd(),
         deterministic: false,
         maxWorkers: undefined,
@@ -9,6 +10,11 @@ export function parseArgs(argv) {
         llm: 'on',
         version: false,
         noSnapshot: false,
+        dryRun: false,
+        reconcile: false,
+        finalizeMaxHops: 3,
+        finalizeMaxNodes: 250,
+        finalizeScope: 'auto',
     };
     // Skip 'node' and script name
     const positional = [];
@@ -75,18 +81,81 @@ export function parseArgs(argv) {
             else if (arg === '--no-snapshot') {
                 args.noSnapshot = true;
             }
+            else if (arg === '--answers') {
+                if (i + 1 >= argv.length || argv[i + 1].startsWith('--')) {
+                    throw new Error('--answers requires a value');
+                }
+                args.answersPath = argv[++i];
+            }
+            else if (arg === '--dry-run') {
+                args.dryRun = true;
+            }
+            else if (arg === '--reconcile') {
+                args.reconcile = true;
+            }
+            else if (arg === '--finalize-max-hops') {
+                if (i + 1 >= argv.length || argv[i + 1].startsWith('--')) {
+                    throw new Error('--finalize-max-hops requires a value');
+                }
+                const value = argv[++i];
+                const parsed = parseInt(value, 10);
+                args.finalizeMaxHops = parsed;
+            }
+            else if (arg === '--finalize-max-nodes') {
+                if (i + 1 >= argv.length || argv[i + 1].startsWith('--')) {
+                    throw new Error('--finalize-max-nodes requires a value');
+                }
+                const value = argv[++i];
+                const parsed = parseInt(value, 10);
+                args.finalizeMaxNodes = parsed;
+            }
+            else if (arg === '--finalize-scope') {
+                if (i + 1 >= argv.length || argv[i + 1].startsWith('--')) {
+                    throw new Error('--finalize-scope requires a value');
+                }
+                const value = argv[++i];
+                args.finalizeScope = value;
+            }
+            else if (arg === '--finalize-out') {
+                throw new Error('--finalize-out is not supported in Phase 5');
+            }
             // Add more flags here
         }
         else {
             positional.push(arg);
         }
     }
+    // Parse command (first positional arg might be 'finalize' or a path)
     if (positional.length > 0) {
-        args.projectRoot = path.resolve(positional[0]);
+        const first = positional[0];
+        if (first === 'finalize') {
+            args.command = 'finalize';
+            // Project root can be specified as second positional arg
+            if (positional.length > 1) {
+                args.projectRoot = path.resolve(positional[1]);
+            }
+        }
+        else if (first === 'baseline') {
+            args.command = 'baseline';
+            if (positional.length > 1) {
+                args.projectRoot = path.resolve(positional[1]);
+            }
+        }
+        else {
+            // Check if it looks like a command (starts with lowercase letter, no path separators)
+            const knownCommands = ['baseline', 'finalize'];
+            const looksLikeCommand = /^[a-z][a-z-]*$/.test(first) && !first.includes('/') && !first.includes('\\');
+            if (looksLikeCommand && !knownCommands.includes(first)) {
+                throw new Error(`Unknown command: ${first}. Supported commands: ${knownCommands.join(', ')}`);
+            }
+            // Otherwise treat as project path for baseline command
+            args.command = 'baseline';
+            args.projectRoot = path.resolve(first);
+        }
     }
     return args;
 }
-export function validateArgs(args) {
+export function validateArgs(args, filesystem = fs) {
     // Validate --llm off + other LLM flags interaction
     if (args.llm === 'off') {
         const hasLlmFlags = args.llmProvider !== undefined ||
@@ -128,11 +197,47 @@ export function validateArgs(args) {
     if (args.noLlmCache && args.llm === 'off') {
         console.warn('Warning: --no-llm-cache has no effect when --llm is off');
     }
+    // Phase 5: Finalize-specific validations
+    if (args.command === 'finalize') {
+        // --answers is required for finalize
+        if (!args.answersPath) {
+            throw new Error('finalize command requires --answers <path>');
+        }
+        // FIRST: Validate flag values (type/range checks)
+        if (args.finalizeMaxHops !== undefined && (args.finalizeMaxHops <= 0 || !Number.isInteger(args.finalizeMaxHops))) {
+            throw new Error('--finalize-max-hops must be a positive integer');
+        }
+        if (args.finalizeMaxNodes !== undefined && (args.finalizeMaxNodes <= 0 || !Number.isInteger(args.finalizeMaxNodes))) {
+            throw new Error('--finalize-max-nodes must be a positive integer');
+        }
+        if (args.finalizeScope && args.finalizeScope !== 'auto' && args.finalizeScope !== 'full') {
+            throw new Error('--finalize-scope must be either "auto" or "full"');
+        }
+        // Validate flag combinations
+        if (args.noSnapshot) {
+            throw new Error('--no-snapshot is only valid for baseline command');
+        }
+        // THEN: Check file/directory existence (after flag validation)
+        if (!filesystem.existsSync(args.answersPath)) {
+            throw new Error(`Answers file does not exist: ${args.answersPath}`);
+        }
+        const kbStatePath = path.join(args.projectRoot, '.ceps', 'kb-state.json');
+        if (!filesystem.existsSync(kbStatePath)) {
+            throw new Error('Baseline run required before finalization: .ceps/kb-state.json not found');
+        }
+        // FINALLY: Warnings (non-blocking)
+        if (args.reconcile && args.dryRun) {
+            console.warn('Warning: --reconcile has no effect in --dry-run mode');
+        }
+        if (args.finalizeScope === 'full' && (args.finalizeMaxHops !== 3 || args.finalizeMaxNodes !== 250)) {
+            console.warn('Warning: --finalize-scope full ignores --finalize-max-hops and --finalize-max-nodes');
+        }
+    }
     // Existing validations
-    if (!fs.existsSync(args.projectRoot)) {
+    if (!filesystem.existsSync(args.projectRoot)) {
         throw new Error(`Project root does not exist: ${args.projectRoot}`);
     }
-    if (!fs.statSync(args.projectRoot).isDirectory()) {
+    if (!filesystem.statSync(args.projectRoot).isDirectory()) {
         throw new Error(`Project root is not a directory: ${args.projectRoot}`);
     }
 }

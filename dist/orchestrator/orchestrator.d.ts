@@ -86,6 +86,26 @@ export declare class Orchestrator extends EventEmitter {
     getKnowledgeBase(): KnowledgeBase;
     getStatus(): PipelineStatus;
     getRunSummary(): RunSummary | undefined;
+    /**
+     * Phase 5 Step 6: Finalization workflow
+     * Orchestrates answer-guided re-analysis and spec patching.
+     */
+    runFinalize(config: {
+        answersPath: string;
+        dryRun: boolean;
+        reconcile: boolean;
+        deterministicMode: boolean;
+        scope: 'auto' | 'full';
+        maxHops: number;
+        maxNodes: number;
+        llmEnabled: boolean;
+        llmGateway?: LLMGateway;
+        validator?: Validator;
+        budgetTracker?: BudgetTracker;
+    }): Promise<{
+        summary: any;
+        exitCode: 0 | 3 | 4;
+    }>;
     private evaluateGates;
 }
 //# sourceMappingURL=orchestrator.d.ts.map

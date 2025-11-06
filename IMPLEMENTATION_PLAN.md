@@ -1,8 +1,8 @@
 # ceps — High‑Level Implementation Plan (HLIP)
-**Date:** 2025-11-03 (Updated: Phase 4 complete)
+**Date:** 2025-11-03 (Updated: Phase 5 complete)
 **Scope:** End‑to‑end plan to deliver ceps from architecture to MVP and production, aligned to SADS v1.1 and the CTS suite.
 **Audience:** AI agents, engineering reviewers, product.
-**Status:** Phases 1-4 complete (✅); Phase 5 ready to start
+**Status:** Phases 1-5 complete (✅); Phase 6 ready to start
 
 **Phase 1 Completion:**
 - ✅ KB API frozen and documented
@@ -29,6 +29,17 @@
 - ✅ Runtime + validation gates, exit codes, and run summary telemetry (WS-H)
 - ✅ All gates passing with deterministic template fallback preserved
 - ✅ **Results:** 62 test files, 823 tests passed (3 skipped), 93.42% coverage
+
+**Phase 5 Completion:**
+- ✅ Snapshot capture & verification with Merkle tree (WS-G Step 1)
+- ✅ answers.md parsing & ingestion with multi-line support (WS-G Step 2)
+- ✅ Impact scoping with reverse-deps traversal and caps (WS-G Step 3)
+- ✅ Selective re-analysis pipeline with error handling (WS-G Step 4)
+- ✅ Spec patching & Finalization Summary generation (WS-G Step 5)
+- ✅ CLI finalize command with dry-run, reconcile, and cap flags (WS-G Step 6)
+- ✅ End-to-end validation with LLM-off mode (WS-G Step 7)
+- ✅ **Results:** 78 test files, 935 tests passed (3 skipped), 93%+ coverage
+- ✅ **Critical Fixes:** QID deserialization bug, ESM import issues, async KB methods
 
 **Implementation approach:** This project will be implemented by AI agents using **Test-Driven Development (TDD)**. Milestones are structured for progressive delivery; agents should maximize parallelization wherever dependencies permit.
 

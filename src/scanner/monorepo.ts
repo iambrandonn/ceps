@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { glob } from 'glob';
-import { PackageMap } from '../types';
+import { PackageMap } from '../types/index.js';
 
 export interface MonorepoDetectionResult {
   isMonorepo: boolean;

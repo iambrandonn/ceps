@@ -1,9 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { glob } from 'glob';
-import { FileEntry, FileIndex, PackageMap } from '../types';
-import { IgnoreRules, IgnoreRulesOptions } from './ignore-rules';
-import { detectMonorepo, buildPackageMap } from './monorepo';
+import { FileEntry, FileIndex, PackageMap } from '../types/index.js';
+import { IgnoreRules, IgnoreRulesOptions } from './ignore-rules.js';
+import { detectMonorepo, buildPackageMap } from './monorepo.js';
 
 export class Scanner {
   private ignoreRules: IgnoreRules;
