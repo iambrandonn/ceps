@@ -10,3 +10,9 @@ export {
   type AnswerIngestionOptions,
   type InvalidAnswerEntry
 } from './answers.js';
+
+export {
+  computeImpactReport,
+  type ImpactScopeOptions,
+  type ImpactReport
+} from './impact-scope.js';

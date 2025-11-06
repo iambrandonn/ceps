@@ -1,6 +1,6 @@
 # src/finalize
 
-**Directory Overview:** This directory contains 3 entities.
+**Directory Overview:** This directory contains 4 entities.
 
 ## answers.ts
 
@@ -39,4 +39,16 @@ This function performs an operation.
 **Visibility:** Public (exported)
 
 This function performs an operation.
+
+## impact-scope.ts
+
+<a id="bb3mpB2vtc"></a>
+
+### computeImpactReport
+
+**Signature:** `(kb: KnowledgeBase, resolvedQids: string[], options: ImpactScopeOptions = {}): import("/src/finalize/impact-scope").ImpactReport`
+
+**Visibility:** Public (exported)
+
+This function computes values.
 

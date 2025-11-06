@@ -1,0 +1,22 @@
+{
+  "seedQids": [
+    "q:GR0v81JJWV"
+  ],
+  "resolvedEntities": [
+    "QuVnACVfXW"
+  ],
+  "impactedEntities": [
+    "QuVnACVfXW"
+  ],
+  "impactedDirectories": [
+    "spec.md",
+    "src/spec.md"
+  ],
+  "diagnostics": {
+    "hopsTraversed": 0,
+    "nodesTraversed": 1,
+    "capped": false,
+    "excluded": [],
+    "warnings": []
+  }
+}

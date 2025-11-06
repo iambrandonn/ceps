@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "d4656be0de84bae06353d6ec526ea4a2b967d69774a0b9315b819aa6a14ca473",
-  "generatedAt": "2025-11-06T03:50:54.818Z",
+  "rootHash": "58e3242130868fc1aceba780c959e208cc249bdfeddcaed1e96c1696bd10ff6a",
+  "generatedAt": "2025-11-06T04:33:46.231Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -86,8 +86,8 @@
     },
     {
       "path": "docs/phase5-finalization-architecture.md",
-      "hash": "6af6b48a38166b1c2fa2f007a47ca8af5ee1c23358796b2e69bf92ac03cafb75",
-      "bytes": 16229
+      "hash": "1467fd3d2d1e3d07dec27bbcddbe223e2c76e85e8b5f7b11001534f4be40e3b0",
+      "bytes": 18218
     },
     {
       "path": "docs/process/grounding-completion.md",
@@ -120,29 +120,14 @@
       "bytes": 6555
     },
     {
-      "path": "FEEDBACK_01_IMPLEMENTATION_PLAN_PHASE5_STEP2.md",
-      "hash": "a0a9df72dae98bb3833d28f9b29d33b5dbcab0495906633a06b0c4d131ad2193",
-      "bytes": 15261
+      "path": "FEEDBACK_TO_REVIEWER_1.md",
+      "hash": "03152c8e52649707b438081d7258f3b9b9adf41a04d6c97ae1614239380097e4",
+      "bytes": 975
     },
     {
-      "path": "FEEDBACK_02_IMPLEMENTATION_PLAN_PHASE5_STEP2.md",
-      "hash": "53fa4f59398769210c0eb174ac9254790e4e43a700a3de4414adeaba44c4dece",
-      "bytes": 12225
-    },
-    {
-      "path": "FEEDBACK_TO_REVIEWER1.md",
-      "hash": "8a89ef712f99f5614e481a1d8eb346602710fc2eefaeae85e3cedb39f7a62ceb",
-      "bytes": 175
-    },
-    {
-      "path": "FEEDBACK-02-01.md",
-      "hash": "391fe22431916ddb37bf3c60149df0a37617c1d30d25d85009e569ea3385b6dc",
-      "bytes": 21172
-    },
-    {
-      "path": "FEEDBACK-02-02.md",
-      "hash": "f343ef3e6ca5f3d2efe9a1f2e33d8865a526da8b567dbaae477e9b0bf12eebf9",
-      "bytes": 11782
+      "path": "FEEDBACK-03-01.md",
+      "hash": "8a96881fa6ba59ea30f0e9da31ab762aea6af822423b58e0643556a05ec67bfa",
+      "bytes": 26891
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -381,8 +366,8 @@
     },
     {
       "path": "IMPLEMENTATION_PLAN_PHASE5_STEP3.md",
-      "hash": "de983f6212c5a9d9630dbfad53dd3d53c2537576977fb52721277fee466177a5",
-      "bytes": 7196
+      "hash": "fcfc411f6bf2933957300d5dba3a5d663654606a2321d049a9116bf046e562c5",
+      "bytes": 8651
     },
     {
       "path": "IMPLEMENTATION_PLAN_PHASE5.md",
@@ -525,14 +510,24 @@
       "bytes": 619
     },
     {
+      "path": "src/finalize/__tests__/impact-scope.test.ts",
+      "hash": "ca043b0b1509dae79dcb50a333d2188047d7c18c96c2d1e7fe1e60a3c17bf8d4",
+      "bytes": 12650
+    },
+    {
       "path": "src/finalize/answers.ts",
       "hash": "806a79da664c14ca7e36555a55d77304352a14426bbbc6e4c9b94ced956559e5",
       "bytes": 6310
     },
     {
+      "path": "src/finalize/impact-scope.ts",
+      "hash": "a53dbf8709c1743697758b835ae1e8916a9361902290744ae3b6a642bfd24def",
+      "bytes": 7722
+    },
+    {
       "path": "src/finalize/index.ts",
-      "hash": "df39390019f3fdb36c2e46dfcb449b815ce239008ce0a1f6a43da78d2442c328",
-      "bytes": 274
+      "hash": "83953e14c240de07c44d5847188f9969625393fb2ac1f79a87c4e74717e81a2f",
+      "bytes": 382
     },
     {
       "path": "src/generator/__tests__/llm-orchestration.test.ts",
@@ -966,8 +961,8 @@
     },
     {
       "path": "tests/fixtures/phase5/baseline/README.md",
-      "hash": "ad3450527e1c087ab01c9767f3b2e2aadbaa96b751c7978c3656e7aea9c0f227",
-      "bytes": 1339
+      "hash": "7587eb47de1ff5e901acb85abbda6839aa98322f983d2620e176079b327c7c5a",
+      "bytes": 1728
     },
     {
       "path": "tests/fixtures/phase5/baseline/tiny-react/answers.md",
@@ -983,6 +978,11 @@
       "path": "tests/fixtures/phase5/baseline/tiny-react/answers.report.json",
       "hash": "c7807b5f7862024ce0c7d25c02e29e67cc83be4c8bb65078b324c8f0827690e0",
       "bytes": 599
+    },
+    {
+      "path": "tests/fixtures/phase5/baseline/tiny-react/impact.report.json",
+      "hash": "22b285c7ec3ed329e10b2fb951efe767626236cbe29719b05bf8fa54446969d7",
+      "bytes": 333
     },
     {
       "path": "tests/fixtures/phase5/baseline/tiny-react/qids.json",

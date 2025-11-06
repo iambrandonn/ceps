@@ -84,6 +84,29 @@ export interface AnswerRecord {
 }
 ```
 
+- `impactedDirectories` enumerates the spec files that must be regenerated (e.g., `spec.md`, `src/spec.md`, `packages/app/spec.md`), preserving deterministic patch targets for directory and package summaries.
+
+### 3.1.1 Impact Scoping Behaviour
+
+- Deterministic **breadth-first traversal** starts from the resolved entities. Reverse dependencies are collected from the KB for both `calls` (entity-level) and `imports` (file/module-level) and are processed in sorted order so output remains stable.
+- Caps apply only when `scope === 'auto'`:
+  - `maxHops` guards depth. When the next hop would exceed the cap, the neighbour is recorded in `diagnostics.excluded` and a hop-cap warning references `--finalize-max-hops`.
+  - `maxNodes` guards breadth. When visiting the next node would exceed the cap, the node is excluded and a warning references `--finalize-max-nodes`.
+- `scope === 'full'` disables both caps but still records traversal metrics for diagnostics.
+- Nodes that cannot be resolved back to KB entities or file paths (e.g., external module specifiers) are captured in `diagnostics.warnings` with a sample of identifiers to aid debugging.
+- Directory and package rollups:
+  - Always include the root `spec.md`.
+  - Add `<dir>/spec.md` for every impacted directory derived from `entity.path`.
+  - Detect monorepo packages via `packages/<name>` or `entity.packageId` so package-level summaries stay in sync.
+- Diagnostics quick reference:
+
+| Condition | Diagnostic Output | Suggested Flag |
+|-----------|------------------|----------------|
+| Hop cap reached | `capped: true`, warning recommending `--finalize-max-hops` | `--finalize-max-hops` / `--finalize-scope full` |
+| Node cap reached | `capped: true`, warning recommending `--finalize-max-nodes` | `--finalize-max-nodes` / `--finalize-scope full` |
+| Node usage ≥80% | Warning with usage percentage | `--finalize-max-nodes` |
+| Unresolved nodes | Warning listing skipped identifiers | Investigate KB coverage or answers |
+
 ### 3.2 New / Extended Methods
 | Method | Signature | Purpose |
 | -- | -- | -- |
