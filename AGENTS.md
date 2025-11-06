@@ -241,6 +241,29 @@ ceps finalize --answers ./answers.md
 
 ---
 
+## Fixture & Snapshot Discipline (Phase 5)
+
+When adding or updating golden files in `tests/fixtures/phase5/baseline/tiny-react`:
+
+1. **Place files correctly**
+   - Persisted reports (consumed by later steps) stay in the fixture root.
+   - Test expectation files belong in `tests/fixtures/phase5/baseline/tiny-react/expected/`.
+2. **Regenerate snapshot**
+   - Run `npx tsx scripts/regenerate-phase5-snapshot.mjs`.
+   - Verify snapshot contents with:
+     ```bash
+     jq '.files | length' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json
+     jq -r '.files[].path' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json | sort
+     ```
+   - Execute snapshot test: `npm test -- --run tests/integration/snapshot-capture.test.ts`.
+3. **Commit carefully**
+   - Commit updated `.ceps/snapshot.json` in the same change as fixture files.
+   - Rerun full `npm test` before requesting review.
+
+Reviewers should confirm these steps whenever fixture changes are present.
+
+---
+
 ## Test Creation Best Practices
 
 **Critical Lesson from Phase 3:** Tests must model realistic data to catch bugs that only appear in production scenarios.

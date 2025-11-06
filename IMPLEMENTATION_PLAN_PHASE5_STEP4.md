@@ -116,7 +116,14 @@ Out of scope: spec patching, final summarize/CLI integration—that work happens
      - `reanalysis.success.json` (all entities succeed).  
      - `reanalysis.partial.json` (mixed success with exit code `4`).  
      - Additional targeted fixtures (e.g., LLM failure, grounding reject) as needed.  
-   - Update README detailing scenarios and expected exit codes.
+   - Store test expectation variants under `tests/fixtures/phase5/baseline/tiny-react/expected/` when they are purely verification artifacts.  
+   - Update README detailing scenarios, expected exit codes, and regeneration steps.
+
+   **Snapshot Regeneration Checklist (REQUIRED)**
+   - [ ] Run `npx tsx scripts/regenerate-phase5-snapshot.mjs` after modifying fixture files.  
+   - [ ] Verify snapshot contents (`jq '.files | length' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json`) and confirm new files present.  
+   - [ ] Execute snapshot test: `npm test -- --run tests/integration/snapshot-capture.test.ts`.  
+   - [ ] Commit updated `.ceps/snapshot.json` together with fixture changes and rerun full `npm test`.
 
 8. **Documentation Updates**
    - Extend `docs/phase5-finalization-architecture.md` with controller flow diagram, interface definitions, failure policy, determinism rules.  

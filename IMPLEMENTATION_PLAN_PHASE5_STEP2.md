@@ -95,8 +95,15 @@ Out of scope: impact scoping, re-analysis, spec patching, CLI command wiring (ha
 
 7. **Fixture & Golden Asset Updates**
    - Create `tests/fixtures/phase5/baseline/tiny-react/answers.md` covering single-line and multi-line answers.
-   - Add golden JSON outputs: `answers.parse.json` and `answers.report.json`.
-   - Update baseline README describing example answers.
+   - Add golden JSON outputs: place parser expectations under `tests/fixtures/phase5/baseline/tiny-react/expected/answers.parse.json` and diagnostics under `tests/fixtures/phase5/baseline/tiny-react/expected/answers.report.json` (test expectations).  
+   - Update baseline README describing example answers and regeneration steps.
+
+   **Snapshot Regeneration Checklist (REQUIRED)**
+   - [ ] Run snapshot regen script after adding fixtures: `npx tsx scripts/regenerate-phase5-snapshot.mjs`
+   - [ ] Verify snapshot includes new files (`jq '.files | length' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json`)
+   - [ ] Ensure snapshot file list contains newly added paths (`jq -r '.files[].path' ... | sort`)
+   - [ ] Run snapshot test: `npm test -- --run tests/integration/snapshot-capture.test.ts`
+   - [ ] Commit updated `.ceps/snapshot.json` with fixture changes; rerun full `npm test` before completion
 
 8. **Documentation & Knowledge Sharing**
    - Update `docs/phase5-finalization-architecture.md` with grammar, limits, validation rules.

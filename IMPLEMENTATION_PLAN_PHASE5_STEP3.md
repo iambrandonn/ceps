@@ -109,9 +109,15 @@ Out of scope: selective re-analysis, spec patching, CLI wiring; those consume th
    - Integration tests verifying baseline fixture output and multi-answer scenarios.
 
 7. **Baseline Fixture & Golden Outputs**
-   - Update `tests/fixtures/phase5/baseline/tiny-react` with golden `impact.report.json` (document expected seeds/entities/diagnostics).  
-   - Add synthetic fixture or test case triggering cap-hit to validate warnings/exclusions.  
-   - Update README with explanation of expected scope results and how to interpret report.
+   - Update `tests/fixtures/phase5/baseline/tiny-react/impact.report.json` (report output used by later steps).  
+   - Store additional expectation files under `tests/fixtures/phase5/baseline/tiny-react/expected/` when needed (e.g., cap-hit scenario outputs).  
+   - Update README with explanation of expected scope results, regeneration instructions, and how to interpret diagnostics.
+
+   **Snapshot Regeneration Checklist (REQUIRED)**
+   - [ ] Run `npx tsx scripts/regenerate-phase5-snapshot.mjs` after modifying fixture files.
+   - [ ] Verify snapshot contents (`jq '.files | length' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json`) and ensure new paths appear.
+   - [ ] Execute snapshot test: `npm test -- --run tests/integration/snapshot-capture.test.ts`.
+   - [ ] Commit updated `.ceps/snapshot.json` alongside fixture changes and rerun full `npm test`.
 
 8. **Documentation & Knowledge Sharing**
    - Update `docs/phase5-finalization-architecture.md` with traversal rules, cap behavior, monorepo handling, and diagnostics format.  

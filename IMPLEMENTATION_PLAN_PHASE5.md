@@ -121,3 +121,23 @@
 - Expanded test suites (unit, integration, golden, adversarial) validating the full finalize lifecycle.
 - Finalization-focused documentation set (user workflow, answers format, troubleshooting, CI updates).
 - Phase 5 completion artifacts per PHASE_COMPLETION_CHECKLIST.md, including status updates and completion summary.
+
+---
+
+## Golden Fixture & Snapshot Management (Phase 5)
+
+Whenever Phase 5 work modifies `tests/fixtures/phase5/baseline/tiny-react`, implementers must:
+
+- **Place files correctly**
+  - Persisted report outputs (consumed by later steps) stay in the fixture root.
+  - Test expectation files live under `tests/fixtures/phase5/baseline/tiny-react/expected/`.
+- **Regenerate snapshot**
+  1. Run `npx tsx scripts/regenerate-phase5-snapshot.mjs`.
+  2. Verify snapshot contents:
+     ```bash
+     jq '.files | length' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json
+     jq -r '.files[].path' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json | sort
+     ```
+  3. Execute snapshot test: `npm test -- --run tests/integration/snapshot-capture.test.ts`.
+  4. Commit updated `.ceps/snapshot.json` with fixture changes and rerun full `npm test`.
+- **Reviewer checklist:** confirm the above steps whenever golden files change.

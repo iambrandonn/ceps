@@ -100,7 +100,14 @@ Out of scope: CLI command surface (Step 6), end-to-end run verification (Step 7)
 7. **Fixture & Golden Updates**
    - Update `tests/fixtures/phase5/baseline/tiny-react` with before/after spec snapshots (`spec.finalize.before.md`, `spec.finalize.after.md`).  
    - Add golden `finalization.summary.json` capturing summary block contents.  
-   - Extend fixture README describing success vs partial-success scenarios, expected warnings/exit codes, and how to run comparison tests.
+   - Place test-only expectation files (e.g., `spec.finalize.after.md`) under `tests/fixtures/phase5/baseline/tiny-react/expected/`; keep report outputs in fixture root.  
+   - Extend fixture README describing success vs partial-success scenarios, expected warnings/exit codes, snapshot regeneration steps, and how to run comparison tests.
+
+   **Snapshot Regeneration Checklist (REQUIRED)**
+   - [ ] Run `npx tsx scripts/regenerate-phase5-snapshot.mjs` after modifying fixture files.  
+   - [ ] Verify snapshot contents (`jq '.files | length' tests/fixtures/phase5/baseline/tiny-react/.ceps/snapshot.json`) and ensure new paths are included.  
+   - [ ] Execute snapshot test: `npm test -- --run tests/integration/snapshot-capture.test.ts`.  
+   - [ ] Commit updated `.ceps/snapshot.json` with fixture changes and rerun full `npm test`.
 
 8. **Documentation & Knowledge Sharing**
    - Update `docs/phase5-finalization-architecture.md` with patch algorithm, summary format, diagnostics.  
