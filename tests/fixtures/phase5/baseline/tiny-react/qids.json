@@ -1,0 +1,10 @@
+[
+  {
+    "qid": "q:GR0v81JJWV",
+    "entityId": "QuVnACVfXW",
+    "question": "What is the behavior of method `render` at src/Card.tsx?",
+    "factSetIds": [
+      "QuVnACVfXW-facts"
+    ]
+  }
+]

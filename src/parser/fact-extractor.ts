@@ -154,6 +154,27 @@ export class FactExtractor {
         visibility: isExported ? 'public' : 'internal',
       });
 
+      // Create factSet for class (ensures reasoning + coverage have data)
+      const classFacts: Fact[] = [
+        { subjectId: entityId, predicate: 'is-class', object: true },
+      ];
+
+      const classJsdoc = cls.getJsDocs();
+      if (classJsdoc.length > 0) {
+        classFacts.push({
+          subjectId: entityId,
+          predicate: 'has-jsdoc',
+          object: classJsdoc[0].getDescription(),
+        });
+      }
+
+      factSets.push({
+        id: `${entityId}-facts`,
+        facts: classFacts,
+        sources: [{ kind: 'ast', file: filePath }],
+        evidenceScore: 75,
+      });
+
       // Extract methods (skip private methods - they shouldn't be in public API)
       cls.getMethods().forEach((method) => {
         // Skip private methods - they're implementation details, not public API

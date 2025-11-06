@@ -11,16 +11,21 @@
  * - Generating template prose (no LLM polish yet)
  */
 
-import { Entity, BehaviorChunk } from '../kb/models.js';
+import { Entity, BehaviorChunk, OpenQuestion } from '../kb/models.js';
 
 export class MarkdownRenderer {
   /**
    * Renders an entity as a Markdown section
    * @param entity - Entity to render
    * @param chunks - Optional behavior chunks (if available)
+   * @param openQuestions - Optional Open Question list (for unresolved QIDs)
    * @returns Markdown string
    */
-  renderEntity(entity: Entity, chunks?: BehaviorChunk[]): string {
+  renderEntity(
+    entity: Entity,
+    chunks?: BehaviorChunk[],
+    openQuestions?: OpenQuestion[]
+  ): string {
     let md = '';
 
     // Anchor
@@ -66,6 +71,14 @@ export class MarkdownRenderer {
       md += '**Errors thrown:**\n';
       for (const error of entity.attributes.errors) {
         md += `- ${error}\n`;
+      }
+      md += '\n';
+    }
+
+    if (openQuestions && openQuestions.length > 0) {
+      md += '**Open Questions:**\n';
+      for (const question of openQuestions) {
+        md += `- ${question.qid}: ${question.question}\n`;
       }
       md += '\n';
     }
