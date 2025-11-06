@@ -32,7 +32,6 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
             name: 'testFunction',
             exported: true,
             path: 'src/test.ts',
-            confidence: 70,
             packageId: undefined,
         };
         kb.insertEntity(entity);
@@ -158,7 +157,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
             // Create budget tracker with very small limit
             const smallBudget = new BudgetTracker(10);
             // Exhaust budget
-            smallBudget.recordUsage('chunk', 15);
+            smallBudget.recordUsage('chunk', 15, 0, 0, 0);
             const options = {
                 llmEnabled: true,
                 llmGateway: mockGateway,
@@ -175,7 +174,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
         it('should log warning on fallback', async () => {
             const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => { });
             const smallBudget = new BudgetTracker(10);
-            smallBudget.recordUsage('chunk', 15);
+            smallBudget.recordUsage('chunk', 15, 0, 0, 0);
             const options = {
                 llmEnabled: true,
                 llmGateway: mockGateway,
@@ -190,7 +189,7 @@ describe('Generator LLM Orchestration (Phase 4 WS-F2 Stage D)', () => {
         });
         it('should increment templateFallback counter on budget exhaustion', async () => {
             const smallBudget = new BudgetTracker(10);
-            smallBudget.recordUsage('chunk', 15);
+            smallBudget.recordUsage('chunk', 15, 0, 0, 0);
             const options = {
                 llmEnabled: true,
                 llmGateway: mockGateway,

@@ -9,6 +9,7 @@ export interface CliArgs {
     llmBudget?: number;
     noLlmCache?: boolean;
     version?: boolean;
+    noSnapshot?: boolean;
 }
 export declare function parseArgs(argv: string[]): CliArgs;
 export declare function validateArgs(args: CliArgs): void;

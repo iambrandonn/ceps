@@ -30,6 +30,7 @@ export interface SummarizeOptions {
     model?: string;
     temperature?: number;
     promptKey?: 'O' | 'R1' | 'R2';
+    guidance?: string[];
 }
 export declare class LLMGateway {
     private adapters;
@@ -81,6 +82,7 @@ export declare class LLMGateway {
     summarize(factSets: FactSet[], style: string, options?: SummarizeOptions): Promise<string>;
     /**
      * Build prompt for summarize() operation
+     * Differentiates prompts based on promptKey (O/R1/R2) per CTS-02 §4.4
      * @private
      */
     private buildSummarizePrompt;

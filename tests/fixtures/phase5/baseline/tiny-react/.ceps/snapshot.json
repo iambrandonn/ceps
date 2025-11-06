@@ -1,9 +1,24 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "72e9877c01dfe8f0070c48a5974a4095f583a9987b90629c836f607f204e7352",
+  "rootHash": "3cb49d48da095204467e0f64a2823f4ac3484d0ff097da401544bb24b3486393",
   "generatedAt": "1970-01-01T00:00:00.000Z",
   "files": [
+    {
+      "path": "answers.md",
+      "hash": "f0c5e277e001dd67076abd64598feef1a23f473352bfe5e66dd862ce497c069c",
+      "bytes": 228
+    },
+    {
+      "path": "answers.parse.json",
+      "hash": "4944d197f32f58210b3f5b61d7c57d86e31136c261ede58a3ee0ade70ec843c6",
+      "bytes": 409
+    },
+    {
+      "path": "answers.report.json",
+      "hash": "c7807b5f7862024ce0c7d25c02e29e67cc83be4c8bb65078b324c8f0827690e0",
+      "bytes": 599
+    },
     {
       "path": "qids.json",
       "hash": "42cd26b3145eedafff6c04470533e849ee894e68c1fc2335b86bed69ca732bd6",

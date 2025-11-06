@@ -4,7 +4,7 @@
 
 ## cli.ts
 
-<a id="HiDsoYnfBC"></a>
+<a id="9DZn04IJgC"></a>
 
 ### parseArgs
 
@@ -46,7 +46,7 @@ This function validates input.
 
 ## index.ts
 
-<a id="cpEnwqJny1"></a>
+<a id="2smfR31pVG"></a>
 
 ### run
 

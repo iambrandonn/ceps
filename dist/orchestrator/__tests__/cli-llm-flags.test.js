@@ -84,6 +84,16 @@ describe('CLI LLM Flags (Phase 4 WS-F2 Stage C)', () => {
             expect(consoleWarnSpy).not.toHaveBeenCalled();
         });
     });
+    describe('--no-snapshot flag', () => {
+        it('should set noSnapshot to true', () => {
+            const args = parseArgs(['node', 'ceps', '--no-snapshot']);
+            expect(args.noSnapshot).toBe(true);
+        });
+        it('defaults to capturing snapshots', () => {
+            const args = parseArgs(['node', 'ceps']);
+            expect(args.noSnapshot).toBe(false);
+        });
+    });
     describe('Flag interactions', () => {
         it('should warn when --llm off with --llm-provider', () => {
             const args = parseArgs(['node', 'ceps', '--llm', 'off', '--llm-provider', 'openai']);

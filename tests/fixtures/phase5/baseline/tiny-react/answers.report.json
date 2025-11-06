@@ -1,0 +1,30 @@
+{
+  "validAnswers": [
+    {
+      "qid": "q:GR0v81JJWV",
+      "entityId": "QuVnACVfXW",
+      "answer": "Card render behaviour\n- Accepts `title` and `description`\n- Renders children inside body",
+      "appliedAt": "1970-01-01T00:00:00.000Z",
+      "factSetIds": [
+        "QuVnACVfXW-facts"
+      ]
+    }
+  ],
+  "invalidEntries": [
+    {
+      "line": 8,
+      "qid": "q:QUNKNOWN0A",
+      "error": "Unknown QID."
+    }
+  ],
+  "unknownQids": [
+    "q:QUNKNOWN0A"
+  ],
+  "warnings": [],
+  "summary": {
+    "totalEntries": 2,
+    "validCount": 1,
+    "invalidCount": 1,
+    "unknownCount": 1
+  }
+}

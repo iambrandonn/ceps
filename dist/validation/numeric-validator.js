@@ -2,10 +2,10 @@
  * Phase 4 WS-F1 Stage C: Numeric & Enum Validation
  *
  * Validates numeric claims in behavior chunks against factSet numeric predicates.
- * Enforces:
- * - Unit conversion (ms ↔ s, B ↔ KB, etc.)
- * - Tolerance: ±5% allowed for rounding
- * - Enum value validation against registry
+ * Per CTS-02 §4.2:
+ * - **Strict equality** after unit normalization
+ * - Allow rounding to **nearest integer** for human-friendly units
+ * - Enum value validation against registry (exact match)
  */
 import { parseFactNumeric } from './fact-schema-interpreter.js';
 import { getAllowedEnumValues } from './enums.js';
@@ -28,10 +28,6 @@ const UNIT_CONVERSIONS = {
     // Unitless numbers (no conversion)
     unitless: { unitless: 1 },
 };
-/**
- * Tolerance for numeric comparisons (5% = 0.05).
- */
-const TOLERANCE = 0.05;
 /**
  * NumericValidator validates numeric claims and enum values.
  */
@@ -113,29 +109,29 @@ export class NumericValidator {
             if (!this.areUnitsConvertible(mention.unit, inferredFactValue.unit)) {
                 // Special case: percent is already decimal, comparable to unitless
                 if (mention.unit === 'percent' && inferredFactValue.unit === 'unitless') {
-                    // Compare directly (percent is already normalized to decimal)
-                    const delta = Math.abs(mention.value - inferredFactValue.value);
-                    const relative = inferredFactValue.value === 0 ? delta : delta / Math.abs(inferredFactValue.value);
-                    if (relative > TOLERANCE) {
+                    // Convert mention percentage to decimal (if needed) and compare with strict equality
+                    // Allow nearest-integer rounding for display purposes
+                    const roundedFactValue = Math.round(inferredFactValue.value);
+                    const roundedMentionValue = Math.round(mention.value);
+                    if (roundedFactValue !== roundedMentionValue) {
                         diagnostics.push({
                             chunkId: 'unknown',
                             rule: 'numeric',
-                            reason: `Percentage ${(mention.value * 100).toFixed(1)}% differs from fact ${inferredFactValue.value} by ${(relative * 100).toFixed(1)}% (beyond tolerance of ${TOLERANCE * 100}%)`,
+                            reason: `Percentage ${(mention.value * 100).toFixed(1)}% does not match fact ${inferredFactValue.value} (rounded: ${roundedFactValue} vs ${roundedMentionValue})`,
                             context: { expected: inferredFactValue, actual: mention },
                         });
                     }
                     continue; // Handled, skip remaining logic
                 }
-                // If both are unitless and values are close, check anyway
+                // If both are unitless, strict equality with nearest-integer rounding
                 if (mention.unit === 'unitless' && inferredFactValue.unit === 'unitless') {
-                    // Compare directly
-                    const delta = Math.abs(mention.value - inferredFactValue.value);
-                    const relative = inferredFactValue.value === 0 ? delta : delta / Math.abs(inferredFactValue.value);
-                    if (relative > TOLERANCE) {
+                    const roundedFactValue = Math.round(inferredFactValue.value);
+                    const roundedMentionValue = Math.round(mention.value);
+                    if (roundedFactValue !== roundedMentionValue) {
                         diagnostics.push({
                             chunkId: 'unknown',
                             rule: 'numeric',
-                            reason: `Numeric value ${mention.value} differs from fact ${inferredFactValue.value} by ${(relative * 100).toFixed(1)}% (beyond tolerance of ${TOLERANCE * 100}%)`,
+                            reason: `Numeric value ${mention.value} does not match fact ${inferredFactValue.value} (rounded: ${roundedFactValue} vs ${roundedMentionValue})`,
                             context: { expected: inferredFactValue, actual: mention },
                         });
                     }
@@ -151,27 +147,27 @@ export class NumericValidator {
                 }
                 continue; // Different dimension, skip
             }
-            // Convert to same unit and compare
-            const converted = this.convertUnit(mention.value, mention.unit, inferredFactValue.unit);
-            if (converted === null) {
-                // Unknown unit
+            // Convert fact to text's unit (human-friendly) and compare with nearest-integer rounding
+            // Per CTS-02 §4.2: allow rounding to nearest integer for human-friendly units
+            const convertedFactValue = this.convertUnit(inferredFactValue.value, inferredFactValue.unit, mention.unit);
+            if (convertedFactValue === null) {
+                // Unknown unit conversion
                 diagnostics.push({
                     chunkId: 'unknown',
                     rule: 'numeric',
-                    reason: `Numeric value with unknown unit "${mention.unit}"`,
+                    reason: `Cannot convert fact unit "${inferredFactValue.unit}" to "${mention.unit}"`,
                     context: { expected: inferredFactValue, actual: mention },
                 });
                 continue;
             }
-            // Check tolerance
-            const delta = Math.abs(converted - inferredFactValue.value);
-            const relative = inferredFactValue.value === 0 ? delta : delta / Math.abs(inferredFactValue.value);
-            if (relative > TOLERANCE) {
+            // Round converted fact value to nearest integer and compare with text mention
+            const roundedFactValue = Math.round(convertedFactValue);
+            if (roundedFactValue !== mention.value) {
                 diagnostics.push({
                     chunkId: 'unknown',
                     rule: 'numeric',
-                    reason: `Numeric value ${mention.value} ${mention.unit} (converted: ${converted.toFixed(2)} ${inferredFactValue.unit}) differs from fact ${inferredFactValue.value} ${inferredFactValue.unit} by ${(relative * 100).toFixed(1)}% (beyond tolerance of ${TOLERANCE * 100}%)`,
-                    context: { expected: inferredFactValue, actual: { ...mention, converted } },
+                    reason: `Numeric value ${mention.value} ${mention.unit} does not match fact ${inferredFactValue.value} ${inferredFactValue.unit} (converts to ${convertedFactValue.toFixed(2)} ${mention.unit}, rounds to ${roundedFactValue})`,
+                    context: { expected: inferredFactValue, actual: { ...mention, convertedFactValue, roundedFactValue } },
                 });
             }
         }

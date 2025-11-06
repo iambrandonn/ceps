@@ -28,6 +28,13 @@ export interface BehaviorChunk {
     confidence: Confidence;
     assumptions?: string[];
 }
+export interface AnswerRecord {
+    qid: string;
+    entityId: string;
+    answer: string;
+    appliedAt: string;
+    factSetIds: string[];
+}
 export interface Entity {
     id: string;
     kind: EntityKind;

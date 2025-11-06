@@ -1,4 +1,4 @@
-import { Entity, FactSet, BehaviorChunk, Relation, Fact, OpenQuestion } from './models.js';
+import { Entity, FactSet, BehaviorChunk, Relation, Fact, OpenQuestion, AnswerRecord } from './models.js';
 import { EntityKind, Confidence, Source } from '../types/index.js';
 import { generateQID } from './id-generation.js';
 
@@ -19,6 +19,7 @@ interface KBState {
   exported: Set<string>;
   qids: Set<string>; // Track allocated QIDs
   openQuestions: Map<string, OpenQuestion>; // Phase 3 Step 4: QID → OpenQuestion
+  answers: Map<string, AnswerRecord>;
 }
 
 export class KnowledgeBase {
@@ -45,6 +46,7 @@ export class KnowledgeBase {
       exported: new Set(),
       qids: new Set(),
       openQuestions: new Map(),
+      answers: new Map(),
     };
   }
 
@@ -119,6 +121,9 @@ export class KnowledgeBase {
       exported: new Set(state.exported),
       // Clone QIDs Set
       qids: new Set(state.qids),
+      answers: new Map(
+        Array.from(state.answers.entries()).map(([k, v]) => [k, { ...v, factSetIds: [...v.factSetIds] }])
+      ),
       // Clone openQuestions Map (Phase 3 Step 4)
       openQuestions: new Map(
         Array.from(state.openQuestions.entries()).map(([k, v]) => [k, { ...v, factSetIds: [...v.factSetIds] }])
@@ -336,6 +341,46 @@ export class KnowledgeBase {
   getAllOpenQuestions(): OpenQuestion[] {
     const state = this.getActiveState();
     return Array.from(state.openQuestions.values());
+  }
+
+  getAnswer(qid: string): AnswerRecord | undefined {
+    return this.getActiveState().answers.get(qid);
+  }
+
+  getAllAnswers(): AnswerRecord[] {
+    return Array.from(this.getActiveState().answers.values());
+  }
+
+  attachAnswer(qid: string, answer: string, options: { appliedAt?: string } = {}): AnswerRecord {
+    const state = this.getActiveState();
+    const question = state.openQuestions.get(qid);
+    if (!question) {
+      throw new KBError(`Cannot attach answer; unknown QID: ${qid}`);
+    }
+
+    const appliedAt = options.appliedAt ?? new Date().toISOString();
+    const existing = state.answers.get(qid);
+    if (existing && existing.answer === answer) {
+      return existing;
+    }
+
+    const record: AnswerRecord = {
+      qid,
+      entityId: question.entityId,
+      answer,
+      appliedAt,
+      factSetIds: [...question.factSetIds]
+    };
+
+    state.answers.set(qid, record);
+    return record;
+  }
+
+  markQIDResolved(qid: string): void {
+    const state = this.getActiveState();
+    state.openQuestions.delete(qid);
+    state.answers.delete(qid);
+    state.qids.delete(qid);
   }
 
   // -------- Relation Operations (Phase 2) --------

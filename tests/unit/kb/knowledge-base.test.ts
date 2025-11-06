@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { KnowledgeBase } from '../../../src/kb/knowledge-base';
-import { Entity, FactSet, BehaviorChunk, OpenQuestion } from '../../../src/kb/models';
+import { Entity, FactSet, BehaviorChunk, OpenQuestion, createEntity } from '../../../src/kb/models';
 
 describe('KnowledgeBase', () => {
   let kb: KnowledgeBase;
@@ -426,6 +426,56 @@ describe('KnowledgeBase', () => {
 
       const byEntity = kb.getOpenQuestionsByEntity('e1');
       expect(byEntity).toEqual([]);
+    });
+  });
+
+  describe('Answer attachment', () => {
+    const baseOpenQuestion: OpenQuestion = {
+      qid: 'q:ANSWER0001A',
+      entityId: 'entity-answer',
+      question: 'Resolve behaviour?',
+      confidence: 15,
+      factSetIds: ['fs-answer']
+    };
+
+    beforeEach(() => {
+      kb.insertEntity(
+        createEntity({
+          id: 'entity-answer',
+          kind: 'function',
+          name: 'answerFn',
+          path: 'src/answer.ts'
+        })
+      );
+      kb.insertOpenQuestion(baseOpenQuestion);
+    });
+
+    it('should attach answers idempotently', () => {
+      const appliedAt = '1970-01-01T00:00:00.000Z';
+      const first = kb.attachAnswer('q:ANSWER0001A', 'Resolved answer', { appliedAt });
+      expect(first).toEqual({
+        qid: 'q:ANSWER0001A',
+        entityId: 'entity-answer',
+        answer: 'Resolved answer',
+        appliedAt,
+        factSetIds: ['fs-answer']
+      });
+
+      const second = kb.attachAnswer('q:ANSWER0001A', 'Resolved answer', { appliedAt });
+      expect(second).toEqual(first);
+      expect(kb.getAllAnswers()).toHaveLength(1);
+    });
+
+    it('should throw when attaching answer to unknown QID', () => {
+      expect(() => kb.attachAnswer('q:UNKNOWN123', 'Nope')).toThrow(/unknown QID/i);
+    });
+
+    it('should clear answer and open question when marked resolved', () => {
+      kb.attachAnswer('q:ANSWER0001A', 'Resolved answer', { appliedAt: '1970-01-01T00:00:00.000Z' });
+      kb.markQIDResolved('q:ANSWER0001A');
+
+      expect(kb.getAnswer('q:ANSWER0001A')).toBeUndefined();
+      expect(kb.getOpenQuestionsByEntity('entity-answer')).toHaveLength(0);
     });
   });
 });

@@ -34,6 +34,11 @@ export declare class GroundingValidator {
     /**
      * Determine validation status from diagnostics.
      *
+     * Per CTS-02 §4.2: strict equality with nearest-integer rounding.
+     * Fallback criteria:
+     * - Large numeric differences (rounded values differ by >2x)
+     * - Systematic hallucinations (wrong dimension, unknown units)
+     *
      * @param diagnostics - All collected diagnostics
      * @returns Validation status
      */

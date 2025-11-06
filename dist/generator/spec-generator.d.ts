@@ -30,6 +30,7 @@ export interface GeneratorMetrics {
     templateFallback: number;
     budgetExhausted: boolean;
     warnings: string[];
+    diagnostics: Array<import('../validation/types.js').GroundingDiagnostic>;
 }
 export declare class SpecGenerator {
     private kb;

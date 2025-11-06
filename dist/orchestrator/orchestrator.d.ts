@@ -13,6 +13,7 @@
  */
 import { EventEmitter } from 'events';
 import { KnowledgeBase } from '../kb/knowledge-base.js';
+import type { RunSummary } from './types/run-summary.js';
 import type { LLMGateway } from '../llm/gateway.js';
 import type { BudgetTracker } from '../llm/budget.js';
 import type { Validator } from '../validation/types.js';
@@ -54,13 +55,19 @@ export interface OrchestratorOptions {
     llmGateway?: LLMGateway;
     validator?: Validator;
     budgetTracker?: BudgetTracker;
+    snapshotEnabled?: boolean;
 }
 export declare class Orchestrator extends EventEmitter {
     private kb;
     private status;
     private fileIndex?;
+    private runSummary?;
+    private generator?;
+    private rootSpec?;
+    private dirSpecs?;
     private options;
     private rootPath;
+    private snapshotEnabled;
     constructor(options: OrchestratorOptions | string);
     run(): Promise<void>;
     runUntil(targetPhase: PipelinePhase): Promise<void>;
@@ -73,9 +80,12 @@ export declare class Orchestrator extends EventEmitter {
     private runAmbiguityResolution;
     private runPreValidation;
     private runGeneration;
+    private captureProjectSnapshot;
     private runPostValidation;
     private handlePhaseError;
     getKnowledgeBase(): KnowledgeBase;
     getStatus(): PipelineStatus;
+    getRunSummary(): RunSummary | undefined;
+    private evaluateGates;
 }
 //# sourceMappingURL=orchestrator.d.ts.map

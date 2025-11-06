@@ -8,6 +8,7 @@ export function parseArgs(argv) {
         detail: 'spec-ready',
         llm: 'on',
         version: false,
+        noSnapshot: false,
     };
     // Skip 'node' and script name
     const positional = [];
@@ -70,6 +71,9 @@ export function parseArgs(argv) {
                 else {
                     args.llmBudget = parseInt(value, 10);
                 }
+            }
+            else if (arg === '--no-snapshot') {
+                args.noSnapshot = true;
             }
             // Add more flags here
         }

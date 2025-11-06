@@ -151,6 +151,7 @@ export class LLMGateway {
     }
     /**
      * Build prompt for summarize() operation
+     * Differentiates prompts based on promptKey (O/R1/R2) per CTS-02 §4.4
      * @private
      */
     buildSummarizePrompt(factSets, style, options) {
@@ -163,8 +164,37 @@ export class LLMGateway {
             return `FactSet ${idx + 1} (id: ${fs.id}, evidence: ${fs.evidenceScore}):\n${factsFormatted}`;
         })
             .join('\n\n');
-        // CTS-02 §3: Original prompt (O)
-        return `Write a concise paragraph describing the behavior using only the facts provided.
+        // Format guidance from previous validation failures
+        const guidanceText = options.guidance && options.guidance.length > 0
+            ? `\nPrevious validation failures:\n${options.guidance.map((g) => `- ${g}`).join('\n')}\n`
+            : '';
+        // Differentiate prompts based on promptKey (CTS-02 §4.4)
+        switch (options.promptKey) {
+            case 'R2':
+                // Strictest: Bullet-only, exact canonical names, no inference
+                return `OUTPUT BULLETS ONLY. Use EXACT canonical names from facts.
+Include ONLY numbers/enums explicitly present.
+NO synonyms. NO inference. NO new entities.
+If missing critical info: emit NEEDS_QUESTION.
+${guidanceText}
+Facts:
+${factsText}
+
+Output (bullets only):`;
+            case 'R1':
+                // Stricter: Bullet format, canonical names, strict enumeration
+                return `Output **bullets only**. Use exact canonical names from FACTS (no synonyms).
+Include only numbers/enums from FACTS.
+No new entities/relations. If missing info, emit NEEDS_QUESTION.
+${guidanceText}
+Facts:
+${factsText}
+
+Output:`;
+            case 'O':
+            default:
+                // Original: Paragraph format, reasonable paraphrasing
+                return `Write a concise paragraph describing the behavior using only the facts provided.
 Use canonical names; do not add entities, relations, or numbers not present in the facts.
 If unsure, return NEEDS_QUESTION.
 
@@ -174,6 +204,7 @@ Facts:
 ${factsText}
 
 Output:`;
+        }
     }
 }
 //# sourceMappingURL=gateway.js.map

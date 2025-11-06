@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 251 exported entities.
+This project contains 258 exported entities.
 
 ## Conventions
 
@@ -24,6 +24,7 @@ Items marked with **QID** (e.g., `q:a1b2c3d4e5`) indicate unresolved ambiguities
 
 Per-directory specifications:
 
+- [src/finalize](./src/finalize/spec.md)
 - [src/generator](./src/generator/spec.md)
 - [src/kb](./src/kb/spec.md)
 - [src/llm](./src/llm/spec.md)

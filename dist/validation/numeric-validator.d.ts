@@ -2,10 +2,10 @@
  * Phase 4 WS-F1 Stage C: Numeric & Enum Validation
  *
  * Validates numeric claims in behavior chunks against factSet numeric predicates.
- * Enforces:
- * - Unit conversion (ms ↔ s, B ↔ KB, etc.)
- * - Tolerance: ±5% allowed for rounding
- * - Enum value validation against registry
+ * Per CTS-02 §4.2:
+ * - **Strict equality** after unit normalization
+ * - Allow rounding to **nearest integer** for human-friendly units
+ * - Enum value validation against registry (exact match)
  */
 import type { KnowledgeBase } from '../kb/knowledge-base.js';
 import type { GroundingDiagnostic } from './types.js';

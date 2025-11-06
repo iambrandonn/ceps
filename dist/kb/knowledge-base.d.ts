@@ -1,4 +1,4 @@
-import { Entity, FactSet, BehaviorChunk, Relation, OpenQuestion } from './models.js';
+import { Entity, FactSet, BehaviorChunk, Relation, OpenQuestion, AnswerRecord } from './models.js';
 import { Confidence } from '../types/index.js';
 export declare class KBError extends Error {
     constructor(message: string);
@@ -64,6 +64,12 @@ export declare class KnowledgeBase {
      * Used by Spec Generator to emit QID sections.
      */
     getAllOpenQuestions(): OpenQuestion[];
+    getAnswer(qid: string): AnswerRecord | undefined;
+    getAllAnswers(): AnswerRecord[];
+    attachAnswer(qid: string, answer: string, options?: {
+        appliedAt?: string;
+    }): AnswerRecord;
+    markQIDResolved(qid: string): void;
     /**
      * Insert a relation into the KB.
      * Used by Parser in Phase 2 to store import/export/call relations.

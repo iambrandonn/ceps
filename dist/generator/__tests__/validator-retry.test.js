@@ -27,7 +27,6 @@ describe('Validator Retry Integration (Phase 4 WS-F2 Stage E)', () => {
             name: 'testFunction',
             exported: true,
             path: 'src/test.ts',
-            confidence: 70,
             packageId: undefined,
         };
         kb.insertEntity(entity);

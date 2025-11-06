@@ -102,6 +102,27 @@ export interface AnswerRecord {
 - If reasoning fails to lift an answer out of Low confidence (e.g., LLM fallback, missing facts), the QID remains open and the run exits with code `4`, listing the unresolved item in the summary.
 - `serialize` writes atomically (temp file + rename) to avoid partial state on crash.
 
+## 3.1 answers.md Format & Validation
+- **Grammar:**
+  - Lines beginning with `#` are comments and ignored.
+  - Entries follow `q:<QID>: <answer>` on a single line. Multi-line answers use 4-space indentation on continuation lines (blank continuation lines must also include 4 spaces).
+  - Example:
+    ```markdown
+    # Example answers
+    q:q123456789: Primary answer text
+        Additional context line
+        - bullet point
+
+    q:q987654321: Single-line answer
+    ```
+- **Limits & validation (Step 2):**
+  - Maximum answer length defaults to 2000 characters (configurable later). Exceeding entries are accepted with warnings.
+  - Duplicate QIDs within the file produce validation errors.
+  - Unknown QIDs produce descriptive errors and are surfaced in ingestion diagnostics.
+  - Invalid indentation or malformed lines include line numbers and raw content in parse errors.
+- **Diagnostics:** `AnswerIngestionReport` captures `validAnswers`, `invalidEntries`, `unknownQids`, `warnings`, and a `summary` (counts) for CLI dry-run output.
+- **Fixtures:** `tests/fixtures/phase5/baseline/tiny-react/answers.md` exercises the grammar; golden outputs (`answers.parse.json`, `answers.report.json`) ensure deterministic parsing/ingestion.
+
 ## 4. Spec Generator Patch Mode
 - **Anchor-based replacement**
   1. Parse existing Markdown into block segments keyed by `<a id="<entityId>"></a>` markers (current renderer emits these per entity).

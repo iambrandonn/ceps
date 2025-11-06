@@ -15,9 +15,10 @@ export class MarkdownRenderer {
      * Renders an entity as a Markdown section
      * @param entity - Entity to render
      * @param chunks - Optional behavior chunks (if available)
+     * @param openQuestions - Optional Open Question list (for unresolved QIDs)
      * @returns Markdown string
      */
-    renderEntity(entity, chunks) {
+    renderEntity(entity, chunks, openQuestions) {
         let md = '';
         // Anchor
         md += `<a id="${entity.id}"></a>\n\n`;
@@ -57,6 +58,13 @@ export class MarkdownRenderer {
             md += '**Errors thrown:**\n';
             for (const error of entity.attributes.errors) {
                 md += `- ${error}\n`;
+            }
+            md += '\n';
+        }
+        if (openQuestions && openQuestions.length > 0) {
+            md += '**Open Questions:**\n';
+            for (const question of openQuestions) {
+                md += `- ${question.qid}: ${question.question}\n`;
             }
             md += '\n';
         }

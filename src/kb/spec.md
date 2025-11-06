@@ -1,6 +1,6 @@
 # src/kb
 
-**Directory Overview:** This directory contains 43 entities.
+**Directory Overview:** This directory contains 47 entities.
 
 ## id-generation.ts
 
@@ -50,7 +50,7 @@ This function performs an operation.
 
 This class represents k b error.
 
-<a id="SLaO9ogMtT"></a>
+<a id="MG2ek13Bxh"></a>
 
 ### KnowledgeBase
 
@@ -223,6 +223,49 @@ This method retrieves data.
 **Visibility:** Public (exported)
 
 This method retrieves data.
+
+<a id="R2FFeSAqZ6"></a>
+
+### getAnswer
+
+**Signature:** `(qid: string): any`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="Vk515Jq8qV"></a>
+
+### getAllAnswers
+
+**Signature:** `(): AnswerRecord[]`
+
+**Visibility:** Public (exported)
+
+This method retrieves data.
+
+<a id="S0V9odLOtm"></a>
+
+### attachAnswer
+
+**Signature:** `(qid: string, answer: string, options: { appliedAt?: string } = {}): AnswerRecord`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+**Errors thrown:**
+- new KBError(`Cannot attach answer; unknown QID: ${qid}`);
+
+<a id="s6BdPF0LsQ"></a>
+
+### markQIDResolved
+
+**Signature:** `(qid: string): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
 
 <a id="Od5sRW09Kq"></a>
 
