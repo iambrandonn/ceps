@@ -4,10 +4,11 @@ A one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into 
 
 ## Current Status
 
-**Phase 1: Foundation — COMPLETE ✅**  
-**Phase 2: I/O & Templates — COMPLETE ✅**  
-**Phase 3: Intelligence — COMPLETE ✅**  
+**Phase 1: Foundation — COMPLETE ✅**
+**Phase 2: I/O & Templates — COMPLETE ✅**
+**Phase 3: Intelligence — COMPLETE ✅**
 **Phase 4: Grounding & Polish — COMPLETE ✅**
+**Phase 5: Finalization — COMPLETE ✅**
 
 ### Phase 1: Foundation (Complete)
 
@@ -76,6 +77,53 @@ Coverage    93.42% (overall, --coverage run)
 Duration    5.57s
 ```
 
+### Phase 5: Finalization (Complete)
+
+Phase 5 delivers the Finalization Engine, enabling answer-guided re-analysis and spec patching after human review.
+
+**Completed Deliverables:**
+- ✅ Answer Parser with QID extraction and validation (Step 1)
+- ✅ Snapshot Manager with Merkle tree verification (Step 2)
+- ✅ Impact Analyzer with reverse-dependency scoping (Step 3)
+- ✅ Spec Patcher with Finalization Summary generation (Step 4)
+- ✅ Orchestrator integration for `finalize` command (Step 5)
+- ✅ CLI integration with dry-run and reconcile modes (Step 6)
+- ✅ End-to-end validation with golden fixtures (Step 7)
+
+**Key Features:**
+- **Snapshot Verification:** Detects any file changes since initial run using SHA-256 Merkle trees
+- **Impact Scoping:** Selective re-analysis of only affected entities using reverse-dependency traversal
+- **QID Resolution:** Removes resolved questions from specs and applies answer text
+- **Finalization Summaries:** Audit trail showing what changed during finalization
+- **Exit Codes:** 0 (success), 1 (error), 3 (snapshot mismatch), 4 (unknown QIDs)
+
+**Usage:**
+```bash
+# Preview finalization impacts (dry-run)
+npm start finalize -- --answers ./answers.md --dry-run
+
+# Full finalization with deterministic output
+npm start finalize -- --answers ./answers.md --deterministic --llm off
+
+# Allow changed files (reconcile mode)
+npm start finalize -- --answers ./answers.md --reconcile
+```
+
+**Test Results:**
+```
+Test Files  62 passed (62)
+Tests       823 passed | 3 skipped (826)
+Coverage    93.42% (overall)
+Phase 5     69 new tests added
+```
+
+**Critical Bugs Fixed:**
+- QID deserialization bug that would have blocked 100% of finalization functionality
+- ESM import resolution issues
+- Async serialization compatibility
+
+See [PHASE5_OVERALL_FEEDBACK.md](./PHASE5_OVERALL_FEEDBACK.md) for detailed lessons learned and architecture notes.
+
 ## Quick Start
 
 ### Installation
@@ -103,6 +151,7 @@ npm run format            # Format code with Prettier
 
 ### Running the CLI
 
+**Initial spec generation:**
 ```bash
 npm start <project-root>
 
@@ -111,6 +160,19 @@ npm start . -- --deterministic --max-workers 4
 
 # Display version
 npm start -- --version
+```
+
+**Finalization workflow:**
+```bash
+# 1. Review generated specs and answer questions in answers.md
+
+# 2. Preview impacts (dry-run)
+npm start finalize -- --answers ./answers.md --dry-run
+
+# 3. Run finalization
+npm start finalize -- --answers ./answers.md --deterministic --llm off
+
+# 4. Review updated specs with Finalization Summaries
 ```
 
 ## Architecture
@@ -163,31 +225,48 @@ ceps/
 
 ## Next Steps
 
-**Phase 3: Intelligence** (Ready to start)
+**Phase 6: Production Hardening** (Ready to start)
 
-Phase 3 will implement 2-3 parallel workstreams:
-- **Agent 1:** KB Indices & Confidence Scoring (CTS-01)
-- **Agent 2:** Reasoning & Ambiguity Resolver (CTS-06)
-- **Agent 3:** Cross-link Validation & Phase Coordination (CTS-03, CTS-07)
+Phase 6 will implement 5-7 parallel workstreams:
+- **Agent 1:** Express.js patterns (routes, middleware, error handlers)
+- **Agent 2:** React patterns (components, hooks, context)
+- **Agent 3:** Redux patterns (actions, reducers, selectors)
+- **Agent 4:** GraphQL patterns (resolvers, schemas)
+- **Agent 5:** HTTP client patterns (Axios, Fetch)
+- **Agent 6:** Performance optimizations and telemetry
+- **Agent 7:** Documentation and examples
 
 **Deliverables:**
-- Call/import graphs and reverse-deps indices
-- Confidence scoring algorithm (upgrade from stub)
-- Framework pattern matching (Express, React basics)
-- Intent lifting and iterative resolution
-- Two-phase cross-link validation
-- Open Question (QID) generation
+- Framework pattern library expansion (Tier 0 + Tier 1)
+- Performance profiling and optimization
+- Large repo stress testing
+- Production telemetry and monitoring
+- User documentation and tutorials
 
 See [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) for the complete roadmap.
 
 ## Documentation
 
+### Core Documentation
 - **[AGENTS.md](./AGENTS.md)** — Quick reference for developers
 - **[SADS.md](./SADS.md)** — System Architecture & Design Specification
 - **[PRD2.md](./PRD2.md)** — Product Requirements Document
 - **[docs/API.md](./docs/API.md)** — KB API Reference (FROZEN)
 - **[IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)** — 6-phase implementation roadmap
-- **[IMPLEMENTATION_PLAN_PHASE1.md](./IMPLEMENTATION_PLAN_PHASE1.md)** — Detailed Phase 1 plan
+
+### Phase-Specific Documentation
+- **[IMPLEMENTATION_PLAN_PHASE1.md](./IMPLEMENTATION_PLAN_PHASE1.md)** — Phase 1 detailed plan
+- **[IMPLEMENTATION_PLAN_PHASE5.md](./IMPLEMENTATION_PLAN_PHASE5.md)** — Phase 5 detailed plan
+- **[PHASE5_OVERALL_FEEDBACK.md](./PHASE5_OVERALL_FEEDBACK.md)** — Phase 5 lessons learned and architecture
+
+### Component Technical Specifications (CTS)
+- **[CTS-01_KnowledgeBase.md](./CTS-01_KnowledgeBase.md)** — KB schema, confidence, storage
+- **[CTS-02_LLM_Gateway_and_Grounding.md](./CTS-02_LLM_Gateway_and_Grounding.md)** — LLM integration and grounding
+- **[CTS-03_Spec_Generator.md](./CTS-03_Spec_Generator.md)** — Spec generation and formatting
+- **[CTS-04_Finalization_Engine.md](./CTS-04_Finalization_Engine.md)** — Answer ingestion and patching
+- **[CTS-05_Static_Analysis_and_Pattern_Detection.md](./CTS-05_Static_Analysis_and_Pattern_Detection.md)** — Scanner and parser
+- **[CTS-06_Reasoning_and_Ambiguity_Resolver.md](./CTS-06_Reasoning_and_Ambiguity_Resolver.md)** — Reasoning engine
+- **[CTS-07_Orchestrator_and_Lifecycle.md](./CTS-07_Orchestrator_and_Lifecycle.md)** — Orchestrator lifecycle
 
 ## Contributing
 

@@ -4,13 +4,23 @@ Command-line interface documentation for **ceps** (Codebase to Specification).
 
 ---
 
-## Usage
+## Commands
 
-```bash
-ceps [options] [project-root]
-```
+### `ceps [options] [project-root]`
+
+Initial specification generation. Analyzes the codebase and generates Markdown specifications.
 
 If no `project-root` is specified, the current working directory is used.
+
+### `ceps finalize [options]`
+
+Finalization workflow. Ingests human answers, re-analyzes impacted entities, and patches specifications.
+
+**Required:**
+- Must be run from project root (where `.ceps/` directory exists)
+- Requires `--answers <path>` flag
+
+**See:** [Finalization Options](#finalization-options) for available flags
 
 ---
 
@@ -161,6 +171,95 @@ ceps --no-llm-cache
 
 ---
 
+### Finalization Options (Phase 5)
+
+#### `--answers <path>`
+**Type:** String (file path)
+**Required:** Yes (for `finalize` command)
+
+Path to the answers.md file containing human responses to Open Questions.
+
+**Format:** Markdown file with QID-based Q&A pairs:
+```markdown
+### q:abc123def456
+
+**Question:** What is the behavior of function `render`?
+
+**Answer:**
+Renders the component with title and description.
+Accepts `title` and `description` props.
+```
+
+**Example:**
+```bash
+ceps finalize --answers ./answers.md
+```
+
+**Validation:**
+- File must exist and be readable
+- File must contain valid QID markers (format: `q:[A-Za-z0-9]{12}`)
+- Throws error if file not found or unreadable
+
+---
+
+#### `--dry-run`
+**Type:** Boolean flag
+**Default:** `false`
+
+Preview finalization impacts without modifying any files.
+
+When enabled:
+- Parses answers and validates QIDs
+- Verifies snapshot integrity
+- Computes impact scope
+- Reports what WOULD be changed
+- Does NOT write to disk
+
+**Example:**
+```bash
+ceps finalize --answers ./answers.md --dry-run
+```
+
+**Output:**
+```
+Dry-run mode: No files will be modified
+✓ Snapshot verified
+✓ Parsed 3 answers (2 known, 1 unknown)
+✓ Impact scope: 5 entities
+→ Would patch 3 spec files
+→ Would resolve 2 QIDs
+```
+
+**Use case:** Review impacts before committing to finalization
+
+---
+
+#### `--reconcile`
+**Type:** Boolean flag
+**Default:** `false`
+
+Allow finalization to proceed even if files in `.ceps/` have changed since initial run.
+
+By default, finalization verifies that no files have been modified using a Merkle tree snapshot. This flag bypasses that check.
+
+**Example:**
+```bash
+ceps finalize --answers ./answers.md --reconcile
+```
+
+**Warning:** Using `--reconcile` means re-analysis may be based on modified inputs. Use with caution.
+
+**When to use:**
+- Intentional edits to source files after initial run
+- Manual corrections to KB state
+- Development/testing scenarios
+
+**Exit codes:**
+- Without `--reconcile`: Exit 3 if snapshot mismatch
+- With `--reconcile`: Proceeds regardless of changes
+
+---
+
 ### Output Options
 
 #### `--detail <level>`
@@ -267,12 +366,56 @@ ceps --llm-budget 10000 --max-workers 4
 ceps --detail exhaustive --llm-provider anthropic
 ```
 
+### Finalization Workflow (Phase 5)
+
+```bash
+# 1. Generate initial specs
+ceps /path/to/project --deterministic --llm off
+
+# 2. Review specs and answer Open Questions in answers.md
+
+# 3. Preview finalization impacts
+ceps finalize --answers ./answers.md --dry-run
+
+# 4. Run finalization
+ceps finalize --answers ./answers.md --deterministic --llm off
+
+# 5. Review patched specs with Finalization Summaries
+```
+
+**With source file changes (reconcile mode):**
+```bash
+# Allow finalization despite file changes
+ceps finalize --answers ./answers.md --reconcile
+```
+
+**Template-only finalization (no LLM):**
+```bash
+# Deterministic finalization without LLM polish
+ceps finalize --answers ./answers.md --deterministic --llm off
+```
+
 ---
 
 ## Exit Codes
 
+### Initial Generation (`ceps <project-root>`)
+
 - `0`: Success
-- `1`: Error (invalid arguments, missing project root, etc.)
+- `1`: Error (invalid arguments, missing project root, parse failures, etc.)
+
+### Finalization (`ceps finalize`)
+
+- `0`: Success - All answered QIDs resolved and specs patched
+- `1`: Error - Invalid arguments, missing KB state, parse failures, file I/O errors
+- `3`: Snapshot mismatch - Files changed since initial run (use `--reconcile` to bypass)
+- `4`: Unknown QIDs - One or more QIDs in answers.md not found in KB (warning only, partial success)
+
+**Exit code 4 behavior:**
+- Known QIDs are still resolved and patched
+- Unknown QIDs are logged as warnings
+- Finalization completes successfully for valid QIDs
+- Exit code 4 signals partial success (review warnings)
 
 ---
 
@@ -288,6 +431,9 @@ ceps --detail exhaustive --llm-provider anthropic
 | `--llm-model` | string | Must be non-empty |
 | `--llm-budget` | integer | Must be > 0, must be integer (no decimals) |
 | `--no-llm-cache` | boolean | Warns if `--llm off` |
+| `--answers` | string | File must exist and be readable (finalize only) |
+| `--dry-run` | boolean | None (finalize only) |
+| `--reconcile` | boolean | None (finalize only) |
 
 ---
 
@@ -300,5 +446,5 @@ ceps --detail exhaustive --llm-provider anthropic
 
 ---
 
-**Document version:** 1.0 (Phase 4 WS-F2 Stage C)
-**Last updated:** 2025-11-05
+**Document version:** 1.1 (Phase 5 Complete)
+**Last updated:** 2025-11-06
