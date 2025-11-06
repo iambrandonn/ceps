@@ -265,7 +265,9 @@ describe('patchSpecificationFiles', () => {
     });
 
     const specContent = fs.readFileSync(path.join(workdir, 'spec.md'), 'utf8');
-    expect((specContent.match(/## Finalization Summary/g) ?? []).length).toBe(2);
+    // Baseline fixture now includes 1 finalization summary from golden output
+    // This test runs 2 more finalizations, so total should be 3
+    expect((specContent.match(/## Finalization Summary/g) ?? []).length).toBe(3);
     expect(/- Finalized:\s*1970-01-02T00:00:00\.000Z/.test(specContent)).toBe(true);
     expect(/- Finalized:\s*1970-01-01T00:00:00\.000Z/.test(specContent)).toBe(true);
     const firstOccurrence = specContent.indexOf('1970-01-02T00:00:00.000');
