@@ -34,16 +34,17 @@
       "evidenceScore": 100
     }
   ],
-  "chunks": [],
-  "openQuestions": [
+  "chunks": [
     {
-      "qid": "q:GR0v81JJWV",
-      "entityId": "QuVnACVfXW",
-      "question": "What is the behavior of method `render` at src/Card.tsx?",
+      "id": "fWgIATR1VT",
+      "targetEntityId": "QuVnACVfXW",
+      "textDraft": "Card render behaviour\n- Accepts `title` and `description`\n- Renders children inside body",
+      "confidence": "High",
       "factSetIds": [
         "QuVnACVfXW-facts"
       ]
     }
   ],
+  "openQuestions": [],
   "answers": []
 }

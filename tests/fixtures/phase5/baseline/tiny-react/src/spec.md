@@ -1,5 +1,11 @@
 # src
 
+## Finalization Summary
+- Resolved QIDs: 1
+- Updated Sections: render (QuVnACVfXW)
+- Notes:
+  - q:GR0v81JJWV: Card render behaviour
+
 **Directory Overview:** This directory contains 3 entities.
 
 ## Button.tsx
@@ -30,14 +36,8 @@ This class represents card.
 
 ### render
 
-**Signature:** `(): any`
-
-**Visibility:** Public (exported)
-
 **Behavior:**
 
-- Method render (intent unclear from static analysis)
-
-**Open Questions:**
-- q:GR0v81JJWV: What is the behavior of method `render` at src/Card.tsx?
-
+- Card render behaviour
+- Accepts `title` and `description`
+- Renders children inside body
