@@ -1,0 +1,24 @@
+{
+  "updatedChunks": [
+    {
+      "entityId": "QuVnACVfXW",
+      "chunk": {
+        "id": "chunk-QuVnACVfXW",
+        "targetEntityId": "QuVnACVfXW",
+        "textDraft": "Card render behaviour\n- Accepts `title` and `description`\n- Renders children inside body",
+        "confidence": "High",
+        "factSetIds": [
+          "QuVnACVfXW-facts"
+        ]
+      }
+    }
+  ],
+  "failedEntities": [],
+  "warnings": [],
+  "metrics": {
+    "tokensUsed": 0,
+    "entitiesProcessed": 1,
+    "entitiesFailed": 0,
+    "runtimeMs": 0
+  }
+}

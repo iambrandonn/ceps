@@ -107,6 +107,43 @@ export interface AnswerRecord {
 | Node usage ≥80% | Warning with usage percentage | `--finalize-max-nodes` |
 | Unresolved nodes | Warning listing skipped identifiers | Investigate KB coverage or answers |
 
+### 3.1.2 Selective Re-Analysis Controller (Step 4)
+
+```typescript
+export interface ReanalysisOptions {
+  deterministicMode: boolean;
+  llmEnabled: boolean;
+  llmBudgetTokens?: number;
+  reasoningEnabled: boolean;
+}
+
+export interface FailedEntity {
+  entityId: string;
+  reason: 'llm-failure' | 'grounding-reject' | 'kb-inconsistency';
+  details: string;
+  originalChunk?: BehaviorChunk;
+}
+
+export interface ReanalysisResult {
+  updatedChunks: Map<string, BehaviorChunk>;
+  failedEntities: FailedEntity[];
+  warnings: string[];
+  metrics: {
+    tokensUsed: number;
+    entitiesProcessed: number;
+    entitiesFailed: number;
+    runtimeMs: number;
+  };
+}
+```
+
+- Controller ingests the `ImpactReport` (Step 3), replays draft → reasoning for each impacted entity, and overlays human answers when present (answer text replaces the prior low-confidence chunk, confidence promoted to `High`).
+- Failures are captured per-entity with `reason` tags aligned to CLI messaging; partial success triggers exit code `4` downstream.
+- `warnings` carries forward scope diagnostics and any per-entity notes (e.g., unanswered nodes).
+- Results deliberately avoid mutating the persisted KB; Step 5 consumes `updatedChunks` to patch specs and apply `markQIDResolved`.
+- Golden fixture `reanalysis.success.json` records deterministic output for the tiny-react baseline (answers applied, no failures), ensuring regression coverage for Step 4.
+- Snapshot verification (Step 1 contract) runs before re-analysis; mismatches raise `SnapshotMismatchError` unless `--reconcile` is specified, in which case the run proceeds with a warning recording added/removed/changed files.
+
 ### 3.2 New / Extended Methods
 | Method | Signature | Purpose |
 | -- | -- | -- |

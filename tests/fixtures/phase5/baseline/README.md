@@ -10,6 +10,7 @@ Baseline outputs captured during Step 0 provide “before finalize” artefacts 
   - `src/spec.md`, `src/hooks/spec.md`, `src/utils/spec.md` — per-directory specs
   - `qids.json` — inventory of unresolved QIDs (one Low-confidence React `render` method)
   - `impact.report.json` — deterministic impact scope produced by `computeImpactReport` (default caps). Seeds, impacted entity IDs, and diagnostics are used as a golden reference for Step 3 unit tests.
+  - `reanalysis.success.json` — golden selective re-analysis output (Step 4) containing refreshed chunk text, confidence, and metrics after applying answers.
   - `.ceps/snapshot.json` — deterministic snapshot used by Step 1 integration tests
   - `answers.md` — sample finalization answers exercising single- and multi-line entries
   - `answers.parse.json` — golden parser output for Step 2 tests

@@ -16,3 +16,11 @@ export {
   type ImpactScopeOptions,
   type ImpactReport
 } from './impact-scope.js';
+
+export {
+  reanalyzeEntities,
+  type ReanalysisOptions,
+  type ReanalysisResult,
+  type FailedEntity,
+  SnapshotMismatchError
+} from './reanalysis.js';

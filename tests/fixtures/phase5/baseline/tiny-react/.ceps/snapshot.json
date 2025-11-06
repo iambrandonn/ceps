@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "653d45d5f4704e0f964dd22292b4fae47266add351684eb5246ebcf970823674",
+  "rootHash": "0f912cc94b8b0b5242e2f4e1bb4ba35ae4c3dc61197d94e9d0814ac43488d65a",
   "generatedAt": "1970-01-01T00:00:00.000Z",
   "files": [
     {
@@ -28,6 +28,11 @@
       "path": "qids.json",
       "hash": "42cd26b3145eedafff6c04470533e849ee894e68c1fc2335b86bed69ca732bd6",
       "bytes": 195
+    },
+    {
+      "path": "reanalysis.success.json",
+      "hash": "4471bd2b607e4cea687cbee4674b3186101b0a3ebe42574d158e15f3edf59f74",
+      "bytes": 535
     }
   ]
 }

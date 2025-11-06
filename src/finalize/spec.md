@@ -1,6 +1,6 @@
 # src/finalize
 
-**Directory Overview:** This directory contains 4 entities.
+**Directory Overview:** This directory contains 6 entities.
 
 ## answers.ts
 
@@ -51,4 +51,27 @@ This function performs an operation.
 **Visibility:** Public (exported)
 
 This function computes values.
+
+## reanalysis.ts
+
+<a id="93hgptxV55"></a>
+
+### reanalyzeEntities
+
+**Signature:** `(kb: KnowledgeBase, impactReport: ImpactReport, options: ReanalysisOptions): Promise<import("/src/finalize/reanalysis").ReanalysisResult>`
+
+**Visibility:** Public (exported)
+
+This function performs an operation.
+
+**Side effects:**
+- filesystem
+
+<a id="3jaaI8o5VJ"></a>
+
+### SnapshotMismatchError
+
+**Visibility:** Public (exported)
+
+This class represents snapshot mismatch error.
 
