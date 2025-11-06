@@ -12,6 +12,7 @@ export interface CliArgs {
   llmBudget?: number;
   noLlmCache?: boolean;
   version?: boolean;
+  noSnapshot?: boolean;
   // Add more flags as needed in later phases
 }
 
@@ -23,6 +24,7 @@ export function parseArgs(argv: string[]): CliArgs {
     detail: 'spec-ready',
     llm: 'on',
     version: false,
+    noSnapshot: false,
   };
 
   // Skip 'node' and script name
@@ -78,6 +80,8 @@ export function parseArgs(argv: string[]): CliArgs {
         } else {
           args.llmBudget = parseInt(value, 10);
         }
+      } else if (arg === '--no-snapshot') {
+        args.noSnapshot = true;
       }
       // Add more flags here
     } else {

@@ -10,6 +10,7 @@ import { GroundingValidator } from '../validation/grounding-validator.js';
 import { CrossLinkValidator } from '../validation/cross-link-validator.js';
 import { GateRegistry } from './gates/gate-registry.js';
 import { emitRunSummary } from './rendering/run-summary-renderer.js';
+import { captureSnapshot, writeSnapshot } from '../snapshot/index.js';
 import type { GateInputs } from './types/gate-engine.js';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -145,6 +146,16 @@ export async function run(argv: string[]): Promise<number> {
       fs.writeFileSync(fullPath, content, 'utf8');
       console.log(`  ✓ Generated spec: ${specPath}`);
       specsWritten++;
+    }
+
+    if (args.noSnapshot) {
+      console.log('\nSkipping snapshot capture (--no-snapshot)');
+    } else {
+      console.log('\nCapturing snapshot...');
+      const snapshot = await captureSnapshot({ root: args.projectRoot });
+      const snapshotPath = path.join(args.projectRoot, '.ceps', 'snapshot.json');
+      writeSnapshot(snapshot, snapshotPath);
+      console.log('  ✓ Snapshot saved: .ceps/snapshot.json');
     }
 
     // Phase 4: Collect metrics and build gate inputs

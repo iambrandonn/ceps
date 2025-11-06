@@ -4,7 +4,7 @@
 
 ## markdown-renderer.ts
 
-<a id="0wGeqjl5dB"></a>
+<a id="R5uYdxZeBN"></a>
 
 ### MarkdownRenderer
 
@@ -12,11 +12,11 @@
 
 This class represents markdown renderer.
 
-<a id="P9M0WRtVqx"></a>
+<a id="qS6NKWoTw9"></a>
 
 ### renderEntity
 
-**Signature:** `(entity: Entity, chunks?: BehaviorChunk[]): string`
+**Signature:** `(entity: Entity, chunks?: BehaviorChunk[], openQuestions?: OpenQuestion[]): string`
 
 **Visibility:** Public (exported)
 
@@ -24,7 +24,7 @@ This method performs an operation.
 
 ## spec-generator.ts
 
-<a id="KbZbZ2zE8d"></a>
+<a id="CaTqvjZgr0"></a>
 
 ### SpecGenerator
 
@@ -42,7 +42,7 @@ This class represents spec generator.
 
 This method retrieves data.
 
-<a id="OmJvJQI27D"></a>
+<a id="9Vk2CHnq6O"></a>
 
 ### generateRootSpec
 
@@ -52,7 +52,7 @@ This method retrieves data.
 
 This method performs an operation.
 
-<a id="SujuXYd6XJ"></a>
+<a id="MIlYZtEBp6"></a>
 
 ### generateDirectorySpecs
 

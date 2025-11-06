@@ -38,6 +38,10 @@
 - **Versioning & compatibility**
   - `version` field increments on schema change. `deserialize` rejects unsupported versions with actionable messaging.
   - `metadata.projectRoot` records the baseline run root; finalization will use this for deterministic rendering unless `--finalize-out` overrides.
+- **Snapshot capture (Step 1)**
+  - `.ceps/snapshot.json` is generated automatically after each baseline run via `captureSnapshot` (`src/snapshot/capture.ts`) and persisted with `writeSnapshot`. The document records normalized file hashes and Merkle root (`rootHash`).
+  - `verifySnapshot` (`src/snapshot/verify.ts`) recomputes the snapshot at finalize time, surfacing added/removed/changed files with structured diagnostics.
+  - A lightweight benchmark (`npm run snapshot:benchmark`) is available to profile capture performance on large repositories.
 - **Future expansion**
   - `fileIndex` is *not* persisted in Step 0. The current patch strategy operates on existing Markdown and KB metadata only. If later steps require package-level statistics to drive summaries, we can persist a slimmed `fileIndex` separately without blocking Step 1.
 
@@ -137,6 +141,7 @@ export interface AnswerRecord {
     | `--finalize-max-nodes <n>` | Override node cap (default 250) |
     | `--finalize-scope <auto\|full>` | Disable caps when set to `full` |
     | `--finalize-out <dir>` | Optional alternate output directory |
+    | `--no-snapshot` | (Baseline runs only) skip capture when benchmarking or debugging |
 - **Execution flow**
   1. Load config & CLI flags (inherits `--deterministic`, `--llm on/off`, budgets).
   2. Read `.ceps/snapshot.json`; if mismatched and no `--reconcile`, abort with exit code `3`.

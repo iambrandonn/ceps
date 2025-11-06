@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "algorithm": "sha256",
+  "rootHash": "72e9877c01dfe8f0070c48a5974a4095f583a9987b90629c836f607f204e7352",
+  "generatedAt": "1970-01-01T00:00:00.000Z",
+  "files": [
+    {
+      "path": "qids.json",
+      "hash": "42cd26b3145eedafff6c04470533e849ee894e68c1fc2335b86bed69ca732bd6",
+      "bytes": 195
+    }
+  ]
+}

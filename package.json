@@ -18,7 +18,8 @@
     "lint": "eslint src tests --ext .ts",
     "lexicon:lint": "node scripts/lint-lexicon.cjs",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "snapshot:benchmark": "tsx scripts/snapshot-benchmark.ts"
   },
   "keywords": [
     "documentation",

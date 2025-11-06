@@ -32,6 +32,7 @@ import type { RunSummary } from './types/run-summary.js';
 import type { LLMGateway } from '../llm/gateway.js';
 import type { BudgetTracker } from '../llm/budget.js';
 import type { Validator } from '../validation/types.js';
+import { captureSnapshot, writeSnapshot } from '../snapshot/index.js';
 
 export enum PipelinePhase {
   SCANNING = 'scanning',
@@ -75,6 +76,7 @@ export interface OrchestratorOptions {
   llmGateway?: LLMGateway;
   validator?: Validator;
   budgetTracker?: BudgetTracker;
+  snapshotEnabled?: boolean;
 }
 
 export class Orchestrator extends EventEmitter {
@@ -87,6 +89,7 @@ export class Orchestrator extends EventEmitter {
   private dirSpecs?: Record<string, string>; // Store for gate evaluation
   private options: OrchestratorOptions;
   private rootPath: string;
+  private snapshotEnabled: boolean;
 
   constructor(options: OrchestratorOptions | string) {
     super();
@@ -101,6 +104,7 @@ export class Orchestrator extends EventEmitter {
     }
 
     this.kb = new KnowledgeBase();
+    this.snapshotEnabled = this.options.snapshotEnabled ?? true;
     this.status = {
       currentPhase: PipelinePhase.SCANNING,
       startTime: new Date(),
@@ -136,6 +140,9 @@ export class Orchestrator extends EventEmitter {
 
     // After all phases complete, evaluate gates
     if (this.generator && this.rootSpec && this.dirSpecs) {
+      if (this.snapshotEnabled) {
+        await this.captureProjectSnapshot();
+      }
       await this.evaluateGates(this.generator, this.rootSpec, this.dirSpecs);
     }
   }
@@ -314,6 +321,12 @@ export class Orchestrator extends EventEmitter {
       }
       fs.writeFileSync(fullPath, content, 'utf8');
     }
+  }
+
+  private async captureProjectSnapshot(): Promise<void> {
+    const snapshotPath = path.join(this.rootPath, '.ceps', 'snapshot.json');
+    const snapshot = await captureSnapshot({ root: this.rootPath });
+    writeSnapshot(snapshot, snapshotPath);
   }
 
   private async runPostValidation(): Promise<void> {
