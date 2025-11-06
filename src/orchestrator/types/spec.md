@@ -1,6 +1,18 @@
 # src/orchestrator/types
 
-**Directory Overview:** This directory contains 1 entities.
+**Directory Overview:** This directory contains 2 entities.
+
+## finalization.ts
+
+<a id="sjldY0NnwG"></a>
+
+### createDefaultFinalizationConfig
+
+**Signature:** `(projectRoot: string, answersPath: string): import("/src/orchestrator/types/finalization").FinalizationConfig`
+
+**Visibility:** Public (exported)
+
+This function persists data.
 
 ## run-summary.ts
 

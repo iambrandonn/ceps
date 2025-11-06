@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "8efd6a793f54377f3a2fa05d68155a3c7ad43d007220adf15ee7bf8f440b417a",
-  "generatedAt": "2025-11-06T15:28:57.951Z",
+  "rootHash": "b79ef90c4cca24d68245ff21721ac9fc28e127799bfa64d10583dd8f34978ea7",
+  "generatedAt": "2025-11-06T18:14:24.398Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -11,8 +11,8 @@
     },
     {
       "path": "AGENTS.md",
-      "hash": "3c3182a7fb79e931d352480a3b136d65cc9a45e856f3e0cea0abdceca3bac812",
-      "bytes": 16428
+      "hash": "8edba98d26b2b6a54483d15be7414c4f81958c15ba57efbaaf054e54f8e191a6",
+      "bytes": 17413
     },
     {
       "path": "CLAUDE.md",
@@ -120,34 +120,14 @@
       "bytes": 6555
     },
     {
-      "path": "FEEDBACK_01_IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
-      "hash": "5efa33aa834c13c756d07584d5d173455fb223d007fcf178652ae467848ed35a",
-      "bytes": 19201
-    },
-    {
-      "path": "FEEDBACK_02_IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
-      "hash": "610c46aeb4991a1b71dc87ad1980e450061f8ef5c05f4b1ed9141c83d74c2443",
-      "bytes": 11578
-    },
-    {
-      "path": "FEEDBACK_03_IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
-      "hash": "0c52d4dfcb2a05b893c92c877044fee4fc29fbdcc4b9c391bb539db9c2bd20c4",
-      "bytes": 6763
-    },
-    {
       "path": "FEEDBACK_TO_REVIEWER.md",
-      "hash": "7f91e8dd389ddcc12553b75c4296b099632fe53352a154766f3ea7397314c884",
-      "bytes": 3200
+      "hash": "0aa443bc819454746b14a25e5bd1bd427b4f2ad80380e3d3ee4c52488d739022",
+      "bytes": 8010
     },
     {
-      "path": "FEEDBACK-05-01.md",
-      "hash": "8e690d0b1f2cd2c9664161a6a136b0266bcde1f0931a71c04cc1ca2a0fe74c65",
-      "bytes": 21309
-    },
-    {
-      "path": "FEEDBACK-05-02.md",
-      "hash": "79c945b5be62731c1f474ffb41af96dafc7fde6908b53242d35f65c686aa0163",
-      "bytes": 15559
+      "path": "FEEDBACK-PHASE5-STEP6-01.md",
+      "hash": "a4055f34dfd3d2922ba89f6868125155fec77f31aad2199a3f2d8cf1653a7651",
+      "bytes": 14016
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -381,28 +361,33 @@
     },
     {
       "path": "IMPLEMENTATION_PLAN_PHASE5_STEP2.md",
-      "hash": "85a0f8dd9a0a433e9653c401b96304c17002bd8aeb73825009c8dc19c2cabd91",
-      "bytes": 9176
+      "hash": "ac335ad338d1ca31f711f709dfb1a17a68e97c05780988f2cfa21dde0cbfc329",
+      "bytes": 9960
     },
     {
       "path": "IMPLEMENTATION_PLAN_PHASE5_STEP3.md",
-      "hash": "fcfc411f6bf2933957300d5dba3a5d663654606a2321d049a9116bf046e562c5",
-      "bytes": 8651
+      "hash": "62ba0b8f1cb4dc88bd4b25de33c817867bb703d3a1dfb346c08209b831ac1b0e",
+      "bytes": 9202
     },
     {
       "path": "IMPLEMENTATION_PLAN_PHASE5_STEP4.md",
-      "hash": "c8f5e495191fda5ef0f4762d5063db7b2514cd57eb01681b6b091ac92f9b281e",
-      "bytes": 9173
+      "hash": "f00cd5167ef97502c59d290351890639bef528d6e47697e704165519566eb9bb",
+      "bytes": 9839
     },
     {
       "path": "IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
-      "hash": "6fa58eb2edc8007ee095aca83dcabb480f37c9ef538108b999c493de7322458d",
-      "bytes": 9186
+      "hash": "0ec4c20d0d290c9dee61276dc102eca9cdafc76532b1818ec03e103ab4bf158f",
+      "bytes": 9883
+    },
+    {
+      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP6.md",
+      "hash": "43a78402c40790e80a53feb41321261de029477244890797b0089e0b4a37f333",
+      "bytes": 10733
     },
     {
       "path": "IMPLEMENTATION_PLAN_PHASE5.md",
-      "hash": "75e1e2e97d0934f51670b21b9858dad0e791403ab1209f868a80f96e72ea0dac",
-      "bytes": 10955
+      "hash": "6b2e5f4e5b3079c9456d35da92e513dc5ad3d827385f46fdb2abb1361d8dd089",
+      "bytes": 11894
     },
     {
       "path": "IMPLEMENTATION_PLAN.md",
@@ -610,14 +595,19 @@
       "bytes": 1341
     },
     {
+      "path": "src/kb/__tests__/kb-serialization.test.ts",
+      "hash": "ad65c4072763441c442019345f29ba74f09718ae0834364d82b393db2db94a60",
+      "bytes": 8192
+    },
+    {
       "path": "src/kb/id-generation.ts",
       "hash": "1af73c2ab91b2fa89ede73f74570cdf8e7da49d783cb47068e6f33a15bb8a2ef",
       "bytes": 3098
     },
     {
       "path": "src/kb/knowledge-base.ts",
-      "hash": "880a467359feb8e07adb431678ce9cf789db2617203b7be524aa58f6aea9c5f1",
-      "bytes": 27324
+      "hash": "52c0d2cbbb3a594cb83131cb08c0d604e1b9b87695ee0396c388d2bdbcecf5e2",
+      "bytes": 29937
     },
     {
       "path": "src/kb/models.ts",
@@ -670,6 +660,11 @@
       "bytes": 7774
     },
     {
+      "path": "src/orchestrator/__tests__/cli-finalize-flags.test.ts",
+      "hash": "7027a94fd5f23e6f1bc370b8a42f3cb516fdfb4ba041cc6c83acb2abb8a0a402",
+      "bytes": 12484
+    },
+    {
       "path": "src/orchestrator/__tests__/cli-llm-flags.test.ts",
       "hash": "7d508e17a130dd79ac228ac709ace58b9f59424315e4aa06ff72f625bead14cf",
       "bytes": 7931
@@ -706,8 +701,8 @@
     },
     {
       "path": "src/orchestrator/cli.ts",
-      "hash": "edf7f6a427e5ba66e63208396320b7767aee1e6c144346286b8c9459be7f77bc",
-      "bytes": 5036
+      "hash": "651d60ba69f581c9671099f105f1ad1f313611032434b8b1c248f769101a1b3a",
+      "bytes": 9767
     },
     {
       "path": "src/orchestrator/gates/gate-registry.ts",
@@ -726,8 +721,8 @@
     },
     {
       "path": "src/orchestrator/index.ts",
-      "hash": "6a1ee93754636438d124f9adf9c380c99280859153026c3aec6aeb99c3b12906",
-      "bytes": 9463
+      "hash": "bc22c8d4efc46ae44c3807e60a1831e3fafa5b03a33fba219b1d35ed3f127e57",
+      "bytes": 11938
     },
     {
       "path": "src/orchestrator/mocks/mock-gate-evaluators.ts",
@@ -736,13 +731,18 @@
     },
     {
       "path": "src/orchestrator/orchestrator.ts",
-      "hash": "d8af8d0eae314bc0040b7155db1b19ded0544bf1e364814f1575cf1778a4f132",
-      "bytes": 17079
+      "hash": "0bc14af75822bce0b9dbea162d6a80c6fb4fba005b9c7c30bd1298c1bf2d3d1c",
+      "bytes": 24286
     },
     {
       "path": "src/orchestrator/rendering/run-summary-renderer.ts",
       "hash": "b8107303df6c7cf1d33837cadcd6c7f73814fdbea562aa0a20d5b031e6634bc8",
       "bytes": 8217
+    },
+    {
+      "path": "src/orchestrator/types/finalization.ts",
+      "hash": "5dbfeff43f0a0b89f57613f47d8b3b824ec5ef90dbe57e0e7c7d5bee8815ad5d",
+      "bytes": 2905
     },
     {
       "path": "src/orchestrator/types/gate-engine.ts",
@@ -1148,6 +1148,11 @@
       "path": "tests/integration/finalize-answers.test.ts",
       "hash": "6772917a8a849be3b552b40363fef72d87bc9a41e2a8ad94ebb5ba858c08342b",
       "bytes": 1768
+    },
+    {
+      "path": "tests/integration/finalize-cli.test.ts",
+      "hash": "e429de0c17f7d3f31428fa6d7082094da9ea8b4b0c8f5ed02b4335add314854a",
+      "bytes": 3589
     },
     {
       "path": "tests/integration/orchestrator.test.ts",

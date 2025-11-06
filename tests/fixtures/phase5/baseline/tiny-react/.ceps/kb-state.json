@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "entities": [
+    {
+      "id": "QuVnACVfXW",
+      "kind": "function",
+      "name": "render",
+      "path": "src/Card.tsx",
+      "visibility": "public"
+    }
+  ],
+  "relations": [],
+  "factSets": [
+    {
+      "id": "QuVnACVfXW-facts",
+      "facts": [
+        {
+          "subjectId": "QuVnACVfXW",
+          "predicate": "kind",
+          "object": "method"
+        },
+        {
+          "subjectId": "QuVnACVfXW",
+          "predicate": "name",
+          "object": "render"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/Card.tsx"
+        }
+      ],
+      "evidenceScore": 100
+    }
+  ],
+  "chunks": [],
+  "openQuestions": [
+    {
+      "qid": "q:GR0v81JJWV",
+      "entityId": "QuVnACVfXW",
+      "question": "What is the behavior of method `render` at src/Card.tsx?",
+      "factSetIds": [
+        "QuVnACVfXW-facts"
+      ]
+    }
+  ],
+  "answers": []
+}

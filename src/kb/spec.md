@@ -1,6 +1,6 @@
 # src/kb
 
-**Directory Overview:** This directory contains 47 entities.
+**Directory Overview:** This directory contains 51 entities.
 
 ## id-generation.ts
 
@@ -50,7 +50,7 @@ This function performs an operation.
 
 This class represents k b error.
 
-<a id="MG2ek13Bxh"></a>
+<a id="Lx0C7yyVdt"></a>
 
 ### KnowledgeBase
 
@@ -465,6 +465,58 @@ This method retrieves data.
 **Visibility:** Public (exported)
 
 This method retrieves data.
+
+<a id="HRp6cgE4A6"></a>
+
+### serialize
+
+**Signature:** `(): string`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+<a id="bccfv7flS1"></a>
+
+### deserialize
+
+**Signature:** `(json: string): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+**Errors thrown:**
+- new KBError(`KB version mismatch: expected 1.0, got ${parsed.version}`);
+
+<a id="iUyHhpsCU2"></a>
+
+### serializeToFile
+
+**Signature:** `(filepath: string): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+**Side effects:**
+- filesystem
+
+<a id="jDYpOhcpHc"></a>
+
+### deserializeFromFile
+
+**Signature:** `(filepath: string): void`
+
+**Visibility:** Public (exported)
+
+This method performs an operation.
+
+**Side effects:**
+- filesystem
+
+**Errors thrown:**
+- new KBError(`KB state file not found: ${filepath}`);
 
 ## models.ts
 
