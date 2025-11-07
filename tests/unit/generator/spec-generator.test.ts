@@ -1,7 +1,8 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { SpecGenerator } from '../../../src/generator/spec-generator';
 import { KnowledgeBase } from '../../../src/kb/knowledge-base';
 import { FileIndex } from '../../../src/types';
+import type { LLMGateway } from '../../../src/llm/gateway';
 
 describe('Spec Generator', () => {
   let kb: KnowledgeBase;
@@ -170,21 +171,21 @@ describe('Spec Generator', () => {
       expect(rootSpec).toContain('src/utils');
     });
 
-    it('should not generate specs for directories with no exported entities', () => {
-      kb.insertEntity({
-        id: 'e1',
-        kind: 'function',
-        name: 'internal',
-        path: 'src/internal/helper.ts',
-        exported: false // Not exported
-      });
-
-      const generator = new SpecGenerator(kb);
-      const dirSpecs = generator.generateDirectorySpecs('/project/root');
-
-      expect(dirSpecs).not.toHaveProperty('src/internal/spec.md');
+  it('should not generate specs for directories with no exported entities', () => {
+    kb.insertEntity({
+      id: 'e1',
+      kind: 'function',
+      name: 'internal',
+      path: 'src/internal/helper.ts',
+      exported: false // Not exported
     });
+
+    const generator = new SpecGenerator(kb);
+    const dirSpecs = generator.generateDirectorySpecs('/project/root');
+
+    expect(dirSpecs).not.toHaveProperty('src/internal/spec.md');
   });
+});
 
   describe('Monorepo projects', () => {
     it('should generate per-package specs for monorepos', () => {
@@ -358,5 +359,45 @@ describe('Spec Generator', () => {
       expect(dirSpecs).toHaveProperty('packages/core/spec.md');
       expect(dirSpecs).not.toHaveProperty('packages/empty/spec.md');
     });
+  });
+});
+
+describe('Spec Generator - LLM fallback handling', () => {
+  it('falls back to template when LLM emits NEEDS_QUESTION', async () => {
+    const kb = new KnowledgeBase();
+    kb.insertEntity({
+      id: 'entity-foo',
+      kind: 'function',
+      name: 'foo',
+      path: 'src/utils/foo.ts',
+      exported: true
+    });
+    kb.insertFactSet({
+      id: 'entity-foo-facts',
+      facts: [{ subjectId: 'entity-foo', predicate: 'is-function', object: true }],
+      sources: [{ kind: 'ast', file: 'src/utils/foo.ts' }],
+      evidenceScore: 80
+    });
+    kb.insertChunk({
+      id: 'chunk-foo',
+      targetEntityId: 'entity-foo',
+      textDraft: 'Function foo (intent unclear from static analysis)',
+      confidence: 'Medium',
+      factSetIds: ['entity-foo-facts']
+    });
+
+    const fakeGateway = {
+      summarize: vi.fn().mockResolvedValue('NEEDS_QUESTION\n\nMore facts required')
+    } as unknown as LLMGateway;
+
+    const generator = new SpecGenerator(kb, undefined, {
+      llmEnabled: true,
+      llmGateway: fakeGateway
+    });
+
+    const dirSpecs = await generator.generateDirectorySpecsAsync('/project/root');
+    const spec = dirSpecs['src/utils/spec.md'];
+    expect(spec).toContain('**Behavior:**');
+    expect(spec).not.toContain('NEEDS_QUESTION');
   });
 });

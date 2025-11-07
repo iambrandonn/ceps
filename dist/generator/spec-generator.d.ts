@@ -84,5 +84,6 @@ export declare class SpecGenerator {
      * Map numeric confidence to band
      */
     private mapConfidenceBand;
+    private containsNeedsQuestion;
 }
 //# sourceMappingURL=spec-generator.d.ts.map

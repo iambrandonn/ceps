@@ -56,6 +56,7 @@ export interface OrchestratorOptions {
     validator?: Validator;
     budgetTracker?: BudgetTracker;
     snapshotEnabled?: boolean;
+    knowledgeBase?: KnowledgeBase;
 }
 export declare class Orchestrator extends EventEmitter {
     private kb;

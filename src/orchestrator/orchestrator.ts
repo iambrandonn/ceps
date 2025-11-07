@@ -78,6 +78,7 @@ export interface OrchestratorOptions {
   validator?: Validator;
   budgetTracker?: BudgetTracker;
   snapshotEnabled?: boolean;
+  knowledgeBase?: KnowledgeBase;
 }
 
 export class Orchestrator extends EventEmitter {
@@ -104,7 +105,7 @@ export class Orchestrator extends EventEmitter {
       this.rootPath = options.projectRoot;
     }
 
-    this.kb = new KnowledgeBase();
+    this.kb = this.options.knowledgeBase ?? new KnowledgeBase();
     this.snapshotEnabled = this.options.snapshotEnabled ?? true;
     this.status = {
       currentPhase: PipelinePhase.SCANNING,

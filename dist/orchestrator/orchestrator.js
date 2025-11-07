@@ -61,7 +61,7 @@ export class Orchestrator extends EventEmitter {
             this.options = options;
             this.rootPath = options.projectRoot;
         }
-        this.kb = new KnowledgeBase();
+        this.kb = this.options.knowledgeBase ?? new KnowledgeBase();
         this.snapshotEnabled = this.options.snapshotEnabled ?? true;
         this.status = {
             currentPhase: PipelinePhase.SCANNING,

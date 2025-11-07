@@ -280,6 +280,33 @@ export class FactExtractor {
                 exported: isExported,
                 visibility: isExported ? 'public' : 'internal',
             });
+            const facts = [
+                { subjectId: entityId, predicate: 'is-constant', object: true },
+            ];
+            const initializer = varDecl.getInitializer();
+            if (initializer) {
+                const initializerText = initializer.getText().trim();
+                if (initializerText.length > 0) {
+                    facts.push({
+                        subjectId: entityId,
+                        predicate: 'initializer',
+                        object: initializerText,
+                    });
+                }
+                if (Node.isCallExpression(initializer)) {
+                    facts.push({
+                        subjectId: entityId,
+                        predicate: 'initializer-call',
+                        object: initializer.getExpression().getText(),
+                    });
+                }
+            }
+            factSets.push({
+                id: `${entityId}-facts`,
+                facts,
+                sources: [{ kind: 'ast', file: filePath }],
+                evidenceScore: 60,
+            });
         });
         return { entities, relations, factSets };
     }

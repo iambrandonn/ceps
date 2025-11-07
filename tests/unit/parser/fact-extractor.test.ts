@@ -153,4 +153,26 @@ describe('Fact Extractor', () => {
     expect(result.entities[0].id).not.toBe('test.ts'); // Should not be just the path
     expect(result.entities[0].id.length).toBeGreaterThan(5); // Should be a hash
   });
+
+  it('should create fact sets for exported constants', () => {
+    const project = new Project({ useInMemoryFileSystem: true });
+    const sourceFile = project.createSourceFile(
+      'constants.ts',
+      `
+      export const LEXICON = { mode: 'strict' };
+      const local = compute();
+    `
+    );
+
+    const extractor = new FactExtractor();
+    const result = extractor.extract(sourceFile, 'constants.ts');
+
+    const constantEntity = result.entities.find((e) => e.name === 'LEXICON');
+    expect(constantEntity).toBeDefined();
+
+    const factSet = result.factSets.find((fs) => fs.id === `${constantEntity!.id}-facts`);
+    expect(factSet).toBeDefined();
+    expect(factSet?.facts.some((f) => f.predicate === 'is-constant')).toBe(true);
+    expect(factSet?.facts.some((f) => f.predicate === 'initializer')).toBe(true);
+  });
 });

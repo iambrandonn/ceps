@@ -353,6 +353,14 @@ export class SpecGenerator {
           guidance: guidance.length > 0 ? guidance : undefined,
         });
 
+        if (this.containsNeedsQuestion(llmDraft)) {
+          this.metrics.templateFallback++;
+          const warning = `LLM indicated missing information for entity ${entity.id}, using template`;
+          this.metrics.warnings.push(warning);
+          console.warn(warning);
+          return templateDraft;
+        }
+
         // Validate with grounding validator if available
         if (this.validator) {
           const factSetIds = factSets.map(fs => fs.id);
@@ -422,5 +430,10 @@ export class SpecGenerator {
     if (confidence >= 70) return 'High';
     if (confidence >= 40) return 'Medium';
     return 'Low';
+  }
+
+  private containsNeedsQuestion(text: string): boolean {
+    const normalized = text.trim().toUpperCase();
+    return normalized === 'NEEDS_QUESTION' || normalized.startsWith('NEEDS_QUESTION');
   }
 }
