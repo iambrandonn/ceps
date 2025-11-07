@@ -82,7 +82,7 @@ export class LexiconValidator {
         inApprovedTermsSection = false;
         inAntiPatternsSection = false;
 
-        if (line.includes('Middleware') || line.includes('HTTP Methods') || line.includes('Special Markers') || line.includes('Error Handling') || line.includes('Async Handling')) {
+        if (line.includes('Middleware') || line.includes('HTTP Methods') || line.includes('Special Markers') || line.includes('Error Handling') || line.includes('Async Handling') || line.includes('Configuration')) {
           inApprovedTermsSection = true;
           // Debug
           // console.log(`Section "${line}" -> inApprovedTermsSection = true, currentFramework=${currentFramework}`);

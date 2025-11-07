@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "10a487aed3600175691a7d2cdbf655c66aff7bc4780f81ebd856088cc6aa90b1",
-  "generatedAt": "2025-11-07T18:18:51.459Z",
+  "rootHash": "272e849cef8dced9bdcd08002a6085c85a01290d9a6c49ea84fb577185af0261",
+  "generatedAt": "2025-11-07T20:16:13.250Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -60,6 +60,11 @@
       "bytes": 6235
     },
     {
+      "path": "DECISIONS.md",
+      "hash": "c9e36eae8bcb8cde4f72167862201b056141af80253df3b33081cb8547ac4e78",
+      "bytes": 5844
+    },
+    {
       "path": "docs/API.md",
       "hash": "34f88166c7913748235d0456b863e01693fe8d41182ecd862f5d2866c042d176",
       "bytes": 6288
@@ -81,13 +86,18 @@
     },
     {
       "path": "docs/lexicon.md",
-      "hash": "eea436ac28e48988916c82226235721e9f5b015566528ee5fc54fdab02498dac",
-      "bytes": 7440
+      "hash": "81bb25abf0f795c260bef199e6b66a7fc1034683e39675b91f895484d9130aa7",
+      "bytes": 8781
     },
     {
       "path": "docs/PARSER_ERROR_HANDLING.md",
       "hash": "dbf3533ae7965d54327faa919b2b11cb0b9dbb6908aff84e32f4154ee47aab8a",
       "bytes": 7720
+    },
+    {
+      "path": "docs/pattern-coverage.md",
+      "hash": "d38f726cda69f4cc62a7b13190a21e8fe7e3272c667c5ab9435a68f1b14995a6",
+      "bytes": 6027
     },
     {
       "path": "docs/phase5-finalization-architecture.md",
@@ -125,34 +135,9 @@
       "bytes": 6555
     },
     {
-      "path": "FEEDBACK-WS-D-EXPRESS-1.md",
-      "hash": "c6662237d5f5ba26e524d1df499eed73e60fc13074619b1103166c838e58f227",
-      "bytes": 20893
-    },
-    {
-      "path": "FEEDBACK-WS-D-EXPRESS-2.md",
-      "hash": "84b94627b8d63b73862c22414e2064a9aedac866bc6dee153823c0baf1832204",
-      "bytes": 19610
-    },
-    {
-      "path": "FEEDBACK-WS-D-EXPRESS-3.md",
-      "hash": "4966d3bdc1b121ee7f559c461366b3e99537eb5041a47c1188a586a64590ffaf",
-      "bytes": 21630
-    },
-    {
-      "path": "FEEDBACK-WS-D-EXPRESS-4.md",
-      "hash": "223a123045f65d84f30f58b77bca30981a5868878e3fb902393503a529e0b0a2",
-      "bytes": 16761
-    },
-    {
-      "path": "FEEDBACK-WS-D-EXPRESS-5.md",
-      "hash": "e14949cd566ba2104ea06f274d92b3606b2e49dbfff904e27729fd8e5a38b8f7",
-      "bytes": 27853
-    },
-    {
-      "path": "FEEDBACK-WS-D-EXPRESS-6.md",
-      "hash": "148f32963fdec230d9e4ee6418712440292f0c1a5c1c9179677d1fe2fa45497c",
-      "bytes": 24012
+      "path": "FEEDBACK_I3_EXPRESS_CONFIG_REVIEW.md",
+      "hash": "e23920a3948bf827bcbf208b8edf8ec775b2eac98b1baadcdc4dd2fb4249516e",
+      "bytes": 23584
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -915,14 +900,19 @@
       "bytes": 9100
     },
     {
+      "path": "src/reasoning/patterns/express/config.ts",
+      "hash": "1f9294df05ac2ad6fcbd95e2d548f86af4813f7dbcea43e2f6fafd4c0cf23eb6",
+      "bytes": 4975
+    },
+    {
       "path": "src/reasoning/patterns/express/error-handler.ts",
       "hash": "25347b5c80ab2c5c81169108db1bd7a47454c3746d3ed6860c523fa94f752339",
       "bytes": 4148
     },
     {
       "path": "src/reasoning/patterns/express/index.ts",
-      "hash": "9beaebd5648fbdc75e6ef97d10bae0934de25a31e66f256865d5088b52c2ced3",
-      "bytes": 1417
+      "hash": "f0672e3596015d2c0be53382956cde49ed70ecaf9ac3ff62e92eecdb86ba1d4a",
+      "bytes": 1524
     },
     {
       "path": "src/reasoning/patterns/express/middleware.ts",
@@ -1051,8 +1041,8 @@
     },
     {
       "path": "src/validation/__tests__/lexicon-validator.test.ts",
-      "hash": "3af922a6aa18eab0c5fd641fb80f5cba354f1aacc527d1c1c2e6562f80dc1cd7",
-      "bytes": 14631
+      "hash": "071427bd4ff9d1b5d92bb749a8bf48f68165e79123b9d636ec2d9b242fddd049",
+      "bytes": 20760
     },
     {
       "path": "src/validation/__tests__/phase-minus-1-analysis.test.ts",
@@ -1141,8 +1131,8 @@
     },
     {
       "path": "src/validation/lexicon-validator.ts",
-      "hash": "c3e9c9aa17de1bd1503c1d43a2d4ab09d537052bab07a6548d2865f084935c3c",
-      "bytes": 6894
+      "hash": "005ece35c21f0f66cab6520d6787c675ceab613285b8d4406148e384bfa72a60",
+      "bytes": 6928
     },
     {
       "path": "src/validation/lexicon/ceps.lexicon.json",
@@ -1386,8 +1376,8 @@
     },
     {
       "path": "tests/integration/phase6-express-integration.test.ts",
-      "hash": "30dae4769e6050fc3819e5f88b428d7e39e51849ae2acabc03118e0be7287bc0",
-      "bytes": 6333
+      "hash": "b255f8bb7597641b6c4b5a9ef9a113a1c53dd5a2730d8912c1acc4be119be87a",
+      "bytes": 10695
     },
     {
       "path": "tests/integration/phase6-i2-async-e2e.test.ts",
@@ -1413,6 +1403,11 @@
       "path": "tests/patterns/express/error-handler.test.ts",
       "hash": "8b6a62d0aef2e7d621534c4665d5e9d6651aae8b0fcfd805f61455dc4674a73e",
       "bytes": 11435
+    },
+    {
+      "path": "tests/reasoning/express-config-pattern.test.ts",
+      "hash": "fd82f18a82f702d6698f826d09f55eb31ba2fac1f915d5d2c8aa49dcc46d21e5",
+      "bytes": 14771
     },
     {
       "path": "tests/reasoning/express-middleware-pattern.test.ts",

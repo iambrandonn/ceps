@@ -3208,6 +3208,55 @@
       }
     },
     {
+      "id": "aT1ITvYSFY",
+      "kind": "class",
+      "name": "ExpressConfigPattern",
+      "path": "src/reasoning/patterns/express/config.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "tiCiq3J1iO",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/express/config.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "sHRTqwTjX9",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/express/config.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "ygXoYW8136",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/express/config.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): ConfidenceDelta",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
       "id": "vRE0pYC2Y5",
       "kind": "class",
       "name": "ExpressErrorHandlerPattern",
@@ -3257,7 +3306,7 @@
       }
     },
     {
-      "id": "mDm1YIScrn",
+      "id": "CgXk0aVYru",
       "kind": "function",
       "name": "registerExpressPatterns",
       "path": "src/reasoning/patterns/express/index.ts",
@@ -4115,7 +4164,7 @@
       }
     },
     {
-      "id": "IXeEFHHWFp",
+      "id": "juVWXOSR7m",
       "kind": "class",
       "name": "LexiconValidator",
       "path": "src/validation/lexicon-validator.ts",
@@ -4123,7 +4172,7 @@
       "visibility": "public"
     },
     {
-      "id": "SRPw6bFms0",
+      "id": "30Qa8oGdpx",
       "kind": "method",
       "name": "loadFromMarkdown",
       "path": "src/validation/lexicon-validator.ts",
@@ -19880,6 +19929,389 @@
       }
     },
     {
+      "subjectId": "tiCiq3J1iO",
+      "predicate": "calls",
+      "objectId": "epuomrvN4u",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "getFactsByPredicate",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "tiCiq3J1iO",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "callFacts.some",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tiCiq3J1iO",
+      "predicate": "calls",
+      "objectId": "epuomrvN4u",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "getFactsByPredicate",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "tiCiq3J1iO",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "readsFacts.some",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tiCiq3J1iO",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "String(fact.object).startsWith",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tiCiq3J1iO",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": "epuomrvN4u",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "getFactsByPredicate",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": "epuomrvN4u",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "getFactsByPredicate",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "callFacts.some",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "callFacts.some",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "readsFacts\n        .filter(f => String(f.object).startsWith('process.env.'))\n        .map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "readsFacts\n        .filter",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "String(f.object).startsWith",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "String(f.object).replace",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "details.push",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "details.push",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "envVars.slice(0, 3).join",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "envVars.slice",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "details.push",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "details.join",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "sHRTqwTjX9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/config.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/config.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/config.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/config.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/config.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/config.ts"
+      }
+    },
+    {
       "subjectId": "MarHKhrwih",
       "predicate": "calls",
       "objectId": "RfoHtWDwDk",
@@ -20098,7 +20530,7 @@
       }
     },
     {
-      "subjectId": "mDm1YIScrn",
+      "subjectId": "CgXk0aVYru",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -20111,7 +20543,7 @@
       }
     },
     {
-      "subjectId": "mDm1YIScrn",
+      "subjectId": "CgXk0aVYru",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -20124,7 +20556,20 @@
       }
     },
     {
-      "subjectId": "mDm1YIScrn",
+      "subjectId": "CgXk0aVYru",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "CgXk0aVYru",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -20167,6 +20612,15 @@
       "subjectId": "src/reasoning/patterns/express/index.ts",
       "predicate": "imports",
       "objectId": "./error-handler.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/index.ts",
+      "predicate": "imports",
+      "objectId": "./config.js",
       "source": {
         "kind": "ast",
         "file": "src/reasoning/patterns/express/index.ts"
@@ -24393,7 +24847,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24406,7 +24860,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24419,7 +24873,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24432,7 +24886,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24445,7 +24899,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24458,7 +24912,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24471,7 +24925,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24484,7 +24938,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24497,7 +24951,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24510,7 +24964,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24523,7 +24977,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24536,7 +24990,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24549,7 +25003,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24562,7 +25016,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24575,7 +25029,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24588,7 +25042,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24601,7 +25055,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24614,7 +25068,20 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24627,7 +25094,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24640,7 +25107,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24653,7 +25120,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24666,7 +25133,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24679,7 +25146,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24692,7 +25159,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24705,7 +25172,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24718,7 +25185,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24731,7 +25198,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24744,7 +25211,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24757,7 +25224,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24770,7 +25237,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24783,7 +25250,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24796,7 +25263,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24809,7 +25276,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24822,7 +25289,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24835,7 +25302,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24848,7 +25315,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24861,7 +25328,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24874,7 +25341,7 @@
       }
     },
     {
-      "subjectId": "SRPw6bFms0",
+      "subjectId": "30Qa8oGdpx",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -40600,6 +41067,319 @@
       "evidenceScore": 90
     },
     {
+      "id": "aT1ITvYSFY-facts",
+      "facts": [
+        {
+          "subjectId": "aT1ITvYSFY",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/config.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "tiCiq3J1iO-facts",
+      "facts": [
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "calls-expression",
+          "object": "getFactsByPredicate"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "call-arg-2",
+          "object": "calls-expression"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "calls-expression",
+          "object": "callFacts.some"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "calls-expression",
+          "object": "getFactsByPredicate"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "call-arg-2",
+          "object": "reads-property"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "calls-expression",
+          "object": "readsFacts.some"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "calls-expression",
+          "object": "String(fact.object).startsWith"
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "call-arg-0",
+          "object": "process.env."
+        },
+        {
+          "subjectId": "tiCiq3J1iO",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/config.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "sHRTqwTjX9-facts",
+      "facts": [
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "getFactsByPredicate"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-2",
+          "object": "calls-expression"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "getFactsByPredicate"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-2",
+          "object": "reads-property"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "callFacts.some"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "callFacts.some"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "readsFacts\n        .filter(f => String(f.object).startsWith('process.env.'))\n        .map"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "readsFacts\n        .filter"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "String(f.object).startsWith"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-0",
+          "object": "process.env."
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "String(f.object).replace"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-0",
+          "object": "process.env."
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-1",
+          "object": ""
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "details.push"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-0",
+          "object": "sets application configuration via app.set"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "details.push"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-0",
+          "object": "reads configuration values via app.get"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "envVars.slice(0, 3).join"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-0",
+          "object": ", "
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "envVars.slice"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-0",
+          "object": "0"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-1",
+          "object": "3"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "details.push"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "details.join"
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "call-arg-0",
+          "object": ", "
+        },
+        {
+          "subjectId": "sHRTqwTjX9",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/config.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "ygXoYW8136-facts",
+      "facts": [
+        {
+          "subjectId": "ygXoYW8136",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "ygXoYW8136",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): ConfidenceDelta"
+        },
+        {
+          "subjectId": "ygXoYW8136",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "ygXoYW8136",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/config.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
       "id": "vRE0pYC2Y5-facts",
       "facts": [
         {
@@ -40783,45 +41563,50 @@
       "evidenceScore": 90
     },
     {
-      "id": "mDm1YIScrn-facts",
+      "id": "CgXk0aVYru-facts",
       "facts": [
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
           "predicate": "is-function",
           "object": true
         },
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
           "predicate": "has-signature",
           "object": "(registry: PatternRegistry): void"
         },
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
           "predicate": "has-jsdoc",
           "object": "\nRegister all Express pattern modules with the given registry.\n"
         },
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
           "predicate": "param-names",
           "object": "registry"
         },
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
           "predicate": "calls-expression",
           "object": "registry.register"
         },
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
           "predicate": "calls-expression",
           "object": "registry.register"
         },
         {
-          "subjectId": "mDm1YIScrn",
+          "subjectId": "CgXk0aVYru",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        },
+        {
+          "subjectId": "CgXk0aVYru",
           "predicate": "calls-expression",
           "object": "registry.register"
         }
@@ -44697,10 +45482,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "IXeEFHHWFp-facts",
+      "id": "juVWXOSR7m-facts",
       "facts": [
         {
-          "subjectId": "IXeEFHHWFp",
+          "subjectId": "juVWXOSR7m",
           "predicate": "is-class",
           "object": true
         }
@@ -44714,325 +45499,335 @@
       "evidenceScore": 75
     },
     {
-      "id": "SRPw6bFms0-facts",
+      "id": "30Qa8oGdpx-facts",
       "facts": [
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "is-method",
           "object": true
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "has-signature",
           "object": "(markdownPath: string): void"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "param-names",
           "object": "markdownPath"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "fs.readFileSync"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-1",
           "object": "utf-8"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "content.split"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "\\n"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "lines[i].trim"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "### "
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Express"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Anti-Patterns"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "this.rules.set"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "## Anti-Patterns"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "### Express Anti-Patterns"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "this.rules.has"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "this.rules.set"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "#### "
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Middleware"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "HTTP Methods"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Special Markers"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Error Handling"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Async Handling"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "30Qa8oGdpx",
+          "predicate": "call-arg-0",
+          "object": "Configuration"
+        },
+        {
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "|"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Term"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Definition"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "---"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.match"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "match[1].trim"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "this.rules.get(currentFramework)!.approvedTerms.add"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "this.rules.get"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "|"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Term"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "Why Rejected"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "---"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.split('|').map(col => col.trim()).filter"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.split('|').map"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "line.split"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "call-arg-0",
           "object": "|"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "col.trim"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "columns[0].match"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "termMatch[1].trim"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "columns[2].trim"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "this.rules.get(currentFramework)!.antiPatterns.set"
         },
         {
-          "subjectId": "SRPw6bFms0",
+          "subjectId": "30Qa8oGdpx",
           "predicate": "calls-expression",
           "object": "this.rules.get"
         }
@@ -49180,6 +49975,42 @@
       ]
     },
     {
+      "id": "xxP4O0TSyU",
+      "targetEntityId": "aT1ITvYSFY",
+      "textDraft": "Class ExpressConfigPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "aT1ITvYSFY-facts"
+      ]
+    },
+    {
+      "id": "uRptkUAVPw",
+      "targetEntityId": "tiCiq3J1iO",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "tiCiq3J1iO-facts"
+      ]
+    },
+    {
+      "id": "om7nEtPkhm",
+      "targetEntityId": "sHRTqwTjX9",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "sHRTqwTjX9-facts"
+      ]
+    },
+    {
+      "id": "70YwzLrbBE",
+      "targetEntityId": "ygXoYW8136",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "ygXoYW8136-facts"
+      ]
+    },
+    {
       "id": "SLTYmJmGcL",
       "targetEntityId": "vRE0pYC2Y5",
       "textDraft": "Class ExpressErrorHandlerPattern (intent unclear from static analysis)",
@@ -49217,11 +50048,11 @@
     },
     {
       "id": "2U71CHrpfb",
-      "targetEntityId": "mDm1YIScrn",
+      "targetEntityId": "CgXk0aVYru",
       "textDraft": "Function registerExpressPatterns: \nRegister all Express pattern modules with the given registry.\n",
       "confidence": "Medium",
       "factSetIds": [
-        "mDm1YIScrn-facts"
+        "CgXk0aVYru-facts"
       ]
     },
     {
@@ -49865,20 +50696,20 @@
     },
     {
       "id": "iTQ27MoLbR",
-      "targetEntityId": "IXeEFHHWFp",
+      "targetEntityId": "juVWXOSR7m",
       "textDraft": "Class LexiconValidator (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "IXeEFHHWFp-facts"
+        "juVWXOSR7m-facts"
       ]
     },
     {
       "id": "f8NwPVVNuo",
-      "targetEntityId": "SRPw6bFms0",
+      "targetEntityId": "30Qa8oGdpx",
       "textDraft": "Method loadFromMarkdown (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "SRPw6bFms0-facts"
+        "30Qa8oGdpx-facts"
       ]
     },
     {
@@ -51585,6 +52416,42 @@
       ]
     },
     {
+      "qid": "q:ytkPswduXN",
+      "entityId": "aT1ITvYSFY",
+      "question": "What are the responsibilities and contract of class `ExpressConfigPattern` at src/reasoning/patterns/express/config.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "aT1ITvYSFY-facts"
+      ]
+    },
+    {
+      "qid": "q:V1ujzwmC2x",
+      "entityId": "tiCiq3J1iO",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/express/config.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "tiCiq3J1iO-facts"
+      ]
+    },
+    {
+      "qid": "q:jqiT3JwrwX",
+      "entityId": "sHRTqwTjX9",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/express/config.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "sHRTqwTjX9-facts"
+      ]
+    },
+    {
+      "qid": "q:m02tacu9fd",
+      "entityId": "ygXoYW8136",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/config.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "ygXoYW8136-facts"
+      ]
+    },
+    {
       "qid": "q:awecJ84JhJ",
       "entityId": "vRE0pYC2Y5",
       "question": "What are the responsibilities and contract of class `ExpressErrorHandlerPattern` at src/reasoning/patterns/express/error-handler.ts?",
@@ -52000,20 +52867,20 @@
     },
     {
       "qid": "q:HunFaXnx96",
-      "entityId": "IXeEFHHWFp",
+      "entityId": "juVWXOSR7m",
       "question": "What are the responsibilities and contract of class `LexiconValidator` at src/validation/lexicon-validator.ts?",
       "confidence": 25,
       "factSetIds": [
-        "IXeEFHHWFp-facts"
+        "juVWXOSR7m-facts"
       ]
     },
     {
       "qid": "q:tIKPqRWSkf",
-      "entityId": "SRPw6bFms0",
+      "entityId": "30Qa8oGdpx",
       "question": "What is the behavior of method `loadFromMarkdown` at src/validation/lexicon-validator.ts?",
       "confidence": 35,
       "factSetIds": [
-        "SRPw6bFms0-facts"
+        "30Qa8oGdpx-facts"
       ]
     },
     {

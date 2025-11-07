@@ -65,6 +65,17 @@ describe('LexiconValidator', () => {
       expect(expressRule!.approvedTerms.has('asynchronous')).toBe(true);
     });
 
+    it('should load I3 configuration terms', () => {
+      const rules = validator.getRules();
+      const expressRule = rules.get('express');
+
+      expect(expressRule!.approvedTerms.has('configuration')).toBe(true);
+      expect(expressRule!.approvedTerms.has('app.set')).toBe(true);
+      expect(expressRule!.approvedTerms.has('app.get')).toBe(true);
+      expect(expressRule!.approvedTerms.has('environment variable')).toBe(true);
+      expect(expressRule!.approvedTerms.has('process.env')).toBe(true);
+    });
+
     it('should load Express anti-patterns', () => {
       const rules = validator.getRules();
       const expressRule = rules.get('express');
@@ -90,6 +101,26 @@ describe('LexiconValidator', () => {
 
       expect(expressRule!.antiPatterns.has('error controller')).toBe(true);
       expect(expressRule!.antiPatterns.get('error controller')).toContain('Express error handler');
+    });
+
+    it('should load I3 configuration anti-patterns', () => {
+      const rules = validator.getRules();
+      const expressRule = rules.get('express');
+
+      expect(expressRule!.antiPatterns.has('application.properties')).toBe(true);
+      expect(expressRule!.antiPatterns.get('application.properties')).toContain('app.set');
+
+      expect(expressRule!.antiPatterns.has('@ConfigurationProperties')).toBe(true);
+      expect(expressRule!.antiPatterns.get('@ConfigurationProperties')).toContain('app.set');
+
+      expect(expressRule!.antiPatterns.has('Spring Boot config')).toBe(true);
+      expect(expressRule!.antiPatterns.get('Spring Boot config')).toContain('Express configuration');
+
+      expect(expressRule!.antiPatterns.has('settings.ini')).toBe(true);
+      expect(expressRule!.antiPatterns.get('settings.ini')).toContain('app.set');
+
+      expect(expressRule!.antiPatterns.has('configuration manager')).toBe(true);
+      expect(expressRule!.antiPatterns.get('configuration manager')).toContain('app.set');
     });
   });
 
@@ -164,6 +195,35 @@ describe('LexiconValidator', () => {
       };
 
       const result = validator.validate(draftText, ['fs-i2-1'], metadata);
+
+      expect(result.status).toBe('accept');
+    });
+
+    it('should accept I3 configuration terminology (app.set/app.get)', () => {
+      const draftText = 'Express configuration function configureApp that sets application configuration via app.set and reads configuration values via app.get.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-i3-1',
+        targetEntityId: 'entity-i3-1',
+        factSetIds: ['fs-i3-1'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-i3-1'], metadata);
+
+      expect(result.status).toBe('accept');
+      expect(result.diagnostics).toHaveLength(0);
+    });
+
+    it('should accept I3 environment variable terminology', () => {
+      const draftText = 'Function loadEnvConfig that reads environment variables (PORT, NODE_ENV, API_KEY) from process.env.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-i3-2',
+        targetEntityId: 'entity-i3-2',
+        factSetIds: ['fs-i3-2'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-i3-2'], metadata);
 
       expect(result.status).toBe('accept');
       expect(result.diagnostics).toHaveLength(0);
@@ -256,6 +316,91 @@ describe('LexiconValidator', () => {
       expect(result.diagnostics.length).toBeGreaterThan(0);
       expect(result.diagnostics[0].rule).toBe('lexicon');
       expect(result.diagnostics[0].reason).toMatch(/Rails router/i);
+    });
+
+    it('should reject I3 anti-pattern: "application.properties" (Java Spring)', () => {
+      const draftText = 'Function loads configuration from application.properties file.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-i3-anti-1',
+        targetEntityId: 'entity-i3-anti-1',
+        factSetIds: ['fs-i3-anti-1'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-i3-anti-1'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics.length).toBeGreaterThan(0);
+      expect(result.diagnostics[0].rule).toBe('lexicon');
+      expect(result.diagnostics[0].reason).toMatch(/application\.properties/i);
+    });
+
+    it('should reject I3 anti-pattern: "@ConfigurationProperties" (Java Spring)', () => {
+      const draftText = 'Uses @ConfigurationProperties annotation to bind config values.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-i3-anti-2',
+        targetEntityId: 'entity-i3-anti-2',
+        factSetIds: ['fs-i3-anti-2'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-i3-anti-2'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics.length).toBeGreaterThan(0);
+      expect(result.diagnostics[0].rule).toBe('lexicon');
+      expect(result.diagnostics[0].reason).toMatch(/@ConfigurationProperties/i);
+    });
+
+    it('should reject I3 anti-pattern: "Spring Boot config"', () => {
+      const draftText = 'Spring Boot config class that manages application settings.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-i3-anti-3',
+        targetEntityId: 'entity-i3-anti-3',
+        factSetIds: ['fs-i3-anti-3'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-i3-anti-3'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics.length).toBeGreaterThan(0);
+      expect(result.diagnostics[0].rule).toBe('lexicon');
+      expect(result.diagnostics[0].reason).toMatch(/Spring Boot config/i);
+    });
+
+    it('should reject I3 anti-pattern: "settings.ini" (generic config)', () => {
+      const draftText = 'Reads application settings from settings.ini file.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-i3-anti-4',
+        targetEntityId: 'entity-i3-anti-4',
+        factSetIds: ['fs-i3-anti-4'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-i3-anti-4'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics.length).toBeGreaterThan(0);
+      expect(result.diagnostics[0].rule).toBe('lexicon');
+      expect(result.diagnostics[0].reason).toMatch(/settings\.ini/i);
+    });
+
+    it('should reject I3 anti-pattern: "configuration manager" (too abstract)', () => {
+      const draftText = 'The configuration manager handles app settings and environment variables.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-i3-anti-5',
+        targetEntityId: 'entity-i3-anti-5',
+        factSetIds: ['fs-i3-anti-5'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-i3-anti-5'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics.length).toBeGreaterThan(0);
+      expect(result.diagnostics[0].rule).toBe('lexicon');
+      expect(result.diagnostics[0].reason).toMatch(/configuration manager/i);
     });
 
     it('should detect multiple anti-patterns in one text', () => {

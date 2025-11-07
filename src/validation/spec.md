@@ -293,7 +293,7 @@ IdentifierValidator validates identifiers against KB.
 
 ## lexicon-validator.ts
 
-<a id="IXeEFHHWFp"></a>
+<a id="juVWXOSR7m"></a>
 
 ### LexiconValidator
 
@@ -306,7 +306,7 @@ IdentifierValidator validates identifiers against KB.
 **Open Questions:**
 - q:HunFaXnx96: What are the responsibilities and contract of class `LexiconValidator` at src/validation/lexicon-validator.ts?
 
-<a id="SRPw6bFms0"></a>
+<a id="30Qa8oGdpx"></a>
 
 ### loadFromMarkdown
 

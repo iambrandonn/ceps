@@ -1,6 +1,69 @@
 # src/reasoning/patterns/express
 
-**Directory Overview:** This directory contains 13 entities.
+**Directory Overview:** This directory contains 17 entities.
+
+## config.ts
+
+<a id="aT1ITvYSFY"></a>
+
+### ExpressConfigPattern
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class ExpressConfigPattern (intent unclear from static analysis)
+
+**Open Questions:**
+- q:ytkPswduXN: What are the responsibilities and contract of class `ExpressConfigPattern` at src/reasoning/patterns/express/config.ts?
+
+<a id="tiCiq3J1iO"></a>
+
+### matches
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): boolean`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method matches (intent unclear from static analysis)
+
+**Open Questions:**
+- q:V1ujzwmC2x: What is the behavior of method `matches` at src/reasoning/patterns/express/config.ts?
+
+<a id="sHRTqwTjX9"></a>
+
+### describe
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): import("/src/kb/models").BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method describe (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:jqiT3JwrwX: What is the behavior of method `describe` at src/reasoning/patterns/express/config.ts?
+
+<a id="ygXoYW8136"></a>
+
+### confidenceAdjustments
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): ConfidenceDelta`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method confidenceAdjustments (intent unclear from static analysis)
+
+**Open Questions:**
+- q:m02tacu9fd: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/config.ts?
 
 ## error-handler.ts
 
@@ -67,7 +130,7 @@
 
 ## index.ts
 
-<a id="mDm1YIScrn"></a>
+<a id="CgXk0aVYru"></a>
 
 ### registerExpressPatterns
 
