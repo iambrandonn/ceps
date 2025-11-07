@@ -305,6 +305,7 @@ All 4 exit codes validated in Step 7:
 2. **Determinism verification:** Step 7 includes instructions but not automated
 3. **Performance profiling:** Finalization is fast on tiny-react (15 entities) but untested on large repos
 4. **Monorepo support:** Architecture supports it (CTS-04 §4.3) but not tested
+5. ~~**LLM-on mode validation:** Optional end-to-end test with real provider~~ → **COMPLETED** (2025-11-07, see PHASE5_LLM_ON_VALIDATION.md)
 
 ---
 
@@ -344,6 +345,8 @@ Phase 5 achieved all objectives and delivered a production-ready Finalization En
 
 ---
 
-**Document Version:** 1.0
-**Last Updated:** 2025-11-06
+**Document Version:** 1.1
+**Last Updated:** 2025-11-07
 **Author:** Claude Code (with human oversight)
+**Change Log:**
+- v1.1 (2025-11-07): Added LLM-on validation completion note (item 5 in Open Items)
