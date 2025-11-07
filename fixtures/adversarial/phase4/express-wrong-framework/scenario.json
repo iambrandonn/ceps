@@ -1,0 +1,22 @@
+{
+  "name": "Express: Wrong Framework Terminology (Servlet)",
+  "description": "LLM uses Java servlet terminology instead of Express middleware",
+  "category": "lexicon",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "The authMiddleware servlet processes incoming requests and validates authentication tokens before passing control to the next handler.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-express-servlet",
+    "targetEntityId": "func-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "lexicon",
+      "reasonPattern": "servlet"
+    }
+  ],
+  "notes": "Tests that LLM doesn't hallucinate Java terminology when describing Express patterns. Should retry with guidance to use 'Express middleware' instead."
+}

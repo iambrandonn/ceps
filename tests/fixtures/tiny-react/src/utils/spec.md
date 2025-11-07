@@ -12,7 +12,9 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function formatDate (intent unclear from static analysis)
 
 <a id="l4hAekZfa7"></a>
 
@@ -22,5 +24,7 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function formatCurrency (intent unclear from static analysis)
 

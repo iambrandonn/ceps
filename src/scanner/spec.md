@@ -10,7 +10,12 @@
 
 **Visibility:** Public (exported)
 
-This class represents ignore rules.
+**Behavior:**
+
+- Class IgnoreRules (intent unclear from static analysis)
+
+**Open Questions:**
+- q:DqE4cK6VIN: What are the responsibilities and contract of class `IgnoreRules` at src/scanner/ignore-rules.ts?
 
 <a id="1eFdY48ZPC"></a>
 
@@ -20,7 +25,12 @@ This class represents ignore rules.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method shouldIgnore (intent unclear from static analysis)
+
+**Open Questions:**
+- q:8c75v8Xdpt: What is the behavior of method `shouldIgnore` at src/scanner/ignore-rules.ts?
 
 ## monorepo.ts
 
@@ -32,7 +42,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function detectMonorepo (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem
@@ -45,7 +57,9 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function buildPackageMap (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem
@@ -58,7 +72,12 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents scanner.
+**Behavior:**
+
+- Class Scanner (intent unclear from static analysis)
+
+**Open Questions:**
+- q:GWYnpjkyAc: What are the responsibilities and contract of class `Scanner` at src/scanner/scanner.ts?
 
 <a id="8N7QDxRXiR"></a>
 
@@ -68,8 +87,13 @@ This class represents scanner.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method scan (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem
+
+**Open Questions:**
+- q:SI0MsIwcHb: What is the behavior of method `scan` at src/scanner/scanner.ts?
 

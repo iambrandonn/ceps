@@ -1,0 +1,22 @@
+{
+  "name": "Express: Wrong Framework (Spring Controller)",
+  "description": "LLM uses Spring framework terminology instead of Express Router",
+  "category": "lexicon",
+  "severity": "high",
+  "expectedOutcome": "retry",
+  "draftText": "Spring controller usersRouter that handles HTTP requests for the users resource. Maps GET and POST requests to corresponding handler methods.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-express-spring",
+    "targetEntityId": "func-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [
+    {
+      "rule": "lexicon",
+      "reasonPattern": "Spring controller"
+    }
+  ],
+  "notes": "Tests that LLM doesn't confuse Java Spring framework with Express.js. Should retry with guidance to use 'Express Router' instead."
+}

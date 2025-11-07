@@ -12,7 +12,10 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function add: 
+Well-documented function with full JSDoc
 
 <a id="LowuqDtn2z"></a>
 
@@ -22,7 +25,10 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function multiply: 
+Multiplies two numbers
 
 ## low-confidence.ts
 
@@ -34,7 +40,9 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function mystery (intent unclear from static analysis)
 
 <a id="uZcbzTITQk"></a>
 
@@ -44,7 +52,9 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function transforms data.
+**Behavior:**
+
+- Function transform (intent unclear from static analysis)
 
 ## medium-confidence.ts
 
@@ -56,7 +66,9 @@ This function transforms data.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function processData (intent unclear from static analysis)
 
 <a id="MChrPM9ZC7"></a>
 
@@ -66,5 +78,7 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function validates input.
+**Behavior:**
+
+- Function validateInput (intent unclear from static analysis)
 

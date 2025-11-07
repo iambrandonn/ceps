@@ -1,5 +1,6 @@
 /**
  * Phase 4 WS-F1: Grounding Validator (Main Entry Point)
+ * Phase 6 I1: Added LexiconValidator to pipeline
  *
  * Orchestrates all validation rules to ensure LLM-generated behavior chunks
  * remain grounded in factSets per SADS §8 and CTS-02 specifications.
@@ -9,7 +10,7 @@
  * 2. Scope validation (factSetIds)
  * 3. Numeric and enum validation
  * 4. Pronoun resolution
- * 5. Lexicon normalization (future integration)
+ * 5. Lexicon validation (framework-specific terminology)
  */
 
 import type { KnowledgeBase } from '../kb/knowledge-base.js';
@@ -17,6 +18,8 @@ import type { GroundingResult, ChunkMetadata } from './types.js';
 import { IdentifierValidator } from './identifier-validator.js';
 import { extractIdentifiers } from './identifier-extractor.js';
 import { NumericValidator } from './numeric-validator.js';
+import { LexiconValidator } from './lexicon-validator.js';
+import * as path from 'path';
 
 /**
  * GroundingValidator orchestrates all validation rules.
@@ -25,10 +28,16 @@ import { NumericValidator } from './numeric-validator.js';
 export class GroundingValidator {
   private identifierValidator: IdentifierValidator;
   private numericValidator: NumericValidator;
+  private lexiconValidator: LexiconValidator;
 
-  constructor(private kb: KnowledgeBase) {
+  constructor(private kb: KnowledgeBase, lexiconPath?: string) {
     this.identifierValidator = new IdentifierValidator(kb);
     this.numericValidator = new NumericValidator(kb);
+    this.lexiconValidator = new LexiconValidator();
+
+    // Load lexicon from docs/lexicon.md (default location)
+    const defaultLexiconPath = path.join(process.cwd(), 'docs', 'lexicon.md');
+    this.lexiconValidator.loadFromMarkdown(lexiconPath || defaultLexiconPath);
   }
 
   /**
@@ -59,15 +68,29 @@ export class GroundingValidator {
     const numericResult = this.numericValidator.validate(draftText, factSetIds);
     allDiagnostics.push(...numericResult.diagnostics);
 
+    // Step 4: Validate framework-specific terminology (Phase 6 I1)
+    const lexiconResult = this.lexiconValidator.validate(draftText, factSetIds, metadata);
+    allDiagnostics.push(...lexiconResult.diagnostics);
+
     // Determine status based on diagnostics
     const status = this.determineStatus(allDiagnostics);
+
+    // Determine promptKey based on diagnostic types
+    let promptKey: 'R1' | 'R2' | 'L1' = 'R1';
+    if (status === 'retry') {
+      // If lexicon failures exist, use L1 (lexicon-specific retry prompt)
+      const hasLexiconFailure = allDiagnostics.some(d => d.rule === 'lexicon');
+      if (hasLexiconFailure) {
+        promptKey = 'L1';
+      }
+    }
 
     return {
       status,
       diagnostics: allDiagnostics,
       retryMetadata: status === 'retry' ? {
         attempt: 0,
-        promptKey: 'R1',
+        promptKey,
       } : undefined,
     };
   }

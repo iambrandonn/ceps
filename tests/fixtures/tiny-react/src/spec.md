@@ -12,7 +12,9 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Renders Button component
 
 ## Card.tsx
 
@@ -22,7 +24,12 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents card.
+**Behavior:**
+
+- Class Card (intent unclear from static analysis)
+
+**Open Questions:**
+- q:SjLV6P9gkk: What are the responsibilities and contract of class `Card` at tests/fixtures/tiny-react/src/Card.tsx?
 
 <a id="QuVnACVfXW"></a>
 
@@ -32,5 +39,10 @@ This class represents card.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method render (intent unclear from static analysis)
+
+**Open Questions:**
+- q:n9VK0AypsD: What is the behavior of method `render` at tests/fixtures/tiny-react/src/Card.tsx?
 

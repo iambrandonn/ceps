@@ -12,7 +12,12 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function captureSnapshot: 
+Capture a deterministic snapshot of the workspace rooted at {@link CaptureOptions.root}.
+Files are filtered using allowed extensions and ignore rules, normalised per CTS-04,
+and hashed to produce a Merkle root recorded in the returned document.
 
 <a id="mYnxVmiIN9"></a>
 
@@ -22,7 +27,10 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function writeSnapshot: 
+Persist a snapshot document to disk using an atomic write (temp file + rename).
 
 **Side effects:**
 - filesystem
@@ -37,7 +45,11 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function sha256: 
+Compute a SHA-256 hex digest for the supplied content.
+
 
 <a id="wDkA2JiXJo"></a>
 
@@ -47,7 +59,12 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function computes values.
+**Behavior:**
+
+- Function computeLeafHash: 
+Compute per-file leaf hash combining path and content hash.
+This keeps the Merkle root stable even if two files share identical content.
+
 
 <a id="Tb5szwgVx0"></a>
 
@@ -57,7 +74,12 @@ This function computes values.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function buildMerkleRoot: 
+Build a deterministic Merkle root from sorted leaves.
+When the leaf count is odd, the final hash is duplicated (classic Merkle tree behaviour).
+
 
 <a id="s9qCJJSn56"></a>
 
@@ -65,7 +87,12 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This constant defines e m p t y_ h a s h.
+**Behavior:**
+
+- Constant EMPTY_HASH (intent unclear from static analysis)
+
+**Open Questions:**
+- q:BIucFbE6np: What is the purpose of constant `EMPTY_HASH` at src/snapshot/hash.ts?
 
 ## normalize.ts
 
@@ -77,7 +104,11 @@ This constant defines e m p t y_ h a s h.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function normalizeContent: 
+Normalize file content according to CTS-04 requirements.
+
 
 <a id="5UJhZ9u371"></a>
 
@@ -87,7 +118,10 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function readAndNormalizeFile: 
+Read a file from disk and return normalized content along with the raw byte size.
 
 **Side effects:**
 - filesystem
@@ -102,7 +136,12 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function verifySnapshot: 
+Compare the current workspace snapshot with a stored snapshot document.
+Returns a structured result detailing added/removed/changed files.
+
 
 **Side effects:**
 - filesystem

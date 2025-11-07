@@ -12,5 +12,7 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function uncoveredFunction (intent unclear from static analysis)
 

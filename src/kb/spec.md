@@ -12,7 +12,9 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function normalizeContent (intent unclear from static analysis)
 
 <a id="VK3K8vYQne"></a>
 
@@ -22,7 +24,9 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function generateAnchor (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error('Anchor collision limit exceeded (99 suffixes)');
@@ -35,7 +39,9 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function generateQID (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error('QID collision limit exceeded (99 suffixes)');
@@ -48,7 +54,12 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents k b error.
+**Behavior:**
+
+- Class KBError (intent unclear from static analysis)
+
+**Open Questions:**
+- q:IHulNAZ2VS: What are the responsibilities and contract of class `KBError` at src/kb/knowledge-base.ts?
 
 <a id="iwzxkJuwci"></a>
 
@@ -56,7 +67,12 @@ This class represents k b error.
 
 **Visibility:** Public (exported)
 
-This class represents knowledge base.
+**Behavior:**
+
+- Class KnowledgeBase (intent unclear from static analysis)
+
+**Open Questions:**
+- q:MJwHyqbLkZ: What are the responsibilities and contract of class `KnowledgeBase` at src/kb/knowledge-base.ts?
 
 <a id="j51xwK0SPP"></a>
 
@@ -66,7 +82,12 @@ This class represents knowledge base.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method insertEntity (intent unclear from static analysis)
+
+**Open Questions:**
+- q:9NG32rE9Bf: What is the behavior of method `insertEntity` at src/kb/knowledge-base.ts?
 
 <a id="vUseOXd4Dh"></a>
 
@@ -76,7 +97,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method modifies data.
+**Behavior:**
+
+- Method updateEntity (intent unclear from static analysis)
 
 **Errors thrown:**
 - new KBError(`Entity not found: ${id}`);
@@ -89,7 +112,12 @@ This method modifies data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getEntity (intent unclear from static analysis)
+
+**Open Questions:**
+- q:2K0rmU0mWH: What is the behavior of method `getEntity` at src/kb/knowledge-base.ts?
 
 <a id="hZOTYZzBUg"></a>
 
@@ -99,7 +127,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method findByPath (intent unclear from static analysis)
+
+**Open Questions:**
+- q:N6RhJhEZSf: What is the behavior of method `findByPath` at src/kb/knowledge-base.ts?
 
 <a id="a9KYnARDDG"></a>
 
@@ -109,7 +142,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method listExported (intent unclear from static analysis)
+
+**Open Questions:**
+- q:3wnIpJAR1u: What is the behavior of method `listExported` at src/kb/knowledge-base.ts?
 
 <a id="Smy25I3Fno"></a>
 
@@ -119,7 +157,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method insertFactSet (intent unclear from static analysis)
+
+**Open Questions:**
+- q:KdTiDG8zob: What is the behavior of method `insertFactSet` at src/kb/knowledge-base.ts?
 
 <a id="QIowuZrw6p"></a>
 
@@ -129,7 +172,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getFactSet (intent unclear from static analysis)
+
+**Open Questions:**
+- q:HySXOiNgS2: What is the behavior of method `getFactSet` at src/kb/knowledge-base.ts?
 
 <a id="3zFh0XtB1X"></a>
 
@@ -139,7 +187,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getFactSetsBySubject (intent unclear from static analysis)
+
+**Open Questions:**
+- q:BG7iWvuCWI: What is the behavior of method `getFactSetsBySubject` at src/kb/knowledge-base.ts?
 
 <a id="earsSbYjln"></a>
 
@@ -149,7 +202,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method insertChunk (intent unclear from static analysis)
+
+**Open Questions:**
+- q:Ayj1FPO3UF: What is the behavior of method `insertChunk` at src/kb/knowledge-base.ts?
 
 <a id="737wRiehGm"></a>
 
@@ -159,7 +217,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getChunk (intent unclear from static analysis)
+
+**Open Questions:**
+- q:q9pcNFU3zC: What is the behavior of method `getChunk` at src/kb/knowledge-base.ts?
 
 <a id="pXM1YRY9rt"></a>
 
@@ -169,7 +232,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getAllChunks (intent unclear from static analysis)
+
+**Open Questions:**
+- q:C5KRx7sMkv: What is the behavior of method `getAllChunks` at src/kb/knowledge-base.ts?
 
 <a id="XxC82zDJ7f"></a>
 
@@ -179,7 +247,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getChunksByEntity (intent unclear from static analysis)
+
+**Open Questions:**
+- q:ddg1D3sfHo: What is the behavior of method `getChunksByEntity` at src/kb/knowledge-base.ts?
 
 <a id="DFeVxJzcJc"></a>
 
@@ -189,7 +262,9 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method modifies data.
+**Behavior:**
+
+- Method updateChunk (intent unclear from static analysis)
 
 **Errors thrown:**
 - new KBError(`Chunk ${id} not found`);
@@ -202,7 +277,12 @@ This method modifies data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method insertOpenQuestion (intent unclear from static analysis)
+
+**Open Questions:**
+- q:7lGCLPeJQU: What is the behavior of method `insertOpenQuestion` at src/kb/knowledge-base.ts?
 
 <a id="hUXPFFhkwT"></a>
 
@@ -212,7 +292,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getOpenQuestionsByEntity (intent unclear from static analysis)
+
+**Open Questions:**
+- q:CnFwqU3pcM: What is the behavior of method `getOpenQuestionsByEntity` at src/kb/knowledge-base.ts?
 
 <a id="LO8UwtcUUA"></a>
 
@@ -222,7 +307,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getAllOpenQuestions (intent unclear from static analysis)
+
+**Open Questions:**
+- q:rtjdQdIFI8: What is the behavior of method `getAllOpenQuestions` at src/kb/knowledge-base.ts?
 
 <a id="R2FFeSAqZ6"></a>
 
@@ -232,7 +322,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getAnswer (intent unclear from static analysis)
+
+**Open Questions:**
+- q:pFwCN1WCa6: What is the behavior of method `getAnswer` at src/kb/knowledge-base.ts?
 
 <a id="Vk515Jq8qV"></a>
 
@@ -242,7 +337,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getAllAnswers (intent unclear from static analysis)
+
+**Open Questions:**
+- q:1Cy7ndG3oM: What is the behavior of method `getAllAnswers` at src/kb/knowledge-base.ts?
 
 <a id="S0V9odLOtm"></a>
 
@@ -252,7 +352,9 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method attachAnswer (intent unclear from static analysis)
 
 **Errors thrown:**
 - new KBError(`Cannot attach answer; unknown QID: ${qid}`);
@@ -265,7 +367,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method markQIDResolved (intent unclear from static analysis)
+
+**Open Questions:**
+- q:oJGNw3Pn5B: What is the behavior of method `markQIDResolved` at src/kb/knowledge-base.ts?
 
 <a id="Od5sRW09Kq"></a>
 
@@ -275,7 +382,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method insertRelation (intent unclear from static analysis)
+
+**Open Questions:**
+- q:NwLFrK9zOv: What is the behavior of method `insertRelation` at src/kb/knowledge-base.ts?
 
 <a id="IDKlQhvNB9"></a>
 
@@ -285,7 +397,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getRelations (intent unclear from static analysis)
+
+**Open Questions:**
+- q:Vd4enU0wnF: What is the behavior of method `getRelations` at src/kb/knowledge-base.ts?
 
 <a id="EIgF1v95x7"></a>
 
@@ -295,7 +412,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method replaceRelations (intent unclear from static analysis)
+
+**Open Questions:**
+- q:RjNsm24ZZV: What is the behavior of method `replaceRelations` at src/kb/knowledge-base.ts?
 
 <a id="aYh0gG993Q"></a>
 
@@ -305,7 +427,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getConfidenceScore (intent unclear from static analysis)
+
+**Open Questions:**
+- q:rwAcJdRvHD: What is the behavior of method `getConfidenceScore` at src/kb/knowledge-base.ts?
 
 <a id="cWbqWyYfFJ"></a>
 
@@ -315,7 +442,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method scoreToConfidenceBand (intent unclear from static analysis)
+
+**Open Questions:**
+- q:MKlrZ6KPG3: What is the behavior of method `scoreToConfidenceBand` at src/kb/knowledge-base.ts?
 
 <a id="TgqSMsy50t"></a>
 
@@ -325,7 +457,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method scoreConfidence (intent unclear from static analysis)
+
+**Open Questions:**
+- q:Anw3kjjRe7: What is the behavior of method `scoreConfidence` at src/kb/knowledge-base.ts?
 
 <a id="DJzhC2dZkC"></a>
 
@@ -335,7 +472,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method neighbors (intent unclear from static analysis)
+
+**Open Questions:**
+- q:4KAdd2eiby: What is the behavior of method `neighbors` at src/kb/knowledge-base.ts?
 
 <a id="AtST8hfcwI"></a>
 
@@ -345,7 +487,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method listOpenQuestions (intent unclear from static analysis)
+
+**Open Questions:**
+- q:aDBLzNzTyM: What is the behavior of method `listOpenQuestions` at src/kb/knowledge-base.ts?
 
 <a id="ru1eRgbcPl"></a>
 
@@ -355,7 +502,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getAllEntities (intent unclear from static analysis)
+
+**Open Questions:**
+- q:0oAOzdwOju: What is the behavior of method `getAllEntities` at src/kb/knowledge-base.ts?
 
 <a id="3sbIbSqnUZ"></a>
 
@@ -365,7 +517,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getAllFactSets (intent unclear from static analysis)
+
+**Open Questions:**
+- q:jpDajts0pB: What is the behavior of method `getAllFactSets` at src/kb/knowledge-base.ts?
 
 <a id="Kf6xb5EDL4"></a>
 
@@ -375,7 +532,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method allocateQID (intent unclear from static analysis)
+
+**Open Questions:**
+- q:5OXow5lq4F: What is the behavior of method `allocateQID` at src/kb/knowledge-base.ts?
 
 <a id="tLrcVQtNqW"></a>
 
@@ -385,7 +547,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validateQIDUniqueness (intent unclear from static analysis)
+
+**Open Questions:**
+- q:1iyjmuB9wL: What is the behavior of method `validateQIDUniqueness` at src/kb/knowledge-base.ts?
 
 <a id="pw9TewFWjP"></a>
 
@@ -395,7 +562,12 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This method computes values.
+**Behavior:**
+
+- Method computeAnchors (intent unclear from static analysis)
+
+**Open Questions:**
+- q:hroUvozbsK: What is the behavior of method `computeAnchors` at src/kb/knowledge-base.ts?
 
 <a id="owtvme9BpA"></a>
 
@@ -405,7 +577,9 @@ This method computes values.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method beginBatch (intent unclear from static analysis)
 
 **Errors thrown:**
 - new KBError('Batch already in progress');
@@ -418,7 +592,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method commit (intent unclear from static analysis)
 
 **Errors thrown:**
 - new KBError('No batch in progress');
@@ -431,7 +607,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method rollback (intent unclear from static analysis)
 
 **Errors thrown:**
 - new KBError('No batch in progress');
@@ -444,7 +622,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getCallGraph (intent unclear from static analysis)
+
+**Open Questions:**
+- q:CGZ72HMLAk: What is the behavior of method `getCallGraph` at src/kb/knowledge-base.ts?
 
 <a id="ewsWmKwQvj"></a>
 
@@ -454,7 +637,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getImportGraph (intent unclear from static analysis)
+
+**Open Questions:**
+- q:6yMt5lEYHc: What is the behavior of method `getImportGraph` at src/kb/knowledge-base.ts?
 
 <a id="ZDva24Vg5q"></a>
 
@@ -464,7 +652,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getReverseDeps (intent unclear from static analysis)
+
+**Open Questions:**
+- q:g4PHU9zXAn: What is the behavior of method `getReverseDeps` at src/kb/knowledge-base.ts?
 
 <a id="HRp6cgE4A6"></a>
 
@@ -474,7 +667,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method serialize (intent unclear from static analysis)
+
+**Open Questions:**
+- q:vxpB3LEkm0: What is the behavior of method `serialize` at src/kb/knowledge-base.ts?
 
 <a id="6vqm147RuS"></a>
 
@@ -484,7 +682,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method deserialize (intent unclear from static analysis)
 
 **Errors thrown:**
 - new KBError(`KB version mismatch: expected 1.0, got ${parsed.version}`);
@@ -497,10 +697,15 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method serializeToFile (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem
+
+**Open Questions:**
+- q:wwRJITly0d: What is the behavior of method `serializeToFile` at src/kb/knowledge-base.ts?
 
 <a id="iQa6hcHRFT"></a>
 
@@ -510,7 +715,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method deserializeFromFile (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem
@@ -528,7 +735,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This function persists data.
+**Behavior:**
+
+- Function createEntity (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error(`Invalid entity kind: ${data.kind}`);
@@ -546,7 +755,9 @@ This function persists data.
 
 **Visibility:** Public (exported)
 
-This function persists data.
+**Behavior:**
+
+- Function createFactSet (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error('evidenceScore must be between 0 and 100');
@@ -559,7 +770,9 @@ This function persists data.
 
 **Visibility:** Public (exported)
 
-This function persists data.
+**Behavior:**
+
+- Function createBehaviorChunk (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error('BehaviorChunk must reference at least one factSet');

@@ -12,7 +12,12 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function normalizeTerm: 
+Normalize a term using default lexicon.
+Convenience function for one-off normalizations.
+
 
 <a id="Osnn9MBueN"></a>
 
@@ -20,7 +25,14 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents lexicon loader.
+**Behavior:**
+
+- Class LexiconLoader: 
+LexiconLoader manages terminology normalization.
+Caches loaded lexicon for performance.
+
+**Open Questions:**
+- q:PkcnqpCn0D: What are the responsibilities and contract of class `LexiconLoader` at src/validation/lexicon/lexicon-loader.ts?
 
 <a id="sLruOu5xvb"></a>
 
@@ -30,7 +42,9 @@ This class represents lexicon loader.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method load (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem
@@ -46,7 +60,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method normalize (intent unclear from static analysis)
+
+**Open Questions:**
+- q:fIYDjrvdlb: What is the behavior of method `normalize` at src/validation/lexicon/lexicon-loader.ts?
 
 <a id="IsXQlCpvcC"></a>
 
@@ -56,7 +75,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getCanonicals (intent unclear from static analysis)
+
+**Open Questions:**
+- q:LMBm2SqbfV: What is the behavior of method `getCanonicals` at src/validation/lexicon/lexicon-loader.ts?
 
 <a id="YeuPtdUvWN"></a>
 
@@ -66,5 +90,10 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method isLoaded (intent unclear from static analysis)
+
+**Open Questions:**
+- q:GQvJxmF1yB: What is the behavior of method `isLoaded` at src/validation/lexicon/lexicon-loader.ts?
 

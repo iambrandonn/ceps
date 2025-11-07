@@ -12,5 +12,7 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Express middleware function authMiddleware that processes requests in the middleware chain. Takes request, response, and next function as parameters.
 

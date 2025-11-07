@@ -12,7 +12,12 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function parseAnswers: 
+Parse raw Markdown containing QID→answer mappings.
+The grammar supports `q:<QID>: answer` entries with optional 4-space indented continuations,
+blank lines, and comments beginning with `#`.
 
 <a id="ieCddpmuTx"></a>
 
@@ -22,7 +27,10 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function parseAnswersFromFile: 
+Convenience helper that reads an answers file from disk (UTF-8) and parses its contents.
 
 **Side effects:**
 - filesystem
@@ -38,7 +46,11 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function ingestAnswers: 
+Validate and apply parsed answers against the supplied KnowledgeBase.
+Returns structured diagnostics suitable for CLI dry-run output.
 
 ## impact-scope.ts
 
@@ -50,7 +62,9 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function computes values.
+**Behavior:**
+
+- Function computeImpactReport (intent unclear from static analysis)
 
 ## reanalysis.ts
 
@@ -62,7 +76,9 @@ This function computes values.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function reanalyzeEntities (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem
@@ -73,7 +89,12 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents snapshot mismatch error.
+**Behavior:**
+
+- Class SnapshotMismatchError (intent unclear from static analysis)
+
+**Open Questions:**
+- q:mWTRnvCsN7: What are the responsibilities and contract of class `SnapshotMismatchError` at src/finalize/reanalysis.ts?
 
 ## spec-patcher.ts
 
@@ -85,7 +106,9 @@ This class represents snapshot mismatch error.
 
 **Visibility:** Public (exported)
 
-This function modifies data.
+**Behavior:**
+
+- Function patchSpecificationFiles (intent unclear from static analysis)
 
 **Side effects:**
 - filesystem

@@ -1,0 +1,17 @@
+{
+  "name": "Express: Approved Terminology (Middleware Chain)",
+  "description": "LLM correctly uses Express-approved terms from lexicon",
+  "category": "lexicon",
+  "severity": "low",
+  "expectedOutcome": "accept",
+  "draftText": "Express middleware function handleRequest that processes requests in the middleware chain. Takes request, response, and next function as parameters.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-express-approved",
+    "targetEntityId": "func-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "Tests that lexicon-approved Express terminology ('Express middleware', 'middleware chain') passes validation without diagnostics."
+}

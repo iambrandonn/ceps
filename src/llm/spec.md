@@ -12,7 +12,11 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function withBudgetHelper: 
+Check budget before LLM call (CTS-07 §8 wrapper)
+
 
 <a id="aHhb281GAp"></a>
 
@@ -22,7 +26,14 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function estimateTokens: 
+Estimate tokens for text based on provider
+
+Uses provider-specific tokenizers when available,
+falls back to heuristic for unknown providers.
+
 
 <a id="xAHlOEQOQg"></a>
 
@@ -32,7 +43,11 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function validates input.
+**Behavior:**
+
+- Function validateCostGate: 
+Validate that token usage meets cost gate threshold
+
 
 **Errors thrown:**
 - new Error(`Unknown fixture type: ${fixtureType}`);
@@ -45,7 +60,12 @@ This function validates input.
 
 **Visibility:** Public (exported)
 
-This class represents budget tracker.
+**Behavior:**
+
+- Class BudgetTracker (intent unclear from static analysis)
+
+**Open Questions:**
+- q:IGRrEKsEnB: What are the responsibilities and contract of class `BudgetTracker` at src/llm/budget.ts?
 
 <a id="sgrJWlJtTn"></a>
 
@@ -55,7 +75,12 @@ This class represents budget tracker.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method checkBudget (intent unclear from static analysis)
+
+**Open Questions:**
+- q:ExgNUb3mpg: What is the behavior of method `checkBudget` at src/llm/budget.ts?
 
 <a id="T75lmsgVEw"></a>
 
@@ -65,7 +90,12 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method recordUsage (intent unclear from static analysis)
+
+**Open Questions:**
+- q:TK0iN4NvWL: What is the behavior of method `recordUsage` at src/llm/budget.ts?
 
 <a id="cmxXtK2EN8"></a>
 
@@ -75,7 +105,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getUsage (intent unclear from static analysis)
+
+**Open Questions:**
+- q:01o3saVudQ: What is the behavior of method `getUsage` at src/llm/budget.ts?
 
 <a id="JWAHUwFqRr"></a>
 
@@ -85,7 +120,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getRemainingBudget (intent unclear from static analysis)
+
+**Open Questions:**
+- q:lKHcbTSZPy: What is the behavior of method `getRemainingBudget` at src/llm/budget.ts?
 
 <a id="BS8l8uSCvb"></a>
 
@@ -95,7 +135,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method reset (intent unclear from static analysis)
+
+**Open Questions:**
+- q:RSMzFYsRPU: What is the behavior of method `reset` at src/llm/budget.ts?
 
 ## cache.ts
 
@@ -105,7 +150,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents l l m cache.
+**Behavior:**
+
+- Class LLMCache (intent unclear from static analysis)
+
+**Open Questions:**
+- q:WNJ4SxOnw4: What are the responsibilities and contract of class `LLMCache` at src/llm/cache.ts?
 
 <a id="jVHF7EeSqB"></a>
 
@@ -115,7 +165,12 @@ This class represents l l m cache.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method generateCacheKey (intent unclear from static analysis)
+
+**Open Questions:**
+- q:YjDhBAygEx: What is the behavior of method `generateCacheKey` at src/llm/cache.ts?
 
 <a id="klsyebpWFX"></a>
 
@@ -125,7 +180,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method get (intent unclear from static analysis)
+
+**Open Questions:**
+- q:pVLk0yIkcS: What is the behavior of method `get` at src/llm/cache.ts?
 
 <a id="uJTsONQZyq"></a>
 
@@ -135,7 +195,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method set (intent unclear from static analysis)
+
+**Open Questions:**
+- q:bznhrcicg4: What is the behavior of method `set` at src/llm/cache.ts?
 
 <a id="b82TxVurGM"></a>
 
@@ -145,7 +210,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method has (intent unclear from static analysis)
 
 <a id="iuF1hynvIG"></a>
 
@@ -155,7 +222,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method invalidate (intent unclear from static analysis)
+
+**Open Questions:**
+- q:QA9aNJtwDJ: What is the behavior of method `invalidate` at src/llm/cache.ts?
 
 <a id="vn3W7s7wlZ"></a>
 
@@ -165,7 +237,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method clear (intent unclear from static analysis)
+
+**Open Questions:**
+- q:BqUj63r7N5: What is the behavior of method `clear` at src/llm/cache.ts?
 
 <a id="oc2FP5SCRz"></a>
 
@@ -175,7 +252,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getStats (intent unclear from static analysis)
+
+**Open Questions:**
+- q:haL7MrO2l1: What is the behavior of method `getStats` at src/llm/cache.ts?
 
 <a id="B1i9vgD20U"></a>
 
@@ -185,7 +267,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getEntry (intent unclear from static analysis)
+
+**Open Questions:**
+- q:JEvKMl99k8: What is the behavior of method `getEntry` at src/llm/cache.ts?
 
 ## gateway.ts
 
@@ -195,7 +282,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This class represents l l m gateway.
+**Behavior:**
+
+- Class LLMGateway (intent unclear from static analysis)
+
+**Open Questions:**
+- q:P0i9wtJZDT: What are the responsibilities and contract of class `LLMGateway` at src/llm/gateway.ts?
 
 <a id="0hOehMGYiz"></a>
 
@@ -205,7 +297,12 @@ This class represents l l m gateway.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getCurrentProvider (intent unclear from static analysis)
+
+**Open Questions:**
+- q:yQOB0yFN7H: What is the behavior of method `getCurrentProvider` at src/llm/gateway.ts?
 
 <a id="0im59AJxog"></a>
 
@@ -215,7 +312,9 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setProvider (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error(`Provider ${provider} is not configured`);
@@ -228,7 +327,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method completions (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error('Token budget exceeded');
@@ -241,7 +342,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method checkBudget (intent unclear from static analysis)
+
+**Open Questions:**
+- q:DtuNM60uxp: What is the behavior of method `checkBudget` at src/llm/gateway.ts?
 
 <a id="JckVEyAiV3"></a>
 
@@ -251,7 +357,12 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getRemainingBudget (intent unclear from static analysis)
+
+**Open Questions:**
+- q:OkIFxTg0fe: What is the behavior of method `getRemainingBudget` at src/llm/gateway.ts?
 
 <a id="RuEGj2Ywom"></a>
 
@@ -261,7 +372,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getUsage (intent unclear from static analysis)
+
+**Open Questions:**
+- q:HUyW4oOuCc: What is the behavior of method `getUsage` at src/llm/gateway.ts?
 
 <a id="5QpNC8Kv3L"></a>
 
@@ -271,7 +387,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getCacheStats (intent unclear from static analysis)
+
+**Open Questions:**
+- q:J9D4aCHzbw: What is the behavior of method `getCacheStats` at src/llm/gateway.ts?
 
 <a id="2AeDsdm6c2"></a>
 
@@ -281,7 +402,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method clearCache (intent unclear from static analysis)
+
+**Open Questions:**
+- q:Cpl1dR1s48: What is the behavior of method `clearCache` at src/llm/gateway.ts?
 
 <a id="JWnJ0dh3Nd"></a>
 
@@ -291,5 +417,10 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method summarize (intent unclear from static analysis)
+
+**Open Questions:**
+- q:KeiThtsCu8: What is the behavior of method `summarize` at src/llm/gateway.ts?
 

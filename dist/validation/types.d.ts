@@ -42,6 +42,7 @@ export interface GroundingDiagnostic {
         expected?: unknown;
         actual?: unknown;
         location?: string;
+        [key: string]: unknown;
     };
 }
 /**
@@ -68,7 +69,7 @@ export interface GroundingResult {
  */
 export interface RetryMetadata {
     attempt: 0 | 1 | 2;
-    promptKey: 'O' | 'R1' | 'R2';
+    promptKey: 'O' | 'R1' | 'R2' | 'L1';
 }
 /**
  * Grounding Validator interface (CTS-02 §6).

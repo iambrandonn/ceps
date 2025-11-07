@@ -12,7 +12,9 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function parseArgs (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error('--max-workers requires a value');
@@ -37,7 +39,9 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function validates input.
+**Behavior:**
+
+- Function validateArgs (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error(
@@ -56,7 +60,7 @@ This function validates input.
 
 ## index.ts
 
-<a id="Z5moFTlBE4"></a>
+<a id="98omxIxMfE"></a>
 
 ### run
 
@@ -64,20 +68,27 @@ This function validates input.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
 
-**Side effects:**
-- filesystem
+- Function run (intent unclear from static analysis)
+
+**Errors thrown:**
+- new Error('Run summary unavailable');
 
 ## orchestrator.ts
 
-<a id="eDxkS5XoyK"></a>
+<a id="0LyhB22wc5"></a>
 
 ### Orchestrator
 
 **Visibility:** Public (exported)
 
-This class represents orchestrator.
+**Behavior:**
+
+- Class Orchestrator (intent unclear from static analysis)
+
+**Open Questions:**
+- q:hs52xPNjsK: What are the responsibilities and contract of class `Orchestrator` at src/orchestrator/orchestrator.ts?
 
 <a id="8duzXi7JdW"></a>
 
@@ -87,7 +98,12 @@ This class represents orchestrator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method run (intent unclear from static analysis)
+
+**Open Questions:**
+- q:pkMWT4sapd: What is the behavior of method `run` at src/orchestrator/orchestrator.ts?
 
 <a id="0VkuvO050d"></a>
 
@@ -97,7 +113,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method runUntil (intent unclear from static analysis)
+
+**Open Questions:**
+- q:PRgh4iXpwP: What is the behavior of method `runUntil` at src/orchestrator/orchestrator.ts?
 
 <a id="GHRwJlWdUe"></a>
 
@@ -107,7 +128,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getKnowledgeBase (intent unclear from static analysis)
+
+**Open Questions:**
+- q:z1TPWNP40y: What is the behavior of method `getKnowledgeBase` at src/orchestrator/orchestrator.ts?
 
 <a id="2lDjctGoZ7"></a>
 
@@ -117,7 +143,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getStatus (intent unclear from static analysis)
+
+**Open Questions:**
+- q:CqdE37anuV: What is the behavior of method `getStatus` at src/orchestrator/orchestrator.ts?
 
 <a id="4JYM9algAR"></a>
 
@@ -127,7 +158,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getRunSummary (intent unclear from static analysis)
+
+**Open Questions:**
+- q:ExDdIUB9pM: What is the behavior of method `getRunSummary` at src/orchestrator/orchestrator.ts?
 
 <a id="TdUO4TOcgA"></a>
 
@@ -149,7 +185,9 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method runFinalize (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error('Snapshot mismatch: use --reconcile to proceed anyway');

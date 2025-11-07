@@ -10,7 +10,12 @@
 
 **Visibility:** Public (exported)
 
-This class represents anthropic adapter.
+**Behavior:**
+
+- Class AnthropicAdapter (intent unclear from static analysis)
+
+**Open Questions:**
+- q:wfOAMgPmPV: What are the responsibilities and contract of class `AnthropicAdapter` at src/llm/adapters/anthropic.ts?
 
 <a id="mxn0Ysj4sF"></a>
 
@@ -20,7 +25,12 @@ This class represents anthropic adapter.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getDefaultModel (intent unclear from static analysis)
+
+**Open Questions:**
+- q:uGSlo7BG67: What is the behavior of method `getDefaultModel` at src/llm/adapters/anthropic.ts?
 
 <a id="oFDTBUIWK2"></a>
 
@@ -30,7 +40,9 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method completions (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error(`Anthropic API error: ${(error as Error).message}`);
@@ -43,7 +55,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method countTokens (intent unclear from static analysis)
+
+**Open Questions:**
+- q:tAW1qa6oTB: What is the behavior of method `countTokens` at src/llm/adapters/anthropic.ts?
 
 <a id="Vh2O27Du0j"></a>
 
@@ -53,7 +70,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method computes values.
+**Behavior:**
+
+- Method calculateCost (intent unclear from static analysis)
+
+**Open Questions:**
+- q:T0aHH3HwmA: What is the behavior of method `calculateCost` at src/llm/adapters/anthropic.ts?
 
 <a id="UIE6RLiET8"></a>
 
@@ -63,7 +85,12 @@ This method computes values.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getLastUsage (intent unclear from static analysis)
+
+**Open Questions:**
+- q:FwO6JrNgfd: What is the behavior of method `getLastUsage` at src/llm/adapters/anthropic.ts?
 
 ## openai.ts
 
@@ -73,7 +100,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This class represents open a i adapter.
+**Behavior:**
+
+- Class OpenAIAdapter (intent unclear from static analysis)
+
+**Open Questions:**
+- q:3ZFxVT2D4I: What are the responsibilities and contract of class `OpenAIAdapter` at src/llm/adapters/openai.ts?
 
 <a id="1XljSHeaCO"></a>
 
@@ -83,7 +115,12 @@ This class represents open a i adapter.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getDefaultModel (intent unclear from static analysis)
+
+**Open Questions:**
+- q:adkSCAJZPA: What is the behavior of method `getDefaultModel` at src/llm/adapters/openai.ts?
 
 <a id="3iqYiV60Nk"></a>
 
@@ -93,7 +130,9 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method completions (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error(`OpenAI API error: ${(error as Error).message}`);
@@ -106,7 +145,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method countTokens (intent unclear from static analysis)
+
+**Open Questions:**
+- q:OUjfNBLgKU: What is the behavior of method `countTokens` at src/llm/adapters/openai.ts?
 
 <a id="L83wrRAWdf"></a>
 
@@ -116,7 +160,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method computes values.
+**Behavior:**
+
+- Method calculateCost (intent unclear from static analysis)
+
+**Open Questions:**
+- q:WXBwbXRdvU: What is the behavior of method `calculateCost` at src/llm/adapters/openai.ts?
 
 <a id="Sb5yer4Kz4"></a>
 
@@ -126,5 +175,10 @@ This method computes values.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getLastUsage (intent unclear from static analysis)
+
+**Open Questions:**
+- q:TZSnZsVqcx: What is the behavior of method `getLastUsage` at src/llm/adapters/openai.ts?
 

@@ -1,5 +1,6 @@
 /**
  * Phase 4 WS-F1: Grounding Validator (Main Entry Point)
+ * Phase 6 I1: Added LexiconValidator to pipeline
  *
  * Orchestrates all validation rules to ensure LLM-generated behavior chunks
  * remain grounded in factSets per SADS §8 and CTS-02 specifications.
@@ -9,7 +10,7 @@
  * 2. Scope validation (factSetIds)
  * 3. Numeric and enum validation
  * 4. Pronoun resolution
- * 5. Lexicon normalization (future integration)
+ * 5. Lexicon validation (framework-specific terminology)
  */
 import type { KnowledgeBase } from '../kb/knowledge-base.js';
 import type { GroundingResult, ChunkMetadata } from './types.js';
@@ -21,7 +22,8 @@ export declare class GroundingValidator {
     private kb;
     private identifierValidator;
     private numericValidator;
-    constructor(kb: KnowledgeBase);
+    private lexiconValidator;
+    constructor(kb: KnowledgeBase, lexiconPath?: string);
     /**
      * Validate behavior chunk text against KB factSets.
      *

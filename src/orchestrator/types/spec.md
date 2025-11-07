@@ -12,7 +12,10 @@
 
 **Visibility:** Public (exported)
 
-This function persists data.
+**Behavior:**
+
+- Function createDefaultFinalizationConfig: 
+Default finalization config factory
 
 ## run-summary.ts
 
@@ -24,5 +27,8 @@ This function persists data.
 
 **Visibility:** Public (exported)
 
-This function persists data.
+**Behavior:**
+
+- Function createDefaultRunSummary: 
+Default run summary for initialization
 

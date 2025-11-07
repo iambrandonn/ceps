@@ -12,7 +12,10 @@
 
 **Visibility:** Public (exported)
 
-This function validates input.
+**Behavior:**
+
+- Function validateRunSummary: 
+Validates run summary against JSON Schema.
 
 **Side effects:**
 - filesystem
@@ -31,7 +34,10 @@ This function validates input.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function renderJSON: 
+Renders run summary as formatted JSON string.
 
 <a id="aV6FC4c7Fc"></a>
 
@@ -41,7 +47,10 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function renderConsole: 
+Renders run summary as console table for human readability.
 
 <a id="92pUI4hmTe"></a>
 
@@ -51,7 +60,10 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function writeJSONSummary: 
+Writes run summary to JSON file.
 
 **Side effects:**
 - filesystem
@@ -64,5 +76,8 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function emitRunSummary: 
+Writes run summary to console and optionally to JSON file.
 

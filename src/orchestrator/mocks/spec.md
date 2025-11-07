@@ -10,7 +10,14 @@
 
 **Visibility:** Public (exported)
 
-This class represents mock coverage gate evaluator.
+**Behavior:**
+
+- Class MockCoverageGateEvaluator: 
+Configurable mock for Coverage Gate.
+Default behavior: pass if all exported entities documented or have QIDs.
+
+**Open Questions:**
+- q:kfXZu5pCDQ: What are the responsibilities and contract of class `MockCoverageGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="8z7tTr0OgK"></a>
 
@@ -20,7 +27,9 @@ This class represents mock coverage gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="8T0VDeLgtf"></a>
 
@@ -30,7 +39,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="9cjlspig0m"></a>
 
@@ -38,7 +49,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock link gate evaluator.
+**Behavior:**
+
+- Class MockLinkGateEvaluator: 
+Configurable mock for Link Gate.
+Default behavior: pass if no broken links.
+
+**Open Questions:**
+- q:amay9o7aii: What are the responsibilities and contract of class `MockLinkGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="li3DX2YXja"></a>
 
@@ -48,7 +66,9 @@ This class represents mock link gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="eeRIQzINlt"></a>
 
@@ -58,7 +78,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="o80U7ZuhSm"></a>
 
@@ -66,7 +88,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock grounding gate evaluator.
+**Behavior:**
+
+- Class MockGroundingGateEvaluator: 
+Configurable mock for Grounding Gate.
+Default behavior: pass if all chunks have factSetIds and (validated or fallback).
+
+**Open Questions:**
+- q:IWuisnf97q: What are the responsibilities and contract of class `MockGroundingGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="HJVnMDe6xo"></a>
 
@@ -76,7 +105,9 @@ This class represents mock grounding gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="3CCHwZEej9"></a>
 
@@ -86,7 +117,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="GcYiO71i5v"></a>
 
@@ -94,7 +127,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock determinism gate evaluator.
+**Behavior:**
+
+- Class MockDeterminismGateEvaluator: 
+Configurable mock for Determinism Gate.
+Default behavior: pass if no diffs, skip if not enabled.
+
+**Open Questions:**
+- q:HWnD106xqf: What are the responsibilities and contract of class `MockDeterminismGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="yI4SW8U7CI"></a>
 
@@ -104,7 +144,9 @@ This class represents mock determinism gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="qFEAKnzTPc"></a>
 
@@ -114,7 +156,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="d8TyMTM9HS"></a>
 
@@ -122,7 +166,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock confidence gate evaluator.
+**Behavior:**
+
+- Class MockConfidenceGateEvaluator: 
+Configurable mock for Confidence Gate.
+Default behavior: always pass (Low confidence → Open Questions is acceptable).
+
+**Open Questions:**
+- q:W7idOZXCXs: What are the responsibilities and contract of class `MockConfidenceGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="gLA8Bk26MZ"></a>
 
@@ -132,7 +183,9 @@ This class represents mock confidence gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="m6obSAwFI9"></a>
 
@@ -142,7 +195,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="wL8eSpHEil"></a>
 
@@ -150,7 +205,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock monorepo gate evaluator.
+**Behavior:**
+
+- Class MockMonorepoGateEvaluator: 
+Configurable mock for Monorepo Gate.
+Default behavior: pass if root spec exists and no broken package links.
+
+**Open Questions:**
+- q:oIFV16aEeJ: What are the responsibilities and contract of class `MockMonorepoGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="YUruqb2ihC"></a>
 
@@ -160,7 +222,9 @@ This class represents mock monorepo gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="E89eRjDowH"></a>
 
@@ -170,7 +234,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="WcDMumsxNp"></a>
 
@@ -178,7 +244,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock cost gate evaluator.
+**Behavior:**
+
+- Class MockCostGateEvaluator: 
+Configurable mock for Cost Gate (validation only).
+Default behavior: pass if under budget.
+
+**Open Questions:**
+- q:E4LIXqAQsr: What are the responsibilities and contract of class `MockCostGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="nH686iBDUg"></a>
 
@@ -188,7 +261,9 @@ This class represents mock cost gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="rAWbZPWrA4"></a>
 
@@ -198,7 +273,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="v2jrYcZSFJ"></a>
 
@@ -206,7 +283,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock adversarial gate evaluator.
+**Behavior:**
+
+- Class MockAdversarialGateEvaluator: 
+Configurable mock for Adversarial Gate (validation only).
+Default behavior: pass if all adversarial cases rejected.
+
+**Open Questions:**
+- q:UoaOyov5Jt: What are the responsibilities and contract of class `MockAdversarialGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="IYEnhIkCsL"></a>
 
@@ -216,7 +300,9 @@ This class represents mock adversarial gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="uGHbRBh7pD"></a>
 
@@ -226,7 +312,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="v5kQDSrkg7"></a>
 
@@ -234,7 +322,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock test coverage gate evaluator.
+**Behavior:**
+
+- Class MockTestCoverageGateEvaluator: 
+Configurable mock for Test Coverage Gate (validation only).
+Default behavior: pass if coverage meets threshold.
+
+**Open Questions:**
+- q:9adL1XeUcr: What are the responsibilities and contract of class `MockTestCoverageGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="ljW8PzjIkK"></a>
 
@@ -244,7 +339,9 @@ This class represents mock test coverage gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 <a id="LLJ7qGWSxj"></a>
 
@@ -254,7 +351,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
 
 <a id="HABvE87zwr"></a>
 
@@ -262,7 +361,14 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents mock readability gate evaluator.
+**Behavior:**
+
+- Class MockReadabilityGateEvaluator: 
+Configurable mock for Readability Gate (validation only).
+Default behavior: skip (manual review optional).
+
+**Open Questions:**
+- q:XpONNJaeNB: What are the responsibilities and contract of class `MockReadabilityGateEvaluator` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="9MiXdgcGHC"></a>
 
@@ -272,7 +378,12 @@ This class represents mock readability gate evaluator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
+
+**Open Questions:**
+- q:wmtLWvKdUP: What is the behavior of method `setNextResult` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 
 <a id="mV1QgGbgsn"></a>
 
@@ -282,5 +393,10 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method evaluate (intent unclear from static analysis)
+
+**Open Questions:**
+- q:wWrbCfwUOZ: What is the behavior of method `evaluate` at src/orchestrator/mocks/mock-gate-evaluators.ts?
 

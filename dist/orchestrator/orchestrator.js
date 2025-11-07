@@ -24,6 +24,8 @@ import { AmbiguityResolver } from '../reasoning/ambiguity-resolver.js';
 import { CrossLinkValidator } from '../validation/cross-link-validator.js';
 import { SpecGenerator } from '../generator/spec-generator.js';
 import { PatternMatcher } from '../reasoning/PatternMatcher.js';
+import { PatternRegistry } from '../reasoning/patterns/pattern-registry.js';
+import { registerExpressPatterns } from '../reasoning/patterns/express/index.js';
 import { GateRegistry } from './gates/gate-registry.js';
 import { captureSnapshot, writeSnapshot } from '../snapshot/index.js';
 export var PipelinePhase;
@@ -185,7 +187,11 @@ export class Orchestrator extends EventEmitter {
     }
     async runReasoning() {
         const matcher = new PatternMatcher(this.kb);
-        const lifter = new IntentLifter(this.kb, matcher);
+        // Phase 6: Initialize PatternRegistry with Express patterns
+        const registry = new PatternRegistry();
+        registerExpressPatterns(registry);
+        // Pass both matcher (Phase 3) and registry (Phase 6) to lifter
+        const lifter = new IntentLifter(this.kb, matcher, registry);
         const entities = this.kb.getAllEntities();
         for (const entity of entities) {
             // Get factSets for this entity

@@ -1,20 +1,29 @@
 /**
- * Phase 3 Step 3: IntentLifter
+ * Phase 3 Step 3: IntentLifter (Updated for Phase 6)
  *
  * Converts factSets to BehaviorChunks with human-readable text.
- * Uses PatternMatcher to detect framework patterns and generate intent-focused descriptions.
+ * Uses PatternMatcher (Phase 3) OR PatternRegistry (Phase 6) to detect framework patterns.
  * Computes confidence using KB.scoreConfidence() API.
+ *
+ * Phase 6 Enhancement:
+ * - Accepts optional PatternRegistry for advanced pattern detection
+ * - Falls back to legacy PatternMatcher if registry not provided
+ * - Preserves backward compatibility for Phase 3 tests
  */
 import { KnowledgeBase } from '../kb/knowledge-base.js';
 import { BehaviorChunk } from '../kb/models.js';
 import { PatternMatcher } from './PatternMatcher.js';
+import { PatternRegistry } from './patterns/pattern-registry.js';
 export declare class IntentLifter {
     private kb;
     private matcher;
+    private registry?;
     private chunkIds;
-    constructor(kb: KnowledgeBase, matcher: PatternMatcher);
+    constructor(kb: KnowledgeBase, matcher: PatternMatcher, registry?: PatternRegistry | undefined);
     /**
      * Lift factSets into a BehaviorChunk with human-readable intent.
+     *
+     * Phase 6 Update: Tries PatternRegistry first (entity-based), falls back to PatternMatcher.
      *
      * @param factSetIds - Array of factSet IDs to lift (typically one per entity)
      * @returns BehaviorChunk with textDraft, confidence, and factSetIds

@@ -1,21 +1,31 @@
 /**
- * Phase 3 Step 3: IntentLifter
+ * Phase 3 Step 3: IntentLifter (Updated for Phase 6)
  *
  * Converts factSets to BehaviorChunks with human-readable text.
- * Uses PatternMatcher to detect framework patterns and generate intent-focused descriptions.
+ * Uses PatternMatcher (Phase 3) OR PatternRegistry (Phase 6) to detect framework patterns.
  * Computes confidence using KB.scoreConfidence() API.
+ *
+ * Phase 6 Enhancement:
+ * - Accepts optional PatternRegistry for advanced pattern detection
+ * - Falls back to legacy PatternMatcher if registry not provided
+ * - Preserves backward compatibility for Phase 3 tests
  */
 import { generateAnchor } from '../kb/id-generation.js';
 export class IntentLifter {
     kb;
     matcher;
+    registry;
     chunkIds = new Set();
-    constructor(kb, matcher) {
+    constructor(kb, matcher, registry // Phase 6: Optional new pattern system
+    ) {
         this.kb = kb;
         this.matcher = matcher;
+        this.registry = registry;
     }
     /**
      * Lift factSets into a BehaviorChunk with human-readable intent.
+     *
+     * Phase 6 Update: Tries PatternRegistry first (entity-based), falls back to PatternMatcher.
      *
      * @param factSetIds - Array of factSet IDs to lift (typically one per entity)
      * @returns BehaviorChunk with textDraft, confidence, and factSetIds
@@ -34,7 +44,21 @@ export class IntentLifter {
         if (!entity) {
             throw new Error(`Entity ${subjectId} not found`);
         }
-        // Try to match against framework patterns
+        // Phase 6: Try new PatternRegistry first (entity-based patterns)
+        if (this.registry) {
+            const registryChunks = this.registry.describe(this.kb, entity);
+            if (registryChunks.length > 0) {
+                // Registry generated chunks directly - use first one
+                return registryChunks[0];
+            }
+            // Also apply confidence adjustments if available
+            const delta = this.registry.getConfidenceAdjustments(this.kb, entity);
+            if (delta) {
+                // Registry matched but describe() returned empty - fall through to legacy
+                // but apply delta to base score later
+            }
+        }
+        // Phase 3 fallback: Try to match against framework patterns (factSet-based)
         const pattern = this.matcher.match(factSet);
         // Generate human-readable text
         const textDraft = pattern
@@ -47,6 +71,14 @@ export class IntentLifter {
         if (pattern) {
             baseScore += pattern.confidence;
             baseScore = Math.min(baseScore, 100); // Clamp to max
+        }
+        // Phase 6: Apply registry confidence adjustments if no pattern matched
+        if (!pattern && this.registry) {
+            const delta = this.registry.getConfidenceAdjustments(this.kb, entity);
+            if (delta) {
+                baseScore += delta.adjustment;
+                baseScore = Math.min(baseScore, 100);
+            }
         }
         // Convert final score to confidence band
         const confidence = this.kb.scoreToConfidenceBand(baseScore);

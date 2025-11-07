@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "4ba272b3a98143261e2d70998a1f34f4fb4e7ab01a575abbf51591836829ba0a",
-  "generatedAt": "2025-11-07T00:56:34.231Z",
+  "rootHash": "10a487aed3600175691a7d2cdbf655c66aff7bc4780f81ebd856088cc6aa90b1",
+  "generatedAt": "2025-11-07T18:18:51.459Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -11,8 +11,8 @@
     },
     {
       "path": "AGENTS.md",
-      "hash": "3e9edb9273702529f559a8320b5bf84814d162e0138653e1a423b29a9b2627c0",
-      "bytes": 18314
+      "hash": "4df4900c8ec599e4b653bb48ff9e794680ec6f9c9e4d374ae46f88a94b734373",
+      "bytes": 19309
     },
     {
       "path": "CLAUDE.md",
@@ -80,6 +80,11 @@
       "bytes": 1932
     },
     {
+      "path": "docs/lexicon.md",
+      "hash": "eea436ac28e48988916c82226235721e9f5b015566528ee5fc54fdab02498dac",
+      "bytes": 7440
+    },
+    {
       "path": "docs/PARSER_ERROR_HANDLING.md",
       "hash": "dbf3533ae7965d54327faa919b2b11cb0b9dbb6908aff84e32f4154ee47aab8a",
       "bytes": 7720
@@ -118,6 +123,36 @@
       "path": "docs/ws-f2-telemetry.md",
       "hash": "3ac777dc50b995f0d32745da18f6d672d6dc9a42844dcda34d9de484517aa6c0",
       "bytes": 6555
+    },
+    {
+      "path": "FEEDBACK-WS-D-EXPRESS-1.md",
+      "hash": "c6662237d5f5ba26e524d1df499eed73e60fc13074619b1103166c838e58f227",
+      "bytes": 20893
+    },
+    {
+      "path": "FEEDBACK-WS-D-EXPRESS-2.md",
+      "hash": "84b94627b8d63b73862c22414e2064a9aedac866bc6dee153823c0baf1832204",
+      "bytes": 19610
+    },
+    {
+      "path": "FEEDBACK-WS-D-EXPRESS-3.md",
+      "hash": "4966d3bdc1b121ee7f559c461366b3e99537eb5041a47c1188a586a64590ffaf",
+      "bytes": 21630
+    },
+    {
+      "path": "FEEDBACK-WS-D-EXPRESS-4.md",
+      "hash": "223a123045f65d84f30f58b77bca30981a5868878e3fb902393503a529e0b0a2",
+      "bytes": 16761
+    },
+    {
+      "path": "FEEDBACK-WS-D-EXPRESS-5.md",
+      "hash": "e14949cd566ba2104ea06f274d92b3606b2e49dbfff904e27729fd8e5a38b8f7",
+      "bytes": 27853
+    },
+    {
+      "path": "FEEDBACK-WS-D-EXPRESS-6.md",
+      "hash": "148f32963fdec230d9e4ee6418712440292f0c1a5c1c9179677d1fe2fa45497c",
+      "bytes": 24012
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -168,6 +203,26 @@
       "path": "fixtures/adversarial/phase4/enum-mismatch/scenario.json",
       "hash": "391cc8c4e47a800294775e98af90282f3d141f8ec1421e8714f87ff1f8266795",
       "bytes": 677
+    },
+    {
+      "path": "fixtures/adversarial/phase4/express-approved-term/scenario.json",
+      "hash": "34e429bfdac5694e609cb495600d4ed4971a6cdd5f73aa876083468066dbc89a",
+      "bytes": 764
+    },
+    {
+      "path": "fixtures/adversarial/phase4/express-router-approved/scenario.json",
+      "hash": "f13d3411da6059defe2dfd880d8813cca25f861e0c786c019d1049557b232ed1",
+      "bytes": 747
+    },
+    {
+      "path": "fixtures/adversarial/phase4/express-spring-controller/scenario.json",
+      "hash": "bfb2332b614f86bca218d8c18f38045f1f3723b506c41d6ec6a3f779de892663",
+      "bytes": 843
+    },
+    {
+      "path": "fixtures/adversarial/phase4/express-wrong-framework/scenario.json",
+      "hash": "3bedcc9b9a950addc237cf64d9a077de16d13b6f0ea7f4b37e8b3071a7770d35",
+      "bytes": 849
     },
     {
       "path": "fixtures/adversarial/phase4/hallucinated-entity/scenario.json",
@@ -385,9 +440,19 @@
       "bytes": 11894
     },
     {
+      "path": "IMPLEMENTATION_PLAN_PHASE6_WS_D_EXPRESS.md",
+      "hash": "a8b552a2bea4b2f5055486b11b52859abf9f00e5d3ad1395f39dd23920830a0f",
+      "bytes": 16998
+    },
+    {
+      "path": "IMPLEMENTATION_PLAN_PHASE6.md",
+      "hash": "df03fbb988ebad27f124e85cc8ac42d41a873c884313bd0af85b719215f901d3",
+      "bytes": 23986
+    },
+    {
       "path": "IMPLEMENTATION_PLAN.md",
-      "hash": "ff5a7b47d000749c0cdb65124c97108c5cb04116c9b8e874e07f2067e4415fe9",
-      "bytes": 46541
+      "hash": "32a9e4a84c87425789eb9434a90080a05cdd22f6b8908f0f7ab5bdd29161a248",
+      "bytes": 47300
     },
     {
       "path": "package-lock.json",
@@ -455,6 +520,11 @@
       "bytes": 5710
     },
     {
+      "path": "PHASE5_CRITICAL_BUG_REPORT.md",
+      "hash": "91ffd79e3f370b0ba4fc2048f2f8d43c4215bf92e9236d71fc8d63c9d21f1b08",
+      "bytes": 16562
+    },
+    {
       "path": "PHASE5_LLM_ON_VALIDATION.md",
       "hash": "1f717d84d9dce5ff83656e2966e306f245289ed1bd6ee0ac404d2aceec1b827c",
       "bytes": 8147
@@ -463,6 +533,36 @@
       "path": "PHASE5_OVERALL_FEEDBACK.md",
       "hash": "2c855fb06e451489555535be9f34a4065ede51b982460bcd383ac457b213af1a",
       "bytes": 12712
+    },
+    {
+      "path": "PHASE6_EXPRESS_PHASE_MINUS_ONE.md",
+      "hash": "cb9acb16974c2da66e504f891a0417c4a35b1bfa2dbf4e5c803790250490580a",
+      "bytes": 8835
+    },
+    {
+      "path": "PHASE6_I1_COMPLETION.md",
+      "hash": "bc944a625852d392034eab83451f4d56a30e97248ce6e22a4bbc83f46c0fbf28",
+      "bytes": 7274
+    },
+    {
+      "path": "PHASE6_I1_MERGE_BLOCKERS_COMPLETE.md",
+      "hash": "601fd7599001f02c3fcacdc390079e6f16bb94e9bbb0b9d28ff243ed4be22b6d",
+      "bytes": 8708
+    },
+    {
+      "path": "PHASE6_I2_COMPLETION_FINAL.md",
+      "hash": "0438716baaf439fe680f7f97380487b456733a23fa1bb9b2a44387f63c237703",
+      "bytes": 11770
+    },
+    {
+      "path": "PHASE6_I2_COMPLETION_REVIEW6.md",
+      "hash": "4b41b6730e22409970c27d6d7ba661bb1c92988c2587765dcf0974c4770851d2",
+      "bytes": 12207
+    },
+    {
+      "path": "PHASE6_I2_COMPLETION.md",
+      "hash": "cdb2e4ddcfa4727e235398ac0b446577cc64be6a63e6b3df38f3272d830985d1",
+      "bytes": 4483
     },
     {
       "path": "PRD.md",
@@ -481,8 +581,8 @@
     },
     {
       "path": "README.md",
-      "hash": "fd73127c7e4586f53512023c82f26d84325f2d20deb05bc80444a107a4f3c793",
-      "bytes": 10204
+      "hash": "e21e1c18b359011fc38688f1eba3e5d183ddf97bb35dc5766e4df43654e34078",
+      "bytes": 11097
     },
     {
       "path": "SADS.md",
@@ -596,8 +696,8 @@
     },
     {
       "path": "src/generator/spec-generator.ts",
-      "hash": "a774bb4896e144fe2e49897a14188415e8efb8d0c46e2a971b8bf46c94e518ac",
-      "bytes": 14033
+      "hash": "f5ee90c1c7b6e7f4f025000c8d8f82121d7cabcf69203ba293d29e986103de82",
+      "bytes": 14553
     },
     {
       "path": "src/generator/style-kit.ts",
@@ -731,8 +831,8 @@
     },
     {
       "path": "src/orchestrator/index.ts",
-      "hash": "bc22c8d4efc46ae44c3807e60a1831e3fafa5b03a33fba219b1d35ed3f127e57",
-      "bytes": 11938
+      "hash": "fc6758a661b665bb648f60fb0632e10b7973785e4995532af9a006d2ff26709c",
+      "bytes": 5770
     },
     {
       "path": "src/orchestrator/mocks/mock-gate-evaluators.ts",
@@ -741,8 +841,8 @@
     },
     {
       "path": "src/orchestrator/orchestrator.ts",
-      "hash": "9d104c2840250b6f630bbdb22dff4d824945d460c381e84c0cc249abf6a7c629",
-      "bytes": 24304
+      "hash": "39272bb7eb701a034e415bda87733d359bf96c51fbba7f1f80e16e9189b08ded",
+      "bytes": 24754
     },
     {
       "path": "src/orchestrator/rendering/run-summary-renderer.ts",
@@ -776,8 +876,8 @@
     },
     {
       "path": "src/parser/fact-extractor.ts",
-      "hash": "d0731dd91c834cb19ea98269326c3af0306c3413a14c445b11b6d83d936f6a9a",
-      "bytes": 13362
+      "hash": "3fb3051411da684c26ad30abd46a2ed425cc3110ef0b21473c4460c018b9cc76",
+      "bytes": 14821
     },
     {
       "path": "src/parser/parser.ts",
@@ -788,6 +888,11 @@
       "path": "src/parser/pattern-detector.ts",
       "hash": "58c63e7efcbe7ecfaaa15da4f57d5c2f7f81a1cb204242ed5fd457e39809548b",
       "bytes": 1247
+    },
+    {
+      "path": "src/patterns/express/error-handler.ts",
+      "hash": "b6c714fd78aec18bdf49aacdc90bab1297648b172fa6d87d1760c2d090ef560f",
+      "bytes": 3392
     },
     {
       "path": "src/reasoning/__tests__/ambiguity-resolver.test.ts",
@@ -801,13 +906,48 @@
     },
     {
       "path": "src/reasoning/IntentLifter.ts",
-      "hash": "5d001662f25dc37cde5e802fa3da783d2ae09e6376d589aa18aee3b861eaf6ec",
-      "bytes": 4613
+      "hash": "a758d3d9a11625e1a24f97cec465bf474486a443def39f990b6e2c38638ac709",
+      "bytes": 6047
     },
     {
       "path": "src/reasoning/PatternMatcher.ts",
       "hash": "5a67d906c729175afa03472728262a737a0799b0be7f482eea8c5033ea0fd6b6",
       "bytes": 9100
+    },
+    {
+      "path": "src/reasoning/patterns/express/error-handler.ts",
+      "hash": "25347b5c80ab2c5c81169108db1bd7a47454c3746d3ed6860c523fa94f752339",
+      "bytes": 4148
+    },
+    {
+      "path": "src/reasoning/patterns/express/index.ts",
+      "hash": "9beaebd5648fbdc75e6ef97d10bae0934de25a31e66f256865d5088b52c2ced3",
+      "bytes": 1417
+    },
+    {
+      "path": "src/reasoning/patterns/express/middleware.ts",
+      "hash": "66f530eaea15e9af8e05dd665f0fe242ce0a22fe9c2785ae3080f0824b0e8462",
+      "bytes": 3863
+    },
+    {
+      "path": "src/reasoning/patterns/express/router.ts",
+      "hash": "231f612d6dae2b9100c6293a1fb14cbc17f3345abf47a3f2164ac1d4665f7fa6",
+      "bytes": 5849
+    },
+    {
+      "path": "src/reasoning/patterns/pattern-registry.ts",
+      "hash": "b57f09dca974551983e0e5d36c437d26269a4b43bf7fdbc9890793189bd6fa2e",
+      "bytes": 4777
+    },
+    {
+      "path": "src/reasoning/patterns/shared/helpers.ts",
+      "hash": "aef7ac825f3ff4209dbba8b791a0c1e223e384da54056759aeeb7e8399404e2e",
+      "bytes": 4948
+    },
+    {
+      "path": "src/reasoning/patterns/types.ts",
+      "hash": "de82c559db179db6396cb71f44fabd37a435d486cbe0263d27e7354519dd8ad8",
+      "bytes": 3330
     },
     {
       "path": "src/reasoning/relation-resolver.ts",
@@ -910,6 +1050,11 @@
       "bytes": 8585
     },
     {
+      "path": "src/validation/__tests__/lexicon-validator.test.ts",
+      "hash": "3af922a6aa18eab0c5fd641fb80f5cba354f1aacc527d1c1c2e6562f80dc1cd7",
+      "bytes": 14631
+    },
+    {
       "path": "src/validation/__tests__/phase-minus-1-analysis.test.ts",
       "hash": "b695a93c702540361009c093bbe2564991e20c4372f92b18814a3dde0985f49c",
       "bytes": 8830
@@ -981,8 +1126,8 @@
     },
     {
       "path": "src/validation/grounding-validator.ts",
-      "hash": "77bd2c6dd19aba893a85d234cf3c40ede40221996e8a35d5e1b0532facb3273b",
-      "bytes": 4555
+      "hash": "52defad885aafe07615f4b13cec1ba9428147d19cefea37019b4b404e1ead759",
+      "bytes": 5607
     },
     {
       "path": "src/validation/identifier-extractor.ts",
@@ -993,6 +1138,11 @@
       "path": "src/validation/identifier-validator.ts",
       "hash": "ee61bbef72e0f184538672fec8d8dd9520ec2872d13aec55d66f9d496782e8ae",
       "bytes": 10749
+    },
+    {
+      "path": "src/validation/lexicon-validator.ts",
+      "hash": "c3e9c9aa17de1bd1503c1d43a2d4ab09d537052bab07a6548d2865f084935c3c",
+      "bytes": 6894
     },
     {
       "path": "src/validation/lexicon/ceps.lexicon.json",
@@ -1021,8 +1171,8 @@
     },
     {
       "path": "src/validation/types.ts",
-      "hash": "b73a46a348d6e1155d62de9f7425d252421bc8341e6b7d6cfb11a5b9d6f4fc44",
-      "bytes": 2815
+      "hash": "730bca39af41432883eaf9e83a332beaf0019efa951728560f711715e6a626fe",
+      "bytes": 2868
     },
     {
       "path": "tests/fixtures/phase5/baseline/README.md",
@@ -1068,6 +1218,16 @@
       "path": "tests/fixtures/phase5/baseline/tiny-react/src/Button.tsx",
       "hash": "ecb252d2cacef358aca0cfa374c8139f05f3f1eb1dcf1487fb37943b36552055",
       "bytes": 40
+    },
+    {
+      "path": "tests/fixtures/phase6/express-finalization-smoke/package.json",
+      "hash": "9de4c4f4bf548be7be2ecac0fe4492ea598141b9a935537afcee8bc7e1d0d8ac",
+      "bytes": 135
+    },
+    {
+      "path": "tests/fixtures/phase6/express-finalization-smoke/src/routes.js",
+      "hash": "69aa4685fa374848bc1d19c1afd151c119ff7551bf41d1721e119237ee0dd819",
+      "bytes": 234
     },
     {
       "path": "tests/fixtures/README.md",
@@ -1160,6 +1320,16 @@
       "bytes": 231
     },
     {
+      "path": "tests/integration/behavior-chunks.test.ts",
+      "hash": "f97768335cbb94cea731c01f67051503157a9b0cd899df861db274a0b509a50b",
+      "bytes": 1027
+    },
+    {
+      "path": "tests/integration/express-patterns-integration.test.ts",
+      "hash": "157366745c06e579f0f582686bcd972a1e1e3de97431ea6fd231de9672549ab9",
+      "bytes": 12595
+    },
+    {
       "path": "tests/integration/finalize-answers.test.ts",
       "hash": "6772917a8a849be3b552b40363fef72d87bc9a41e2a8ad94ebb5ba858c08342b",
       "bytes": 1768
@@ -1171,8 +1341,8 @@
     },
     {
       "path": "tests/integration/orchestrator.test.ts",
-      "hash": "275b05aa695df48b41c2cc7e1a1b94d8f3043f4ebee1c63f0ca261112af75deb",
-      "bytes": 1388
+      "hash": "be89f238f98b14766a1cac20b3f5ef6ad4707baf12dcdbd386d4623dbf2abdb8",
+      "bytes": 1500
     },
     {
       "path": "tests/integration/phase1-smoke.test.ts",
@@ -1210,6 +1380,26 @@
       "bytes": 4520
     },
     {
+      "path": "tests/integration/phase6-express-finalization-smoke.test.ts",
+      "hash": "f244b329594354f2fcb0d80ed784a393ed454388389b18967b66143e5a4a536d",
+      "bytes": 2483
+    },
+    {
+      "path": "tests/integration/phase6-express-integration.test.ts",
+      "hash": "30dae4769e6050fc3819e5f88b428d7e39e51849ae2acabc03118e0be7287bc0",
+      "bytes": 6333
+    },
+    {
+      "path": "tests/integration/phase6-i2-async-e2e.test.ts",
+      "hash": "f79920fd1bf3d8eecfae35e896cf73cece751436ed645516be39293702f60d00",
+      "bytes": 6670
+    },
+    {
+      "path": "tests/integration/phase6-i2-error-handler.test.ts",
+      "hash": "fd3a93ece9e28d3dbb4889cb7bb1d43f8e5184dbfe215418ddb6e3eb4c3f6089",
+      "bytes": 5501
+    },
+    {
       "path": "tests/integration/snapshot-capture.test.ts",
       "hash": "b728a6e5f18adc9170035892c090d0cba6f0127400f559d73c53a0556ca8d4b1",
       "bytes": 675
@@ -1218,6 +1408,31 @@
       "path": "tests/manual-smoke-test.ts",
       "hash": "6abeeb006ea1ceaf5fbef38d6ee97cab05fd6b6b27f64446c29eaa59a3a73ed9",
       "bytes": 3318
+    },
+    {
+      "path": "tests/patterns/express/error-handler.test.ts",
+      "hash": "8b6a62d0aef2e7d621534c4665d5e9d6651aae8b0fcfd805f61455dc4674a73e",
+      "bytes": 11435
+    },
+    {
+      "path": "tests/reasoning/express-middleware-pattern.test.ts",
+      "hash": "f6f2f455c9cdb8c7bbaa0e048c117c277824213e6ecf4d2b2ab6ce5f552731c3",
+      "bytes": 10682
+    },
+    {
+      "path": "tests/reasoning/express-router-pattern.test.ts",
+      "hash": "ef9b71780c393f199a92906b364e4d23c3ee46e0eb130bc55040a0fe6c97cbec",
+      "bytes": 9291
+    },
+    {
+      "path": "tests/reasoning/pattern-helpers.test.ts",
+      "hash": "4364a766863fb73c6350007fc555facaa4ada72e42c4adb6ddf60dad557bd362",
+      "bytes": 10814
+    },
+    {
+      "path": "tests/reasoning/pattern-registry.test.ts",
+      "hash": "d102ea350fc387dcc45039a8d18fe10cfb7132b7cbacccd7be0c3b1077d19ee0",
+      "bytes": 13230
     },
     {
       "path": "tests/unit/generator/markdown-renderer.test.ts",
@@ -1231,8 +1446,8 @@
     },
     {
       "path": "tests/unit/generator/spec-generator.test.ts",
-      "hash": "7d794a774f69ce17953c84e9cc00a024b2ea010e12e5fc281876596ed9069b0c",
-      "bytes": 11099
+      "hash": "f0209a5682dcc2e0a15525eaac0ed96318fb288c466568a39b0f1e7c29feb71c",
+      "bytes": 12413
     },
     {
       "path": "tests/unit/kb/confidence-scoring.test.ts",
@@ -1306,8 +1521,8 @@
     },
     {
       "path": "tests/unit/parser/fact-extractor.test.ts",
-      "hash": "657232d6058895c58792851d22c01c80a8657e280816594a21781c16b80f0a06",
-      "bytes": 5041
+      "hash": "70b8700f9031bcbb48911045bb76c9ae3b2cf10aa09f6003cbbd9c643bafab08",
+      "bytes": 5871
     },
     {
       "path": "tests/unit/parser/parser.test.ts",

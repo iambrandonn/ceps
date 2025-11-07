@@ -10,7 +10,9 @@
 
 **Visibility:** Public (exported)
 
-This constant defines posts router.
+**Behavior:**
+
+- Express Router postsRouter that defines HTTP route handlers.
 
 ## users.ts
 
@@ -20,5 +22,7 @@ This constant defines posts router.
 
 **Visibility:** Public (exported)
 
-This constant defines users router.
+**Behavior:**
+
+- Express Router usersRouter that defines HTTP route handlers.
 

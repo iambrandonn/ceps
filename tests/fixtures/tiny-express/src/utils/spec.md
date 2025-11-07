@@ -12,5 +12,7 @@
 
 **Visibility:** Public (exported)
 
-This function retrieves data.
+**Behavior:**
+
+- Function getDb (intent unclear from static analysis)
 

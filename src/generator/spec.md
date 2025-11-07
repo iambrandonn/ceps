@@ -10,7 +10,12 @@
 
 **Visibility:** Public (exported)
 
-This class represents markdown renderer.
+**Behavior:**
+
+- Class MarkdownRenderer (intent unclear from static analysis)
+
+**Open Questions:**
+- q:tKrgUntrc8: What are the responsibilities and contract of class `MarkdownRenderer` at src/generator/markdown-renderer.ts?
 
 <a id="qS6NKWoTw9"></a>
 
@@ -20,17 +25,27 @@ This class represents markdown renderer.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method renderEntity (intent unclear from static analysis)
+
+**Open Questions:**
+- q:MvAU56ygFE: What is the behavior of method `renderEntity` at src/generator/markdown-renderer.ts?
 
 ## spec-generator.ts
 
-<a id="CaTqvjZgr0"></a>
+<a id="sgv9ad9rMF"></a>
 
 ### SpecGenerator
 
 **Visibility:** Public (exported)
 
-This class represents spec generator.
+**Behavior:**
+
+- Class SpecGenerator (intent unclear from static analysis)
+
+**Open Questions:**
+- q:mwavKYEJ9e: What are the responsibilities and contract of class `SpecGenerator` at src/generator/spec-generator.ts?
 
 <a id="s6O2VO9LDd"></a>
 
@@ -40,7 +55,12 @@ This class represents spec generator.
 
 **Visibility:** Public (exported)
 
-This method retrieves data.
+**Behavior:**
+
+- Method getMetrics (intent unclear from static analysis)
+
+**Open Questions:**
+- q:fv6Noms0KN: What is the behavior of method `getMetrics` at src/generator/spec-generator.ts?
 
 <a id="9Vk2CHnq6O"></a>
 
@@ -50,7 +70,12 @@ This method retrieves data.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method generateRootSpec (intent unclear from static analysis)
+
+**Open Questions:**
+- q:tL8ZmjQemr: What is the behavior of method `generateRootSpec` at src/generator/spec-generator.ts?
 
 <a id="MIlYZtEBp6"></a>
 
@@ -60,7 +85,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method generateDirectorySpecs (intent unclear from static analysis)
+
+**Open Questions:**
+- q:gsnYBRr5EB: What is the behavior of method `generateDirectorySpecs` at src/generator/spec-generator.ts?
 
 <a id="SyCQscVRDk"></a>
 
@@ -70,7 +100,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method generateDirectorySpecsAsync (intent unclear from static analysis)
+
+**Open Questions:**
+- q:If83OtSTF0: What is the behavior of method `generateDirectorySpecsAsync` at src/generator/spec-generator.ts?
 
 ## style-kit.ts
 
@@ -80,7 +115,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This constant defines l e x i c o n.
+**Behavior:**
+
+- Constant LEXICON (intent unclear from static analysis)
+
+**Open Questions:**
+- q:CixpkaINgG: What is the purpose of constant `LEXICON` at src/generator/style-kit.ts?
 
 <a id="GugJ6KWT0C"></a>
 
@@ -88,5 +128,10 @@ This constant defines l e x i c o n.
 
 **Visibility:** Public (exported)
 
-This constant defines s t y l e_ g u i d e.
+**Behavior:**
+
+- Constant STYLE_GUIDE (intent unclear from static analysis)
+
+**Open Questions:**
+- q:ZD4mqChaOj: What is the purpose of constant `STYLE_GUIDE` at src/generator/style-kit.ts?
 

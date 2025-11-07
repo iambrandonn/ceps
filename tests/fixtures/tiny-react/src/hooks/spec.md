@@ -12,7 +12,9 @@
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Manages state using useState hook
 
 **Side effects:**
 - storage

@@ -12,5 +12,7 @@
 
 **Visibility:** Public (exported)
 
-This function persists data.
+**Behavior:**
+
+- Function createApp (intent unclear from static analysis)
 

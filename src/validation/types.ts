@@ -46,7 +46,7 @@ export interface GroundingDiagnostic {
   chunkId: string;
   rule: 'entity' | 'relation' | 'numeric' | 'enum' | 'scope' | 'lexicon' | 'pronoun';
   reason: string;
-  context?: { expected?: unknown; actual?: unknown; location?: string };
+  context?: { expected?: unknown; actual?: unknown; location?: string; [key: string]: unknown };
 }
 
 /**
@@ -75,7 +75,7 @@ export interface GroundingResult {
  */
 export interface RetryMetadata {
   attempt: 0 | 1 | 2;
-  promptKey: 'O' | 'R1' | 'R2';
+  promptKey: 'O' | 'R1' | 'R2' | 'L1'; // L1 = Lexicon retry
 }
 
 /**

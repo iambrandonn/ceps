@@ -10,7 +10,12 @@
 
 **Visibility:** Public (exported)
 
-This class represents config reader.
+**Behavior:**
+
+- Class ConfigReader (intent unclear from static analysis)
+
+**Open Questions:**
+- q:lgyIPlQscq: What are the responsibilities and contract of class `ConfigReader` at src/parser/aux-readers/config-reader.ts?
 
 <a id="PzZcT5z1rw"></a>
 
@@ -20,7 +25,12 @@ This class represents config reader.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method extractFacts (intent unclear from static analysis)
+
+**Open Questions:**
+- q:aBa9FfqxMH: What is the behavior of method `extractFacts` at src/parser/aux-readers/config-reader.ts?
 
 ## test-reader.ts
 
@@ -30,7 +40,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents test reader.
+**Behavior:**
+
+- Class TestReader (intent unclear from static analysis)
+
+**Open Questions:**
+- q:3QKKf8r5z8: What are the responsibilities and contract of class `TestReader` at src/parser/aux-readers/test-reader.ts?
 
 <a id="olPXLRwPfN"></a>
 
@@ -40,5 +55,10 @@ This class represents test reader.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method extractFacts (intent unclear from static analysis)
+
+**Open Questions:**
+- q:PP96ldNB4M: What is the behavior of method `extractFacts` at src/parser/aux-readers/test-reader.ts?
 

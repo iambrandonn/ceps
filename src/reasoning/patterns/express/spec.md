@@ -1,0 +1,209 @@
+# src/reasoning/patterns/express
+
+**Directory Overview:** This directory contains 13 entities.
+
+## error-handler.ts
+
+<a id="vRE0pYC2Y5"></a>
+
+### ExpressErrorHandlerPattern
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class ExpressErrorHandlerPattern (intent unclear from static analysis)
+
+**Open Questions:**
+- q:awecJ84JhJ: What are the responsibilities and contract of class `ExpressErrorHandlerPattern` at src/reasoning/patterns/express/error-handler.ts?
+
+<a id="MarHKhrwih"></a>
+
+### matches
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): boolean`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method matches (intent unclear from static analysis)
+
+**Open Questions:**
+- q:wckiQqHClE: What is the behavior of method `matches` at src/reasoning/patterns/express/error-handler.ts?
+
+<a id="Esg9Oxxqf0"></a>
+
+### describe
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): import("/src/kb/models").BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method describe (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:QZtCxxr7ck: What is the behavior of method `describe` at src/reasoning/patterns/express/error-handler.ts?
+
+<a id="WJbhEKx5PZ"></a>
+
+### confidenceAdjustments
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): ConfidenceDelta`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method confidenceAdjustments (intent unclear from static analysis)
+
+**Open Questions:**
+- q:X14KkPrnDV: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/error-handler.ts?
+
+## index.ts
+
+<a id="mDm1YIScrn"></a>
+
+### registerExpressPatterns
+
+**Signature:** `(registry: PatternRegistry): void`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Function registerExpressPatterns: 
+Register all Express pattern modules with the given registry.
+
+
+## middleware.ts
+
+<a id="eH7Hs8mZRn"></a>
+
+### ExpressMiddlewarePattern
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class ExpressMiddlewarePattern (intent unclear from static analysis)
+
+**Open Questions:**
+- q:uAxH3Fze9m: What are the responsibilities and contract of class `ExpressMiddlewarePattern` at src/reasoning/patterns/express/middleware.ts?
+
+<a id="jRsHQ6TnQb"></a>
+
+### matches
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): boolean`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method matches (intent unclear from static analysis)
+
+**Open Questions:**
+- q:vh5tKMYHas: What is the behavior of method `matches` at src/reasoning/patterns/express/middleware.ts?
+
+<a id="5k0TlU1wK9"></a>
+
+### describe
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): import("/src/kb/models").BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method describe (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:8VYLGr8NmU: What is the behavior of method `describe` at src/reasoning/patterns/express/middleware.ts?
+
+<a id="qLFUG6Xupu"></a>
+
+### confidenceAdjustments
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): any`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method confidenceAdjustments (intent unclear from static analysis)
+
+**Open Questions:**
+- q:B4IDaLfeLb: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/middleware.ts?
+
+## router.ts
+
+<a id="nfO8N5qJTi"></a>
+
+### ExpressRouterPattern
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class ExpressRouterPattern (intent unclear from static analysis)
+
+**Open Questions:**
+- q:PBbpLVyRwf: What are the responsibilities and contract of class `ExpressRouterPattern` at src/reasoning/patterns/express/router.ts?
+
+<a id="y1zRZHEc3R"></a>
+
+### matches
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): boolean`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method matches (intent unclear from static analysis)
+
+**Open Questions:**
+- q:tYaZrIT5ny: What is the behavior of method `matches` at src/reasoning/patterns/express/router.ts?
+
+<a id="jHeOCnwFSL"></a>
+
+### describe
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): import("/src/kb/models").BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method describe (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:szKyoXaXZE: What is the behavior of method `describe` at src/reasoning/patterns/express/router.ts?
+
+<a id="N1JbEX9GRa"></a>
+
+### confidenceAdjustments
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): any`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method confidenceAdjustments (intent unclear from static analysis)
+
+**Open Questions:**
+- q:4egHqjs0cF: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/router.ts?
+

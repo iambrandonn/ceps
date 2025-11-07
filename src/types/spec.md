@@ -10,5 +10,10 @@
 
 **Visibility:** Public (exported)
 
-This constant defines v a l i d_ e n t i t y_ k i n d s.
+**Behavior:**
+
+- Constant VALID_ENTITY_KINDS (intent unclear from static analysis)
+
+**Open Questions:**
+- q:CVfnStGwYy: What is the purpose of constant `VALID_ENTITY_KINDS` at src/types/index.ts?
 

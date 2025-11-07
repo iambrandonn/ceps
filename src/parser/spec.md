@@ -4,15 +4,20 @@
 
 ## fact-extractor.ts
 
-<a id="e2VE852vzC"></a>
+<a id="A6QYI4ZNhk"></a>
 
 ### FactExtractor
 
 **Visibility:** Public (exported)
 
-This class represents fact extractor.
+**Behavior:**
 
-<a id="q2m6RQhiCk"></a>
+- Class FactExtractor (intent unclear from static analysis)
+
+**Open Questions:**
+- q:RDFNjeoeUa: What are the responsibilities and contract of class `FactExtractor` at src/parser/fact-extractor.ts?
+
+<a id="FOENqURIsn"></a>
 
 ### extract
 
@@ -20,7 +25,12 @@ This class represents fact extractor.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method extract (intent unclear from static analysis)
+
+**Open Questions:**
+- q:PLP70bRz4N: What is the behavior of method `extract` at src/parser/fact-extractor.ts?
 
 ## parser.ts
 
@@ -30,7 +40,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents parser.
+**Behavior:**
+
+- Class Parser (intent unclear from static analysis)
+
+**Open Questions:**
+- q:jyKvCt0iBa: What are the responsibilities and contract of class `Parser` at src/parser/parser.ts?
 
 <a id="YncxQwOTAS"></a>
 
@@ -40,7 +55,12 @@ This class represents parser.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method parse (intent unclear from static analysis)
+
+**Open Questions:**
+- q:xocsFnLR92: What is the behavior of method `parse` at src/parser/parser.ts?
 
 <a id="rhGK98lAf1"></a>
 
@@ -50,7 +70,9 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method parseAndStore (intent unclear from static analysis)
 
 **Errors thrown:**
 - error;
@@ -63,7 +85,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents pattern detector.
+**Behavior:**
+
+- Class PatternDetector (intent unclear from static analysis)
+
+**Open Questions:**
+- q:Is53NWfBmu: What are the responsibilities and contract of class `PatternDetector` at src/parser/pattern-detector.ts?
 
 <a id="AoGp4Jl2zi"></a>
 
@@ -73,5 +100,10 @@ This class represents pattern detector.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method detect (intent unclear from static analysis)
+
+**Open Questions:**
+- q:LjNCu0CiSE: What is the behavior of method `detect` at src/parser/pattern-detector.ts?
 

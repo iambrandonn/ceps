@@ -1,0 +1,17 @@
+{
+  "name": "Express: Approved Router Terminology",
+  "description": "LLM correctly uses Express Router terminology with HTTP methods",
+  "category": "lexicon",
+  "severity": "low",
+  "expectedOutcome": "accept",
+  "draftText": "Express Router with route handlers. Routes: GET /users, POST /users, DELETE /users/:id.",
+  "factSetIds": ["fs-http-handler"],
+  "metadata": {
+    "chunkId": "chunk-express-router-approved",
+    "targetEntityId": "func-handleRequest",
+    "factSetIds": ["fs-http-handler"],
+    "confidence": "High"
+  },
+  "expectedDiagnostics": [],
+  "notes": "Tests that lexicon-approved Express Router terminology ('Express Router', 'route handlers', 'GET', 'POST', 'DELETE') passes validation without triggering entity lookups."
+}

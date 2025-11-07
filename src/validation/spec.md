@@ -1,6 +1,6 @@
 # src/validation
 
-**Directory Overview:** This directory contains 26 entities.
+**Directory Overview:** This directory contains 30 entities.
 
 ## cross-link-validator.ts
 
@@ -10,7 +10,12 @@
 
 **Visibility:** Public (exported)
 
-This class represents cross link validator.
+**Behavior:**
+
+- Class CrossLinkValidator (intent unclear from static analysis)
+
+**Open Questions:**
+- q:ISDncA2QWm: What are the responsibilities and contract of class `CrossLinkValidator` at src/validation/cross-link-validator.ts?
 
 <a id="rboifkt5E5"></a>
 
@@ -20,7 +25,12 @@ This class represents cross link validator.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validatePreGeneration (intent unclear from static analysis)
+
+**Open Questions:**
+- q:CblUBFenqS: What is the behavior of method `validatePreGeneration` at src/validation/cross-link-validator.ts?
 
 <a id="m9JODHtFms"></a>
 
@@ -30,7 +40,12 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method buildAnchorMap (intent unclear from static analysis)
+
+**Open Questions:**
+- q:fbz3bYeYd0: What is the behavior of method `buildAnchorMap` at src/validation/cross-link-validator.ts?
 
 <a id="9WFtIBUAYY"></a>
 
@@ -40,7 +55,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validatePostGeneration (intent unclear from static analysis)
+
+**Open Questions:**
+- q:EWrjTyD140: What is the behavior of method `validatePostGeneration` at src/validation/cross-link-validator.ts?
 
 ## diagnostic-renderer.ts
 
@@ -52,7 +72,11 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function renderDiagnostics: 
+Render validation diagnostics to string.
+
 
 ## entity-name-index.ts
 
@@ -62,7 +86,14 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents entity name index.
+**Behavior:**
+
+- Class EntityNameIndex: 
+Entity name index for fast name-based lookups.
+Workaround for KB lacking `findEntityByName()` API.
+
+**Open Questions:**
+- q:kmlrVH1yvy: What are the responsibilities and contract of class `EntityNameIndex` at src/validation/entity-name-index.ts?
 
 <a id="2Rj2fNT2o7"></a>
 
@@ -72,7 +103,12 @@ This class represents entity name index.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method find (intent unclear from static analysis)
+
+**Open Questions:**
+- q:xpb9PY3gfb: What is the behavior of method `find` at src/validation/entity-name-index.ts?
 
 ## enums.ts
 
@@ -84,7 +120,11 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This function retrieves data.
+**Behavior:**
+
+- Function getAllowedEnumValues: 
+Get allowed enum values for a predicate, if any.
+
 
 <a id="gowsZSHYNJ"></a>
 
@@ -92,7 +132,12 @@ This function retrieves data.
 
 **Visibility:** Public (exported)
 
-This constant defines e n u m_ r e g i s t r y.
+**Behavior:**
+
+- Constant ENUM_REGISTRY (intent unclear from static analysis)
+
+**Open Questions:**
+- q:roD0gDTEsZ: What is the purpose of constant `ENUM_REGISTRY` at src/validation/enums.ts?
 
 ## fact-schema-interpreter.ts
 
@@ -104,19 +149,30 @@ This constant defines e n u m_ r e g i s t r y.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function parseFactNumeric: 
+Parse a fact object value into normalized numeric representation.
+
 
 ## grounding-validator.ts
 
-<a id="R4qQZbPXnq"></a>
+<a id="7PXVQT24v4"></a>
 
 ### GroundingValidator
 
 **Visibility:** Public (exported)
 
-This class represents grounding validator.
+**Behavior:**
 
-<a id="KuVqdue1ca"></a>
+- Class GroundingValidator: 
+GroundingValidator orchestrates all validation rules.
+Main entry point for Phase 4 grounding validation.
+
+**Open Questions:**
+- q:Gb3OoLSM8L: What are the responsibilities and contract of class `GroundingValidator` at src/validation/grounding-validator.ts?
+
+<a id="rERC2QN9QD"></a>
 
 ### validate
 
@@ -124,7 +180,9 @@ This class represents grounding validator.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validate (intent unclear from static analysis)
 
 ## identifier-extractor.ts
 
@@ -136,7 +194,11 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This function performs an operation.
+**Behavior:**
+
+- Function extractIdentifiers: 
+Extract identifiers from text using pattern matching.
+
 
 <a id="1Tu8hgrGQ7"></a>
 
@@ -144,7 +206,14 @@ This function performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents identifier extractor.
+**Behavior:**
+
+- Class IdentifierExtractor: 
+IdentifierExtractor class for extracting identifiers from text.
+Not strictly needed but provides encapsulation for future enhancements.
+
+**Open Questions:**
+- q:HEJ9PMZ41c: What are the responsibilities and contract of class `IdentifierExtractor` at src/validation/identifier-extractor.ts?
 
 <a id="hQ83ovBm41"></a>
 
@@ -154,7 +223,12 @@ This class represents identifier extractor.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method extract (intent unclear from static analysis)
+
+**Open Questions:**
+- q:9WMsU9vswh: What is the behavior of method `extract` at src/validation/identifier-extractor.ts?
 
 ## identifier-validator.ts
 
@@ -164,7 +238,13 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This class represents identifier validator.
+**Behavior:**
+
+- Class IdentifierValidator: 
+IdentifierValidator validates identifiers against KB.
+
+**Open Questions:**
+- q:Q8SnyTLV78: What are the responsibilities and contract of class `IdentifierValidator` at src/validation/identifier-validator.ts?
 
 <a id="7iUwNcCEI6"></a>
 
@@ -174,7 +254,12 @@ This class represents identifier validator.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validate (intent unclear from static analysis)
+
+**Open Questions:**
+- q:Sr1LEtgMyV: What is the behavior of method `validate` at src/validation/identifier-validator.ts?
 
 <a id="9SicnGDgmn"></a>
 
@@ -184,7 +269,12 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validateRelations (intent unclear from static analysis)
+
+**Open Questions:**
+- q:rqHBGEOs5U: What is the behavior of method `validateRelations` at src/validation/identifier-validator.ts?
 
 <a id="bwJKNC7XRc"></a>
 
@@ -194,7 +284,75 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validatePronouns (intent unclear from static analysis)
+
+**Open Questions:**
+- q:WgrSCQHTNt: What is the behavior of method `validatePronouns` at src/validation/identifier-validator.ts?
+
+## lexicon-validator.ts
+
+<a id="IXeEFHHWFp"></a>
+
+### LexiconValidator
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class LexiconValidator (intent unclear from static analysis)
+
+**Open Questions:**
+- q:HunFaXnx96: What are the responsibilities and contract of class `LexiconValidator` at src/validation/lexicon-validator.ts?
+
+<a id="SRPw6bFms0"></a>
+
+### loadFromMarkdown
+
+**Signature:** `(markdownPath: string): void`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method loadFromMarkdown (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:tIKPqRWSkf: What is the behavior of method `loadFromMarkdown` at src/validation/lexicon-validator.ts?
+
+<a id="wCnxpxcWZ3"></a>
+
+### getRules
+
+**Signature:** `(): Map<string, import("/src/validation/lexicon-validator").LexiconRule>`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method getRules (intent unclear from static analysis)
+
+**Open Questions:**
+- q:80n3zri1nf: What is the behavior of method `getRules` at src/validation/lexicon-validator.ts?
+
+<a id="woW0QIpCdP"></a>
+
+### validate
+
+**Signature:** `(draftText: string, factSetIds: string[], metadata: ChunkMetadata): GroundingResult`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method validate (intent unclear from static analysis)
+
+**Open Questions:**
+- q:6uNMSbfLws: What is the behavior of method `validate` at src/validation/lexicon-validator.ts?
 
 ## mock-validator.ts
 
@@ -204,7 +362,15 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This class represents mock validator.
+**Behavior:**
+
+- Class MockValidator: 
+Mock validator that returns configurable results.
+Default behavior: accept all chunks.
+Use setNextResult() to simulate retry/fallback scenarios in tests.
+
+**Open Questions:**
+- q:WgTQYSV2Uz: What are the responsibilities and contract of class `MockValidator` at src/validation/mock-validator.ts?
 
 <a id="DRZIUtKLA4"></a>
 
@@ -214,7 +380,9 @@ This class represents mock validator.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method setNextResult (intent unclear from static analysis)
 
 **Errors thrown:**
 - new Error(
@@ -236,7 +404,12 @@ This method performs an operation.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validate (intent unclear from static analysis)
+
+**Open Questions:**
+- q:rnUepgyNj2: What is the behavior of method `validate` at src/validation/mock-validator.ts?
 
 ## numeric-validator.ts
 
@@ -246,7 +419,13 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This class represents numeric validator.
+**Behavior:**
+
+- Class NumericValidator: 
+NumericValidator validates numeric claims and enum values.
+
+**Open Questions:**
+- q:stg3X6EpUI: What are the responsibilities and contract of class `NumericValidator` at src/validation/numeric-validator.ts?
 
 <a id="f9aN8HHXes"></a>
 
@@ -256,7 +435,12 @@ This class represents numeric validator.
 
 **Visibility:** Public (exported)
 
-This method validates input.
+**Behavior:**
+
+- Method validate (intent unclear from static analysis)
+
+**Open Questions:**
+- q:8F17KhWo1j: What is the behavior of method `validate` at src/validation/numeric-validator.ts?
 
 ## retry-controller.ts
 
@@ -266,7 +450,13 @@ This method validates input.
 
 **Visibility:** Public (exported)
 
-This class represents retry controller.
+**Behavior:**
+
+- Class RetryController: 
+RetryController manages validation retry logic and template fallback.
+
+**Open Questions:**
+- q:B5xPLP4CxA: What are the responsibilities and contract of class `RetryController` at src/validation/retry-controller.ts?
 
 <a id="rchFZJu5n1"></a>
 
@@ -276,5 +466,10 @@ This class represents retry controller.
 
 **Visibility:** Public (exported)
 
-This method performs an operation.
+**Behavior:**
+
+- Method decide (intent unclear from static analysis)
+
+**Open Questions:**
+- q:pjIz2PJSw6: What is the behavior of method `decide` at src/validation/retry-controller.ts?
 
