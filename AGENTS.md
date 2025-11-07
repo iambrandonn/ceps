@@ -307,6 +307,13 @@ When testing code that selects from multiple candidates (e.g., pattern matchers,
    - Nested structures (calls within calls, etc.)
    - Edge cases (empty, missing, null, etc.)
 
+### Behavioral Regression Guards (Phase 6 Baseline)
+
+- **Golden spec fixtures:** For each representative fixture (tiny-react, tiny-express, ceps itself), add end-to-end tests that diff generated `spec.md` files against checked-in expectations. Any drift in behavior prose or coverage should fail CI.
+- **KB chunk assertions:** Integration tests must interrogate the Knowledge Base (chunks, confidence, QIDs) instead of only checking exit codes; regressions where reasoning silently stops should be caught before specs are rendered.
+- **Gate validation in tests:** Treat coverage/link/grounding gates as part of the expected success criteria. If a scenario deliberately fails a gate, the test must document why; otherwise, 0 exit codes are mandatory.
+- **LLM-off contract:** Every new feature must prove it works with `--llm off`, including deterministic wording. Tests should explicitly stub the LLM gateway (or disable it) and assert that behavior text remains meaningful and diagnostic-free.
+
 ### Phase -1 Analysis (Mandatory Before Implementation)
 
 Before writing any tests, read upstream component output to understand:

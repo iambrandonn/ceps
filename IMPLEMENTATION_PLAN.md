@@ -52,6 +52,11 @@
 
 Unit tests are **required deliverables** for every workstream and are validated at every milestone gate.
 
+In addition to the standard TDD loop:
+- **Golden fixtures** (tiny-react, tiny-express, ceps) must have spec outputs under test so behavioral prose regressions show up as diffs.
+- **Gate assertions** belong in integration tests; expect exit code 0 unless the scenario explicitly documents why a gate fails.
+- **LLM-off runs** are first-class: every feature should include a deterministic test path (stubbing the gateway if needed) so we never rely solely on LLM polish for correctness.
+
 **Primary inputs & references:** SADS v1.1 and CTS question set. fileciteturn0file1 fileciteturn0file0
 
 ---
@@ -77,6 +82,7 @@ Unit tests are **required deliverables** for every workstream and are validated 
 8. **Grounding validation:** LLM outputs must pass strict grounding checks (no new entities, numeric safety, lexicon adherence). Failed validations retry twice, then fall back to templates.
 
 9. **Test-Driven Development (TDD):** All workstreams must follow TDD. Write failing tests before implementation. Unit tests are required deliverables and gate criteria. Target: ≥80% branch coverage for core logic (scoring, validators, generators, parsers).
+10. **Behavior-first regression strategy:** Maintain golden spec fixtures, Knowledge Base chunk assertions, and LLM-off contract tests so coverage/link/grounding gates are always green by default. Any intentional gate failure must be called out in tests and documentation.
 
 ---
 

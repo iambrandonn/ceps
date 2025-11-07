@@ -141,6 +141,13 @@ npm run test:integration  # Run integration tests only
 npm run test:coverage     # Run with coverage report
 ```
 
+#### Behavior-First Regression Suite
+
+- **Golden fixtures:** `tests/integration/orchestrator.test.ts` drives the full CLI over ceps itself and tiny fixtures, asserting gate success and inspecting generated specs.
+- **Reasoning health checks:** `tests/integration/behavior-chunks.test.ts` runs the orchestrator through the reasoning phase with `--llm off` and fails if exported entities stop receiving BehaviorChunks.
+- **LLM fallback contract:** Unit tests in `tests/unit/generator/spec-generator.test.ts` and `tests/unit/parser/fact-extractor.test.ts` guard deterministic text generation (no `NEEDS_QUESTION` leaks, exported constants always yield factSets).
+- **Gates as expectations:** Integration tests now treat Coverage/Link/Grounding gates as part of the success criteria; any change that brings the pipeline back to exit code 2 must update the tests and documentation explaining why.
+
 ### Linting & Type Checking
 
 ```bash
