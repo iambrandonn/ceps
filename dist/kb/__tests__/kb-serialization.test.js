@@ -131,7 +131,7 @@ describe('KB Serialization (Phase 5 Step 6)', () => {
         });
     });
     describe('serializeToFile', () => {
-        it('should write KB to file', () => {
+        it('should write KB to file', async () => {
             const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-test-'));
             const filepath = path.join(tmpDir, 'kb-state.json');
             const kb = new KnowledgeBase();
@@ -141,7 +141,7 @@ describe('KB Serialization (Phase 5 Step 6)', () => {
                 name: 'test',
                 path: 'test.ts'
             });
-            kb.serializeToFile(filepath);
+            await kb.serializeToFile(filepath);
             expect(fs.existsSync(filepath)).toBe(true);
             const content = fs.readFileSync(filepath, 'utf8');
             const parsed = JSON.parse(content);
@@ -149,18 +149,18 @@ describe('KB Serialization (Phase 5 Step 6)', () => {
             // Cleanup
             fs.rmSync(tmpDir, { recursive: true });
         });
-        it('should create parent directories if needed', () => {
+        it('should create parent directories if needed', async () => {
             const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-test-'));
             const filepath = path.join(tmpDir, 'nested', 'dir', 'kb-state.json');
             const kb = new KnowledgeBase();
-            kb.serializeToFile(filepath);
+            await kb.serializeToFile(filepath);
             expect(fs.existsSync(filepath)).toBe(true);
             // Cleanup
             fs.rmSync(tmpDir, { recursive: true });
         });
     });
     describe('deserializeFromFile', () => {
-        it('should read KB from file', () => {
+        it('should read KB from file', async () => {
             const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-test-'));
             const filepath = path.join(tmpDir, 'kb-state.json');
             const original = new KnowledgeBase();
@@ -170,17 +170,17 @@ describe('KB Serialization (Phase 5 Step 6)', () => {
                 name: 'test',
                 path: 'test.ts'
             });
-            original.serializeToFile(filepath);
+            await original.serializeToFile(filepath);
             const restored = new KnowledgeBase();
-            restored.deserializeFromFile(filepath);
+            await restored.deserializeFromFile(filepath);
             expect(restored.getAllEntities()).toHaveLength(1);
             expect(restored.getAllEntities()[0].id).toBe('e1');
             // Cleanup
             fs.rmSync(tmpDir, { recursive: true });
         });
-        it('should throw error if file does not exist', () => {
+        it('should throw error if file does not exist', async () => {
             const kb = new KnowledgeBase();
-            expect(() => kb.deserializeFromFile('/nonexistent/path.json')).toThrow();
+            await expect(() => kb.deserializeFromFile('/nonexistent/path.json')).rejects.toThrow();
         });
     });
     describe('round-trip integrity', () => {

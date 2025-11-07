@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "ccb6ba94e03c7cba6a0a1cd0bb856bdea15c53e8d801d9c0b732f831d0b93e14",
-  "generatedAt": "2025-11-06T19:31:24.717Z",
+  "rootHash": "42a4cebd6bc28a5d349fb60121947f0bc83ec6d520da84a44f14f8affe6bdd94",
+  "generatedAt": "2025-11-06T23:47:59.222Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -11,8 +11,8 @@
     },
     {
       "path": "AGENTS.md",
-      "hash": "8edba98d26b2b6a54483d15be7414c4f81958c15ba57efbaaf054e54f8e191a6",
-      "bytes": 17413
+      "hash": "3e9edb9273702529f559a8320b5bf84814d162e0138653e1a423b29a9b2627c0",
+      "bytes": 18314
     },
     {
       "path": "CLAUDE.md",
@@ -66,8 +66,8 @@
     },
     {
       "path": "docs/cli.md",
-      "hash": "c4b9a15c43680ff1d15baa8b624ab427452a6145c3debdb7f76eb900cfa33772",
-      "bytes": 6742
+      "hash": "e97d6c5b7cc8d41853ed44d4bb7e2f7e716950f5d78e17892807fd3982cbb121",
+      "bytes": 10763
     },
     {
       "path": "docs/examples/run-summary.json",
@@ -118,6 +118,11 @@
       "path": "docs/ws-f2-telemetry.md",
       "hash": "3ac777dc50b995f0d32745da18f6d672d6dc9a42844dcda34d9de484517aa6c0",
       "bytes": 6555
+    },
+    {
+      "path": "FEEDBACK_1.md",
+      "hash": "298c9abc4b075b70ab74491af1d25d11b333edb2ad7ae8ecafda941074bfbaf8",
+      "bytes": 18052
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -386,8 +391,8 @@
     },
     {
       "path": "IMPLEMENTATION_PLAN.md",
-      "hash": "6e21d3fe7f643c324f17e2b696de99012aeaedea2b4c99548ee0609116695a3b",
-      "bytes": 45856
+      "hash": "ff5a7b47d000749c0cdb65124c97108c5cb04116c9b8e874e07f2067e4415fe9",
+      "bytes": 46541
     },
     {
       "path": "package-lock.json",
@@ -450,6 +455,16 @@
       "bytes": 20086
     },
     {
+      "path": "PHASE5_COMPLETION_SUMMARY.md",
+      "hash": "41a1caba6fce8c7d209ee34188f01916aa40f62f284937be49c9af7c828bf921",
+      "bytes": 5710
+    },
+    {
+      "path": "PHASE5_OVERALL_FEEDBACK.md",
+      "hash": "2dcd657540eefa0809f0285e7b40cb507d7e5b44b7f480c63236124d9796ffeb",
+      "bytes": 12469
+    },
+    {
       "path": "PRD.md",
       "hash": "cf37b336c9d43388a3e59adbdb9f9b16622991f833c906bd44e2c88b841494af",
       "bytes": 1658
@@ -466,8 +481,8 @@
     },
     {
       "path": "README.md",
-      "hash": "bc754a8a0e594064750c1d0b2613330b46a4f655a036b644a5b67310080450bc",
-      "bytes": 6684
+      "hash": "fd73127c7e4586f53512023c82f26d84325f2d20deb05bc80444a107a4f3c793",
+      "bytes": 10204
     },
     {
       "path": "SADS.md",
@@ -536,8 +551,8 @@
     },
     {
       "path": "src/finalize/__tests__/spec-patcher.test.ts",
-      "hash": "1ee4f92a443be2483e75633f31047e27d555635ed1957f6c5edd50cca63f3480",
-      "bytes": 15200
+      "hash": "3b8d2b9154400215c8a464aeac2f8f1a76807751d8c9fb28e325d4faea4097b9",
+      "bytes": 15344
     },
     {
       "path": "src/finalize/answers.ts",
