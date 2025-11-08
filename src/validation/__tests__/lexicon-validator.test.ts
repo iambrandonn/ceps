@@ -505,6 +505,275 @@ describe('LexiconValidator', () => {
     });
   });
 
+  describe('I4 Mongoose ODM terms loading', () => {
+    it('should load Mongoose schema & model terms', () => {
+      const rules = validator.getRules();
+      const mongooseRule = rules.get('mongoose');
+
+      expect(mongooseRule).toBeDefined();
+      expect(mongooseRule!.approvedTerms.has('Mongoose schema')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('Mongoose model')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('schema')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('collection')).toBe(true);
+    });
+
+    it('should load Mongoose field & validation terms', () => {
+      const rules = validator.getRules();
+      const mongooseRule = rules.get('mongoose');
+
+      expect(mongooseRule!.approvedTerms.has('fields')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('required')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('reference')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('ref')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('ObjectId')).toBe(true);
+    });
+
+    it('should load Mongoose query operation terms', () => {
+      const rules = validator.getRules();
+      const mongooseRule = rules.get('mongoose');
+
+      expect(mongooseRule!.approvedTerms.has('Mongoose query')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('read query')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('write query')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('find')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('findOne')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('findById')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('create')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('updateOne')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('deleteOne')).toBe(true);
+    });
+
+    it('should load Mongoose integration terms', () => {
+      const rules = validator.getRules();
+      const mongooseRule = rules.get('mongoose');
+
+      expect(mongooseRule!.approvedTerms.has('model not resolved')).toBe(true);
+      expect(mongooseRule!.approvedTerms.has('Supports fields')).toBe(true);
+    });
+
+    it('should load Mongoose anti-patterns', () => {
+      const rules = validator.getRules();
+      const mongooseRule = rules.get('mongoose');
+
+      expect(mongooseRule!.antiPatterns.has('Sequelize')).toBe(true);
+      expect(mongooseRule!.antiPatterns.get('Sequelize')).toContain('Mongoose');
+
+      expect(mongooseRule!.antiPatterns.has('TypeORM')).toBe(true);
+      expect(mongooseRule!.antiPatterns.has('Prisma')).toBe(true);
+      expect(mongooseRule!.antiPatterns.has('SQL table')).toBe(true);
+      expect(mongooseRule!.antiPatterns.has('repository')).toBe(true);
+      expect(mongooseRule!.antiPatterns.has('DAO')).toBe(true);
+      expect(mongooseRule!.antiPatterns.has('ORM')).toBe(true);
+      expect(mongooseRule!.antiPatterns.has('SQL query')).toBe(true);
+      expect(mongooseRule!.antiPatterns.has('JOIN')).toBe(true);
+    });
+  });
+
+  describe('validate() - I4 Mongoose patterns', () => {
+    it('should accept Mongoose schema terminology', () => {
+      const draftText = 'Mongoose schema userSchema defines fields: name, email (required), posts → Post.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-1',
+        targetEntityId: 'entity-mongoose-1',
+        factSetIds: ['fs-mongoose-1'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-1'], metadata);
+
+      expect(result.status).toBe('accept');
+      expect(result.diagnostics).toHaveLength(0);
+    });
+
+    it('should accept Mongoose model terminology', () => {
+      const draftText = "Mongoose model User for collection 'User' using schema userSchema. Supports fields: name, email (required).";
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-2',
+        targetEntityId: 'entity-mongoose-2',
+        factSetIds: ['fs-mongoose-2'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-2'], metadata);
+
+      expect(result.status).toBe('accept');
+      expect(result.diagnostics).toHaveLength(0);
+    });
+
+    it('should accept Mongoose query terminology', () => {
+      const draftText = 'Performs Mongoose read query (find): User. Performs Mongoose write query (updateOne): Post.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-3',
+        targetEntityId: 'entity-mongoose-3',
+        factSetIds: ['fs-mongoose-3'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-3'], metadata);
+
+      if (result.status !== 'accept') {
+        console.log('\n⚠️ Mongoose query validation FAILED');
+        console.log('Text:', draftText);
+        console.log('Status:', result.status);
+        console.log('Diagnostics:', JSON.stringify(result.diagnostics, null, 2));
+      }
+
+      expect(result.status).toBe('accept');
+      expect(result.diagnostics).toHaveLength(0);
+    });
+
+    it('should reject "Sequelize" (different ORM)', () => {
+      const draftText = 'Sequelize model User defines table schema.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-1',
+        targetEntityId: 'entity-mongoose-anti-1',
+        factSetIds: ['fs-mongoose-anti-1'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-1'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/Sequelize/i);
+    });
+
+    it('should reject "TypeORM" (different ORM)', () => {
+      const draftText = 'TypeORM entity User with decorators.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-2',
+        targetEntityId: 'entity-mongoose-anti-2',
+        factSetIds: ['fs-mongoose-anti-2'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-2'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/TypeORM/i);
+    });
+
+    it('should reject "Prisma" (different ORM)', () => {
+      const draftText = 'Prisma client for database access.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-3',
+        targetEntityId: 'entity-mongoose-anti-3',
+        factSetIds: ['fs-mongoose-anti-3'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-3'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/Prisma/i);
+    });
+
+    it('should reject "ORM" without "Mongoose ODM" qualification', () => {
+      const draftText = 'ORM model User for database access.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-4',
+        targetEntityId: 'entity-mongoose-anti-4',
+        factSetIds: ['fs-mongoose-anti-4'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-4'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/ORM/i);
+      expect(result.diagnostics[0].reason).toContain('Mongoose ODM');
+    });
+
+    it('should accept "Mongoose ODM" (qualified form)', () => {
+      const draftText = 'Mongoose ODM (Object Document Mapper) for MongoDB database access.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-4',
+        targetEntityId: 'entity-mongoose-4',
+        factSetIds: ['fs-mongoose-4'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-4'], metadata);
+
+      expect(result.status).toBe('accept');
+      expect(result.diagnostics).toHaveLength(0);
+    });
+
+    it('should reject "SQL table" (relational terminology)', () => {
+      const draftText = 'SQL table users with columns.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-5',
+        targetEntityId: 'entity-mongoose-anti-5',
+        factSetIds: ['fs-mongoose-anti-5'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-5'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/SQL table/i);
+    });
+
+    it('should reject "repository" pattern (not Mongoose idiom)', () => {
+      const draftText = 'User repository handles database operations.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-6',
+        targetEntityId: 'entity-mongoose-anti-6',
+        factSetIds: ['fs-mongoose-anti-6'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-6'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/repository/i);
+    });
+
+    it('should reject "DAO" (Data Access Object)', () => {
+      const draftText = 'UserDAO provides data access methods.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-7',
+        targetEntityId: 'entity-mongoose-anti-7',
+        factSetIds: ['fs-mongoose-anti-7'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-7'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/DAO/i);
+    });
+
+    it('should reject "SQL query" (relational terminology)', () => {
+      const draftText = 'Executes SQL query to fetch users.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-8',
+        targetEntityId: 'entity-mongoose-anti-8',
+        factSetIds: ['fs-mongoose-anti-8'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-8'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/SQL query/i);
+    });
+
+    it('should reject "JOIN" (SQL operation)', () => {
+      const draftText = 'Performs JOIN operation between tables.';
+      const metadata: ChunkMetadata = {
+        chunkId: 'chunk-mongoose-anti-9',
+        targetEntityId: 'entity-mongoose-anti-9',
+        factSetIds: ['fs-mongoose-anti-9'],
+        confidence: 'High',
+      };
+
+      const result = validator.validate(draftText, ['fs-mongoose-anti-9'], metadata);
+
+      expect(result.status).toBe('retry');
+      expect(result.diagnostics[0].reason).toMatch(/JOIN/i);
+    });
+  });
+
   describe('validate() - Edge Cases', () => {
     it('should handle empty text', () => {
       const draftText = '';
@@ -522,8 +791,8 @@ describe('LexiconValidator', () => {
     });
 
     it('should handle text with partial matches (e.g., "servlets" vs "servlet")', () => {
-      // "servlets" (plural) should not match if only "servlet" is in anti-patterns
-      // But our implementation should be lenient and catch plurals too
+      // "servlets" (plural) should NOT match "servlet" anti-pattern with word-boundary matching
+      // This ensures precision and avoids false positives (e.g., "ORM" not matching "Performs")
       const draftText = 'The servlets process requests.';
       const metadata: ChunkMetadata = {
         chunkId: 'chunk-12',
@@ -534,9 +803,8 @@ describe('LexiconValidator', () => {
 
       const result = validator.validate(draftText, ['fs-12'], metadata);
 
-      // This test documents current behavior - adjust expectation based on implementation
-      // For now, expect rejection since "servlet" is substring of "servlets"
-      expect(result.status).toBe('retry');
+      // Word-boundary matching: "servlets" should NOT match "servlet" anti-pattern
+      expect(result.status).toBe('accept');
     });
   });
 });

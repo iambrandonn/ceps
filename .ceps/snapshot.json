@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "272e849cef8dced9bdcd08002a6085c85a01290d9a6c49ea84fb577185af0261",
-  "generatedAt": "2025-11-07T20:16:13.250Z",
+  "rootHash": "b774d24cb9ed988d3aefe4d438c0335631d9bb2bdc94f27e2133935b90ac4945",
+  "generatedAt": "2025-11-08T02:10:02.403Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -85,9 +85,14 @@
       "bytes": 1932
     },
     {
+      "path": "docs/internal/mongoose-facts-api.md",
+      "hash": "b1cc6ec8b22a147403b28a848e6824141eadd3c15f87f1088cc324e127b418c5",
+      "bytes": 12673
+    },
+    {
       "path": "docs/lexicon.md",
-      "hash": "81bb25abf0f795c260bef199e6b66a7fc1034683e39675b91f895484d9130aa7",
-      "bytes": 8781
+      "hash": "9aab3ada6a081d04eff747bb4fd796c90e60b701f1dcce5c67a6585b5f0b1742",
+      "bytes": 13071
     },
     {
       "path": "docs/PARSER_ERROR_HANDLING.md",
@@ -96,8 +101,8 @@
     },
     {
       "path": "docs/pattern-coverage.md",
-      "hash": "d38f726cda69f4cc62a7b13190a21e8fe7e3272c667c5ab9435a68f1b14995a6",
-      "bytes": 6027
+      "hash": "873bd4ad0b9ef4caa56619118225076f04c1ff47a99cd5699863103b12ae8b73",
+      "bytes": 9607
     },
     {
       "path": "docs/phase5-finalization-architecture.md",
@@ -135,9 +140,29 @@
       "bytes": 6555
     },
     {
+      "path": "FEEDBACK_I3_EXPRESS_CONFIG_FINAL_REVIEW.md",
+      "hash": "a871ec179667d3a92b39a03a6f476089f08396e9cbe0c3606ba3751583d80ed9",
+      "bytes": 21239
+    },
+    {
       "path": "FEEDBACK_I3_EXPRESS_CONFIG_REVIEW.md",
       "hash": "e23920a3948bf827bcbf208b8edf8ec775b2eac98b1baadcdc4dd2fb4249516e",
       "bytes": 23584
+    },
+    {
+      "path": "FEEDBACK_I4_MONGOOSE_COMPLETE.md",
+      "hash": "923ad8d7272324f36e9985793c7e91677e9b6541ead41160ab41130a186444e8",
+      "bytes": 4726
+    },
+    {
+      "path": "FEEDBACK_I4_MONGOOSE_FIXES_COMPLETE.md",
+      "hash": "9cccabe15d1b5e35a34934a2281a9042da06d54e6ed8c1aaa81d5d4c4cbddf7e",
+      "bytes": 13424
+    },
+    {
+      "path": "FEEDBACK_I4_MONGOOSE_INDEPENDENT_REVIEW.md",
+      "hash": "2c2458561da8c1075f9ea2fa8c10bb9c8624757b907da9573f3375014685eb8c",
+      "bytes": 29137
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -520,6 +545,16 @@
       "bytes": 12712
     },
     {
+      "path": "PHASE6_EXPRESS_I4_COMPLETION.md",
+      "hash": "c0994cfbe29afeebc19c612c161893367f8a0a14734da6c83fa47ed54a6ce4cf",
+      "bytes": 9994
+    },
+    {
+      "path": "PHASE6_EXPRESS_I4_PHASE_MINUS_ONE.md",
+      "hash": "48f65078872474c39209e1327cb9cb2269d2ecef13eb4c98516cb5b8d998fae8",
+      "bytes": 23120
+    },
+    {
       "path": "PHASE6_EXPRESS_PHASE_MINUS_ONE.md",
       "hash": "cb9acb16974c2da66e504f891a0417c4a35b1bfa2dbf4e5c803790250490580a",
       "bytes": 8835
@@ -548,6 +583,11 @@
       "path": "PHASE6_I2_COMPLETION.md",
       "hash": "cdb2e4ddcfa4727e235398ac0b446577cc64be6a63e6b3df38f3272d830985d1",
       "bytes": 4483
+    },
+    {
+      "path": "PHASE6_I4_FINAL_REVIEW.md",
+      "hash": "cb451f89a4773caaa0b389b20321a109f31a18526a9e327e0032b2f605f9de53",
+      "bytes": 9864
     },
     {
       "path": "PRD.md",
@@ -911,13 +951,28 @@
     },
     {
       "path": "src/reasoning/patterns/express/index.ts",
-      "hash": "f0672e3596015d2c0be53382956cde49ed70ecaf9ac3ff62e92eecdb86ba1d4a",
-      "bytes": 1524
+      "hash": "a4c462d9002b8798fad32123466fac89756c602270ee1ac7ab5120685ae0d0e4",
+      "bytes": 1758
     },
     {
       "path": "src/reasoning/patterns/express/middleware.ts",
       "hash": "66f530eaea15e9af8e05dd665f0fe242ce0a22fe9c2785ae3080f0824b0e8462",
       "bytes": 3863
+    },
+    {
+      "path": "src/reasoning/patterns/express/mongoose-model.ts",
+      "hash": "96ccb2ff7ff17388ef1e2916eabf4a3caf0246c1077a91fae6138c8a99d77f6e",
+      "bytes": 7387
+    },
+    {
+      "path": "src/reasoning/patterns/express/mongoose-query.ts",
+      "hash": "038ed8c7738f26924a888ac0114181f4525dca13540c4212f54f9b7c2fef9896",
+      "bytes": 9691
+    },
+    {
+      "path": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "hash": "311f5fde269e1754f478f65bcd42a140a65a06a76f846f2413e5c3a1888c4de2",
+      "bytes": 7909
     },
     {
       "path": "src/reasoning/patterns/express/router.ts",
@@ -1041,8 +1096,8 @@
     },
     {
       "path": "src/validation/__tests__/lexicon-validator.test.ts",
-      "hash": "071427bd4ff9d1b5d92bb749a8bf48f68165e79123b9d636ec2d9b242fddd049",
-      "bytes": 20760
+      "hash": "38f5cb08f2e07b94619b9c1c8f8ba60f477b94582c293f782e4d50892a3473ad",
+      "bytes": 31301
     },
     {
       "path": "src/validation/__tests__/phase-minus-1-analysis.test.ts",
@@ -1131,8 +1186,8 @@
     },
     {
       "path": "src/validation/lexicon-validator.ts",
-      "hash": "005ece35c21f0f66cab6520d6787c675ceab613285b8d4406148e384bfa72a60",
-      "bytes": 6928
+      "hash": "669b8e20455bd55f5104f40c3dbb59d409e0b534597bc5e03d27258df869e4e9",
+      "bytes": 8723
     },
     {
       "path": "src/validation/lexicon/ceps.lexicon.json",
@@ -1163,6 +1218,31 @@
       "path": "src/validation/types.ts",
       "hash": "730bca39af41432883eaf9e83a332beaf0019efa951728560f711715e6a626fe",
       "bytes": 2868
+    },
+    {
+      "path": "tests/fixtures/mongoose-basic/package.json",
+      "hash": "bce149422b513212b8dd9ff6a4eca4428250b0da9d3f54cf7e68baac10525310",
+      "bytes": 157
+    },
+    {
+      "path": "tests/fixtures/mongoose-basic/src/app.ts",
+      "hash": "6d806dfadcfc4df65849120e0b49dc07bc38fa01c8b6d0066803c94e9644e692",
+      "bytes": 213
+    },
+    {
+      "path": "tests/fixtures/mongoose-basic/src/models/Post.ts",
+      "hash": "4fc79e613e8da242c9c9b51da5e5cdfdb8459953a1cdbcbac77e6b86dfbcc9d8",
+      "bytes": 230
+    },
+    {
+      "path": "tests/fixtures/mongoose-basic/src/models/User.ts",
+      "hash": "adb0246123a6dc73de12eb7308cf641498a1e0ac721ecc479416e1ad50e4bc26",
+      "bytes": 295
+    },
+    {
+      "path": "tests/fixtures/mongoose-basic/src/routes/users.ts",
+      "hash": "f9d518a53d00e46d0d4f44ab875c315c7ac96a155d19e7be2c8d0bb78b81c283",
+      "bytes": 549
     },
     {
       "path": "tests/fixtures/phase5/baseline/README.md",
@@ -1330,6 +1410,11 @@
       "bytes": 3589
     },
     {
+      "path": "tests/integration/mongoose-integration.test.ts",
+      "hash": "b5b09a64a94d7a4fc7331831f6a2bc3cb899f64bb9fc6e037297c6de3da7523f",
+      "bytes": 21258
+    },
+    {
       "path": "tests/integration/orchestrator.test.ts",
       "hash": "be89f238f98b14766a1cac20b3f5ef6ad4707baf12dcdbd386d4623dbf2abdb8",
       "bytes": 1500
@@ -1418,6 +1503,11 @@
       "path": "tests/reasoning/express-router-pattern.test.ts",
       "hash": "ef9b71780c393f199a92906b364e4d23c3ee46e0eb130bc55040a0fe6c97cbec",
       "bytes": 9291
+    },
+    {
+      "path": "tests/reasoning/mongoose-schema.test.ts",
+      "hash": "50e39b0866b8131ad1541dd6e38ce4122dac659c3e23bad00ac1fe6f9514f434",
+      "bytes": 15857
     },
     {
       "path": "tests/reasoning/pattern-helpers.test.ts",

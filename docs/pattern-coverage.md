@@ -1,6 +1,6 @@
 # Pattern Coverage Matrix
 
-**Version:** Phase 6 I3
+**Version:** Phase 6 I4
 **Last Updated:** 2025-11-07
 **Purpose:** Document supported framework patterns, confidence expectations, and known gaps
 
@@ -90,14 +90,78 @@ This document tracks which framework-specific behaviors ceps can automatically d
 
 ---
 
-## Future Iterations (Planned)
+### Mongoose ODM (I4)
 
-### Iteration I4 (Mongoose)
-- Schema definitions
-- Model registration
-- Hooks (pre/post)
-- Query builders
-- Validation rules
+#### Schema Definitions
+
+| Behavior | Detection Method | Confidence | Notes |
+|----------|------------------|------------|-------|
+| Schema definition (`new Schema({...})`) | `initializer` text pattern match | High (≥70) | Parser doesn't emit `initializer-call` for `new` expressions |
+| Field extraction (simple types) | Regex parsing of schema initializer | High | Works for flat field definitions |
+| Required fields detection | Regex match: `required: true` | High | Captured in field metadata |
+| References to other models | Regex match: `ref: 'ModelName'` | High | Detects `ref` property in field definitions |
+| Array references | Regex match: `[{ type: ..., ref: '...' }]` | High | Detects array field references |
+| Complex nested schemas | Heuristic + length check | Medium | Degrades to Medium confidence for schemas >1000 chars |
+
+**Known Gaps:**
+- Virtuals not detected (deferred to post-M3)
+- Discriminators not supported (deferred)
+- Advanced validators beyond `required` not parsed (deferred)
+- Methods and statics not detected
+- Deeply nested objects may have incomplete field extraction
+- Schema options (timestamps, versionKey, etc.) not captured
+
+**Auxiliary Dependencies:**
+- None (relies on parser facts only)
+
+#### Model Definitions
+
+| Behavior | Detection Method | Confidence | Notes |
+|----------|------------------|------------|-------|
+| Model registration (`mongoose.model()`) | `initializer-call: mongoose.model` | High | Strong signal from parser |
+| Model name extraction | Regex: first argument to `mongoose.model()` | High | Extracted from initializer text |
+| Schema reference resolution | Identifier lookup via KB | High (if resolved) | Links model to schema entity |
+| Schema field inheritance | KB chunk lookup for linked schema | High (if schema has chunks) | Inherits field info from schema's behavior chunk |
+| Unresolved schema reference | Schema identifier not found in KB | Medium | Degrades confidence, notes "(not resolved)" |
+
+**Known Gaps:**
+- Dynamic model names (e.g., `mongoose.model(getName(), schema)`) not resolved
+- Models created in loops or conditionally not tracked
+- Model methods and statics not detected
+- Populate strategies not documented
+
+**Auxiliary Dependencies:**
+- None (relies on KB entity linking)
+
+#### Query Operations
+
+| Behavior | Detection Method | Confidence | Notes |
+|----------|------------------|------------|-------|
+| Read queries (`find`, `findOne`, `findById`) | `calls-expression` pattern match | High (if model resolved) | Detects query method calls |
+| Write queries (`create`, `updateOne`, `deleteOne`) | `calls-expression` pattern match | High (if model resolved) | Categorizes as write operations |
+| Model identifier resolution | KB lookup via model name | High/Medium/Low | Confidence depends on resolution success |
+| Field information inheritance | Linked model → schema → fields | High (if fully resolved) | Enriches query description with field context |
+| Unresolved model reference | Model identifier not found | Low | Emits "(model not resolved)" |
+
+**Known Gaps:**
+- Aggregation pipelines not supported (deferred)
+- `populate()` calls not detected
+- Query builder chains (`.where()`, `.select()`) not parsed
+- Query options (sort, limit, skip) not captured
+- Dynamic model access (e.g., `models[name].find()`) not resolved
+- Query arguments (filter objects) not analyzed
+
+**Auxiliary Dependencies:**
+- None (relies on KB linking for model/schema info)
+
+**Integration with Express:**
+- Mongoose queries detected in Express route handlers (router constants)
+- Queries linked to models, models linked to schemas
+- Full chain: Route → Query → Model → Schema → Fields
+
+---
+
+## Future Iterations (Planned)
 
 ### React (Tier 0)
 - Function/class components

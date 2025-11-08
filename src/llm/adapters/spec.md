@@ -42,10 +42,13 @@
 
 **Behavior:**
 
-- Method completions (intent unclear from static analysis)
+- Performs Mongoose write query (create): messages (model not resolved).
 
 **Errors thrown:**
 - new Error(`Anthropic API error: ${(error as Error).message}`);
+
+**Open Questions:**
+- q:0HxIEAcghK: What is the behavior of method `completions` at src/llm/adapters/anthropic.ts?
 
 <a id="BWOOseJ6yQ"></a>
 
@@ -132,10 +135,13 @@
 
 **Behavior:**
 
-- Method completions (intent unclear from static analysis)
+- Performs Mongoose write query (create): completions (model not resolved).
 
 **Errors thrown:**
 - new Error(`OpenAI API error: ${(error as Error).message}`);
+
+**Open Questions:**
+- q:dwc2c8PABr: What is the behavior of method `completions` at src/llm/adapters/openai.ts?
 
 <a id="N1J6IiYs3e"></a>
 

@@ -1,6 +1,6 @@
 # src/reasoning/patterns/express
 
-**Directory Overview:** This directory contains 17 entities.
+**Directory Overview:** This directory contains 29 entities.
 
 ## config.ts
 
@@ -130,7 +130,7 @@
 
 ## index.ts
 
-<a id="CgXk0aVYru"></a>
+<a id="aASj44mylT"></a>
 
 ### registerExpressPatterns
 
@@ -206,6 +206,195 @@ Register all Express pattern modules with the given registry.
 
 **Open Questions:**
 - q:B4IDaLfeLb: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/middleware.ts?
+
+## mongoose-model.ts
+
+<a id="V0GdSKaB4o"></a>
+
+### MongooseModelPattern
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class MongooseModelPattern (intent unclear from static analysis)
+
+**Open Questions:**
+- q:52u5QyCSFa: What are the responsibilities and contract of class `MongooseModelPattern` at src/reasoning/patterns/express/mongoose-model.ts?
+
+<a id="Vriur4nB9O"></a>
+
+### matches
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): boolean`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method matches (intent unclear from static analysis)
+
+**Open Questions:**
+- q:IteCknfwLh: What is the behavior of method `matches` at src/reasoning/patterns/express/mongoose-model.ts?
+
+<a id="QGncrYUJiH"></a>
+
+### describe
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): import("/src/kb/models").BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method describe (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:QW8vkumrws: What is the behavior of method `describe` at src/reasoning/patterns/express/mongoose-model.ts?
+
+<a id="0gQr4ft5Sl"></a>
+
+### confidenceAdjustments
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): any`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method confidenceAdjustments (intent unclear from static analysis)
+
+**Open Questions:**
+- q:GN2xlvnSt6: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/mongoose-model.ts?
+
+## mongoose-query.ts
+
+<a id="b4fOg6QxBT"></a>
+
+### MongooseQueryPattern
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class MongooseQueryPattern (intent unclear from static analysis)
+
+**Open Questions:**
+- q:7UnKiyEIKe: What are the responsibilities and contract of class `MongooseQueryPattern` at src/reasoning/patterns/express/mongoose-query.ts?
+
+<a id="n9b9Fzpxwc"></a>
+
+### matches
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): boolean`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method matches (intent unclear from static analysis)
+
+**Open Questions:**
+- q:g8waoFELID: What is the behavior of method `matches` at src/reasoning/patterns/express/mongoose-query.ts?
+
+<a id="VHJA61ypYu"></a>
+
+### describe
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): import("/src/kb/models").BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method describe (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:mN1xZ23AsJ: What is the behavior of method `describe` at src/reasoning/patterns/express/mongoose-query.ts?
+
+<a id="to7WQYv3ZB"></a>
+
+### confidenceAdjustments
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): any`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method confidenceAdjustments (intent unclear from static analysis)
+
+**Open Questions:**
+- q:QnRSqHpdo0: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/mongoose-query.ts?
+
+## mongoose-schema.ts
+
+<a id="PaYbXE6VMg"></a>
+
+### MongooseSchemaPattern
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Class MongooseSchemaPattern (intent unclear from static analysis)
+
+**Open Questions:**
+- q:TBot9F6vt9: What are the responsibilities and contract of class `MongooseSchemaPattern` at src/reasoning/patterns/express/mongoose-schema.ts?
+
+<a id="Kh76AL6HJS"></a>
+
+### matches
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): boolean`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method matches (intent unclear from static analysis)
+
+**Open Questions:**
+- q:vn4ul5FC9p: What is the behavior of method `matches` at src/reasoning/patterns/express/mongoose-schema.ts?
+
+<a id="pSAn931Kbd"></a>
+
+### describe
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): import("/src/kb/models").BehaviorChunk[]`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method describe (intent unclear from static analysis)
+
+**Side effects:**
+- filesystem
+
+**Open Questions:**
+- q:mQfswCOIXx: What is the behavior of method `describe` at src/reasoning/patterns/express/mongoose-schema.ts?
+
+<a id="ZRmUVsoLmG"></a>
+
+### confidenceAdjustments
+
+**Signature:** `(kb: KnowledgeBase, entity: Entity): any`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Method confidenceAdjustments (intent unclear from static analysis)
+
+**Open Questions:**
+- q:cjq0con2g5: What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/mongoose-schema.ts?
 
 ## router.ts
 

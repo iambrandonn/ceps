@@ -256,7 +256,7 @@ IdentifierValidator validates identifiers against KB.
 
 **Behavior:**
 
-- Method validate (intent unclear from static analysis)
+- Performs Mongoose read query (find): currentIndex (model not resolved).
 
 **Open Questions:**
 - q:Sr1LEtgMyV: What is the behavior of method `validate` at src/validation/identifier-validator.ts?
@@ -271,7 +271,7 @@ IdentifierValidator validates identifiers against KB.
 
 **Behavior:**
 
-- Method validateRelations (intent unclear from static analysis)
+- Performs Mongoose read query (find): currentIndex (model not resolved).
 
 **Open Questions:**
 - q:rqHBGEOs5U: What is the behavior of method `validateRelations` at src/validation/identifier-validator.ts?
@@ -293,7 +293,7 @@ IdentifierValidator validates identifiers against KB.
 
 ## lexicon-validator.ts
 
-<a id="juVWXOSR7m"></a>
+<a id="F5doHekLMv"></a>
 
 ### LexiconValidator
 
@@ -306,7 +306,7 @@ IdentifierValidator validates identifiers against KB.
 **Open Questions:**
 - q:HunFaXnx96: What are the responsibilities and contract of class `LexiconValidator` at src/validation/lexicon-validator.ts?
 
-<a id="30Qa8oGdpx"></a>
+<a id="HprKoBYZDd"></a>
 
 ### loadFromMarkdown
 
@@ -339,7 +339,7 @@ IdentifierValidator validates identifiers against KB.
 **Open Questions:**
 - q:80n3zri1nf: What is the behavior of method `getRules` at src/validation/lexicon-validator.ts?
 
-<a id="woW0QIpCdP"></a>
+<a id="ZVYFPfdohp"></a>
 
 ### validate
 

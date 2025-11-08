@@ -3306,7 +3306,7 @@
       }
     },
     {
-      "id": "CgXk0aVYru",
+      "id": "aASj44mylT",
       "kind": "function",
       "name": "registerExpressPatterns",
       "path": "src/reasoning/patterns/express/index.ts",
@@ -3359,6 +3359,169 @@
       "kind": "method",
       "name": "confidenceAdjustments",
       "path": "src/reasoning/patterns/express/middleware.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "V0GdSKaB4o",
+      "kind": "class",
+      "name": "MongooseModelPattern",
+      "path": "src/reasoning/patterns/express/mongoose-model.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "Vriur4nB9O",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/express/mongoose-model.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "QGncrYUJiH",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/express/mongoose-model.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "0gQr4ft5Sl",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/express/mongoose-model.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "b4fOg6QxBT",
+      "kind": "class",
+      "name": "MongooseQueryPattern",
+      "path": "src/reasoning/patterns/express/mongoose-query.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "n9b9Fzpxwc",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/express/mongoose-query.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "VHJA61ypYu",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/express/mongoose-query.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "to7WQYv3ZB",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/express/mongoose-query.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "eibsDfhOTf",
+      "kind": "constant",
+      "name": "QUERY_METHODS",
+      "path": "src/reasoning/patterns/express/mongoose-query.ts",
+      "exported": false,
+      "visibility": "internal"
+    },
+    {
+      "id": "J09jzRGb1S",
+      "kind": "constant",
+      "name": "ALL_QUERY_METHODS",
+      "path": "src/reasoning/patterns/express/mongoose-query.ts",
+      "exported": false,
+      "visibility": "internal"
+    },
+    {
+      "id": "PaYbXE6VMg",
+      "kind": "class",
+      "name": "MongooseSchemaPattern",
+      "path": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "Kh76AL6HJS",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "pSAn931Kbd",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "ZRmUVsoLmG",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/express/mongoose-schema.ts",
       "signature": "(kb: KnowledgeBase, entity: Entity): any",
       "exported": true,
       "visibility": "public",
@@ -4164,7 +4327,7 @@
       }
     },
     {
-      "id": "juVWXOSR7m",
+      "id": "F5doHekLMv",
       "kind": "class",
       "name": "LexiconValidator",
       "path": "src/validation/lexicon-validator.ts",
@@ -4172,7 +4335,7 @@
       "visibility": "public"
     },
     {
-      "id": "30Qa8oGdpx",
+      "id": "HprKoBYZDd",
       "kind": "method",
       "name": "loadFromMarkdown",
       "path": "src/validation/lexicon-validator.ts",
@@ -4200,7 +4363,7 @@
       }
     },
     {
-      "id": "woW0QIpCdP",
+      "id": "ZVYFPfdohp",
       "kind": "method",
       "name": "validate",
       "path": "src/validation/lexicon-validator.ts",
@@ -4400,6 +4563,59 @@
       }
     },
     {
+      "id": "yqKryJCU0p",
+      "kind": "function",
+      "name": "createApp",
+      "path": "tests/fixtures/mongoose-basic/src/app.ts",
+      "signature": "(): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "YXfsGtz4gz",
+      "kind": "constant",
+      "name": "postSchema",
+      "path": "tests/fixtures/mongoose-basic/src/models/Post.ts",
+      "exported": false,
+      "visibility": "internal"
+    },
+    {
+      "id": "us1LahAS89",
+      "kind": "constant",
+      "name": "Post",
+      "path": "tests/fixtures/mongoose-basic/src/models/Post.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "3lDF6TUfrR",
+      "kind": "constant",
+      "name": "userSchema",
+      "path": "tests/fixtures/mongoose-basic/src/models/User.ts",
+      "exported": false,
+      "visibility": "internal"
+    },
+    {
+      "id": "zh0WKWAjvy",
+      "kind": "constant",
+      "name": "User",
+      "path": "tests/fixtures/mongoose-basic/src/models/User.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "40dvmakOel",
+      "kind": "constant",
+      "name": "usersRouter",
+      "path": "tests/fixtures/mongoose-basic/src/routes/users.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
       "id": "dXIyQqqoq9",
       "kind": "constant",
       "name": "router",
@@ -4442,7 +4658,7 @@
       "visibility": "public"
     },
     {
-      "id": "40dvmakOel",
+      "id": "C8ggek40dvmakOel",
       "kind": "constant",
       "name": "usersRouter",
       "path": "tests/fixtures/tiny-express/src/routes/users.ts",
@@ -20530,7 +20746,7 @@
       }
     },
     {
-      "subjectId": "CgXk0aVYru",
+      "subjectId": "aASj44mylT",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -20543,7 +20759,7 @@
       }
     },
     {
-      "subjectId": "CgXk0aVYru",
+      "subjectId": "aASj44mylT",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -20556,7 +20772,7 @@
       }
     },
     {
-      "subjectId": "CgXk0aVYru",
+      "subjectId": "aASj44mylT",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -20569,7 +20785,46 @@
       }
     },
     {
-      "subjectId": "CgXk0aVYru",
+      "subjectId": "aASj44mylT",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aASj44mylT",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aASj44mylT",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aASj44mylT",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -20621,6 +20876,33 @@
       "subjectId": "src/reasoning/patterns/express/index.ts",
       "predicate": "imports",
       "objectId": "./config.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/index.ts",
+      "predicate": "imports",
+      "objectId": "./mongoose-schema.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/index.ts",
+      "predicate": "imports",
+      "objectId": "./mongoose-model.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/index.ts",
+      "predicate": "imports",
+      "objectId": "./mongoose-query.js",
       "source": {
         "kind": "ast",
         "file": "src/reasoning/patterns/express/index.ts"
@@ -20812,6 +21094,895 @@
       "source": {
         "kind": "ast",
         "file": "src/reasoning/patterns/express/middleware.ts"
+      }
+    },
+    {
+      "subjectId": "Vriur4nB9O",
+      "predicate": "calls",
+      "objectId": "yUaBlQVLrD",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "hasFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": "RDlNbAlvLn",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "getFirstFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "initializer.match",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "initializer.match",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "this.resolveSchemaEntity",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "kb.getChunksByEntity",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "schemaText.match",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QGncrYUJiH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "0gQr4ft5Sl",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "0gQr4ft5Sl",
+      "predicate": "calls",
+      "objectId": "RDlNbAlvLn",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "getFirstFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "0gQr4ft5Sl",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "0gQr4ft5Sl",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "initializer.match",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "0gQr4ft5Sl",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      },
+      "details": {
+        "originalExpression": "this.resolveSchemaEntity",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-model.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-model.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-model.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-model.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-model.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-model.ts"
+      }
+    },
+    {
+      "subjectId": "n9b9Fzpxwc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "['function', 'method', 'constant'].includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "n9b9Fzpxwc",
+      "predicate": "calls",
+      "objectId": "epuomrvN4u",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "getFactsByPredicate",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "n9b9Fzpxwc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "callExprs.some",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "n9b9Fzpxwc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "n9b9Fzpxwc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "ALL_QUERY_METHODS.some",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "n9b9Fzpxwc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "new RegExp(`\\\\w+\\\\.${method}\\\\b`).test",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.extractQueryOperations",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "operations.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.resolveModelEntity",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "kb.getChunksByEntity",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "modelText.match",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.categorizeOperation",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "descriptions.join",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "operations.filter",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.resolveModelEntity",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "VHJA61ypYu",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "to7WQYv3ZB",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "to7WQYv3ZB",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.extractQueryOperations",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "to7WQYv3ZB",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "operations.filter",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "to7WQYv3ZB",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      },
+      "details": {
+        "originalExpression": "this.resolveModelEntity",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-query.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-query.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-query.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-query.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-query.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-query.ts"
+      }
+    },
+    {
+      "subjectId": "Kh76AL6HJS",
+      "predicate": "calls",
+      "objectId": "RDlNbAlvLn",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "getFirstFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "Kh76AL6HJS",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "Kh76AL6HJS",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "/^new\\s+(mongoose\\.)?Schema\\s*\\(/.test",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": "RDlNbAlvLn",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "getFirstFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "this.extractFields",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "fields.filter",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "fields.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "fieldNames.join",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "this.determineConfidence",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "pSAn931Kbd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ZRmUVsoLmG",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/express/mongoose-schema.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/express/mongoose-schema.ts"
       }
     },
     {
@@ -24847,7 +26018,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24860,7 +26031,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24873,7 +26044,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24886,7 +26057,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24899,7 +26070,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24912,7 +26083,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24925,7 +26096,59 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.startsWith",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24938,7 +26161,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24951,7 +26174,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24964,7 +26187,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24977,7 +26200,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -24990,7 +26213,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25003,7 +26226,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25011,12 +26234,12 @@
         "file": "src/validation/lexicon-validator.ts"
       },
       "details": {
-        "originalExpression": "line.includes",
+        "originalExpression": "this.rules.has",
         "resolved": false
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25024,64 +26247,12 @@
         "file": "src/validation/lexicon-validator.ts"
       },
       "details": {
-        "originalExpression": "line.includes",
+        "originalExpression": "this.rules.set",
         "resolved": false
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/validation/lexicon-validator.ts"
-      },
-      "details": {
-        "originalExpression": "line.includes",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "30Qa8oGdpx",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/validation/lexicon-validator.ts"
-      },
-      "details": {
-        "originalExpression": "line.includes",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "30Qa8oGdpx",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/validation/lexicon-validator.ts"
-      },
-      "details": {
-        "originalExpression": "line.includes",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "30Qa8oGdpx",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/validation/lexicon-validator.ts"
-      },
-      "details": {
-        "originalExpression": "line.includes",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25094,7 +26265,20 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.startsWith",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25107,7 +26291,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25120,7 +26304,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25133,7 +26317,150 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.startsWith",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/validation/lexicon-validator.ts"
+      },
+      "details": {
+        "originalExpression": "line.includes",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25146,7 +26473,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25159,7 +26486,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25172,7 +26499,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25185,7 +26512,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25198,7 +26525,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25211,7 +26538,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25224,7 +26551,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25237,7 +26564,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25250,7 +26577,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25263,7 +26590,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25276,7 +26603,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25289,7 +26616,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25302,7 +26629,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25315,7 +26642,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25328,7 +26655,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25341,7 +26668,7 @@
       }
     },
     {
-      "subjectId": "30Qa8oGdpx",
+      "subjectId": "HprKoBYZDd",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25354,7 +26681,7 @@
       }
     },
     {
-      "subjectId": "woW0QIpCdP",
+      "subjectId": "ZVYFPfdohp",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25367,7 +26694,7 @@
       }
     },
     {
-      "subjectId": "woW0QIpCdP",
+      "subjectId": "ZVYFPfdohp",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25380,7 +26707,7 @@
       }
     },
     {
-      "subjectId": "woW0QIpCdP",
+      "subjectId": "ZVYFPfdohp",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25393,7 +26720,7 @@
       }
     },
     {
-      "subjectId": "woW0QIpCdP",
+      "subjectId": "ZVYFPfdohp",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25406,7 +26733,7 @@
       }
     },
     {
-      "subjectId": "woW0QIpCdP",
+      "subjectId": "ZVYFPfdohp",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25414,12 +26741,12 @@
         "file": "src/validation/lexicon-validator.ts"
       },
       "details": {
-        "originalExpression": "draftText.toLowerCase().includes",
+        "originalExpression": "antiPattern.replace",
         "resolved": false
       }
     },
     {
-      "subjectId": "woW0QIpCdP",
+      "subjectId": "ZVYFPfdohp",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25427,25 +26754,12 @@
         "file": "src/validation/lexicon-validator.ts"
       },
       "details": {
-        "originalExpression": "draftText.toLowerCase",
+        "originalExpression": "pattern.test",
         "resolved": false
       }
     },
     {
-      "subjectId": "woW0QIpCdP",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/validation/lexicon-validator.ts"
-      },
-      "details": {
-        "originalExpression": "antiPattern.toLowerCase",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "woW0QIpCdP",
+      "subjectId": "ZVYFPfdohp",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -25883,6 +27197,112 @@
       "source": {
         "kind": "ast",
         "file": "src/validation/retry-controller.ts"
+      }
+    },
+    {
+      "subjectId": "yqKryJCU0p",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/app.ts"
+      },
+      "details": {
+        "originalExpression": "express",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "yqKryJCU0p",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/app.ts"
+      },
+      "details": {
+        "originalExpression": "app.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "yqKryJCU0p",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/app.ts"
+      },
+      "details": {
+        "originalExpression": "express.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "yqKryJCU0p",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/app.ts"
+      },
+      "details": {
+        "originalExpression": "app.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/mongoose-basic/src/app.ts",
+      "predicate": "imports",
+      "objectId": "express",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/app.ts"
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/mongoose-basic/src/app.ts",
+      "predicate": "imports",
+      "objectId": "./routes/users.js",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/app.ts"
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/mongoose-basic/src/models/Post.ts",
+      "predicate": "imports",
+      "objectId": "mongoose",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/models/Post.ts"
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/mongoose-basic/src/models/User.ts",
+      "predicate": "imports",
+      "objectId": "mongoose",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/models/User.ts"
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/mongoose-basic/src/routes/users.ts",
+      "predicate": "imports",
+      "objectId": "express",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/routes/users.ts"
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/mongoose-basic/src/routes/users.ts",
+      "predicate": "imports",
+      "objectId": "../models/User.js",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/mongoose-basic/src/routes/users.ts"
       }
     },
     {
@@ -41563,50 +42983,65 @@
       "evidenceScore": 90
     },
     {
-      "id": "CgXk0aVYru-facts",
+      "id": "aASj44mylT-facts",
       "facts": [
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "is-function",
           "object": true
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "has-signature",
           "object": "(registry: PatternRegistry): void"
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "has-jsdoc",
           "object": "\nRegister all Express pattern modules with the given registry.\n"
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "param-names",
           "object": "registry"
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "calls-expression",
           "object": "registry.register"
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "calls-expression",
           "object": "registry.register"
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
           "predicate": "calls-expression",
           "object": "registry.register"
         },
         {
-          "subjectId": "CgXk0aVYru",
+          "subjectId": "aASj44mylT",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        },
+        {
+          "subjectId": "aASj44mylT",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        },
+        {
+          "subjectId": "aASj44mylT",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        },
+        {
+          "subjectId": "aASj44mylT",
           "predicate": "calls-expression",
           "object": "registry.register"
         }
@@ -41788,6 +43223,724 @@
         {
           "kind": "ast",
           "file": "src/reasoning/patterns/express/middleware.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "V0GdSKaB4o-facts",
+      "facts": [
+        {
+          "subjectId": "V0GdSKaB4o",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-model.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "Vriur4nB9O-facts",
+      "facts": [
+        {
+          "subjectId": "Vriur4nB9O",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "Vriur4nB9O",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "Vriur4nB9O",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "Vriur4nB9O",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "Vriur4nB9O",
+          "predicate": "calls-expression",
+          "object": "hasFact"
+        },
+        {
+          "subjectId": "Vriur4nB9O",
+          "predicate": "call-arg-2",
+          "object": "initializer-call"
+        },
+        {
+          "subjectId": "Vriur4nB9O",
+          "predicate": "call-arg-3",
+          "object": "mongoose.model"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-model.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "QGncrYUJiH-facts",
+      "facts": [
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "getFirstFact"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "call-arg-2",
+          "object": "initializer"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "initializer.match"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "initializer.match"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "this.resolveSchemaEntity"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "kb.getChunksByEntity"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "schemaText.match"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        },
+        {
+          "subjectId": "QGncrYUJiH",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-model.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "0gQr4ft5Sl-facts",
+      "facts": [
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): any"
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "calls-expression",
+          "object": "getFirstFact"
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "call-arg-2",
+          "object": "initializer"
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "calls-expression",
+          "object": "initializer.match"
+        },
+        {
+          "subjectId": "0gQr4ft5Sl",
+          "predicate": "calls-expression",
+          "object": "this.resolveSchemaEntity"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-model.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "b4fOg6QxBT-facts",
+      "facts": [
+        {
+          "subjectId": "b4fOg6QxBT",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-query.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "n9b9Fzpxwc-facts",
+      "facts": [
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "calls-expression",
+          "object": "['function', 'method', 'constant'].includes"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "calls-expression",
+          "object": "getFactsByPredicate"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "call-arg-2",
+          "object": "calls-expression"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "calls-expression",
+          "object": "callExprs.some"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "calls-expression",
+          "object": "ALL_QUERY_METHODS.some"
+        },
+        {
+          "subjectId": "n9b9Fzpxwc",
+          "predicate": "calls-expression",
+          "object": "new RegExp(`\\\\w+\\\\.${method}\\\\b`).test"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-query.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "VHJA61ypYu-facts",
+      "facts": [
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "this.extractQueryOperations"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "operations.map"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "this.resolveModelEntity"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "kb.getChunksByEntity"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "modelText.match"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "this.categorizeOperation"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "descriptions.join"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "call-arg-0",
+          "object": "; "
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "operations.filter"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "this.resolveModelEntity"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        },
+        {
+          "subjectId": "VHJA61ypYu",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-query.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "to7WQYv3ZB-facts",
+      "facts": [
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): any"
+        },
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "calls-expression",
+          "object": "this.extractQueryOperations"
+        },
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "calls-expression",
+          "object": "operations.filter"
+        },
+        {
+          "subjectId": "to7WQYv3ZB",
+          "predicate": "calls-expression",
+          "object": "this.resolveModelEntity"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-query.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "eibsDfhOTf-facts",
+      "facts": [
+        {
+          "subjectId": "eibsDfhOTf",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "eibsDfhOTf",
+          "predicate": "initializer",
+          "object": "{\n  read: ['find', 'findOne', 'findById', 'findByIdAndUpdate', 'findOneAndUpdate', 'countDocuments', 'exists', 'estimatedDocumentCount'],\n  write: ['create', 'insertMany', 'updateOne', 'updateMany', 'replaceOne', 'findByIdAndDelete', 'findOneAndDelete', 'deleteOne', 'deleteMany'],\n  aggregate: ['aggregate'],\n}"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-query.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "J09jzRGb1S-facts",
+      "facts": [
+        {
+          "subjectId": "J09jzRGb1S",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "J09jzRGb1S",
+          "predicate": "initializer",
+          "object": "[\n  ...QUERY_METHODS.read,\n  ...QUERY_METHODS.write,\n  ...QUERY_METHODS.aggregate,\n]"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-query.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "PaYbXE6VMg-facts",
+      "facts": [
+        {
+          "subjectId": "PaYbXE6VMg",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "Kh76AL6HJS-facts",
+      "facts": [
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "calls-expression",
+          "object": "getFirstFact"
+        },
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "call-arg-2",
+          "object": "initializer"
+        },
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "Kh76AL6HJS",
+          "predicate": "calls-expression",
+          "object": "/^new\\s+(mongoose\\.)?Schema\\s*\\(/.test"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "pSAn931Kbd-facts",
+      "facts": [
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "getFirstFact"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "call-arg-2",
+          "object": "initializer"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "this.extractFields"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "fields.filter"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "fields.map"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "fieldNames.join"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "call-arg-0",
+          "object": ", "
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "this.determineConfidence"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        },
+        {
+          "subjectId": "pSAn931Kbd",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-schema.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "ZRmUVsoLmG-facts",
+      "facts": [
+        {
+          "subjectId": "ZRmUVsoLmG",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "ZRmUVsoLmG",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): any"
+        },
+        {
+          "subjectId": "ZRmUVsoLmG",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "ZRmUVsoLmG",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "ZRmUVsoLmG",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/express/mongoose-schema.ts"
         }
       ],
       "evidenceScore": 90
@@ -45482,10 +47635,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "juVWXOSR7m-facts",
+      "id": "F5doHekLMv-facts",
       "facts": [
         {
-          "subjectId": "juVWXOSR7m",
+          "subjectId": "F5doHekLMv",
           "predicate": "is-class",
           "object": true
         }
@@ -45499,335 +47652,445 @@
       "evidenceScore": 75
     },
     {
-      "id": "30Qa8oGdpx-facts",
+      "id": "HprKoBYZDd-facts",
       "facts": [
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "is-method",
           "object": true
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "has-signature",
           "object": "(markdownPath: string): void"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "param-names",
           "object": "markdownPath"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "fs.readFileSync"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-1",
           "object": "utf-8"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "content.split"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "\\n"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "lines[i].trim"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "### "
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Express"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Anti-Patterns"
         },
         {
-          "subjectId": "30Qa8oGdpx",
-          "predicate": "calls-expression",
-          "object": "this.rules.set"
-        },
-        {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "## "
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "Mongoose"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "Anti-Patterns"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "Express"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "this.rules.set"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.startsWith"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "## Anti-Patterns"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "### Express Anti-Patterns"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "this.rules.has"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "this.rules.set"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "### Mongoose Anti-Patterns"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "this.rules.has"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "this.rules.set"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.startsWith"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "#### "
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.startsWith"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "### "
+        },
+        {
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "Anti-Patterns"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Middleware"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "HTTP Methods"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Special Markers"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Error Handling"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Async Handling"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Configuration"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "Schema"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "Query Operations"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "calls-expression",
+          "object": "line.includes"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
+          "predicate": "call-arg-0",
+          "object": "Integration Terms"
+        },
+        {
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "|"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Term"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Definition"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "---"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.match"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "match[1].trim"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "this.rules.get(currentFramework)!.approvedTerms.add"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "this.rules.get"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.startsWith"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "|"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Term"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "Why Rejected"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.includes"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "---"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.split('|').map(col => col.trim()).filter"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.split('|').map"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "line.split"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "call-arg-0",
           "object": "|"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "col.trim"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "columns[0].match"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "termMatch[1].trim"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "columns[2].trim"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "this.rules.get(currentFramework)!.antiPatterns.set"
         },
         {
-          "subjectId": "30Qa8oGdpx",
+          "subjectId": "HprKoBYZDd",
           "predicate": "calls-expression",
           "object": "this.rules.get"
         }
@@ -45868,65 +48131,65 @@
       "evidenceScore": 90
     },
     {
-      "id": "woW0QIpCdP-facts",
+      "id": "ZVYFPfdohp-facts",
       "facts": [
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "is-method",
           "object": true
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "has-signature",
           "object": "(draftText: string, factSetIds: string[], metadata: ChunkMetadata): GroundingResult"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "param-count",
           "object": 3
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "param-names",
           "object": "draftText,factSetIds,metadata"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "calls-expression",
           "object": "this.rules.entries"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "calls-expression",
           "object": "Array.from(rule.antiPatterns.entries())\n        .sort"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "calls-expression",
           "object": "Array.from"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "calls-expression",
           "object": "rule.antiPatterns.entries"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "calls-expression",
-          "object": "draftText.toLowerCase().includes"
+          "object": "antiPattern.replace"
         },
         {
-          "subjectId": "woW0QIpCdP",
-          "predicate": "calls-expression",
-          "object": "draftText.toLowerCase"
+          "subjectId": "ZVYFPfdohp",
+          "predicate": "call-arg-1",
+          "object": "\\\\$&"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "calls-expression",
-          "object": "antiPattern.toLowerCase"
+          "object": "pattern.test"
         },
         {
-          "subjectId": "woW0QIpCdP",
+          "subjectId": "ZVYFPfdohp",
           "predicate": "calls-expression",
           "object": "diagnostics.push"
         }
@@ -46532,6 +48795,183 @@
       "evidenceScore": 90
     },
     {
+      "id": "yqKryJCU0p-facts",
+      "facts": [
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "has-signature",
+          "object": "(): any"
+        },
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "param-count",
+          "object": 0
+        },
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "calls-expression",
+          "object": "express"
+        },
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "calls-expression",
+          "object": "app.use"
+        },
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "calls-expression",
+          "object": "express.json"
+        },
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "calls-expression",
+          "object": "app.use"
+        },
+        {
+          "subjectId": "yqKryJCU0p",
+          "predicate": "call-arg-0",
+          "object": "/users"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/mongoose-basic/src/app.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "YXfsGtz4gz-facts",
+      "facts": [
+        {
+          "subjectId": "YXfsGtz4gz",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "YXfsGtz4gz",
+          "predicate": "initializer",
+          "object": "new Schema({\n  title: String,\n  content: String,\n  author: { type: Schema.Types.ObjectId, ref: 'User' }\n})"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/mongoose-basic/src/models/Post.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "us1LahAS89-facts",
+      "facts": [
+        {
+          "subjectId": "us1LahAS89",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "us1LahAS89",
+          "predicate": "initializer",
+          "object": "mongoose.model('Post', postSchema)"
+        },
+        {
+          "subjectId": "us1LahAS89",
+          "predicate": "initializer-call",
+          "object": "mongoose.model"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/mongoose-basic/src/models/Post.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "3lDF6TUfrR-facts",
+      "facts": [
+        {
+          "subjectId": "3lDF6TUfrR",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "3lDF6TUfrR",
+          "predicate": "initializer",
+          "object": "new Schema({\n  name: { type: String, required: true },\n  email: { type: String, required: true },\n  age: Number,\n  posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]\n})"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/mongoose-basic/src/models/User.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "zh0WKWAjvy-facts",
+      "facts": [
+        {
+          "subjectId": "zh0WKWAjvy",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "zh0WKWAjvy",
+          "predicate": "initializer",
+          "object": "mongoose.model('User', userSchema)"
+        },
+        {
+          "subjectId": "zh0WKWAjvy",
+          "predicate": "initializer-call",
+          "object": "mongoose.model"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/mongoose-basic/src/models/User.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "40dvmakOel-facts",
+      "facts": [
+        {
+          "subjectId": "40dvmakOel",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "40dvmakOel",
+          "predicate": "initializer",
+          "object": "Router()"
+        },
+        {
+          "subjectId": "40dvmakOel",
+          "predicate": "initializer-call",
+          "object": "Router"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/mongoose-basic/src/routes/users.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
       "id": "dXIyQqqoq9-facts",
       "facts": [
         {
@@ -46730,20 +49170,20 @@
       "evidenceScore": 60
     },
     {
-      "id": "40dvmakOel-facts",
+      "id": "C8ggek40dvmakOel-facts",
       "facts": [
         {
-          "subjectId": "40dvmakOel",
+          "subjectId": "C8ggek40dvmakOel",
           "predicate": "is-constant",
           "object": true
         },
         {
-          "subjectId": "40dvmakOel",
+          "subjectId": "C8ggek40dvmakOel",
           "predicate": "initializer",
           "object": "Router()"
         },
         {
-          "subjectId": "40dvmakOel",
+          "subjectId": "C8ggek40dvmakOel",
           "predicate": "initializer-call",
           "object": "Router"
         }
@@ -48733,13 +51173,13 @@
       ]
     },
     {
-      "id": "xD8ZpAP296",
+      "id": "cCsMWTz8Oy",
       "targetEntityId": "oFDTBUIWK2",
-      "textDraft": "Method completions (intent unclear from static analysis)",
-      "confidence": "Medium",
+      "textDraft": "Performs Mongoose write query (create): messages (model not resolved).",
       "factSetIds": [
         "oFDTBUIWK2-facts"
-      ]
+      ],
+      "confidence": "Low"
     },
     {
       "id": "6SXf9pSjpS",
@@ -48796,13 +51236,13 @@
       ]
     },
     {
-      "id": "hfTPEhyLA1",
+      "id": "bXXJY490zv",
       "targetEntityId": "3iqYiV60Nk",
-      "textDraft": "Method completions (intent unclear from static analysis)",
-      "confidence": "Medium",
+      "textDraft": "Performs Mongoose write query (create): completions (model not resolved).",
       "factSetIds": [
         "3iqYiV60Nk-facts"
-      ]
+      ],
+      "confidence": "Low"
     },
     {
       "id": "4hYF6RsZON",
@@ -50048,11 +52488,11 @@
     },
     {
       "id": "2U71CHrpfb",
-      "targetEntityId": "CgXk0aVYru",
+      "targetEntityId": "aASj44mylT",
       "textDraft": "Function registerExpressPatterns: \nRegister all Express pattern modules with the given registry.\n",
       "confidence": "Medium",
       "factSetIds": [
-        "CgXk0aVYru-facts"
+        "aASj44mylT-facts"
       ]
     },
     {
@@ -50089,6 +52529,132 @@
       "confidence": "Low",
       "factSetIds": [
         "qLFUG6Xupu-facts"
+      ]
+    },
+    {
+      "id": "DMQlvFeVFp",
+      "targetEntityId": "V0GdSKaB4o",
+      "textDraft": "Class MongooseModelPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "V0GdSKaB4o-facts"
+      ]
+    },
+    {
+      "id": "L9Nugsn9Zf",
+      "targetEntityId": "Vriur4nB9O",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "Vriur4nB9O-facts"
+      ]
+    },
+    {
+      "id": "lzg6eChOut",
+      "targetEntityId": "QGncrYUJiH",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "QGncrYUJiH-facts"
+      ]
+    },
+    {
+      "id": "6znEsUKFDp",
+      "targetEntityId": "0gQr4ft5Sl",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "0gQr4ft5Sl-facts"
+      ]
+    },
+    {
+      "id": "28V5LjoyR6",
+      "targetEntityId": "b4fOg6QxBT",
+      "textDraft": "Class MongooseQueryPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "b4fOg6QxBT-facts"
+      ]
+    },
+    {
+      "id": "sl4bHRX9nH",
+      "targetEntityId": "n9b9Fzpxwc",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "n9b9Fzpxwc-facts"
+      ]
+    },
+    {
+      "id": "Gz2sQf53xa",
+      "targetEntityId": "VHJA61ypYu",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "VHJA61ypYu-facts"
+      ]
+    },
+    {
+      "id": "HiyZKPfP18",
+      "targetEntityId": "to7WQYv3ZB",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "to7WQYv3ZB-facts"
+      ]
+    },
+    {
+      "id": "TYb4kyynsv",
+      "targetEntityId": "eibsDfhOTf",
+      "textDraft": "Constant QUERY_METHODS (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "eibsDfhOTf-facts"
+      ]
+    },
+    {
+      "id": "2NQ13tHuLS",
+      "targetEntityId": "J09jzRGb1S",
+      "textDraft": "Constant ALL_QUERY_METHODS (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "J09jzRGb1S-facts"
+      ]
+    },
+    {
+      "id": "BS0dsaLtd5",
+      "targetEntityId": "PaYbXE6VMg",
+      "textDraft": "Class MongooseSchemaPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "PaYbXE6VMg-facts"
+      ]
+    },
+    {
+      "id": "GgatBf7Rnn",
+      "targetEntityId": "Kh76AL6HJS",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "Kh76AL6HJS-facts"
+      ]
+    },
+    {
+      "id": "nJ1C6xyGCn",
+      "targetEntityId": "pSAn931Kbd",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "pSAn931Kbd-facts"
+      ]
+    },
+    {
+      "id": "S2ScUbxcHJ",
+      "targetEntityId": "ZRmUVsoLmG",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "ZRmUVsoLmG-facts"
       ]
     },
     {
@@ -50668,22 +53234,22 @@
       ]
     },
     {
-      "id": "K0csjrZBrz",
+      "id": "dbXiZNK3V8",
       "targetEntityId": "7iUwNcCEI6",
-      "textDraft": "Method validate (intent unclear from static analysis)",
-      "confidence": "Low",
+      "textDraft": "Performs Mongoose read query (find): currentIndex (model not resolved).",
       "factSetIds": [
         "7iUwNcCEI6-facts"
-      ]
+      ],
+      "confidence": "Low"
     },
     {
-      "id": "Lmit7uBmez",
+      "id": "4pYJ6vVQz9",
       "targetEntityId": "9SicnGDgmn",
-      "textDraft": "Method validateRelations (intent unclear from static analysis)",
-      "confidence": "Low",
+      "textDraft": "Performs Mongoose read query (find): currentIndex (model not resolved).",
       "factSetIds": [
         "9SicnGDgmn-facts"
-      ]
+      ],
+      "confidence": "Low"
     },
     {
       "id": "SD8BiBvVfE",
@@ -50696,20 +53262,20 @@
     },
     {
       "id": "iTQ27MoLbR",
-      "targetEntityId": "juVWXOSR7m",
+      "targetEntityId": "F5doHekLMv",
       "textDraft": "Class LexiconValidator (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "juVWXOSR7m-facts"
+        "F5doHekLMv-facts"
       ]
     },
     {
       "id": "f8NwPVVNuo",
-      "targetEntityId": "30Qa8oGdpx",
+      "targetEntityId": "HprKoBYZDd",
       "textDraft": "Method loadFromMarkdown (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "30Qa8oGdpx-facts"
+        "HprKoBYZDd-facts"
       ]
     },
     {
@@ -50723,11 +53289,11 @@
     },
     {
       "id": "tSrkVWOwjS",
-      "targetEntityId": "woW0QIpCdP",
+      "targetEntityId": "ZVYFPfdohp",
       "textDraft": "Method validate (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "woW0QIpCdP-facts"
+        "ZVYFPfdohp-facts"
       ]
     },
     {
@@ -50875,6 +53441,60 @@
       ]
     },
     {
+      "id": "pTAyQC46rB",
+      "targetEntityId": "yqKryJCU0p",
+      "textDraft": "Function createApp (intent unclear from static analysis)",
+      "confidence": "Medium",
+      "factSetIds": [
+        "yqKryJCU0p-facts"
+      ]
+    },
+    {
+      "id": "rDJoLyjPEf",
+      "targetEntityId": "YXfsGtz4gz",
+      "textDraft": "Mongoose schema postSchema defines fields: title, content, author → User.",
+      "factSetIds": [
+        "YXfsGtz4gz-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "rU1lZiJc8N",
+      "targetEntityId": "us1LahAS89",
+      "textDraft": "Mongoose model Post for collection 'Post' using schema postSchema. Supports fields: title, content, author → User.",
+      "factSetIds": [
+        "us1LahAS89-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "eZmurfbkqS",
+      "targetEntityId": "3lDF6TUfrR",
+      "textDraft": "Mongoose schema userSchema defines fields: age, name (required), email (required), posts → Post.",
+      "factSetIds": [
+        "3lDF6TUfrR-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "c92Lq8OSKG",
+      "targetEntityId": "zh0WKWAjvy",
+      "textDraft": "Mongoose model User for collection 'User' using schema userSchema. Supports fields: age, name (required), email (required), posts → Post.",
+      "factSetIds": [
+        "zh0WKWAjvy-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "7Dh8LlVfUa",
+      "targetEntityId": "40dvmakOel",
+      "textDraft": "Express Router usersRouter that defines HTTP route handlers.",
+      "factSetIds": [
+        "40dvmakOel-facts"
+      ],
+      "confidence": "High"
+    },
+    {
       "id": "fCmZSeDhV1",
       "targetEntityId": "dXIyQqqoq9",
       "textDraft": "Constant router (intent unclear from static analysis)",
@@ -50912,10 +53532,10 @@
     },
     {
       "id": "2XDgcbs8d8",
-      "targetEntityId": "40dvmakOel",
+      "targetEntityId": "C8ggek40dvmakOel",
       "textDraft": "Express Router usersRouter that defines HTTP route handlers.",
       "factSetIds": [
-        "40dvmakOel-facts"
+        "C8ggek40dvmakOel-facts"
       ],
       "confidence": "High"
     },
@@ -51624,6 +54244,15 @@
       ]
     },
     {
+      "qid": "q:0HxIEAcghK",
+      "entityId": "oFDTBUIWK2",
+      "question": "What is the behavior of method `completions` at src/llm/adapters/anthropic.ts?",
+      "confidence": 40,
+      "factSetIds": [
+        "oFDTBUIWK2-facts"
+      ]
+    },
+    {
       "qid": "q:tAW1qa6oTB",
       "entityId": "BWOOseJ6yQ",
       "question": "What is the behavior of method `countTokens` at src/llm/adapters/anthropic.ts?",
@@ -51675,6 +54304,15 @@
       "confidence": 35,
       "factSetIds": [
         "1XljSHeaCO-facts"
+      ]
+    },
+    {
+      "qid": "q:dwc2c8PABr",
+      "entityId": "3iqYiV60Nk",
+      "question": "What is the behavior of method `completions` at src/llm/adapters/openai.ts?",
+      "confidence": 40,
+      "factSetIds": [
+        "3iqYiV60Nk-facts"
       ]
     },
     {
@@ -52524,6 +55162,132 @@
       ]
     },
     {
+      "qid": "q:52u5QyCSFa",
+      "entityId": "V0GdSKaB4o",
+      "question": "What are the responsibilities and contract of class `MongooseModelPattern` at src/reasoning/patterns/express/mongoose-model.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "V0GdSKaB4o-facts"
+      ]
+    },
+    {
+      "qid": "q:IteCknfwLh",
+      "entityId": "Vriur4nB9O",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/express/mongoose-model.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "Vriur4nB9O-facts"
+      ]
+    },
+    {
+      "qid": "q:QW8vkumrws",
+      "entityId": "QGncrYUJiH",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/express/mongoose-model.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "QGncrYUJiH-facts"
+      ]
+    },
+    {
+      "qid": "q:GN2xlvnSt6",
+      "entityId": "0gQr4ft5Sl",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/mongoose-model.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "0gQr4ft5Sl-facts"
+      ]
+    },
+    {
+      "qid": "q:7UnKiyEIKe",
+      "entityId": "b4fOg6QxBT",
+      "question": "What are the responsibilities and contract of class `MongooseQueryPattern` at src/reasoning/patterns/express/mongoose-query.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "b4fOg6QxBT-facts"
+      ]
+    },
+    {
+      "qid": "q:g8waoFELID",
+      "entityId": "n9b9Fzpxwc",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/express/mongoose-query.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "n9b9Fzpxwc-facts"
+      ]
+    },
+    {
+      "qid": "q:mN1xZ23AsJ",
+      "entityId": "VHJA61ypYu",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/express/mongoose-query.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "VHJA61ypYu-facts"
+      ]
+    },
+    {
+      "qid": "q:QnRSqHpdo0",
+      "entityId": "to7WQYv3ZB",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/mongoose-query.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "to7WQYv3ZB-facts"
+      ]
+    },
+    {
+      "qid": "q:vTVnh1kcnj",
+      "entityId": "eibsDfhOTf",
+      "question": "What is the purpose of constant `QUERY_METHODS` at src/reasoning/patterns/express/mongoose-query.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "eibsDfhOTf-facts"
+      ]
+    },
+    {
+      "qid": "q:razJ7pHvV5",
+      "entityId": "J09jzRGb1S",
+      "question": "What is the purpose of constant `ALL_QUERY_METHODS` at src/reasoning/patterns/express/mongoose-query.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "J09jzRGb1S-facts"
+      ]
+    },
+    {
+      "qid": "q:TBot9F6vt9",
+      "entityId": "PaYbXE6VMg",
+      "question": "What are the responsibilities and contract of class `MongooseSchemaPattern` at src/reasoning/patterns/express/mongoose-schema.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "PaYbXE6VMg-facts"
+      ]
+    },
+    {
+      "qid": "q:vn4ul5FC9p",
+      "entityId": "Kh76AL6HJS",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/express/mongoose-schema.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "Kh76AL6HJS-facts"
+      ]
+    },
+    {
+      "qid": "q:mQfswCOIXx",
+      "entityId": "pSAn931Kbd",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/express/mongoose-schema.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "pSAn931Kbd-facts"
+      ]
+    },
+    {
+      "qid": "q:cjq0con2g5",
+      "entityId": "ZRmUVsoLmG",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/mongoose-schema.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "ZRmUVsoLmG-facts"
+      ]
+    },
+    {
       "qid": "q:PBbpLVyRwf",
       "entityId": "nfO8N5qJTi",
       "question": "What are the responsibilities and contract of class `ExpressRouterPattern` at src/reasoning/patterns/express/router.ts?",
@@ -52867,20 +55631,20 @@
     },
     {
       "qid": "q:HunFaXnx96",
-      "entityId": "juVWXOSR7m",
+      "entityId": "F5doHekLMv",
       "question": "What are the responsibilities and contract of class `LexiconValidator` at src/validation/lexicon-validator.ts?",
       "confidence": 25,
       "factSetIds": [
-        "juVWXOSR7m-facts"
+        "F5doHekLMv-facts"
       ]
     },
     {
       "qid": "q:tIKPqRWSkf",
-      "entityId": "30Qa8oGdpx",
+      "entityId": "HprKoBYZDd",
       "question": "What is the behavior of method `loadFromMarkdown` at src/validation/lexicon-validator.ts?",
       "confidence": 35,
       "factSetIds": [
-        "30Qa8oGdpx-facts"
+        "HprKoBYZDd-facts"
       ]
     },
     {
@@ -52894,11 +55658,11 @@
     },
     {
       "qid": "q:6uNMSbfLws",
-      "entityId": "woW0QIpCdP",
+      "entityId": "ZVYFPfdohp",
       "question": "What is the behavior of method `validate` at src/validation/lexicon-validator.ts?",
       "confidence": 35,
       "factSetIds": [
-        "woW0QIpCdP-facts"
+        "ZVYFPfdohp-facts"
       ]
     },
     {

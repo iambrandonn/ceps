@@ -65,7 +65,7 @@ export class LexiconValidator {
             if (line.startsWith('#### ')) {
                 inApprovedTermsSection = false;
                 inAntiPatternsSection = false;
-                if (line.includes('Middleware') || line.includes('HTTP Methods') || line.includes('Special Markers')) {
+                if (line.includes('Middleware') || line.includes('HTTP Methods') || line.includes('Special Markers') || line.includes('Error Handling') || line.includes('Async Handling') || line.includes('Configuration')) {
                     inApprovedTermsSection = true;
                     // Debug
                     // console.log(`Section "${line}" -> inApprovedTermsSection = true, currentFramework=${currentFramework}`);
@@ -131,8 +131,11 @@ export class LexiconValidator {
     validate(draftText, factSetIds, metadata) {
         const diagnostics = [];
         // Check all frameworks' anti-patterns (fail-fast)
+        // Sort anti-patterns by length (longest first) to match most specific patterns
         for (const [framework, rule] of this.rules.entries()) {
-            for (const [antiPattern, alternative] of rule.antiPatterns.entries()) {
+            const sortedAntiPatterns = Array.from(rule.antiPatterns.entries())
+                .sort((a, b) => b[0].length - a[0].length);
+            for (const [antiPattern, alternative] of sortedAntiPatterns) {
                 // Case-insensitive substring match
                 if (draftText.toLowerCase().includes(antiPattern.toLowerCase())) {
                     diagnostics.push({

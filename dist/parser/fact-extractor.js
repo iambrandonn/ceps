@@ -69,6 +69,25 @@ export class FactExtractor {
                     object: true,
                 });
             }
+            // Phase 6 I2: Detect async functions
+            const isAsync = func.isAsync();
+            if (isAsync) {
+                facts.push({
+                    subjectId: entityId,
+                    predicate: 'is-async',
+                    object: 'true',
+                });
+            }
+            // Phase 6 I2: Detect Promise return type
+            const funcReturnType = func.getReturnType();
+            const returnTypeText = funcReturnType.getText();
+            if (returnTypeText.includes('Promise<') || returnTypeText === 'Promise') {
+                facts.push({
+                    subjectId: entityId,
+                    predicate: 'returns-promise',
+                    object: 'true',
+                });
+            }
             factSets.push({
                 id: `${entityId}-facts`,
                 facts,
