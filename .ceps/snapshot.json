@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "83a8105749175c0777555e2f62e9aa61caa2b5de3b4fb7f9ff66e8f5e67118a3",
-  "generatedAt": "2025-11-08T14:11:13.123Z",
+  "rootHash": "3ffa1a6eb87b179e9e02dc52a6fdd8444ab11af76dbddee1184b5374ba6c93cc",
+  "generatedAt": "2025-11-08T21:49:49.396Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -11,8 +11,8 @@
     },
     {
       "path": "AGENTS.md",
-      "hash": "3207978f05ed7860098858b45d2697eb8ad51435856553a9921e21b00d50783d",
-      "bytes": 20742
+      "hash": "74d5863a9321b9f6f61d4996164a8857c10f7151663d7156f7baef981c8e2364",
+      "bytes": 26654
     },
     {
       "path": "benchmarks/README.md",
@@ -23,11 +23,6 @@
       "path": "CLAUDE.md",
       "hash": "a85d38400e59f95d543dbea4bbda17dd8c82b3668a1bf2a2be9b1ff54b1d13a1",
       "bytes": 38
-    },
-    {
-      "path": "CRITICAL_PROCESS_FAILURE_ANALYSIS.md",
-      "hash": "84853b836b405102e288d41c869ec79240a04e55dd5f317a0281541810ef2661",
-      "bytes": 12128
     },
     {
       "path": "CTS-01_KnowledgeBase.md",
@@ -51,8 +46,8 @@
     },
     {
       "path": "CTS-05_Static_Analysis_and_Pattern_Detection.md",
-      "hash": "9bd8c8e56a5372c247ecaf2d6327e5598066d8e6684887cb56ac7f949ad47136",
-      "bytes": 4695
+      "hash": "b5148692f7a477d53fc0e793cc6e29f58e33f20e4918e7bdd2c21db7324e0ff1",
+      "bytes": 6597
     },
     {
       "path": "CTS-05a_Scanner_and_Loader.md",
@@ -95,6 +90,166 @@
       "bytes": 1932
     },
     {
+      "path": "docs/internal/analysis/critical-process-failure.md",
+      "hash": "84853b836b405102e288d41c869ec79240a04e55dd5f317a0281541810ef2661",
+      "bytes": 12128
+    },
+    {
+      "path": "docs/internal/analysis/phase3-plan-corrections.md",
+      "hash": "f22a3033d52683cf2111704cda7afe29ffa852af35b8fba8ffa896d05683a34e",
+      "bytes": 17760
+    },
+    {
+      "path": "docs/internal/analysis/phase3-process-improvements.md",
+      "hash": "72c65f68ffe572edf9cb397537b6ae8145463d6403ba517d2795afe5808110a5",
+      "bytes": 19142
+    },
+    {
+      "path": "docs/internal/analysis/phase3-step2-phase-minus-one.md",
+      "hash": "72ac455ec1c7345386feff24f9f9f54751bf283a38203bfa5bf4b3574b5a8bc1",
+      "bytes": 13373
+    },
+    {
+      "path": "docs/internal/analysis/phase4-ws-f2-cross3-resolution.md",
+      "hash": "c73998be65eb8588f5110f11cc5cdbddd8806a4ae1b710572a06a6ca88e7d20d",
+      "bytes": 20086
+    },
+    {
+      "path": "docs/internal/analysis/phase5-critical-bug.md",
+      "hash": "91ffd79e3f370b0ba4fc2048f2f8d43c4215bf92e9236d71fc8d63c9d21f1b08",
+      "bytes": 16562
+    },
+    {
+      "path": "docs/internal/analysis/phase5-llm-on-validation.md",
+      "hash": "1f717d84d9dce5ff83656e2966e306f245289ed1bd6ee0ac404d2aceec1b827c",
+      "bytes": 8147
+    },
+    {
+      "path": "docs/internal/analysis/phase6-express-i4-phase-minus-one.md",
+      "hash": "48f65078872474c39209e1327cb9cb2269d2ecef13eb4c98516cb5b8d998fae8",
+      "bytes": 23120
+    },
+    {
+      "path": "docs/internal/analysis/phase6-express-phase-minus-one.md",
+      "hash": "cb9acb16974c2da66e504f891a0417c4a35b1bfa2dbf4e5c803790250490580a",
+      "bytes": 8835
+    },
+    {
+      "path": "docs/internal/analysis/phase6-routing-parser-fix-readme.md",
+      "hash": "16f7726c29ddf8a33874d6d0f8cbea97ab1bbd831a9889edad036f7107cd541e",
+      "bytes": 12451
+    },
+    {
+      "path": "docs/internal/analysis/phase6-validation-fix-phase-minus-one.md",
+      "hash": "32c952538fcfa5d89d12bf4828c3154a08e71308f195725600943d71e5dc8f84",
+      "bytes": 18733
+    },
+    {
+      "path": "docs/internal/analysis/routing-parser-fix-clarifications.md",
+      "hash": "951c1c3b8b313a856197a696b7d8c81b6b038e7f6e5eddc18efa1722bcfc7bb8",
+      "bytes": 4349
+    },
+    {
+      "path": "docs/internal/analysis/VALIDATION_ISSUE_ROUTES_PATTERN_DETECTION.md",
+      "hash": "7f1a6f56c276e8f016525ceb25b42f8a8f913f7c32d65c2c0da0763fcbfbe61e",
+      "bytes": 40682
+    },
+    {
+      "path": "docs/internal/announcements/express-i5-enhancements.md",
+      "hash": "b262f407dcba3c5745d5328345f3a92ef52f05046ac7cdcf3fdd8b1081b7ea72",
+      "bytes": 8359
+    },
+    {
+      "path": "docs/internal/announcements/express-i5.md",
+      "hash": "149b24681eaeba698f8ae30cbd6e586108e78d3d5742f6912b46073b50fa7adf",
+      "bytes": 4641
+    },
+    {
+      "path": "docs/internal/approval/phase6-express-i5.md",
+      "hash": "146a5f24530ddb831c4dd7241484f5a9e4e6ca3e440388935915a9c407bb0e8a",
+      "bytes": 10895
+    },
+    {
+      "path": "docs/internal/approval/phase6-i4.md",
+      "hash": "cb451f89a4773caaa0b389b20321a109f31a18526a9e327e0032b2f605f9de53",
+      "bytes": 9864
+    },
+    {
+      "path": "docs/internal/completion/phase1-summary.md",
+      "hash": "8b4d1007c7a18e394c073b6a2c8f5dd5b75a2c47bdb74d4832605f05db27a1cc",
+      "bytes": 4236
+    },
+    {
+      "path": "docs/internal/completion/phase2-schema-analysis.md",
+      "hash": "871a092316ddfceb415346309d0e3ff1d84917e1cdf1a456f75e5c81a1b61bd6",
+      "bytes": 7656
+    },
+    {
+      "path": "docs/internal/completion/phase3-step3.md",
+      "hash": "fca75ad1b230c9af385d86e0ac122d79fb9937ee6c26455c0185852b11ed10eb",
+      "bytes": 7985
+    },
+    {
+      "path": "docs/internal/completion/phase4-summary.md",
+      "hash": "eb3ad9def9b2123a1f2661b492de6c304b2bd1d0fc393018d6a421a4b60e8dab",
+      "bytes": 17666
+    },
+    {
+      "path": "docs/internal/completion/phase4-ws-f2-final.md",
+      "hash": "5b22d9324ff3745b2ef591a7e7e2617963c17af7783825d8294ef6215e17c896",
+      "bytes": 12248
+    },
+    {
+      "path": "docs/internal/completion/phase4-ws-f2-summary.md",
+      "hash": "3120ac927201e90e8ecf6e3f6096affd560955151fe8b85bd6266cff6e81d063",
+      "bytes": 11524
+    },
+    {
+      "path": "docs/internal/completion/phase5-overall-feedback.md",
+      "hash": "2c855fb06e451489555535be9f34a4065ede51b982460bcd383ac457b213af1a",
+      "bytes": 12712
+    },
+    {
+      "path": "docs/internal/completion/phase5-summary.md",
+      "hash": "41a1caba6fce8c7d209ee34188f01916aa40f62f284937be49c9af7c828bf921",
+      "bytes": 5710
+    },
+    {
+      "path": "docs/internal/completion/phase6-express-i4.md",
+      "hash": "c0994cfbe29afeebc19c612c161893367f8a0a14734da6c83fa47ed54a6ce4cf",
+      "bytes": 9994
+    },
+    {
+      "path": "docs/internal/completion/phase6-express-i5.md",
+      "hash": "a4a5f8fc6397ff9a76c74bd2d42f75f26b29f633b91d5e651af6fd1f8aafda4e",
+      "bytes": 9695
+    },
+    {
+      "path": "docs/internal/completion/phase6-i1-merge-blockers.md",
+      "hash": "601fd7599001f02c3fcacdc390079e6f16bb94e9bbb0b9d28ff243ed4be22b6d",
+      "bytes": 8708
+    },
+    {
+      "path": "docs/internal/completion/phase6-i1.md",
+      "hash": "bc944a625852d392034eab83451f4d56a30e97248ce6e22a4bbc83f46c0fbf28",
+      "bytes": 7274
+    },
+    {
+      "path": "docs/internal/completion/phase6-i2-final.md",
+      "hash": "0438716baaf439fe680f7f97380487b456733a23fa1bb9b2a44387f63c237703",
+      "bytes": 11770
+    },
+    {
+      "path": "docs/internal/completion/phase6-i2-review6.md",
+      "hash": "4b41b6730e22409970c27d6d7ba661bb1c92988c2587765dcf0974c4770851d2",
+      "bytes": 12207
+    },
+    {
+      "path": "docs/internal/completion/phase6-i2.md",
+      "hash": "cdb2e4ddcfa4727e235398ac0b446577cc64be6a63e6b3df38f3272d830985d1",
+      "bytes": 4483
+    },
+    {
       "path": "docs/internal/mongoose-facts-api.md",
       "hash": "b1cc6ec8b22a147403b28a848e6824141eadd3c15f87f1088cc324e127b418c5",
       "bytes": 12673
@@ -103,6 +258,11 @@
       "path": "docs/internal/PHASE6_EXPRESS_LESSONS.md",
       "hash": "e7cd312e2b32b1ef23983a78de0f68f2b191d0ee027c36023cbeb20040740c0e",
       "bytes": 15828
+    },
+    {
+      "path": "docs/internal/PHASE6_PLAN_REVISION_SUMMARY.md",
+      "hash": "3ffc38b0511921ec47d3df9367e80bd7c420aa59ea3ba1ac706906abef60d25c",
+      "bytes": 9125
     },
     {
       "path": "docs/lexicon.md",
@@ -125,6 +285,181 @@
       "bytes": 20417
     },
     {
+      "path": "docs/planning/active/features/help-flag.md",
+      "hash": "063582a95bd8c829e4d8e4bbe2c498bf613ec6c701cb4a796f43d11707e02afb",
+      "bytes": 20650
+    },
+    {
+      "path": "docs/planning/active/phase6/investigation-instructions.md",
+      "hash": "9a905d529001fb152e0862e8e815c4e6fbf9325b38e8f86b32a9bd81f436f41a",
+      "bytes": 39330
+    },
+    {
+      "path": "docs/planning/active/phase6/plan-original.md",
+      "hash": "a07d5ddbff89de6c6acbafc17dc96841fdccee79d1f94718ded77a08a754a58c",
+      "bytes": 27653
+    },
+    {
+      "path": "docs/planning/active/phase6/plan-revised-backup.md",
+      "hash": "e3e9676cd983bfafb55eaf01e0f89f4bc5b058fc5d67a7dc368ab00de9a22641",
+      "bytes": 28034
+    },
+    {
+      "path": "docs/planning/active/phase6/plan.md",
+      "hash": "0689a939b5791922c0fb1fe6b88623e36d91345381a2023ffdff86c7781ba4a0",
+      "bytes": 35068
+    },
+    {
+      "path": "docs/planning/active/phase6/validation-fix-plan.md",
+      "hash": "09ea5b1b124ab8d3b96976925f2fdbfa7d9bbdd531fbf27fffc39c573a576e70",
+      "bytes": 75071
+    },
+    {
+      "path": "docs/planning/active/phase6/ws-d-express-i5.md",
+      "hash": "c0119f845c9770381ed90df75724be972d8433a18b1fc912dd1614c61af7c69e",
+      "bytes": 7285
+    },
+    {
+      "path": "docs/planning/active/phase6/ws-d-express.md",
+      "hash": "a8b552a2bea4b2f5055486b11b52859abf9f00e5d3ad1395f39dd23920830a0f",
+      "bytes": 16998
+    },
+    {
+      "path": "docs/planning/archive/phase1/plan.md",
+      "hash": "f1e005bbdadbfca13e61820c156857cc99c1c8d1f20471f5d3f2094a067838a0",
+      "bytes": 58612
+    },
+    {
+      "path": "docs/planning/archive/phase2/plan.md",
+      "hash": "ab9f5ba5a5ad4675a1ecc28c0d27c36d655278b48fc5a62a2b772ba44919a1e0",
+      "bytes": 98730
+    },
+    {
+      "path": "docs/planning/archive/phase3/acceptance.md",
+      "hash": "f9bebaf4dd7c33a85afbc7388407dc3e29dc63069a78214200e7c2bdda5ed3be",
+      "bytes": 14920
+    },
+    {
+      "path": "docs/planning/archive/phase3/plan.md",
+      "hash": "e82297cfe8dc3608bd4b0e1023d408c8eafd38237cd98b48b03d4734ea5a57e7",
+      "bytes": 21481
+    },
+    {
+      "path": "docs/planning/archive/phase3/step0.md",
+      "hash": "4d0c67ca295532b2b391e4079f0935969cbe423b65d4a78183ed812b0ed7257f",
+      "bytes": 17246
+    },
+    {
+      "path": "docs/planning/archive/phase3/step1.md",
+      "hash": "026b6299945e4204724ab67d47d385fb135a34ca6bbff984cfd1853ab5d8f964",
+      "bytes": 27282
+    },
+    {
+      "path": "docs/planning/archive/phase3/step2.md",
+      "hash": "b78faaf0faab33c864fdf32d9ca5463dc79d5ed1a8e38ae84f155c2cf8be5ca5",
+      "bytes": 40135
+    },
+    {
+      "path": "docs/planning/archive/phase3/step3.md",
+      "hash": "549a77c60001d71ee44185b95a6da0d619b11659cf1cdfbe45fe43a9175a99cb",
+      "bytes": 24325
+    },
+    {
+      "path": "docs/planning/archive/phase3/step4.md",
+      "hash": "4d0f36ef293c6f7bc69493ee70592e249724ed590e993fb397a635e1e260917b",
+      "bytes": 28670
+    },
+    {
+      "path": "docs/planning/archive/phase3/step5.md",
+      "hash": "da4aabf941ef03328af5e7397b430dfb6ffaa0ad9beb2eb4bbc75bbda9c40675",
+      "bytes": 27398
+    },
+    {
+      "path": "docs/planning/archive/phase3/step6.md",
+      "hash": "fc5286b67b67e9b923e4c399d790359e7b7a1a6c4bcf4f3f87fe027c59d83cd9",
+      "bytes": 18069
+    },
+    {
+      "path": "docs/planning/archive/phase3/step7.md",
+      "hash": "c84972b15a2e661d400bf890daf8ebe247c92ffb565179689e5d151278d3014b",
+      "bytes": 25533
+    },
+    {
+      "path": "docs/planning/archive/phase3/step8.md",
+      "hash": "194ccc49db11ff085e7657bc725599f440e4d5c933898ebb7b9bbdb89b57ad48",
+      "bytes": 20236
+    },
+    {
+      "path": "docs/planning/archive/phase3/supporting.md",
+      "hash": "2a5dbd9242af822547011c6c4cb25c790855aeca9c0a495feaf9898be4cd7ad7",
+      "bytes": 18911
+    },
+    {
+      "path": "docs/planning/archive/phase4/plan.md",
+      "hash": "15de3af0debfcf1fc8883b721f5e133838e975e7da4e16901ebfdc1f58e04318",
+      "bytes": 23227
+    },
+    {
+      "path": "docs/planning/archive/phase4/ws-f1.md",
+      "hash": "e074992dc875a86513d5be12252114f4e9514cc9959201d2cbea053ee1fc7554",
+      "bytes": 23950
+    },
+    {
+      "path": "docs/planning/archive/phase4/ws-f2.md",
+      "hash": "bb118d71c4a1ffa117134be8d6378df76ad2f51201132d7183fe004f66be113f",
+      "bytes": 11057
+    },
+    {
+      "path": "docs/planning/archive/phase4/ws-h.md",
+      "hash": "388f5f83eb9f31ea0fbaf070a2e42c8b6271df16b38322ed73323a5b39a835cb",
+      "bytes": 12986
+    },
+    {
+      "path": "docs/planning/archive/phase5/plan.md",
+      "hash": "6b2e5f4e5b3079c9456d35da92e513dc5ad3d827385f46fdb2abb1361d8dd089",
+      "bytes": 11894
+    },
+    {
+      "path": "docs/planning/archive/phase5/step0.md",
+      "hash": "cd6fb67577ed8f9e92e6187d1cc90c5366c959d7efd44554b1d4b4315f9918a7",
+      "bytes": 10426
+    },
+    {
+      "path": "docs/planning/archive/phase5/step1.md",
+      "hash": "5be12e6b00ff358f81926612c98cdcf1e9a89a42143e170ca286a4fd34d1a4a9",
+      "bytes": 8137
+    },
+    {
+      "path": "docs/planning/archive/phase5/step2.md",
+      "hash": "ac335ad338d1ca31f711f709dfb1a17a68e97c05780988f2cfa21dde0cbfc329",
+      "bytes": 9960
+    },
+    {
+      "path": "docs/planning/archive/phase5/step3.md",
+      "hash": "62ba0b8f1cb4dc88bd4b25de33c817867bb703d3a1dfb346c08209b831ac1b0e",
+      "bytes": 9202
+    },
+    {
+      "path": "docs/planning/archive/phase5/step4.md",
+      "hash": "f00cd5167ef97502c59d290351890639bef528d6e47697e704165519566eb9bb",
+      "bytes": 9839
+    },
+    {
+      "path": "docs/planning/archive/phase5/step5.md",
+      "hash": "0ec4c20d0d290c9dee61276dc102eca9cdafc76532b1818ec03e103ab4bf158f",
+      "bytes": 9883
+    },
+    {
+      "path": "docs/planning/archive/phase5/step6.md",
+      "hash": "43a78402c40790e80a53feb41321261de029477244890797b0089e0b4a37f333",
+      "bytes": 10733
+    },
+    {
+      "path": "docs/planning/archive/phase5/step7.md",
+      "hash": "a98b12d5ca496dd422ddbb71b3c588432617507018932c1036ccecbaa01f6672",
+      "bytes": 8186
+    },
+    {
       "path": "docs/process/grounding-completion.md",
       "hash": "1a4ddeae44502f6cd304738522eee3301adeaef97c7f83eab945c25c64834e8a",
       "bytes": 12662
@@ -145,9 +480,79 @@
       "bytes": 9516
     },
     {
-      "path": "docs/reviews/M3_EXPRESS_CONTRIBUTION.md",
-      "hash": "11da7f60aba42ee2ae1504b421a53a605dcec6486742b2239259897f60201c0f",
-      "bytes": 10349
+      "path": "docs/reviews/phase6/express/i3-config-final.md",
+      "hash": "a871ec179667d3a92b39a03a6f476089f08396e9cbe0c3606ba3751583d80ed9",
+      "bytes": 21239
+    },
+    {
+      "path": "docs/reviews/phase6/express/i3-config-review.md",
+      "hash": "e23920a3948bf827bcbf208b8edf8ec775b2eac98b1baadcdc4dd2fb4249516e",
+      "bytes": 23584
+    },
+    {
+      "path": "docs/reviews/phase6/express/i4-mongoose-complete.md",
+      "hash": "923ad8d7272324f36e9985793c7e91677e9b6541ead41160ab41130a186444e8",
+      "bytes": 4726
+    },
+    {
+      "path": "docs/reviews/phase6/express/i4-mongoose-final-independent.md",
+      "hash": "72eceb3ba929e7f0359ca271b60954a6171a12271778a09cfb5fc43ba38fb142",
+      "bytes": 21558
+    },
+    {
+      "path": "docs/reviews/phase6/express/i4-mongoose-fixes-complete.md",
+      "hash": "9cccabe15d1b5e35a34934a2281a9042da06d54e6ed8c1aaa81d5d4c4cbddf7e",
+      "bytes": 13424
+    },
+    {
+      "path": "docs/reviews/phase6/express/i4-mongoose-independent.md",
+      "hash": "2c2458561da8c1075f9ea2fa8c10bb9c8624757b907da9573f3375014685eb8c",
+      "bytes": 29137
+    },
+    {
+      "path": "docs/reviews/phase6/express/i5-final-review.md",
+      "hash": "f4483afb900e4d7568c3eb21a91d934e8b06f2a428c1c3c35099a787a6e95d37",
+      "bytes": 33652
+    },
+    {
+      "path": "docs/reviews/phase6/express/i5-review-1.md",
+      "hash": "ee6374321691e042731db2f0d29a0d5ab7899a0be04568158c077edfade62647",
+      "bytes": 22645
+    },
+    {
+      "path": "docs/reviews/phase6/features/help-flag-implementation-review.md",
+      "hash": "a0e277b5a4773368ff465683cff4e9de71548be8dc85325b5911790f19457d17",
+      "bytes": 18505
+    },
+    {
+      "path": "docs/reviews/phase6/features/help-flag-plan-review.md",
+      "hash": "49526a82dbdee1345e6bcd13a20bc7c3f402ae47dafb658699a9c1f031ade61f",
+      "bytes": 19724
+    },
+    {
+      "path": "docs/reviews/phase6/plan-revision-review.md",
+      "hash": "1c5f806beeedce98a579e47932e14385326739adf79c61f6a08b7228f13f3ee6",
+      "bytes": 16276
+    },
+    {
+      "path": "docs/reviews/phase6/plan-validation-fix-review.md",
+      "hash": "08ff917b3691462ef4058b3b238c764d3b0378de3b843af3e4817681e21faab0",
+      "bytes": 35803
+    },
+    {
+      "path": "docs/reviews/phase6/routing-parser-fix-implementation-review-v2.md",
+      "hash": "7f5e0e846cd118ed1037b8df85fb30b944f9e1b6ff079adfa52ecf0efb9f275f",
+      "bytes": 16039
+    },
+    {
+      "path": "docs/reviews/phase6/routing-parser-fix-review-final.md",
+      "hash": "4b8c03b42175cb5144419012638446475250670d9d4f2371110fdf9048bd3039",
+      "bytes": 22678
+    },
+    {
+      "path": "docs/reviews/phase6/routing-parser-fix-review.md",
+      "hash": "fa3532a85aac805d41535934f9311893d142a92bd562366b18a6d5355265fbec",
+      "bytes": 26401
     },
     {
       "path": "docs/testing-real-providers.md",
@@ -163,61 +568,6 @@
       "path": "docs/ws-f2-telemetry.md",
       "hash": "3ac777dc50b995f0d32745da18f6d672d6dc9a42844dcda34d9de484517aa6c0",
       "bytes": 6555
-    },
-    {
-      "path": "EXPRESS_I5_ANNOUNCEMENT.md",
-      "hash": "149b24681eaeba698f8ae30cbd6e586108e78d3d5742f6912b46073b50fa7adf",
-      "bytes": 4641
-    },
-    {
-      "path": "EXPRESS_I5_MINOR_ENHANCEMENTS.md",
-      "hash": "b262f407dcba3c5745d5328345f3a92ef52f05046ac7cdcf3fdd8b1081b7ea72",
-      "bytes": 8359
-    },
-    {
-      "path": "FEEDBACK_I3_EXPRESS_CONFIG_FINAL_REVIEW.md",
-      "hash": "a871ec179667d3a92b39a03a6f476089f08396e9cbe0c3606ba3751583d80ed9",
-      "bytes": 21239
-    },
-    {
-      "path": "FEEDBACK_I3_EXPRESS_CONFIG_REVIEW.md",
-      "hash": "e23920a3948bf827bcbf208b8edf8ec775b2eac98b1baadcdc4dd2fb4249516e",
-      "bytes": 23584
-    },
-    {
-      "path": "FEEDBACK_I4_MONGOOSE_COMPLETE.md",
-      "hash": "923ad8d7272324f36e9985793c7e91677e9b6541ead41160ab41130a186444e8",
-      "bytes": 4726
-    },
-    {
-      "path": "FEEDBACK_I4_MONGOOSE_FINAL_INDEPENDENT_REVIEW.md",
-      "hash": "72eceb3ba929e7f0359ca271b60954a6171a12271778a09cfb5fc43ba38fb142",
-      "bytes": 21558
-    },
-    {
-      "path": "FEEDBACK_I4_MONGOOSE_FIXES_COMPLETE.md",
-      "hash": "9cccabe15d1b5e35a34934a2281a9042da06d54e6ed8c1aaa81d5d4c4cbddf7e",
-      "bytes": 13424
-    },
-    {
-      "path": "FEEDBACK_I4_MONGOOSE_INDEPENDENT_REVIEW.md",
-      "hash": "2c2458561da8c1075f9ea2fa8c10bb9c8624757b907da9573f3375014685eb8c",
-      "bytes": 29137
-    },
-    {
-      "path": "FEEDBACK_I5_EXPRESS_FINAL_REVIEW.md",
-      "hash": "f4483afb900e4d7568c3eb21a91d934e8b06f2a428c1c3c35099a787a6e95d37",
-      "bytes": 33652
-    },
-    {
-      "path": "FEEDBACK-EXPRESS-I5-1.md",
-      "hash": "ee6374321691e042731db2f0d29a0d5ab7899a0be04568158c077edfade62647",
-      "bytes": 22645
-    },
-    {
-      "path": "FEEDBACK-HELP-FLAG-PLAN.md",
-      "hash": "49526a82dbdee1345e6bcd13a20bc7c3f402ae47dafb658699a9c1f031ade61f",
-      "bytes": 19724
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -370,164 +720,24 @@
       "bytes": 788
     },
     {
-      "path": "IMPLEMENTATION_PLAN_HELP_FLAG.md",
-      "hash": "063582a95bd8c829e4d8e4bbe2c498bf613ec6c701cb4a796f43d11707e02afb",
-      "bytes": 20650
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE1.md",
-      "hash": "f1e005bbdadbfca13e61820c156857cc99c1c8d1f20471f5d3f2094a067838a0",
-      "bytes": 58612
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE2.md",
-      "hash": "ab9f5ba5a5ad4675a1ecc28c0d27c36d655278b48fc5a62a2b772ba44919a1e0",
-      "bytes": 98730
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_ACCEPTANCE.md",
-      "hash": "f9bebaf4dd7c33a85afbc7388407dc3e29dc63069a78214200e7c2bdda5ed3be",
-      "bytes": 14920
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP0.md",
-      "hash": "4d0c67ca295532b2b391e4079f0935969cbe423b65d4a78183ed812b0ed7257f",
-      "bytes": 17246
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP1.md",
-      "hash": "026b6299945e4204724ab67d47d385fb135a34ca6bbff984cfd1853ab5d8f964",
-      "bytes": 27282
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP2.md",
-      "hash": "b78faaf0faab33c864fdf32d9ca5463dc79d5ed1a8e38ae84f155c2cf8be5ca5",
-      "bytes": 40135
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP3.md",
-      "hash": "549a77c60001d71ee44185b95a6da0d619b11659cf1cdfbe45fe43a9175a99cb",
-      "bytes": 24325
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP4.md",
-      "hash": "4d0f36ef293c6f7bc69493ee70592e249724ed590e993fb397a635e1e260917b",
-      "bytes": 28670
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP5.md",
-      "hash": "da4aabf941ef03328af5e7397b430dfb6ffaa0ad9beb2eb4bbc75bbda9c40675",
-      "bytes": 27398
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP6.md",
-      "hash": "fc5286b67b67e9b923e4c399d790359e7b7a1a6c4bcf4f3f87fe027c59d83cd9",
-      "bytes": 18069
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP7.md",
-      "hash": "c84972b15a2e661d400bf890daf8ebe247c92ffb565179689e5d151278d3014b",
-      "bytes": 25533
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_STEP8.md",
-      "hash": "194ccc49db11ff085e7657bc725599f440e4d5c933898ebb7b9bbdb89b57ad48",
-      "bytes": 20236
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3_SUPPORTING.md",
-      "hash": "2a5dbd9242af822547011c6c4cb25c790855aeca9c0a495feaf9898be4cd7ad7",
-      "bytes": 18911
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE3.md",
-      "hash": "e82297cfe8dc3608bd4b0e1023d408c8eafd38237cd98b48b03d4734ea5a57e7",
-      "bytes": 21481
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE4_WS_F1.md",
-      "hash": "e074992dc875a86513d5be12252114f4e9514cc9959201d2cbea053ee1fc7554",
-      "bytes": 23950
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE4_WS_F2.md",
-      "hash": "bb118d71c4a1ffa117134be8d6378df76ad2f51201132d7183fe004f66be113f",
-      "bytes": 11057
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE4_WS_H.md",
-      "hash": "388f5f83eb9f31ea0fbaf070a2e42c8b6271df16b38322ed73323a5b39a835cb",
-      "bytes": 12986
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE4.md",
-      "hash": "15de3af0debfcf1fc8883b721f5e133838e975e7da4e16901ebfdc1f58e04318",
-      "bytes": 23227
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP0.md",
-      "hash": "cd6fb67577ed8f9e92e6187d1cc90c5366c959d7efd44554b1d4b4315f9918a7",
-      "bytes": 10426
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP1.md",
-      "hash": "5be12e6b00ff358f81926612c98cdcf1e9a89a42143e170ca286a4fd34d1a4a9",
-      "bytes": 8137
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP2.md",
-      "hash": "ac335ad338d1ca31f711f709dfb1a17a68e97c05780988f2cfa21dde0cbfc329",
-      "bytes": 9960
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP3.md",
-      "hash": "62ba0b8f1cb4dc88bd4b25de33c817867bb703d3a1dfb346c08209b831ac1b0e",
-      "bytes": 9202
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP4.md",
-      "hash": "f00cd5167ef97502c59d290351890639bef528d6e47697e704165519566eb9bb",
-      "bytes": 9839
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP5.md",
-      "hash": "0ec4c20d0d290c9dee61276dc102eca9cdafc76532b1818ec03e103ab4bf158f",
-      "bytes": 9883
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP6.md",
-      "hash": "43a78402c40790e80a53feb41321261de029477244890797b0089e0b4a37f333",
-      "bytes": 10733
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5_STEP7.md",
-      "hash": "a98b12d5ca496dd422ddbb71b3c588432617507018932c1036ccecbaa01f6672",
-      "bytes": 8186
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE5.md",
-      "hash": "6b2e5f4e5b3079c9456d35da92e513dc5ad3d827385f46fdb2abb1361d8dd089",
-      "bytes": 11894
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE6_WS_D_EXPRESS_I5.md",
-      "hash": "c0119f845c9770381ed90df75724be972d8433a18b1fc912dd1614c61af7c69e",
-      "bytes": 7285
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE6_WS_D_EXPRESS.md",
-      "hash": "a8b552a2bea4b2f5055486b11b52859abf9f00e5d3ad1395f39dd23920830a0f",
-      "bytes": 16998
-    },
-    {
-      "path": "IMPLEMENTATION_PLAN_PHASE6.md",
-      "hash": "723a901ef250e80b623ea06f443adfb20b017ffa34ba2ff0f2d6dd60690425b2",
-      "bytes": 27466
-    },
-    {
       "path": "IMPLEMENTATION_PLAN.md",
       "hash": "32a9e4a84c87425789eb9434a90080a05cdd22f6b8908f0f7ab5bdd29161a248",
       "bytes": 47300
+    },
+    {
+      "path": "output-test/kb-dump-new.json",
+      "hash": "228f0165a9cdb36fb43b1f4ba16c268437fadc7c87042ce7d001c1468dd3f313",
+      "bytes": 1020
+    },
+    {
+      "path": "output-test/kb-dump.json",
+      "hash": "d12d953f4bf797d995da4ba6173cde69061073186cad96250f397060a7a0dba8",
+      "bytes": 224307
+    },
+    {
+      "path": "output-test/routes.js",
+      "hash": "068715e545a1188aaca298113428261e85eaa1217fbc1a0012c780156e6a89c4",
+      "bytes": 88828
     },
     {
       "path": "package-lock.json",
@@ -538,131 +748,6 @@
       "path": "package.json",
       "hash": "5213028963a7c20122b6c8aa1e9871db73d0f6ff7cb66ca63332d555b45d55b0",
       "bytes": 1651
-    },
-    {
-      "path": "PHASE1_COMPLETION_SUMMARY.md",
-      "hash": "8b4d1007c7a18e394c073b6a2c8f5dd5b75a2c47bdb74d4832605f05db27a1cc",
-      "bytes": 4236
-    },
-    {
-      "path": "PHASE2_SCHEMA_ANALYSIS.md",
-      "hash": "871a092316ddfceb415346309d0e3ff1d84917e1cdf1a456f75e5c81a1b61bd6",
-      "bytes": 7656
-    },
-    {
-      "path": "PHASE3_PLAN_CORRECTIONS.md",
-      "hash": "f22a3033d52683cf2111704cda7afe29ffa852af35b8fba8ffa896d05683a34e",
-      "bytes": 17760
-    },
-    {
-      "path": "PHASE3_PROCESS_IMPROVEMENTS.md",
-      "hash": "72c65f68ffe572edf9cb397537b6ae8145463d6403ba517d2795afe5808110a5",
-      "bytes": 19142
-    },
-    {
-      "path": "PHASE3_STEP2_PHASE_MINUS_ONE_ANALYSIS.md",
-      "hash": "72ac455ec1c7345386feff24f9f9f54751bf283a38203bfa5bf4b3574b5a8bc1",
-      "bytes": 13373
-    },
-    {
-      "path": "PHASE3_STEP3_COMPLETION.md",
-      "hash": "fca75ad1b230c9af385d86e0ac122d79fb9937ee6c26455c0185852b11ed10eb",
-      "bytes": 7985
-    },
-    {
-      "path": "PHASE4_COMPLETION_SUMMARY.md",
-      "hash": "eb3ad9def9b2123a1f2661b492de6c304b2bd1d0fc393018d6a421a4b60e8dab",
-      "bytes": 17666
-    },
-    {
-      "path": "PHASE4_WS_F2_COMPLETION_FINAL.md",
-      "hash": "5b22d9324ff3745b2ef591a7e7e2617963c17af7783825d8294ef6215e17c896",
-      "bytes": 12248
-    },
-    {
-      "path": "PHASE4_WS_F2_COMPLETION_SUMMARY.md",
-      "hash": "3120ac927201e90e8ecf6e3f6096affd560955151fe8b85bd6266cff6e81d063",
-      "bytes": 11524
-    },
-    {
-      "path": "PHASE4_WS_F2_CROSS3_RESOLUTION.md",
-      "hash": "c73998be65eb8588f5110f11cc5cdbddd8806a4ae1b710572a06a6ca88e7d20d",
-      "bytes": 20086
-    },
-    {
-      "path": "PHASE5_COMPLETION_SUMMARY.md",
-      "hash": "41a1caba6fce8c7d209ee34188f01916aa40f62f284937be49c9af7c828bf921",
-      "bytes": 5710
-    },
-    {
-      "path": "PHASE5_CRITICAL_BUG_REPORT.md",
-      "hash": "91ffd79e3f370b0ba4fc2048f2f8d43c4215bf92e9236d71fc8d63c9d21f1b08",
-      "bytes": 16562
-    },
-    {
-      "path": "PHASE5_LLM_ON_VALIDATION.md",
-      "hash": "1f717d84d9dce5ff83656e2966e306f245289ed1bd6ee0ac404d2aceec1b827c",
-      "bytes": 8147
-    },
-    {
-      "path": "PHASE5_OVERALL_FEEDBACK.md",
-      "hash": "2c855fb06e451489555535be9f34a4065ede51b982460bcd383ac457b213af1a",
-      "bytes": 12712
-    },
-    {
-      "path": "PHASE6_EXPRESS_I4_COMPLETION.md",
-      "hash": "c0994cfbe29afeebc19c612c161893367f8a0a14734da6c83fa47ed54a6ce4cf",
-      "bytes": 9994
-    },
-    {
-      "path": "PHASE6_EXPRESS_I4_PHASE_MINUS_ONE.md",
-      "hash": "48f65078872474c39209e1327cb9cb2269d2ecef13eb4c98516cb5b8d998fae8",
-      "bytes": 23120
-    },
-    {
-      "path": "PHASE6_EXPRESS_I5_COMPLETION.md",
-      "hash": "a4a5f8fc6397ff9a76c74bd2d42f75f26b29f633b91d5e651af6fd1f8aafda4e",
-      "bytes": 9695
-    },
-    {
-      "path": "PHASE6_EXPRESS_I5_FINAL_APPROVAL.md",
-      "hash": "146a5f24530ddb831c4dd7241484f5a9e4e6ca3e440388935915a9c407bb0e8a",
-      "bytes": 10895
-    },
-    {
-      "path": "PHASE6_EXPRESS_PHASE_MINUS_ONE.md",
-      "hash": "cb9acb16974c2da66e504f891a0417c4a35b1bfa2dbf4e5c803790250490580a",
-      "bytes": 8835
-    },
-    {
-      "path": "PHASE6_I1_COMPLETION.md",
-      "hash": "bc944a625852d392034eab83451f4d56a30e97248ce6e22a4bbc83f46c0fbf28",
-      "bytes": 7274
-    },
-    {
-      "path": "PHASE6_I1_MERGE_BLOCKERS_COMPLETE.md",
-      "hash": "601fd7599001f02c3fcacdc390079e6f16bb94e9bbb0b9d28ff243ed4be22b6d",
-      "bytes": 8708
-    },
-    {
-      "path": "PHASE6_I2_COMPLETION_FINAL.md",
-      "hash": "0438716baaf439fe680f7f97380487b456733a23fa1bb9b2a44387f63c237703",
-      "bytes": 11770
-    },
-    {
-      "path": "PHASE6_I2_COMPLETION_REVIEW6.md",
-      "hash": "4b41b6730e22409970c27d6d7ba661bb1c92988c2587765dcf0974c4770851d2",
-      "bytes": 12207
-    },
-    {
-      "path": "PHASE6_I2_COMPLETION.md",
-      "hash": "cdb2e4ddcfa4727e235398ac0b446577cc64be6a63e6b3df38f3272d830985d1",
-      "bytes": 4483
-    },
-    {
-      "path": "PHASE6_I4_FINAL_REVIEW.md",
-      "hash": "cb451f89a4773caaa0b389b20321a109f31a18526a9e327e0032b2f605f9de53",
-      "bytes": 9864
     },
     {
       "path": "PRD.md",
@@ -686,8 +771,8 @@
     },
     {
       "path": "SADS.md",
-      "hash": "7dee0fbf6b26a0c5e070c42d75d70bf6d39dd7195927945cb3b581afa3206994",
-      "bytes": 17517
+      "hash": "12904c9db54f9d5e4cd0b09033e126f0a033d077650df7c1be9b093bc329f84d",
+      "bytes": 17794
     },
     {
       "path": "schemas/run-summary.schema.json",
@@ -911,8 +996,8 @@
     },
     {
       "path": "src/orchestrator/cli.ts",
-      "hash": "a12e9429258bdf36e0883d57dc30ef9b19edf2f39f8082d940fb0cd22412c8b6",
-      "bytes": 12996
+      "hash": "dd32d003b8260202724b2a840851e90f6c2d4afa113e2f83c6d71613576306a7",
+      "bytes": 13699
     },
     {
       "path": "src/orchestrator/gates/gate-registry.ts",
@@ -931,8 +1016,8 @@
     },
     {
       "path": "src/orchestrator/index.ts",
-      "hash": "69e1f3674d50be5b408484adbf79c4aacc701c8a1c254d080394e6fb53436817",
-      "bytes": 5897
+      "hash": "8193c01845738043eae9bcf123e5eb20ae55b0ac061f32a596df252a8e96e41a",
+      "bytes": 5948
     },
     {
       "path": "src/orchestrator/mocks/mock-gate-evaluators.ts",
@@ -941,8 +1026,8 @@
     },
     {
       "path": "src/orchestrator/orchestrator.ts",
-      "hash": "39272bb7eb701a034e415bda87733d359bf96c51fbba7f1f80e16e9189b08ded",
-      "bytes": 24754
+      "hash": "3768bdf48fe0b3dcdca0ea88880b2f1cc00c56d3e036b0065b352cea93c79660",
+      "bytes": 24854
     },
     {
       "path": "src/orchestrator/rendering/run-summary-renderer.ts",
@@ -976,13 +1061,13 @@
     },
     {
       "path": "src/parser/fact-extractor.ts",
-      "hash": "3fb3051411da684c26ad30abd46a2ed425cc3110ef0b21473c4460c018b9cc76",
-      "bytes": 14821
+      "hash": "9f1086ec66a2cadcb44e9e6644678e4d3225ea8105430ddb3df46a14e30b6682",
+      "bytes": 25555
     },
     {
       "path": "src/parser/parser.ts",
-      "hash": "efdb1b2bc41eabf4ece65f2073e059a17265fa5157efbb580b7820b26346c5e8",
-      "bytes": 3784
+      "hash": "7c81b0cac50a272904e45f24fbee7eaf9f83e996b9baa12f20aae09608873383",
+      "bytes": 4026
     },
     {
       "path": "src/parser/pattern-detector.ts",
@@ -1051,8 +1136,8 @@
     },
     {
       "path": "src/reasoning/patterns/express/router.ts",
-      "hash": "231f612d6dae2b9100c6293a1fb14cbc17f3345abf47a3f2164ac1d4665f7fa6",
-      "bytes": 5849
+      "hash": "7dc6993a9fbfd5d4ceefc480581392f1b162f07e8b3f5dbb82f71962d3734398",
+      "bytes": 6003
     },
     {
       "path": "src/reasoning/patterns/pattern-registry.ts",
@@ -1295,14 +1380,14 @@
       "bytes": 2868
     },
     {
-      "path": "STATUS_UPDATE_APPLIED.md",
-      "hash": "b51a2bf6366cd00b60c6510c1773b6999d43fa3a8eec45f6dd59d00f60b1d45d",
-      "bytes": 4346
+      "path": "STATUS_UPDATE_PHASE2_COMPLETE.md",
+      "hash": "2366c0dea68f0c8c6250cde9d92daa4be8471db8752b8bce32585b52daa80a1b",
+      "bytes": 6017
     },
     {
-      "path": "STATUS_UPDATE_EXPRESS_COMPLETE.md",
-      "hash": "e8ccf2d805976dd4ac934922141df62343af6f3c89dbea4b224b3a2ee5dcf6ec",
-      "bytes": 7295
+      "path": "STATUS.md",
+      "hash": "50c2f221479986d9c845bf6de1236a1a80dab064984c0158019637d51128017c",
+      "bytes": 2021
     },
     {
       "path": "tests/fixtures/mongoose-basic/package.json",
@@ -1551,8 +1636,8 @@
     },
     {
       "path": "tests/integration/phase6-express-integration.test.ts",
-      "hash": "b255f8bb7597641b6c4b5a9ef9a113a1c53dd5a2730d8912c1acc4be119be87a",
-      "bytes": 10695
+      "hash": "0a9979a7ae47fdf60ae3876b3186c21cc807c92340ebaf7d4a4cf67038621941",
+      "bytes": 11147
     },
     {
       "path": "tests/integration/phase6-i2-async-e2e.test.ts",
@@ -1695,9 +1780,39 @@
       "bytes": 4873
     },
     {
+      "path": "tests/unit/parser/call-expression-args.test.ts",
+      "hash": "913ed8ffac529c4ae18c1068af6e5b13b4db3647201a4be3f42c82fe0a7dbb15",
+      "bytes": 4262
+    },
+    {
+      "path": "tests/unit/parser/chained-calls-debug.test.ts",
+      "hash": "fa2afe8fcb5ce48db4d25413915753c33007c07a55df98d6e283d9dd97b515aa",
+      "bytes": 1972
+    },
+    {
+      "path": "tests/unit/parser/chained-calls.test.ts",
+      "hash": "4f7a6b3abc94720b11b857eae597ac4dd008dd635a199ab02b48bc4482fa1131",
+      "bytes": 4854
+    },
+    {
       "path": "tests/unit/parser/fact-extractor.test.ts",
       "hash": "70b8700f9031bcbb48911045bb76c9ae3b2cf10aa09f6003cbbd9c643bafab08",
       "bytes": 5871
+    },
+    {
+      "path": "tests/unit/parser/module-scope-calls.test.ts",
+      "hash": "c22b6ad333c4713b0dce69d0c2870a09f6fbb099eddc6c7c3c934a625a473bb5",
+      "bytes": 11458
+    },
+    {
+      "path": "tests/unit/parser/module-scope-flag.test.ts",
+      "hash": "264410d3a185eb28994263754e54e8f305d3e2de9dba1ea08ef6304e07154cc4",
+      "bytes": 2466
+    },
+    {
+      "path": "tests/unit/parser/module-scope-performance.test.ts",
+      "hash": "6cebb5b0651270fb756ba6b973c4e22ddd1cd6a60662027ddcd2bd29f962c076",
+      "bytes": 6304
     },
     {
       "path": "tests/unit/parser/parser.test.ts",
@@ -1710,9 +1825,24 @@
       "bytes": 2536
     },
     {
+      "path": "tests/unit/parser/pseudo-entity-patterns.test.ts",
+      "hash": "3d17a197b4cf570c41a7ab9490ba1b6552889fa2cc1ee6e0d89b0ca61f003eeb",
+      "bytes": 3481
+    },
+    {
       "path": "tests/unit/parser/README.md",
       "hash": "f0f21f32096426822c26fcb0f03f985c3e7ba4cb811b2537fa5d8ac79c8a43cd",
       "bytes": 690
+    },
+    {
+      "path": "tests/unit/parser/routes-js-debug.test.ts",
+      "hash": "4558972455ce3687b564b91286920f24931d864bdd86addd2b8425ac4ca0ae88",
+      "bytes": 1780
+    },
+    {
+      "path": "tests/unit/parser/routes-js-wrapper-args.test.ts",
+      "hash": "b886ca8aa55911d0c2068ed7bf218105f353fbad21e77fbb4809f9e23b0c63b1",
+      "bytes": 2253
     },
     {
       "path": "tests/unit/reasoning/intent-lifter.test.ts",

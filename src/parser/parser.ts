@@ -6,12 +6,20 @@ import { FactExtractor, ExtractionResult } from './fact-extractor.js';
 import { PatternDetector } from './pattern-detector.js';
 import { KnowledgeBase } from '../kb/knowledge-base.js';
 
+export interface ParserOptions {
+  moduleScopeCalls?: boolean;
+}
+
 export class Parser {
   private project: Project;
   private factExtractor: FactExtractor;
   private patternDetector: PatternDetector;
+  private options: ParserOptions;
 
-  constructor() {
+  constructor(options: ParserOptions = {}) {
+    this.options = {
+      moduleScopeCalls: options.moduleScopeCalls ?? true, // Enabled by default
+    };
     this.project = new Project({
       useInMemoryFileSystem: true,
       compilerOptions: {
@@ -21,7 +29,7 @@ export class Parser {
         jsx: 2, // React
       },
     });
-    this.factExtractor = new FactExtractor();
+    this.factExtractor = new FactExtractor(options);
     this.patternDetector = new PatternDetector();
   }
 

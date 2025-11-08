@@ -24,6 +24,15 @@ Collect all structural facts needed for behavioral documentation, and flag areas
 - Extract: declarations, exports, signatures, imports/calls, error/throw sites, async patterns, I/O (fs, http, db adapters), config/env reads, comments/JSDoc.  
 - Build call/import graphs; **prune ASTs after extraction**.
 
+### 3.1 Phase 6 Amendment — Module-Scope Call Extraction
+- **Motivation:** Validation uncovered that module-level statements (e.g., `router.post(...)`) produced no call facts, blocking Express/HTTP pattern accuracy. The parser now treats module scope as a first-class traversal target.
+- **ModuleScopeWalker:** Iterate `sourceFile.getStatements()` once, capturing variable declarations, expression statements, and export assignments. Reuse the same visitor utilities as function/class walkers to keep behavior consistent and memory-friendly.
+- **Scope tracking:** Maintain a stack of scope frames (module, function, class) and attach each emitted fact to the entity defined in the innermost frame. Adds `call-scope` metadata so downstream consumers can distinguish bootstrap code from runtime logic.
+- **Pseudo-entities:** When an expression statement lacks an identifier owner, synthesize a deterministic `constant` entity (name format: `module::<relPath>#L{line}`) flagged with `metadata.synthetic:true`. This keeps the KB schema unchanged while preserving attribution and anchor determinism.
+- **Chained calls & arguments:** Emit one fact per property access and link them via `chained-call` predicates. All arguments are serialized with both textual value and, when resolvable, referenced entity IDs so middleware/auth patterns can interrogate wrappers such as `wrapAsync(allowedRoles(...))`.
+- **Compatibility & parity:** Predicate names remain unchanged (`calls-expression`, `call-arg-{n}`, etc.), so existing tests only gain additional facts. The Babel fallback mirrors the same module-scope traversal behind the `parser.experimentalModuleScope` feature flag for staged rollout.
+- **Performance guardrails:** Benchmarks on ≥5k LOC fixtures must show ≤10% slowdown versus the Phase 5 baseline. The walker short-circuits nodes already visited via other scopes to avoid quadratic AST walks.
+
 ---
 
 ## 4) Dynamic Pattern Detector (per-file, co-located)

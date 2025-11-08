@@ -4,7 +4,7 @@
 
 ## cli.ts
 
-<a id="70JYzOFz7E"></a>
+<a id="ZteukfxsXo"></a>
 
 ### parseArgs
 
@@ -58,7 +58,7 @@
 - new Error(`Project root does not exist: ${args.projectRoot}`);
 - new Error(`Project root is not a directory: ${args.projectRoot}`);
 
-<a id="LKgl8ZFUI9"></a>
+<a id="AkzwdkSpC8"></a>
 
 ### printHelp
 
@@ -77,7 +77,7 @@ See SADS.md §6.2 for authoritative flag list.
 
 ## index.ts
 
-<a id="Q4oHRLLpxY"></a>
+<a id="KBQdzuBw6V"></a>
 
 ### run
 
@@ -94,7 +94,7 @@ See SADS.md §6.2 for authoritative flag list.
 
 ## orchestrator.ts
 
-<a id="0LyhB22wc5"></a>
+<a id="DN6NUn2jKZ"></a>
 
 ### Orchestrator
 

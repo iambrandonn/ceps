@@ -145,7 +145,9 @@ export class ExpressRouterPattern implements PatternModule {
 
         // Pattern: router.get('/path', handler)
         // Look for calls-expression matching router.(get|post|put|delete|patch)
-        const routePattern = new RegExp(`^(${entity.name}|router)\\.(get|post|put|delete|patch)$`, 'i');
+        // Phase 6 Fix (Issue #2): Use objectName from metadata for pseudo-entities
+        const entityName = entity.metadata?.objectName || entity.name;
+        const routePattern = new RegExp(`^(${entityName}|router)\\.(get|post|put|delete|patch)$`, 'i');
 
         for (let i = 0; i < facts.length; i++) {
           const fact = facts[i];

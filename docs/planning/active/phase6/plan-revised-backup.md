@@ -1,19 +1,8 @@
 # ceps — Implementation Plan (Phase 6: Production Hardening)
-**Date:** 2025-11-08 (Revised & Reviewed)
+**Date:** 2025-11-08 (Revised)
 **Scope:** Final-phase plan that turns the Phase 5 baseline into a production-ready release with Tier‑0 framework depth, large-repo performance guarantees, and polished UX/documentation.
 **Status:** Wave 1A (Backend Validation Track) — Agent 1 (Express) ✅ COMPLETE, Agent 5 (HTTP Clients) Ready to start
 **Revision:** Backend-first validation strategy adopted to prove architecture soundness before frontend pattern expansion
-
-**Review Status:** ✅ **Code Review Agent Approved** (2025-11-08) with all clarifications addressed
-- Validation target selection process defined (§5.2)
-- Manual review rubric and time budget specified (§5.2)
-- Validation script ownership clarified (§6, Agent 5 deliverable)
-- Product timeline approval tracked in Decision Log (§11)
-- Validation threshold rationale documented (§5.2)
-- Agent 6 coordination role added (§4)
-- Architectural vs. pattern-level issue triage defined (Appendix A)
-
-**Pending Actions:** Product sign-off on 7-8 week timeline, validation target selection by 2025-11-09
 
 ---
 
@@ -280,18 +269,10 @@ For every Tier‑0/auxiliary pattern change:
 
 | Wave | Weeks | Focus | Agents | Status | Exit Criteria |
 | --- | --- | --- | --- | --- | --- |
-| **Wave 1A** | 1–2 | HTTP Clients + Backend Validation | Agent 5 (primary), Agent 6 (shadow) | 🟢 **READY TO START** | Agent 5 DoD + Validation Report with Go/No-Go recommendation |
+| **Wave 1A** | 1–2 | HTTP Clients + Backend Validation | 1 active (Agent 5) | 🟢 **READY TO START** | Agent 5 DoD + Validation Report with Go/No-Go recommendation |
 | **Wave 1B** | 3–4 | Frontend Expansion (React/Redux/GraphQL) | 3 parallel (Agents 2-4) | ⏸️ **BLOCKED on 1A** | Frontend patterns complete, validation on 1-2 React apps |
 | **Wave 2** | 5–6 | Performance/Telemetry + Docs/UX | 2 parallel (Agents 6-7) | ⏳ **PENDING 1B** | Benchmark SLO met, M3 package complete |
 | **Wave 3** | 7 | Final validation + M3 review | All | ⏳ **PENDING Wave 2** | M3 gate approval, release tag |
-
-**Wave 1A Coordination:**
-- **Agent 5 (Primary):** HTTP Clients implementation + validation script + validation execution
-- **Agent 6 (Shadow):** Observes validation process, takes notes, prototypes accuracy harness
-  - **Rationale:** Early harness prototyping prepares Agent 6 for Wave 2 without blocking Agent 5
-  - **Agent 6 activities:** Review validation script design, observe manual review process, identify automation opportunities, draft harness requirements
-  - **Agent 6 deliverables:** Optional prototype harness (not blocking); handoff notes for Wave 2 harness implementation
-- **Agent 7:** No active work (on standby)
 
 **Critical Path:**
 1. Agent 5 (HTTP Clients) — 2 weeks
@@ -316,76 +297,31 @@ For every Tier‑0/auxiliary pattern change:
 ### 5.2 Real-World Validation (NEW — Wave 1A Critical Path)
 
 **Validation Targets (2-3 backend projects):**
-
-**Selection Process (Due: 2025-11-09):**
-- **Owner:** Agent 5 (HTTP Clients) + Project Lead
-- **Criteria:**
-  - Public GitHub repos (no proprietary code)
-  - Active maintenance (commits in last 6 months)
-  - Express + Mongoose + HTTP client usage confirmed via package.json
-  - No blocker dependencies (complex auth, queues deferred to post-M3)
-- **Candidate sources:**
-  - awesome-express lists
-  - GitHub search: `express mongoose axios stars:>100 size:<15000`
-  - Synthetic fallback if no suitable OSS found
-- **Project tiers:**
-  - Small Express API (<5k LOC)
-  - Medium Express + Mongoose service (5-15k LOC)
-  - Test project with known specialized patterns (Agenda.js, JWT, etc.) if available
+- Small Express API (<5k LOC)
+- Medium Express + Mongoose service (5-15k LOC)
+- Test project with known specialized patterns (Agenda.js, JWT, etc.)
 
 **Validation Process:**
-
-**1. Automated Runs:**
-   - Use `scripts/run-backend-validation.mjs` (see §6 Tooling) to automate ceps execution
-   - Run both `--llm off --deterministic` and `--llm on` modes
-   - Capture exit codes, gate status, runtime, spec.md outputs in structured JSON
-
-**2. Manual Spec Quality Review:**
-   - **Reviewer:** Agent 5 (HTTP Clients) or Project Lead
-   - **Time Budget:** Max 4 hours per project (12 hours total for 3 projects)
-   - **Review Rubric:** For each route/model/HTTP call, assess:
-     - [ ] Detected (Yes/No)
-     - [ ] Behavior description accurate (Yes/No/Partial)
-     - [ ] Side effects captured (DB/I/O/external APIs) (Yes/No/Partial)
-     - [ ] Error handling described (Yes/No/Partial)
-     - [ ] Cross-links correct (route→model, model→HTTP call) (Yes/No)
-   - **Scoring:**
-     - **True Positive:** Detected + all categories Yes (correct documentation)
-     - **False Positive:** Detected but any category No (hallucination/incorrect)
-     - **False Negative:** Not detected but should be (missed behavior)
-
-**3. Compute Accuracy Metrics:**
-   - **Precision:** % of documented behaviors that are correct (TP / (TP + FP))
-   - **Recall:** % of actual behaviors documented (TP / (TP + FN))
-   - **F1 Score:** Harmonic mean of precision and recall (2 * P * R / (P + R))
-
-**4. Gate Validation:**
-   - All gates (Coverage/Link/Grounding/Confidence) must pass on all validation projects
-
-**5. Finalization Workflow Test:**
-   - Generate QIDs on real code
-   - Create sample answers.md with resolutions
-   - Run `ceps finalize --answers answers.md --llm off`
-   - Verify QID removal and Finalization Summary generation
+1. Run both `--llm off --deterministic` and `--llm on` modes
+2. Manual spec quality review:
+   - Route detection accuracy
+   - Model/schema detection and linking
+   - HTTP client call documentation
+   - Middleware chain descriptions
+   - Side effect capture (DB, I/O, external APIs)
+   - Cross-link correctness (routes → models → HTTP clients)
+3. Compute accuracy metrics:
+   - Precision: % of documented behaviors that are correct
+   - Recall: % of actual behaviors that are documented
+   - F1 score: Harmonic mean of precision and recall
+4. Gate validation: All gates (Coverage/Link/Grounding/Confidence) must pass
+5. Finalization workflow test: Generate QIDs, create answers, run finalize, verify patching
 
 **Success Criteria:**
 - Precision ≥85%, Recall ≥80%, F1 ≥0.82 on backend validation targets
 - All gates green on all validation projects
 - Finalization workflow completes successfully
 - No systematic architectural issues discovered
-
-**Rationale for Validation Thresholds:**
-- **Fixture-based accuracy (§5.1):** F1 ≥0.90 (curated, labeled corpus with known patterns)
-- **Real-world validation (§5.2):** F1 ≥0.82 (uncontrolled code, manual review, edge cases)
-- **Gap reflects real-world complexity:** Specialized patterns (Agenda.js, Redis, custom auth), edge cases, and manual review subjectivity
-- **Validation proves architecture is sound; fixtures prove pattern quality**
-
-**Qualitative Override:**
-Even if quantitative thresholds met, validation report may recommend **No-Go** if:
-- Systematic pattern confusion discovered (e.g., ORM vs. raw SQL misidentification)
-- Gate failures concentrated in specific code patterns (e.g., async/await chains)
-- Manual review reveals LLM-off prose is unreadable (not Spec-Ready)
-- Architect reviews validation report holistically; quantitative metrics are necessary but not sufficient
 
 **Failure Response:**
 - If validation fails, pause Wave 1B and fix issues
@@ -411,24 +347,14 @@ Even if quantitative thresholds met, validation report may recommend **No-Go** i
 
 ---
 
-## 6) Tooling & Integration Notes (Updated)
+## 6) Tooling & Integration Notes (Unchanged)
 
 - **Repository layout:** Keep `vercel/next.js` as sibling directory
 - **Automation scripts:**
   - `scripts/run-tier0-accuracy.mjs` — framework accuracy suites (Agent 6, Wave 2)
   - `scripts/run-nextjs-benchmark.mjs` — Next.js performance profiling (Agent 6, Wave 2)
   - `scripts/update-pattern-matrix.mjs` — regenerate coverage documentation
-  - **NEW:** `scripts/run-backend-validation.mjs` — **DELIVERABLE for Wave 1A**
-    - **Owner:** Agent 5 (HTTP Clients)
-    - **Timeline:** Week 2, Day 1-2 (parallel with validation target selection)
-    - **Features:**
-      - Accepts list of project directories as arguments
-      - Runs `ceps <dir> --llm off --deterministic` and `ceps <dir> --llm on`
-      - Captures exit codes, gate status, runtime, spec.md outputs
-      - Generates structured JSON file for manual review annotation
-      - Computes precision/recall/F1 after human annotates JSON with TP/FP/FN labels
-      - Outputs validation report (see Appendix A template)
-    - **Deliverable:** Part of Wave 1A exit criteria; reusable for future validation cycles
+  - **NEW:** `scripts/run-backend-validation.mjs` — automates validation process on target projects (Wave 1A)
 - **Benchmark repo setup:** `scripts/setup-benchmark.sh` clones Next.js at pinned commit
 - **Telemetry hooks:** Extend orchestrator metrics (queue depth, worker utilization)
 - **Metrics storage:** `benchmarks/results/<date>-<commit>.json`
@@ -456,16 +382,10 @@ Even if quantitative thresholds met, validation report may recommend **No-Go** i
 
 ### Wave 1A Deliverables
 - ✅ Express pattern library (8 modules) — **COMPLETE**
-- ⏳ HTTP Clients pattern library + tests + fixtures (Agent 5)
-- ⏳ **Validation automation script** (`scripts/run-backend-validation.mjs`) — Agent 5, Week 2
-  - Automates ceps runs on validation targets
-  - Outputs structured JSON for manual annotation
-  - Computes metrics from human labels (TP/FP/FN)
-  - Generates validation report from template
-- ⏳ Backend validation report with accuracy metrics and go/no-go recommendation (Agent 5 or Project Lead)
+- ⏳ HTTP Clients pattern library + tests + fixtures
+- ⏳ Backend validation report with accuracy metrics and go/no-go recommendation
 - ⏳ Updated pattern coverage matrix (Express + Mongoose + HTTP clients)
 - ⏳ Known gaps documentation (Agenda.js, Redis, specialized auth, etc.)
-- ⏳ **Optional:** Agent 6 harness prototype notes (shadow activity, not blocking)
 
 ### Wave 1B Deliverables (Conditional on 1A Go)
 - ⏳ React pattern library + tests + fixtures
@@ -521,19 +441,11 @@ Even if quantitative thresholds met, validation report may recommend **No-Go** i
 - ✅ **Strategy pivot approved:** Backend-first validation track adopted to reduce risk
 - ✅ **Tier-1 scope:** Next.js & Prisma deferred to post-M3
 - ✅ **Hardware baseline:** Locked in DECISIONS.md
-- ✅ **Validation process defined:** Selection criteria, review rubric, tooling ownership, thresholds clarified
-- ✅ **Agent 6 coordination:** Shadow role during Wave 1A approved for harness prototyping
-- ✅ **Architectural issue triage:** Definition added to validation report template
-
-### Open (Action Required by 2025-11-09)
-- ⏳ **Validation target selection:** Agent 5 + Project Lead to finalize 2-3 backend projects using criteria in §5.2
-- ⏳ **Product timeline approval:** Project Lead to confirm 7-8 week Phase 6 timeline with product stakeholders (see §11 Decision Log)
-- ⏳ **Validation reviewer assignment:** Designate reviewer (Agent 5 or Project Lead) and time-box allocation (max 12 hours)
 
 ### Open (Pending Wave 1A Validation)
+- **Validation target selection:** Finalize 2-3 backend projects for testing (by 2025-11-09)
 - **Known gap prioritization:** After validation, decide which specialized patterns (Agenda.js, Redis, auth) to target post-M3
 - **Performance targets:** Confirm Next.js benchmark SLO after Wave 1A validates on smaller projects
-- **Validation findings:** Address any architectural issues discovered before Wave 1B launch
 
 ### Re-open Triggers
 1. Wave 1A validation fails go/no-go criteria (precision <85% or recall <80%)
@@ -551,25 +463,14 @@ Even if quantitative thresholds met, validation report may recommend **No-Go** i
 **Owner:** Project Lead
 **Rationale:** After Express completion, identified need to validate tool on real codebases before launching 5 parallel frontend agents. Conservative approach reduces risk of cascading rework if architectural issues emerge.
 **Impact:** Delays frontend work by ~2 weeks, extends Phase 6 from 4 weeks to 7-8 weeks, but significantly reduces risk
-**Approver:** Architect (strategic decision approved)
-**Status:** ✅ **APPROVED**
-
-**Decision:** Accept 7-8 week Phase 6 timeline (vs. original 4 weeks)
-**Date:** 2025-11-08
-**Owner:** Project Lead + Product
-**Rationale:** Risk reduction from backend validation outweighs schedule slip. Cascading rework across 5 parallel agents would cost >4 weeks if architectural issues discovered mid-Wave 1.
-**Impact:** Phase 6 extends from 4 weeks to 7-8 weeks total; M3 gate delayed by ~3-4 weeks
-**Approver:** ⏳ **PENDING EXPLICIT PRODUCT SIGN-OFF**
-**Status:** ⏳ **AWAITING FINAL CONFIRMATION**
-**Next Action:** Project Lead to confirm timeline with product stakeholders by 2025-11-09
+**Approver:** Architect (implied by strategic decision)
 
 **Decision:** Defer specialized backend patterns (Agenda.js, Redis, specialized auth) to post-M3
 **Date:** 2025-11-08
 **Owner:** Project Lead
 **Rationale:** Focus validation on core Express + Mongoose + HTTP client patterns first. Document specialized patterns as "known gaps" rather than blocking M3 completion.
 **Impact:** Reduces Wave 1A scope, allows faster validation cycle
-**Approver:** Architect (scope decision approved)
-**Status:** ✅ **APPROVED**
+**Approver:** Architect (implied)
 
 ---
 
@@ -620,25 +521,10 @@ Even if quantitative thresholds met, validation report may recommend **No-Go** i
 - **JWT Auth:** Basic detection as middleware, but no specialized auth flow description
 - **S3/File Storage:** Detected as I/O side effects (no storage provider specifics)
 
-## Architectural Issues (Definition & Triage)
-
-**Architectural issues** are fundamental design problems affecting multiple workstreams:
-- KB linking bugs (entities not connected correctly across modules)
-- Confidence scoring drift (systematic over/under-estimation affecting all patterns)
-- Gate enforcement failures (coverage gate not detecting missing behaviors consistently)
-- Finalization pipeline bugs (QID resolution broken across frameworks)
-
-**Pattern-level issues** are fixable within a single pattern module:
-- Route path extraction incorrect (parser limitation for specific Express syntax)
-- Middleware detection missing edge case (pattern logic bug isolated to middleware module)
-- Mongoose schema linking incomplete (module-specific fix)
-
-**Triage Rule:** If fix requires changes outside `src/reasoning/patterns/<framework>/`, escalate as architectural.
-
-**Discovered Issues:**
-[List any fundamental problems discovered during validation]
-- Issue 1: [Description, impact, recommended fix, architectural vs. pattern-level classification]
-- Issue 2: [Description, impact, recommended fix, architectural vs. pattern-level classification]
+## Architectural Issues
+[List any fundamental problems discovered]
+- Issue 1: [Description, impact, recommended fix]
+- Issue 2: [Description, impact, recommended fix]
 
 ## Finalization Workflow Test
 - **QIDs Generated:** [Count]

@@ -122,7 +122,8 @@ export async function run(argv: string[]): Promise<number> {
       validator,
       budgetTracker,
       snapshotEnabled: !args.noSnapshot,
-      knowledgeBase: kb
+      knowledgeBase: kb,
+      moduleScopeCalls: !args.noModuleScopeCalls,
     });
 
     const phaseNames: Partial<Record<PipelinePhase, string>> = {

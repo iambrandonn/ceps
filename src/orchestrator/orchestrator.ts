@@ -81,6 +81,7 @@ export interface OrchestratorOptions {
   budgetTracker?: BudgetTracker;
   snapshotEnabled?: boolean;
   knowledgeBase?: KnowledgeBase;
+  moduleScopeCalls?: boolean;
 }
 
 export class Orchestrator extends EventEmitter {
@@ -215,7 +216,9 @@ export class Orchestrator extends EventEmitter {
       throw new Error('Scanning phase must complete before parsing');
     }
 
-    const parser = new Parser();
+    const parser = new Parser({
+      moduleScopeCalls: this.options.moduleScopeCalls ?? true,
+    });
     const codeFiles = this.fileIndex.entries.filter(e => e.kind === 'code');
 
     for (const entry of codeFiles) {

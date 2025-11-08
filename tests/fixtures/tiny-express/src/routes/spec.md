@@ -12,7 +12,7 @@
 
 **Behavior:**
 
-- Express Router postsRouter that defines HTTP route handlers.
+- Express Router postsRouter that defines HTTP route handlers. Routes: GET /:id.
 
 ## users.ts
 
@@ -24,5 +24,5 @@
 
 **Behavior:**
 
-- Express Router usersRouter that defines HTTP route handlers.
+- Express Router usersRouter that defines HTTP route handlers. Routes: GET /, POST /, GET /:id.
 

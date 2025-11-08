@@ -107,9 +107,6 @@ Workaround for KB lacking `findEntityByName()` API.
 
 - Method find (intent unclear from static analysis)
 
-**Open Questions:**
-- q:xpb9PY3gfb: What is the behavior of method `find` at src/validation/entity-name-index.ts?
-
 ## enums.ts
 
 <a id="VCSppH1pAx"></a>

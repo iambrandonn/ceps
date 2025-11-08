@@ -398,7 +398,7 @@ Register all Express pattern modules with the given registry.
 
 ## router.ts
 
-<a id="nfO8N5qJTi"></a>
+<a id="7vk3LhVEf2"></a>
 
 ### ExpressRouterPattern
 

@@ -184,9 +184,6 @@ Validate that token usage meets cost gate threshold
 
 - Method get (intent unclear from static analysis)
 
-**Open Questions:**
-- q:pVLk0yIkcS: What is the behavior of method `get` at src/llm/cache.ts?
-
 <a id="uJTsONQZyq"></a>
 
 ### set
@@ -198,9 +195,6 @@ Validate that token usage meets cost gate threshold
 **Behavior:**
 
 - Method set (intent unclear from static analysis)
-
-**Open Questions:**
-- q:bznhrcicg4: What is the behavior of method `set` at src/llm/cache.ts?
 
 <a id="b82TxVurGM"></a>
 

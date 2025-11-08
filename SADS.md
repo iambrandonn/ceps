@@ -164,11 +164,16 @@ ceps finalize --answers ./answers.md
 ```
 
 ### 6.2 Options
-- **Detail**: `--detail spec-ready` (default) | `exhaustive` | `minimal`  
-- **LLM**: `--llm on|off` (default: on), `--llm-provider <openai|anthropic|azure|local>`, `--llm-model <name>`, `--llm-budget <tokens>`, `--no-llm-cache`, `--deterministic`  
-- **Scope/perf**: `--focus public-api`, `--max-workers <n>`, `--max-iterations <n>`  
-- **Finalization**: `--reconcile`, `--dry-run`, `--finalize-max-hops <n>`, `--finalize-max-nodes <n>`, `--finalize-scope full`  
+- **Detail**: `--detail spec-ready` (default) | `exhaustive` | `minimal`
+- **LLM**: `--llm on|off` (default: on), `--llm-provider <openai|anthropic|azure|local>`, `--llm-model <name>`, `--llm-budget <tokens>`, `--no-llm-cache`, `--deterministic`
+- **Scope/perf**: `--focus public-api`, `--max-workers <n>`, `--max-iterations <n>`
+- **Parser**: `--no-module-scope-calls` (disable module-scope call extraction; default: enabled)
+- **Snapshot**: `--no-snapshot` (skip snapshot capture during baseline)
+- **Finalization**: `--reconcile`, `--dry-run`, `--finalize-max-hops <n>`, `--finalize-max-nodes <n>`, `--finalize-scope full`
 - **Monorepo**: auto-detected; no flag required
+
+**Environment Variables**:
+- `CEPS_MODULE_SCOPE_CALLS=false` — Equivalent to `--no-module-scope-calls` (Phase 6)
 
 ### 6.3 Exit Codes
 - `0` success; `1` internal error; `2` Coverage/Grounding gates failed; `3` snapshot mismatch during finalize without `--reconcile`.

@@ -4,7 +4,7 @@
 
 ## fact-extractor.ts
 
-<a id="A6QYI4ZNhk"></a>
+<a id="reXnTTezbA"></a>
 
 ### FactExtractor
 
@@ -17,7 +17,7 @@
 **Open Questions:**
 - q:RDFNjeoeUa: What are the responsibilities and contract of class `FactExtractor` at src/parser/fact-extractor.ts?
 
-<a id="FOENqURIsn"></a>
+<a id="iYEkhs8FSP"></a>
 
 ### extract
 
@@ -27,14 +27,17 @@
 
 **Behavior:**
 
-- Method extract (intent unclear from static analysis)
+- Performs Mongoose read query (find): factSets (model not resolved).
+
+**Side effects:**
+- filesystem
 
 **Open Questions:**
 - q:PLP70bRz4N: What is the behavior of method `extract` at src/parser/fact-extractor.ts?
 
 ## parser.ts
 
-<a id="K9W7rSAWVn"></a>
+<a id="b2geOqNq9i"></a>
 
 ### Parser
 

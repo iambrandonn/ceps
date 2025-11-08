@@ -152,10 +152,10 @@ export function loadEnvConfig() {
       expect(chunk.textDraft).toMatch(/route handlers/i);
     });
 
-    it('should detect router even without route extraction (inline handlers)', () => {
-      // Per Phase -1 analysis: Parser doesn't extract inline route handlers as entities.
-      // The router pattern should still be detected, but routes may not be listed.
-      // This is a known limitation documented in PHASE6_EXPRESS_PHASE_MINUS_ONE.md
+    it('should detect router WITH module-scope route extraction', () => {
+      // Phase 6 Fix: Parser NOW extracts module-scope calls (router.get(), router.post(), etc.)
+      // Module-scope calls are attributed to the constant entity (usersRouter).
+      // This test verifies that the router pattern can access these new facts.
 
       const entities = kb.getAllEntities();
       const routerEntity = entities.find(e => e.name === 'usersRouter');
@@ -166,8 +166,15 @@ export function loadEnvConfig() {
       expect(chunk.textDraft).toMatch(/Express Router/i);
       expect(chunk.textDraft).toMatch(/route handlers/i);
 
-      // Routes may or may not be listed (depends on parser facts)
-      // We accept either outcome as valid
+      // Verify router entity has module-scope call facts
+      const factSets = kb.getFactSetsBySubject(routerEntity!.id);
+      const routerFacts = factSets.flatMap(fs => fs.facts);
+
+      // Should have calls-expression facts for router.get, router.post, router.delete
+      const callsFacts = routerFacts.filter(f => f.predicate === 'calls-expression');
+      expect(callsFacts.length).toBeGreaterThan(0);
+      expect(callsFacts.some(f => String(f.object).includes('.get'))).toBe(true);
+      expect(callsFacts.some(f => String(f.object).includes('.post'))).toBe(true);
     });
 
     it('should have High confidence for router pattern', () => {

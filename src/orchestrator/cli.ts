@@ -20,6 +20,8 @@ export interface CliArgs {
   noLlmCache?: boolean;
   version?: boolean;
   noSnapshot?: boolean;
+  // Phase 6: Parser flags
+  noModuleScopeCalls?: boolean;
   // Phase 5: Finalization flags
   answersPath?: string;
   dryRun?: boolean;
@@ -39,6 +41,7 @@ export function parseArgs(argv: string[]): CliArgs {
     llm: 'on',
     version: false,
     noSnapshot: false,
+    noModuleScopeCalls: false,
     dryRun: false,
     reconcile: false,
     finalizeMaxHops: 3,
@@ -103,6 +106,8 @@ export function parseArgs(argv: string[]): CliArgs {
         }
       } else if (arg === '--no-snapshot') {
         args.noSnapshot = true;
+      } else if (arg === '--no-module-scope-calls') {
+        args.noModuleScopeCalls = true;
       } else if (arg === '--answers') {
         if (i + 1 >= argv.length || argv[i + 1].startsWith('--')) {
           throw new Error('--answers requires a value');
@@ -168,6 +173,11 @@ export function parseArgs(argv: string[]): CliArgs {
       args.command = 'baseline';
       args.projectRoot = path.resolve(first);
     }
+  }
+
+  // Check environment variables (CLI flags take precedence)
+  if (!args.noModuleScopeCalls && process.env.CEPS_MODULE_SCOPE_CALLS === 'false') {
+    args.noModuleScopeCalls = true;
   }
 
   return args;
@@ -323,6 +333,10 @@ DETAIL LEVEL:
 SNAPSHOT CONTROL:
   --no-snapshot            Skip snapshot capture (baseline only)
 
+PARSER CONTROL:
+  --no-module-scope-calls  Disable module-scope call extraction (default: enabled)
+                          Useful for debugging or emergency rollback
+
 PLANNED OPTIONS (Not Yet Implemented):
   --focus public-api        Limit analysis to public API only
   --max-iterations <n>      Max reasoning iterations (hardcoded to 10)
@@ -356,8 +370,10 @@ EXIT CODES:
   3  Snapshot mismatch during finalize (use --reconcile to override)
 
 ENVIRONMENT VARIABLES:
-  ANTHROPIC_API_KEY    Required when --llm-provider is anthropic (default)
-  OPENAI_API_KEY       Required when --llm-provider is openai
+  ANTHROPIC_API_KEY           Required when --llm-provider is anthropic (default)
+  OPENAI_API_KEY              Required when --llm-provider is openai
+  CEPS_MODULE_SCOPE_CALLS     Set to 'false' to disable module-scope extraction
+                             (equivalent to --no-module-scope-calls)
 
 For more information, see: https://github.com/anthropics/ceps
 `);
