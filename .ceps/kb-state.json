@@ -2069,7 +2069,7 @@
       }
     },
     {
-      "id": "8VB8UVyOMM",
+      "id": "70JYzOFz7E",
       "kind": "function",
       "name": "parseArgs",
       "path": "src/orchestrator/cli.ts",
@@ -2118,6 +2118,19 @@
           "new Error(`Project root does not exist: ${args.projectRoot}`);",
           "new Error(`Project root is not a directory: ${args.projectRoot}`);"
         ]
+      }
+    },
+    {
+      "id": "LKgl8ZFUI9",
+      "kind": "function",
+      "name": "printHelp",
+      "path": "src/orchestrator/cli.ts",
+      "signature": "(version: string = '0.2.0'): void",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
       }
     },
     {
@@ -2417,7 +2430,7 @@
       }
     },
     {
-      "id": "98omxIxMfE",
+      "id": "Q4oHRLLpxY",
       "kind": "function",
       "name": "run",
       "path": "src/orchestrator/index.ts",
@@ -13747,7 +13760,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13760,7 +13773,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13773,7 +13786,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13786,7 +13799,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13799,7 +13812,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13812,7 +13825,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13825,7 +13838,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13838,7 +13851,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13851,7 +13864,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13864,7 +13877,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13877,7 +13890,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13890,7 +13903,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13903,7 +13916,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13916,7 +13929,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13929,7 +13942,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13942,7 +13955,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13955,7 +13968,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13968,7 +13981,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13981,7 +13994,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -13994,7 +14007,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14007,7 +14020,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14020,7 +14033,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14033,7 +14046,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14046,7 +14059,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14059,7 +14072,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14072,7 +14085,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14085,7 +14098,7 @@
       }
     },
     {
-      "subjectId": "8VB8UVyOMM",
+      "subjectId": "70JYzOFz7E",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -14354,6 +14367,19 @@
       },
       "details": {
         "originalExpression": "filesystem.statSync",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "LKgl8ZFUI9",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/orchestrator/cli.ts"
+      },
+      "details": {
+        "originalExpression": "console.log",
         "resolved": false
       }
     },
@@ -15008,9 +15034,9 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
-      "objectId": "8VB8UVyOMM",
+      "objectId": "70JYzOFz7E",
       "source": {
         "kind": "ast",
         "file": "src/orchestrator/index.ts"
@@ -15021,7 +15047,20 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
+      "predicate": "calls",
+      "objectId": "LKgl8ZFUI9",
+      "source": {
+        "kind": "ast",
+        "file": "src/orchestrator/index.ts"
+      },
+      "details": {
+        "originalExpression": "printHelp",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15034,7 +15073,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": "komzCYtZpT",
       "source": {
@@ -15047,7 +15086,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15060,7 +15099,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15073,7 +15112,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15086,7 +15125,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15099,7 +15138,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15112,7 +15151,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15125,7 +15164,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15138,7 +15177,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15151,7 +15190,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15164,7 +15203,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15177,7 +15216,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15190,7 +15229,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15203,7 +15242,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15216,7 +15255,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15229,7 +15268,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15242,7 +15281,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15255,7 +15294,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15268,7 +15307,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15281,7 +15320,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15294,7 +15333,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15307,7 +15346,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15320,7 +15359,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15333,7 +15372,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15346,7 +15385,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15359,7 +15398,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15372,7 +15411,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15385,7 +15424,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -15398,7 +15437,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": "tPuMAfBJPz",
       "source": {
@@ -15411,7 +15450,7 @@
       }
     },
     {
-      "subjectId": "98omxIxMfE",
+      "subjectId": "Q4oHRLLpxY",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -36898,250 +36937,250 @@
       "evidenceScore": 90
     },
     {
-      "id": "8VB8UVyOMM-facts",
+      "id": "70JYzOFz7E-facts",
       "facts": [
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "is-function",
           "object": true
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "has-signature",
           "object": "(argv: string[]): import(\"/src/orchestrator/cli\").CliArgs"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "param-names",
           "object": "argv"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "process.cwd"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "arg.startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "parseInt"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-1",
           "object": "10"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "isNaN"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "value.includes"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "."
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "parseFloat"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "parseInt"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-1",
           "object": "10"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "parseInt"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-1",
           "object": "10"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "parseInt"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-1",
           "object": "10"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "argv[i + 1].startsWith"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "--"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "positional.push"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "path.resolve"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "path.resolve"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "/^[a-z][a-z-]*$/.test"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "first.includes"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "/"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "first.includes"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": "\\\\"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "knownCommands.includes"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "knownCommands.join"
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "call-arg-0",
           "object": ", "
         },
         {
-          "subjectId": "8VB8UVyOMM",
+          "subjectId": "70JYzOFz7E",
           "predicate": "calls-expression",
           "object": "path.resolve"
         }
@@ -37331,6 +37370,48 @@
           "subjectId": "komzCYtZpT",
           "predicate": "calls-expression",
           "object": "filesystem.statSync"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/orchestrator/cli.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "LKgl8ZFUI9-facts",
+      "facts": [
+        {
+          "subjectId": "LKgl8ZFUI9",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "LKgl8ZFUI9",
+          "predicate": "has-signature",
+          "object": "(version: string = '0.2.0'): void"
+        },
+        {
+          "subjectId": "LKgl8ZFUI9",
+          "predicate": "has-jsdoc",
+          "object": "\nDisplays comprehensive CLI usage information.\n\nIMPORTANT: Update this function when CLI flags change.\nSee SADS.md §6.2 for authoritative flag list.\n"
+        },
+        {
+          "subjectId": "LKgl8ZFUI9",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "LKgl8ZFUI9",
+          "predicate": "param-names",
+          "object": "version"
+        },
+        {
+          "subjectId": "LKgl8ZFUI9",
+          "predicate": "calls-expression",
+          "object": "console.log"
         }
       ],
       "sources": [
@@ -38411,235 +38492,240 @@
       "evidenceScore": 90
     },
     {
-      "id": "98omxIxMfE-facts",
+      "id": "Q4oHRLLpxY-facts",
       "facts": [
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "is-function",
           "object": true
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "has-signature",
           "object": "(argv: string[]): Promise<number>"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "param-names",
           "object": "argv"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "is-async",
           "object": "true"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "returns-promise",
           "object": "true"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "parseArgs"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
+          "predicate": "calls-expression",
+          "object": "printHelp"
+        },
+        {
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "validateArgs"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "Mode: Dry-run (preview only)\\n"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "orchestrator.runFinalize"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "'='.repeat"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "60"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "Finalization Summary"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "'='.repeat"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "60"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "Math.round"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "'='.repeat"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "60"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "orchestrator.on"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "phaseStart"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "orchestrator.on"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "phaseComplete"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "orchestrator.run"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "orchestrator.getRunSummary"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "emitRunSummary"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "calls-expression",
           "object": "console.error"
         },
         {
-          "subjectId": "98omxIxMfE",
+          "subjectId": "Q4oHRLLpxY",
           "predicate": "call-arg-0",
           "object": "Error:"
         }
@@ -51543,11 +51629,11 @@
     },
     {
       "id": "oSDQhiY8iO",
-      "targetEntityId": "8VB8UVyOMM",
+      "targetEntityId": "70JYzOFz7E",
       "textDraft": "Function parseArgs (intent unclear from static analysis)",
       "confidence": "Medium",
       "factSetIds": [
-        "8VB8UVyOMM-facts"
+        "70JYzOFz7E-facts"
       ]
     },
     {
@@ -51557,6 +51643,15 @@
       "confidence": "Medium",
       "factSetIds": [
         "komzCYtZpT-facts"
+      ]
+    },
+    {
+      "id": "fSkvcdvi6u",
+      "targetEntityId": "LKgl8ZFUI9",
+      "textDraft": "Function printHelp: \nDisplays comprehensive CLI usage information.\n\nIMPORTANT: Update this function when CLI flags change.\nSee SADS.md §6.2 for authoritative flag list.\n",
+      "confidence": "Medium",
+      "factSetIds": [
+        "LKgl8ZFUI9-facts"
       ]
     },
     {
@@ -51804,11 +51899,11 @@
     },
     {
       "id": "NnftUG9OzD",
-      "targetEntityId": "98omxIxMfE",
+      "targetEntityId": "Q4oHRLLpxY",
       "textDraft": "Function run (intent unclear from static analysis)",
       "confidence": "Medium",
       "factSetIds": [
-        "98omxIxMfE-facts"
+        "Q4oHRLLpxY-facts"
       ]
     },
     {

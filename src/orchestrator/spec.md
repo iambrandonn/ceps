@@ -1,10 +1,10 @@
 # src/orchestrator
 
-**Directory Overview:** This directory contains 10 entities.
+**Directory Overview:** This directory contains 11 entities.
 
 ## cli.ts
 
-<a id="8VB8UVyOMM"></a>
+<a id="70JYzOFz7E"></a>
 
 ### parseArgs
 
@@ -58,9 +58,26 @@
 - new Error(`Project root does not exist: ${args.projectRoot}`);
 - new Error(`Project root is not a directory: ${args.projectRoot}`);
 
+<a id="LKgl8ZFUI9"></a>
+
+### printHelp
+
+**Signature:** `(version: string = '0.2.0'): void`
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Function printHelp: 
+Displays comprehensive CLI usage information.
+
+IMPORTANT: Update this function when CLI flags change.
+See SADS.md §6.2 for authoritative flag list.
+
+
 ## index.ts
 
-<a id="98omxIxMfE"></a>
+<a id="Q4oHRLLpxY"></a>
 
 ### run
 

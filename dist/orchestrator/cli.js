@@ -21,11 +21,14 @@ export function parseArgs(argv) {
     for (let i = 2; i < argv.length; i++) {
         const arg = argv[i];
         if (arg.startsWith('--')) {
-            if (arg === '--deterministic') {
-                args.deterministic = true;
+            if (arg === '--help') {
+                args.help = true;
             }
             else if (arg === '--version') {
                 args.version = true;
+            }
+            else if (arg === '--deterministic') {
+                args.deterministic = true;
             }
             else if (arg === '--no-llm-cache') {
                 args.noLlmCache = true;
@@ -240,5 +243,92 @@ export function validateArgs(args, filesystem = fs) {
     if (!filesystem.statSync(args.projectRoot).isDirectory()) {
         throw new Error(`Project root is not a directory: ${args.projectRoot}`);
     }
+}
+/**
+ * Displays comprehensive CLI usage information.
+ *
+ * IMPORTANT: Update this function when CLI flags change.
+ * See SADS.md §6.2 for authoritative flag list.
+ *
+ * @param version - Version string to display (default: '0.2.0')
+ */
+export function printHelp(version = '0.2.0') {
+    console.log(`
+ceps v${version} - Codebase to Specification
+
+Reverse-engineers JavaScript/TypeScript codebases into human-readable
+Markdown specifications using static analysis and optional LLM assistance.
+
+USAGE:
+  ceps [command] [project-root] [options]
+
+COMMANDS:
+  baseline    Generate initial specifications (default)
+              Analyzes codebase and creates spec.md files
+
+  finalize    Update specs based on answered questions
+              Requires prior baseline run and --answers file
+
+GENERAL OPTIONS:
+  --help                     Show this help message
+  --version                  Show version number
+
+LLM CONFIGURATION:
+  --llm on|off              Enable/disable LLM polish (default: on)
+  --llm-provider <name>     LLM provider: anthropic|openai|azure|local
+                            (default: anthropic)
+  --llm-model <name>        Specific model to use
+  --llm-budget <tokens>     Token budget limit (default: 1000000)
+  --no-llm-cache           Disable LLM response caching
+
+EXECUTION CONTROL:
+  --deterministic           Lock output variance (stable hashes/wording)
+  --max-workers <n>         Max parallel workers for parsing
+
+DETAIL LEVEL:
+  --detail <level>          spec-ready (default) | exhaustive | minimal
+                            Note: Implemented in types but not in orchestrator yet
+
+SNAPSHOT CONTROL:
+  --no-snapshot            Skip snapshot capture (baseline only)
+
+PLANNED OPTIONS (Not Yet Implemented):
+  --focus public-api        Limit analysis to public API only
+  --max-iterations <n>      Max reasoning iterations (hardcoded to 10)
+
+FINALIZATION OPTIONS:
+  --answers <path>          Path to answers.md file (required)
+  --dry-run                Preview changes without writing files
+  --reconcile              Allow changed codebase since baseline
+  --finalize-max-hops <n>  Max dependency hops for impact scope (default: 3)
+  --finalize-max-nodes <n> Max nodes in impact scope (default: 250)
+  --finalize-scope auto|full  Scope strategy (default: auto)
+
+EXAMPLES:
+  # Generate specs for current directory
+  ceps .
+
+  # Analyze specific project with LLM disabled
+  ceps /path/to/project --llm off
+
+  # Use OpenAI with custom model and budget
+  ceps . --llm-provider openai --llm-model gpt-4 --llm-budget 500000
+
+  # Finalize after answering questions (dry-run first)
+  ceps finalize --answers ./answers.md --dry-run
+  ceps finalize --answers ./answers.md
+
+EXIT CODES:
+  0  Success
+  1  Internal error (invalid arguments, file system errors)
+  2  Quality gates failed (coverage, grounding, or validation)
+  3  Snapshot mismatch during finalize (use --reconcile to override)
+
+ENVIRONMENT VARIABLES:
+  ANTHROPIC_API_KEY    Required when --llm-provider is anthropic (default)
+  OPENAI_API_KEY       Required when --llm-provider is openai
+
+For more information, see: https://github.com/anthropics/ceps
+`);
 }
 //# sourceMappingURL=cli.js.map

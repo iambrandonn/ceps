@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { parseArgs, validateArgs } from './cli.js';
+import { parseArgs, validateArgs, printHelp } from './cli.js';
 import { Orchestrator, PipelinePhase } from './orchestrator.js';
 import { KnowledgeBase } from '../kb/knowledge-base.js';
 import { LLMGateway } from '../llm/gateway.js';
@@ -12,6 +12,12 @@ const VERSION = '0.2.0';
 export async function run(argv: string[]): Promise<number> {
   try {
     const args = parseArgs(argv);
+
+    // Handle --help flag (before validation)
+    if (args.help) {
+      printHelp(VERSION);
+      return 0;
+    }
 
     // Handle --version flag
     if (args.version) {

@@ -7,6 +7,7 @@ export interface FileSystem {
 export interface CliArgs {
     command: 'baseline' | 'finalize';
     projectRoot: string;
+    help?: boolean;
     deterministic?: boolean;
     maxWorkers?: number;
     detail?: 'spec-ready' | 'exhaustive' | 'minimal';
@@ -26,4 +27,13 @@ export interface CliArgs {
 }
 export declare function parseArgs(argv: string[]): CliArgs;
 export declare function validateArgs(args: CliArgs, filesystem?: FileSystem): void;
+/**
+ * Displays comprehensive CLI usage information.
+ *
+ * IMPORTANT: Update this function when CLI flags change.
+ * See SADS.md §6.2 for authoritative flag list.
+ *
+ * @param version - Version string to display (default: '0.2.0')
+ */
+export declare function printHelp(version?: string): void;
 //# sourceMappingURL=cli.d.ts.map
