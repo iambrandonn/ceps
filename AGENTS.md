@@ -50,7 +50,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Implementation Plans
 1. **IMPLEMENTATION_PLAN.md** — 6-phase roadmap with parallelization strategy (4-7 concurrent agents in peak phases)
-2. **IMPLEMENTATION_PLAN_PHASE1.md v1.2** — Detailed TDD plan for KB, CLI, and test infrastructure (✅ Complete)
+2. **docs/planning/archive/phase1/plan.md** — Detailed TDD plan for KB, CLI, and test infrastructure (✅ Complete)
 
 ### Component Technical Specifications (CTS)
 
@@ -175,8 +175,8 @@ ceps finalize --answers ./answers.md
 ### ✅ Completed (Phases 0-4)
 1. ~~Resolve outstanding questions in SADS-FEEDBACK.md~~ → **Done** (see CTS-Responses.md)
 2. ~~Create all Component Technical Specs (CTS)~~ → **Done** (all 7 CTS documents complete)
-3. ~~Create Phase 1 implementation plan~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2)
-4. ~~Execute Phase 1 implementation~~ → **Done** (IMPLEMENTATION_PLAN_PHASE1.md v1.2)
+3. ~~Create Phase 1 implementation plan~~ → **Done** (docs/planning/archive/phase1/plan.md)
+4. ~~Execute Phase 1 implementation~~ → **Done** (docs/planning/archive/phase1/plan.md)
    - ✅ KB schema & API contract (TDD, frozen)
    - ✅ Minimal CLI harness
    - ✅ Test infrastructure (Vitest, CI, coverage)
@@ -396,7 +396,7 @@ After KB API Freeze:
 ## Reference Documents
 
 ### For Active Development (Phase 1)
-- **IMPLEMENTATION_PLAN_PHASE1.md v1.2** — Step-by-step TDD plan with code examples (all critical bugs fixed)
+- **docs/planning/archive/phase1/plan.md** — Step-by-step TDD plan with code examples (all critical bugs fixed)
 - **CTS-01_KnowledgeBase.md** — KB technical specification
 - **CTS-07_Orchestrator_and_Lifecycle.md** — Orchestrator spec (minimal CLI harness for Phase 1)
 - **SADS.md** — Architectural blueprint
@@ -478,9 +478,9 @@ When creating new documentation, follow these conventions:
 **Location:** `docs/planning/active/`
 
 **Naming:**
-- Phase plans: `IMPLEMENTATION_PLAN_PHASE{N}.md`
-- Workstream plans: `IMPLEMENTATION_PLAN_PHASE{N}_WS_{X}.md`
-- Feature plans: `docs/planning/active/features/IMPLEMENTATION_PLAN_{FEATURE}.md`
+- Phase plans: `plan.md` (within `docs/planning/active/phase{n}/`)
+- Workstream plans: `ws-{x}.md` or `ws-{x}-{component}.md`
+- Feature plans: `{feature-name}.md` (within `docs/planning/active/features/`)
 
 **When to archive:** Move from `active/` to `archive/phase{n}/` when phase is complete and approved.
 
@@ -488,12 +488,12 @@ When creating new documentation, follow these conventions:
 **Location:** `docs/reviews/phase{n}/`
 
 **Naming:**
-- Code reviews: `FEEDBACK_{COMPONENT}_{ITERATION}.md`
-- Feature reviews: `FEEDBACK_{FEATURE}_REVIEW.md`
+- Code reviews: `i{n}-{component}-{descriptor}.md`
+- Feature reviews: `{feature-name}-{descriptor}-review.md`
 
 **Examples:**
-- `docs/reviews/phase6/express/FEEDBACK_I4_MONGOOSE_COMPLETE.md`
-- `docs/reviews/phase6/features/FEEDBACK_HELP_FLAG_PLAN.md`
+- `docs/reviews/phase6/express/i4-mongoose-complete.md`
+- `docs/reviews/phase6/features/help-flag-plan-review.md`
 
 #### Completion Summaries
 **Location:** `docs/internal/completion/`
@@ -535,4 +535,8 @@ Keep the repository root **minimal** and **action-oriented**:
 
 ### Migration Notes
 
-The documentation was reorganized in November 2025 (after Phase 6 Express completion) to improve discoverability and reduce root directory clutter. File naming conventions may be simplified in a future Phase 2 reorganization.
+The documentation was reorganized in November 2025 (after Phase 6 Express completion):
+- **Phase 1 (Nov 8):** Moved ~70 files from root to docs/ hierarchy
+- **Phase 2 (Nov 8):** Simplified filenames by removing redundant prefixes (e.g., `IMPLEMENTATION_PLAN_PHASE3.md` → `plan.md` within phase3/ directory)
+
+All documentation now uses lowercase-kebab-case naming with directory context providing phase/type information.
