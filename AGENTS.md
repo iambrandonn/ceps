@@ -432,3 +432,107 @@ All CTS documents are in the repository root:
 - `CTS-05_Static_Analysis_and_Pattern_Detection.md`
 - `CTS-06_Reasoning_and_Ambiguity_Resolver.md`
 - `CTS-07_Orchestrator_and_Lifecycle.md`
+
+---
+
+## Documentation Organization
+
+All project planning, review, and analysis documents are organized under `docs/` to keep the repository root clean and discoverable.
+
+### Directory Structure
+
+```
+docs/
+├── planning/              # Implementation plans and roadmaps
+│   ├── archive/          # Completed phase plans
+│   │   ├── phase1/
+│   │   ├── phase2/
+│   │   ├── phase3/
+│   │   ├── phase4/
+│   │   └── phase5/
+│   └── active/           # Current/ongoing plans
+│       ├── phase6/       # Active phase plans
+│       └── features/     # Feature-specific plans (help flag, etc.)
+│
+├── reviews/              # Code reviews and feedback documents
+│   └── phase6/
+│       ├── express/      # Express-specific reviews
+│       └── features/     # Feature reviews
+│
+├── internal/             # Internal development documentation
+│   ├── completion/       # Phase completion summaries
+│   ├── analysis/         # Technical analysis & phase-minus-one docs
+│   ├── approval/         # Final approval documents
+│   ├── lessons/          # Lessons learned (handoff materials)
+│   └── announcements/    # Phase/feature announcements
+│
+├── process/              # Process documentation (grounding, lexicon, etc.)
+└── examples/             # Example usage and fixtures
+```
+
+### File Placement Guidelines for Agents
+
+When creating new documentation, follow these conventions:
+
+#### Implementation Plans
+**Location:** `docs/planning/active/`
+
+**Naming:**
+- Phase plans: `IMPLEMENTATION_PLAN_PHASE{N}.md`
+- Workstream plans: `IMPLEMENTATION_PLAN_PHASE{N}_WS_{X}.md`
+- Feature plans: `docs/planning/active/features/IMPLEMENTATION_PLAN_{FEATURE}.md`
+
+**When to archive:** Move from `active/` to `archive/phase{n}/` when phase is complete and approved.
+
+#### Review & Feedback Documents
+**Location:** `docs/reviews/phase{n}/`
+
+**Naming:**
+- Code reviews: `FEEDBACK_{COMPONENT}_{ITERATION}.md`
+- Feature reviews: `FEEDBACK_{FEATURE}_REVIEW.md`
+
+**Examples:**
+- `docs/reviews/phase6/express/FEEDBACK_I4_MONGOOSE_COMPLETE.md`
+- `docs/reviews/phase6/features/FEEDBACK_HELP_FLAG_PLAN.md`
+
+#### Completion Summaries
+**Location:** `docs/internal/completion/`
+
+**When to create:** After completing any phase, workstream, or major iteration.
+
+#### Analysis Documents
+**Location:** `docs/internal/analysis/`
+
+**Types:** Phase-minus-one analysis, bug reports, process improvements, validation reports.
+
+#### Approval Documents
+**Location:** `docs/internal/approval/`
+
+**Purpose:** Final sign-off documents after code review and acceptance testing.
+
+#### Status Updates (Ephemeral)
+**Location:** Repository root (temporarily)
+
+**Lifecycle:** Keep in root for immediate visibility; delete or move to announcements after 1-2 weeks.
+
+### Root Directory Policy
+
+Keep the repository root **minimal** and **action-oriented**:
+
+**Always in root:**
+- `AGENTS.md`, `SADS.md`, `IMPLEMENTATION_PLAN.md`
+- `CTS-*.md` (7 Component Technical Specs)
+- `PRD2.md`, `README.md`
+
+**Temporarily in root (1-2 weeks max):**
+- `STATUS_UPDATE_*.md` - Current status broadcasts
+
+**Never in root:**
+- Completed phase plans → `docs/planning/archive/`
+- Code reviews → `docs/reviews/`
+- Completion summaries → `docs/internal/completion/`
+- Analysis documents → `docs/internal/analysis/`
+
+### Migration Notes
+
+The documentation was reorganized in November 2025 (after Phase 6 Express completion) to improve discoverability and reduce root directory clutter. File naming conventions may be simplified in a future Phase 2 reorganization.
