@@ -6,7 +6,11 @@ export class Parser {
     project;
     factExtractor;
     patternDetector;
-    constructor() {
+    options;
+    constructor(options = {}) {
+        this.options = {
+            moduleScopeCalls: options.moduleScopeCalls ?? true, // Enabled by default
+        };
         this.project = new Project({
             useInMemoryFileSystem: true,
             compilerOptions: {
@@ -16,7 +20,7 @@ export class Parser {
                 jsx: 2, // React
             },
         });
-        this.factExtractor = new FactExtractor();
+        this.factExtractor = new FactExtractor(options);
         this.patternDetector = new PatternDetector();
     }
     async parse(filePath, source) {

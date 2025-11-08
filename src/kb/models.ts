@@ -67,6 +67,12 @@ export interface Entity {
   };
   anchors?: string[];
   qids?: string[];
+  metadata?: {
+    synthetic?: boolean;
+    scope?: string;
+    objectName?: string;
+    [key: string]: unknown;
+  };
 }
 
 // Factory functions with validation

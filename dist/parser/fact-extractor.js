@@ -2,6 +2,12 @@ import { SyntaxKind, Node } from 'ts-morph';
 import { generateAnchor } from '../kb/id-generation.js';
 export class FactExtractor {
     existingAnchors = new Set();
+    options;
+    constructor(options = {}) {
+        this.options = {
+            moduleScopeCalls: options.moduleScopeCalls ?? true, // Enabled by default
+        };
+    }
     extract(sourceFile, filePath) {
         const entities = [];
         const relations = [];
@@ -327,6 +333,222 @@ export class FactExtractor {
                 evidenceScore: 60,
             });
         });
+        // Phase 6 Fix: Extract module-scope call expressions
+        // Can be disabled via --no-module-scope-calls flag or CEPS_MODULE_SCOPE_CALLS=false env var
+        if (this.options.moduleScopeCalls) {
+            // Build a map of constant names to their entities for quick lookup
+            // Phase 6 Fix (Issue #3): Design Decision - Pseudo-Entity Reuse
+            // This map is intentionally shared across all statements (not reset per statement).
+            // When a pseudo-entity is created for an object (e.g., 'app'), subsequent statements
+            // using the same object will reuse that entity. This differs from the original plan
+            // which specified "one pseudo-entity per statement", but this approach is better for
+            // documentation because it groups all operations on the same object together.
+            // Example: All app.use(), app.get(), app.post() calls will attach to the same
+            // pseudo-entity representing 'app', making the generated behavior chunk more cohesive.
+            const constantsByName = new Map();
+            entities.filter(e => e.kind === 'constant').forEach(e => {
+                constantsByName.set(e.name, e);
+            });
+            // Traverse module-level statements to extract calls on constants
+            sourceFile.getStatements().forEach((statement) => {
+                // Skip function/class declarations (already processed above)
+                if (Node.isFunctionDeclaration(statement) ||
+                    Node.isClassDeclaration(statement) ||
+                    Node.isImportDeclaration(statement) ||
+                    Node.isExportDeclaration(statement)) {
+                    return;
+                }
+                // Look for call expressions in this statement
+                statement.forEachDescendant((node) => {
+                    if (Node.isCallExpression(node)) {
+                        const callExpr = node;
+                        const expression = callExpr.getExpression();
+                        // Check if this is a property access call (e.g., router.post(...))
+                        if (Node.isPropertyAccessExpression(expression)) {
+                            const objectExpr = expression.getExpression();
+                            // Phase 6 Fix (Issue #4): Skip chained calls to avoid spurious pseudo-entities
+                            // For chained calls like router.route('/x').get(handler), the object expression
+                            // of .get() is the CallExpression router.route('/x'). This is already handled
+                            // by the first call + chained-call logic below, so skip creating a pseudo-entity.
+                            if (Node.isCallExpression(objectExpr)) {
+                                return; // Skip - this will be handled as a chained call
+                            }
+                            const objectName = objectExpr.getText();
+                            const methodName = expression.getName();
+                            // Find the constant entity this call belongs to
+                            let ownerEntity = constantsByName.get(objectName);
+                            // If not found in constants, create a synthetic pseudo-entity
+                            if (!ownerEntity) {
+                                const startLine = statement.getStartLineNumber();
+                                const relPath = filePath.replace(/\\/g, '/');
+                                const syntheticName = `module::${relPath}#L${startLine}`;
+                                // Generate anchor for pseudo-entity
+                                const syntheticContent = statement.getText();
+                                const entityId = generateAnchor(syntheticName, syntheticContent, this.existingAnchors);
+                                this.existingAnchors.add(entityId);
+                                ownerEntity = {
+                                    id: entityId,
+                                    kind: 'constant',
+                                    name: syntheticName,
+                                    path: filePath,
+                                    exported: false,
+                                    visibility: 'internal',
+                                    metadata: {
+                                        synthetic: true,
+                                        scope: 'module',
+                                        objectName: objectName // Phase 6 Fix (Issue #2): Store object name for pattern matching
+                                    },
+                                };
+                                entities.push(ownerEntity);
+                                // Create factSet for synthetic entity
+                                const syntheticFactSet = {
+                                    id: `${entityId}-facts`,
+                                    facts: [
+                                        { subjectId: entityId, predicate: 'is-constant', object: true },
+                                    ],
+                                    sources: [{ kind: 'ast', file: filePath }],
+                                    evidenceScore: 50, // Lower score for synthetic entities
+                                };
+                                factSets.push(syntheticFactSet);
+                                // Add to map for potential future calls in same statement
+                                constantsByName.set(objectName, ownerEntity);
+                            }
+                            // TypeScript guard: ownerEntity should always be defined at this point
+                            if (!ownerEntity) {
+                                return; // Should never happen, but satisfies TypeScript
+                            }
+                            // Find this entity's factSet
+                            const ownerFactSet = factSets.find(fs => fs.id === `${ownerEntity.id}-facts`);
+                            if (ownerFactSet) {
+                                // Add call expression fact
+                                ownerFactSet.facts.push({
+                                    subjectId: ownerEntity.id,
+                                    predicate: 'calls-expression',
+                                    object: `${objectName}.${methodName}`,
+                                });
+                                // Add call-scope metadata
+                                ownerFactSet.facts.push({
+                                    subjectId: ownerEntity.id,
+                                    predicate: 'call-scope',
+                                    object: 'scope:module',
+                                });
+                                // Extract call arguments
+                                const args = callExpr.getArguments();
+                                args.forEach((arg, index) => {
+                                    if (Node.isStringLiteral(arg) || Node.isNumericLiteral(arg)) {
+                                        ownerFactSet.facts.push({
+                                            subjectId: ownerEntity.id,
+                                            predicate: `call-arg-${index}`,
+                                            object: arg.getText().replace(/['"]/g, ''),
+                                        });
+                                    }
+                                    else if (Node.isIdentifier(arg)) {
+                                        // For identifiers (e.g., middleware, handler), store the name
+                                        ownerFactSet.facts.push({
+                                            subjectId: ownerEntity.id,
+                                            predicate: `call-arg-${index}`,
+                                            object: arg.getText(),
+                                        });
+                                    }
+                                    else if (Node.isCallExpression(arg)) {
+                                        // Phase 6 Fix (Issue #1): Handle wrapper/middleware CallExpressions
+                                        // e.g., allowedRoles('ADMIN'), wrapAsync(handler)
+                                        const callArgExpr = arg;
+                                        const wrapperExpr = callArgExpr.getExpression();
+                                        const wrapperName = wrapperExpr.getText();
+                                        // Store the wrapper call name
+                                        ownerFactSet.facts.push({
+                                            subjectId: ownerEntity.id,
+                                            predicate: `call-arg-${index}`,
+                                            object: wrapperName,
+                                        });
+                                        // Extract the wrapped function/arguments
+                                        const wrapperArgs = callArgExpr.getArguments();
+                                        wrapperArgs.forEach((wArg, wIndex) => {
+                                            if (Node.isStringLiteral(wArg) || Node.isNumericLiteral(wArg)) {
+                                                ownerFactSet.facts.push({
+                                                    subjectId: ownerEntity.id,
+                                                    predicate: `call-arg-${index}-wrapped-${wIndex}`,
+                                                    object: wArg.getText().replace(/['"]/g, ''),
+                                                });
+                                            }
+                                            else if (Node.isIdentifier(wArg)) {
+                                                ownerFactSet.facts.push({
+                                                    subjectId: ownerEntity.id,
+                                                    predicate: `call-arg-${index}-wrapped-${wIndex}`,
+                                                    object: wArg.getText(),
+                                                });
+                                            }
+                                            else if (Node.isArrayLiteralExpression(wArg)) {
+                                                // For array literals (e.g., ['ADMIN', 'USER']), store the full array text
+                                                ownerFactSet.facts.push({
+                                                    subjectId: ownerEntity.id,
+                                                    predicate: `call-arg-${index}-wrapped-${wIndex}`,
+                                                    object: wArg.getText(),
+                                                });
+                                            }
+                                            // Note: Deeply nested CallExpressions not handled yet (can add recursion if needed)
+                                        });
+                                    }
+                                });
+                                // Create call relation
+                                relations.push({
+                                    subjectId: ownerEntity.id,
+                                    predicate: 'calls',
+                                    objectId: `${objectName}.${methodName}`,
+                                    source: { kind: 'ast', file: filePath },
+                                });
+                                // Phase 6: Handle chained calls (e.g., router.route('/x').get(handler))
+                                // Check if the parent of this call is also a call expression (chained)
+                                let chainedParent = callExpr.getParent();
+                                while (chainedParent) {
+                                    // Check if parent is a property access that's part of a call
+                                    if (Node.isPropertyAccessExpression(chainedParent)) {
+                                        const parentCallCheck = chainedParent.getParent();
+                                        if (Node.isCallExpression(parentCallCheck)) {
+                                            const chainedCallExpr = parentCallCheck;
+                                            const chainedMethodName = chainedParent.getName();
+                                            // Add chained-call fact
+                                            ownerFactSet.facts.push({
+                                                subjectId: ownerEntity.id,
+                                                predicate: 'chained-call',
+                                                object: chainedMethodName,
+                                            });
+                                            // Extract chained call arguments
+                                            const chainedArgs = chainedCallExpr.getArguments();
+                                            chainedArgs.forEach((arg, index) => {
+                                                if (Node.isStringLiteral(arg) || Node.isNumericLiteral(arg)) {
+                                                    ownerFactSet.facts.push({
+                                                        subjectId: ownerEntity.id,
+                                                        predicate: `chained-call-arg-${index}`,
+                                                        object: arg.getText().replace(/['"]/g, ''),
+                                                    });
+                                                }
+                                                else if (Node.isIdentifier(arg)) {
+                                                    ownerFactSet.facts.push({
+                                                        subjectId: ownerEntity.id,
+                                                        predicate: `chained-call-arg-${index}`,
+                                                        object: arg.getText(),
+                                                    });
+                                                }
+                                            });
+                                            // Move up the chain
+                                            chainedParent = chainedCallExpr.getParent();
+                                        }
+                                        else {
+                                            break;
+                                        }
+                                    }
+                                    else {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        }
         return { entities, relations, factSets };
     }
     detectSideEffects(node) {

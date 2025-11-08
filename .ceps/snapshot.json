@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "3ffa1a6eb87b179e9e02dc52a6fdd8444ab11af76dbddee1184b5374ba6c93cc",
-  "generatedAt": "2025-11-08T21:49:49.396Z",
+  "rootHash": "ea1a03cde3ae5ed67299a47405383682542e7c9dfb681fbe6816f2cd5ef31cef",
+  "generatedAt": "2025-11-08T22:34:34.258Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -540,6 +540,11 @@
       "bytes": 35803
     },
     {
+      "path": "docs/reviews/phase6/routing-parser-fix-implementation-review-final.md",
+      "hash": "e32cde50aeea0738fc387a7db63d31c9ae7c562c6aef6cd8f2725a140173c666",
+      "bytes": 17121
+    },
+    {
       "path": "docs/reviews/phase6/routing-parser-fix-implementation-review-v2.md",
       "hash": "7f5e0e846cd118ed1037b8df85fb30b944f9e1b6ff079adfa52ecf0efb9f275f",
       "bytes": 16039
@@ -906,8 +911,8 @@
     },
     {
       "path": "src/kb/models.ts",
-      "hash": "0245a01a4c91f7b6bdc9cd0ec48bacccea2cbd0423a95ef41ef22af8aea93a77",
-      "bytes": 2699
+      "hash": "83561201587bf45e9f50f99ee731cf21e9b68c6639ba66d218989018df08c3b8",
+      "bytes": 2817
     },
     {
       "path": "src/llm/__tests__/budget-helper.test.ts",
@@ -1061,8 +1066,8 @@
     },
     {
       "path": "src/parser/fact-extractor.ts",
-      "hash": "9f1086ec66a2cadcb44e9e6644678e4d3225ea8105430ddb3df46a14e30b6682",
-      "bytes": 25555
+      "hash": "964605d6b65d3f20292933f698377e22e1f18f2b7cf343f9e9442445050ed487",
+      "bytes": 25757
     },
     {
       "path": "src/parser/parser.ts",

@@ -57,6 +57,7 @@ export interface OrchestratorOptions {
     budgetTracker?: BudgetTracker;
     snapshotEnabled?: boolean;
     knowledgeBase?: KnowledgeBase;
+    moduleScopeCalls?: boolean;
 }
 export declare class Orchestrator extends EventEmitter {
     private kb;

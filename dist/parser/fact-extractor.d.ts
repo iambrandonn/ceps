@@ -5,8 +5,13 @@ export interface ExtractionResult {
     relations: Relation[];
     factSets: FactSet[];
 }
+export interface FactExtractorOptions {
+    moduleScopeCalls?: boolean;
+}
 export declare class FactExtractor {
     private existingAnchors;
+    private options;
+    constructor(options?: FactExtractorOptions);
     extract(sourceFile: SourceFile, filePath: string): ExtractionResult;
     private detectSideEffects;
     private detectErrors;

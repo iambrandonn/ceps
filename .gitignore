@@ -25,3 +25,6 @@ lcov.info
 
 node_modules/
 coverage/
+
+output-test/
+

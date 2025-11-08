@@ -4374,7 +4374,7 @@
       }
     },
     {
-      "id": "reXnTTezbA",
+      "id": "XjPGdYzYDy",
       "kind": "class",
       "name": "FactExtractor",
       "path": "src/parser/fact-extractor.ts",
@@ -4382,7 +4382,7 @@
       "visibility": "public"
     },
     {
-      "id": "iYEkhs8FSP",
+      "id": "bmEJ6uoIF5",
       "kind": "method",
       "name": "extract",
       "path": "src/parser/fact-extractor.ts",
@@ -28348,7 +28348,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28361,7 +28361,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28374,7 +28374,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28387,7 +28387,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28400,7 +28400,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28413,7 +28413,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28426,7 +28426,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28439,7 +28439,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28452,7 +28452,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28465,7 +28465,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28478,7 +28478,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28491,7 +28491,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": "VK3K8vYQne",
       "source": {
@@ -28504,7 +28504,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28517,7 +28517,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28530,7 +28530,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28543,7 +28543,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28556,7 +28556,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28569,7 +28569,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28582,7 +28582,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28595,7 +28595,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28608,7 +28608,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28621,7 +28621,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28634,7 +28634,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28647,7 +28647,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28660,7 +28660,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28673,7 +28673,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28686,7 +28686,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28699,7 +28699,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28712,7 +28712,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28725,7 +28725,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28738,7 +28738,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28751,7 +28751,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28764,7 +28764,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28777,7 +28777,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28790,7 +28790,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28803,7 +28803,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28816,7 +28816,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28829,7 +28829,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28842,7 +28842,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28855,7 +28855,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28868,7 +28868,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28881,7 +28881,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28894,7 +28894,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28907,7 +28907,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28920,7 +28920,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28933,7 +28933,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28946,7 +28946,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28959,7 +28959,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28972,7 +28972,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28985,7 +28985,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -28998,7 +28998,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29011,7 +29011,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29024,7 +29024,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": "VK3K8vYQne",
       "source": {
@@ -29037,7 +29037,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29050,7 +29050,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29063,7 +29063,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29076,7 +29076,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29089,7 +29089,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29102,7 +29102,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29115,7 +29115,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29128,7 +29128,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29141,7 +29141,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29154,7 +29154,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29167,7 +29167,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29180,7 +29180,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": "VK3K8vYQne",
       "source": {
@@ -29193,7 +29193,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29206,7 +29206,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29219,7 +29219,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29232,7 +29232,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29245,7 +29245,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29258,7 +29258,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29271,7 +29271,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29284,7 +29284,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29297,7 +29297,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29310,7 +29310,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29323,7 +29323,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29336,7 +29336,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29349,7 +29349,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29362,7 +29362,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29375,7 +29375,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29388,7 +29388,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29401,7 +29401,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29414,7 +29414,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29427,7 +29427,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29440,7 +29440,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29453,7 +29453,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29466,7 +29466,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29479,7 +29479,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29492,7 +29492,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29505,7 +29505,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29518,7 +29518,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29531,7 +29531,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29544,7 +29544,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29557,7 +29557,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29570,7 +29570,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29583,7 +29583,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29596,7 +29596,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29609,7 +29609,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29622,7 +29622,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29635,7 +29635,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29648,7 +29648,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29661,7 +29661,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29674,7 +29674,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29687,7 +29687,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29700,7 +29700,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29713,7 +29713,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29726,7 +29726,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29739,7 +29739,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29752,7 +29752,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29765,7 +29765,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29778,7 +29778,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29791,7 +29791,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29804,7 +29804,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29817,7 +29817,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": "VK3K8vYQne",
       "source": {
@@ -29830,7 +29830,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29843,7 +29843,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29856,7 +29856,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29869,7 +29869,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29882,7 +29882,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29895,7 +29895,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29908,7 +29908,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29921,7 +29921,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29934,7 +29934,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29947,7 +29947,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29960,7 +29960,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29973,7 +29973,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29986,7 +29986,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -29999,7 +29999,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30012,7 +30012,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30025,7 +30025,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30038,7 +30038,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30051,7 +30051,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30064,7 +30064,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30077,7 +30077,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30090,7 +30090,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30103,7 +30103,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30116,7 +30116,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30129,7 +30129,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30142,7 +30142,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30155,7 +30155,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30168,7 +30168,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30181,7 +30181,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30194,7 +30194,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30207,7 +30207,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30220,7 +30220,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30233,7 +30233,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30246,7 +30246,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": "VK3K8vYQne",
       "source": {
@@ -30259,7 +30259,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30272,7 +30272,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30285,7 +30285,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30298,7 +30298,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30311,7 +30311,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30324,7 +30324,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30337,7 +30337,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30350,7 +30350,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30363,7 +30363,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30376,7 +30376,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30389,7 +30389,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30402,7 +30402,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30415,7 +30415,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30428,7 +30428,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30441,7 +30441,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30454,7 +30454,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30467,7 +30467,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30480,7 +30480,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30493,7 +30493,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30506,7 +30506,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30519,7 +30519,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30532,7 +30532,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30545,7 +30545,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30558,7 +30558,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30571,7 +30571,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30584,7 +30584,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30597,7 +30597,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30610,7 +30610,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30623,7 +30623,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30636,7 +30636,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30649,7 +30649,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30662,7 +30662,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30675,7 +30675,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30688,7 +30688,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30701,7 +30701,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30714,7 +30714,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30727,7 +30727,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30740,7 +30740,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30753,7 +30753,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30766,7 +30766,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30779,7 +30779,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30792,7 +30792,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30805,7 +30805,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30818,7 +30818,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30831,7 +30831,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30844,7 +30844,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30857,7 +30857,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30870,7 +30870,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30883,7 +30883,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30896,7 +30896,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30909,7 +30909,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -30922,7 +30922,7 @@
       }
     },
     {
-      "subjectId": "iYEkhs8FSP",
+      "subjectId": "bmEJ6uoIF5",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -62279,10 +62279,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "reXnTTezbA-facts",
+      "id": "XjPGdYzYDy-facts",
       "facts": [
         {
-          "subjectId": "reXnTTezbA",
+          "subjectId": "XjPGdYzYDy",
           "predicate": "is-class",
           "object": true
         }
@@ -62296,1075 +62296,1075 @@
       "evidenceScore": 75
     },
     {
-      "id": "iYEkhs8FSP-facts",
+      "id": "bmEJ6uoIF5-facts",
       "facts": [
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "is-method",
           "object": true
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "has-signature",
           "object": "(sourceFile: SourceFile, filePath: string): import(\"/src/parser/fact-extractor\").ExtractionResult"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "param-count",
           "object": 2
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "param-names",
           "object": "sourceFile,filePath"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getFunctions().forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getFunctions"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.isExported"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getParameters().map(p => p.getText()).join"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-0",
           "object": ", "
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getParameters().map"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getParameters"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "p.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getReturnType().getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getReturnType"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "generateAnchor"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.existingAnchors.add"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.detectSideEffects"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.detectErrors"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "entities.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getJsDocs"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "jsdoc[0].getDescription"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getParameters"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "parameters.map(p => p.getName()).join"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-0",
           "object": ","
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "parameters.map"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "p.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.detectJSXReturn"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.isAsync"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.getReturnType"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "funcReturnType.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "returnTypeText.includes"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-0",
           "object": "Promise<"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "factSets.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "func.forEachDescendant"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "node.getKind"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getExpression().getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "relations.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getArguments"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "args.forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isStringLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isNumericLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText().replace"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-1",
           "object": ""
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getClasses().forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getClasses"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "cls.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "cls.isExported"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "cls.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "generateAnchor"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.existingAnchors.add"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "entities.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "cls.getJsDocs"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "classFacts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "classJsdoc[0].getDescription"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "factSets.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "cls.getMethods().forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "cls.getMethods"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.hasModifier"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "generateAnchor"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.existingAnchors.add"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getParameters().map(p => p.getText()).join"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-0",
           "object": ", "
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getParameters().map"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getParameters"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "p.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getReturnType().getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getReturnType"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "entities.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.detectSideEffects"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.detectErrors"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.getParameters"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "methodFacts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "methodParams.map(p => p.getName()).join"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-0",
           "object": ","
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "methodParams.map"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "p.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "methodFacts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.detectJSXReturn"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "methodFacts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "method.forEachDescendant"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "node.getKind"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getExpression().getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "relations.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "methodFacts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getArguments"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "args.forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isStringLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isNumericLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "methodFacts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText().replace"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-1",
           "object": ""
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "factSets.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getImportDeclarations().forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getImportDeclarations"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "imp.getModuleSpecifierValue"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "relations.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getExportDeclarations().forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getExportDeclarations"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "exp.getModuleSpecifierValue"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "relations.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getVariableDeclarations().forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getVariableDeclarations"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "varDecl.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "varDecl.getParent"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "parent?.getParent"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "grandparent?.getKind"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "(grandparent as any).isExported"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "varDecl.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "generateAnchor"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.existingAnchors.add"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "entities.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "varDecl.getInitializer"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "initializer.getText().trim"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "initializer.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isCallExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "initializer.getExpression().getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "initializer.getExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "factSets.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "entities.filter(e => e.kind === 'constant').forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "entities.filter"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "constantsByName.set"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getStatements().forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "sourceFile.getStatements"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isFunctionDeclaration"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isClassDeclaration"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isImportDeclaration"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isExportDeclaration"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "statement.forEachDescendant"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isCallExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isPropertyAccessExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "expression.getExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isCallExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "objectExpr.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "expression.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "constantsByName.get"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "statement.getStartLineNumber"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "filePath.replace"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-1",
           "object": "/"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "statement.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "generateAnchor"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "this.existingAnchors.add"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "entities.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "factSets.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "constantsByName.set"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "factSets.find"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getArguments"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "args.forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isStringLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isNumericLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText().replace"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-1",
           "object": ""
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isIdentifier"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isCallExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callArgExpr.getExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "wrapperExpr.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callArgExpr.getArguments"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "wrapperArgs.forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isStringLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isNumericLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "wArg.getText().replace"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-1",
           "object": ""
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "wArg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isIdentifier"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "wArg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isArrayLiteralExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "wArg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "relations.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "callExpr.getParent"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isPropertyAccessExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "chainedParent.getParent"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isCallExpression"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "chainedParent.getName"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "chainedCallExpr.getArguments"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "chainedArgs.forEach"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isStringLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isNumericLiteral"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText().replace"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "call-arg-1",
           "object": ""
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "Node.isIdentifier"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "ownerFactSet.facts.push"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "arg.getText"
         },
         {
-          "subjectId": "iYEkhs8FSP",
+          "subjectId": "bmEJ6uoIF5",
           "predicate": "calls-expression",
           "object": "chainedCallExpr.getParent"
         }
@@ -75604,19 +75604,19 @@
     },
     {
       "id": "t0BvptZQ2t",
-      "targetEntityId": "reXnTTezbA",
+      "targetEntityId": "XjPGdYzYDy",
       "textDraft": "Class FactExtractor (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "reXnTTezbA-facts"
+        "XjPGdYzYDy-facts"
       ]
     },
     {
       "id": "353QPGnuo0",
-      "targetEntityId": "iYEkhs8FSP",
+      "targetEntityId": "bmEJ6uoIF5",
       "textDraft": "Performs Mongoose read query (find): factSets (model not resolved).",
       "factSetIds": [
-        "iYEkhs8FSP-facts"
+        "bmEJ6uoIF5-facts"
       ],
       "confidence": "Low"
     },
@@ -78585,20 +78585,20 @@
     },
     {
       "qid": "q:RDFNjeoeUa",
-      "entityId": "reXnTTezbA",
+      "entityId": "XjPGdYzYDy",
       "question": "What are the responsibilities and contract of class `FactExtractor` at src/parser/fact-extractor.ts?",
       "confidence": 25,
       "factSetIds": [
-        "reXnTTezbA-facts"
+        "XjPGdYzYDy-facts"
       ]
     },
     {
       "qid": "q:PLP70bRz4N",
-      "entityId": "iYEkhs8FSP",
+      "entityId": "bmEJ6uoIF5",
       "question": "What is the behavior of method `extract` at src/parser/fact-extractor.ts?",
       "confidence": 35,
       "factSetIds": [
-        "iYEkhs8FSP-facts"
+        "bmEJ6uoIF5-facts"
       ]
     },
     {

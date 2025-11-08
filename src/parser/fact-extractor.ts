@@ -497,6 +497,11 @@ export class FactExtractor {
               constantsByName.set(objectName, ownerEntity);
             }
 
+            // TypeScript guard: ownerEntity should always be defined at this point
+            if (!ownerEntity) {
+              return; // Should never happen, but satisfies TypeScript
+            }
+
             // Find this entity's factSet
             const ownerFactSet = factSets.find(fs => fs.id === `${ownerEntity.id}-facts`);
             if (ownerFactSet) {

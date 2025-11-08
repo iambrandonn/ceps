@@ -161,7 +161,9 @@ export class Orchestrator extends EventEmitter {
         if (!this.fileIndex) {
             throw new Error('Scanning phase must complete before parsing');
         }
-        const parser = new Parser();
+        const parser = new Parser({
+            moduleScopeCalls: this.options.moduleScopeCalls ?? true,
+        });
         const codeFiles = this.fileIndex.entries.filter(e => e.kind === 'code');
         for (const entry of codeFiles) {
             const source = fs.readFileSync(entry.absolutePath, 'utf8');

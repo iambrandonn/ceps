@@ -4,7 +4,7 @@
 
 ## fact-extractor.ts
 
-<a id="reXnTTezbA"></a>
+<a id="XjPGdYzYDy"></a>
 
 ### FactExtractor
 
@@ -17,7 +17,7 @@
 **Open Questions:**
 - q:RDFNjeoeUa: What are the responsibilities and contract of class `FactExtractor` at src/parser/fact-extractor.ts?
 
-<a id="iYEkhs8FSP"></a>
+<a id="bmEJ6uoIF5"></a>
 
 ### extract
 

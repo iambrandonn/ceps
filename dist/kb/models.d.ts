@@ -52,6 +52,12 @@ export interface Entity {
     };
     anchors?: string[];
     qids?: string[];
+    metadata?: {
+        synthetic?: boolean;
+        scope?: string;
+        objectName?: string;
+        [key: string]: unknown;
+    };
 }
 export declare function createEntity(data: Partial<Entity> & {
     id: string;

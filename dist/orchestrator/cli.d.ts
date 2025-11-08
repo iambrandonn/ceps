@@ -18,6 +18,7 @@ export interface CliArgs {
     noLlmCache?: boolean;
     version?: boolean;
     noSnapshot?: boolean;
+    noModuleScopeCalls?: boolean;
     answersPath?: string;
     dryRun?: boolean;
     reconcile?: boolean;

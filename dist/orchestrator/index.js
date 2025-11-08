@@ -104,7 +104,8 @@ export async function run(argv) {
             validator,
             budgetTracker,
             snapshotEnabled: !args.noSnapshot,
-            knowledgeBase: kb
+            knowledgeBase: kb,
+            moduleScopeCalls: !args.noModuleScopeCalls,
         });
         const phaseNames = {
             [PipelinePhase.SCANNING]: 'Scanning files',
