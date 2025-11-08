@@ -8,26 +8,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ceps** (Codebase to Specification) is a one-time-use tool that reverse-engineers JavaScript/TypeScript codebases into human-readable Markdown specifications. Its purpose is to bootstrap a spec-driven development workflow by extracting behavioral intent from existing code.
 
-**Current Status:** Phase 5 (Finalization) complete. Answer-guided re-analysis, snapshot verification, and spec patching are in production with 78 test files / 935 tests (3 skipped) passing and 93%+ coverage. Ready for Phase 6 (Production Hardening).
+**Current Status:** Phase 6 (Production Hardening) Wave 1 in progress. Express workstream (Agent 1) complete and approved. Test suite: 92 test files / 1155 tests passing (4 skipped), 93%+ coverage maintained. React/Redux/GraphQL/HTTP agents ready to start.
 
 ---
 
 ## Current Phase
 
-**Phase 6 — Production Hardening (Ready to Start)**
+**Phase 6 — Production Hardening (Wave 1 In Progress)**
 
-- **Status:** Phase 5 finalization is complete; framework patterns and performance optimization are the next milestones.
+- **Status:** Agent 1 (Express) complete and approved. React/Redux/GraphQL/HTTP agents cleared for handoff.
 - **Depends on:** Phase 5 (✅ Complete)
 - **Approach:** High parallelization (5-7 agents) for framework patterns + performance + documentation.
-- **Agents:**
-  - **Agent 1:** Express pattern library (routes, middleware, error handling, config)
-  - **Agent 2:** React pattern library (components, hooks, context, side effects)
-  - **Agent 3:** Redux pattern library (actions, reducers, selectors, middleware)
-  - **Agent 4:** GraphQL pattern library (schema, resolvers, mutations, subscriptions)
-  - **Agent 5:** HTTP clients pattern library (Axios/Fetch with error handling, retries)
-  - **Agent 6:** Performance optimization (worker pools, memory, telemetry)
+- **Wave 1 Status:**
+  - **Agent 1:** Express pattern library — ✅ **COMPLETE** (I1-I5 approved, 8 modules, 1155 tests passing)
+  - **Agent 2:** React pattern library (components, hooks, context, side effects) — Ready to start
+  - **Agent 3:** Redux pattern library (actions, reducers, selectors, middleware) — Ready to start
+  - **Agent 4:** GraphQL pattern library (schema, resolvers, mutations, subscriptions) — Ready to start
+  - **Agent 5:** HTTP clients pattern library (Axios/Fetch with error handling, retries) — Ready to start
+- **Wave 2 (Pending Wave 1 completion):**
+  - **Agent 6:** Performance optimization (worker pools, memory, telemetry, accuracy harness, benchmarks)
   - **Agent 7:** Documentation & UX polish
-- **Deliverables:**
+
+**Express Completion Metrics:**
+- **Test Count:** 1155 passing, 4 skipped (+220 from Phase 5)
+- **Pattern Modules:** 8 (middleware, routing, error, async, config, Mongoose schema/model/query)
+- **Lexicon:** 49 terms + 15 anti-patterns, 51/51 validator tests passing
+- **Integration:** Full Express ↔ Mongoose linking validated
+- **Documentation:** Coverage matrix, release notes, lessons doc, M3 contribution
+- **Approval:** Code Review Agent approved with conditions (accuracy/benchmark deferred to Wave 2)
+- **Handoff:** Lessons doc (`docs/internal/PHASE6_EXPRESS_LESSONS.md`) ready for future agents
+
+**Deliverables:**
   - >90% pattern accuracy for Tier 0 frameworks
   - Performance targets met on large repos
   - Complete user-facing documentation
@@ -199,9 +210,19 @@ ceps finalize --answers ./answers.md
    - ✅ **Results:** 78 test files, 935 tests passed (3 skipped), 93%+ coverage
    - ✅ **Critical Fixes:** QID deserialization bug, ESM imports, async KB methods
 
-### 📋 Next (Phase 6)
-- **Phase 6 implementation:** Framework patterns, performance, documentation
-  - **5-7 parallel agents** for Express, React, Redux, GraphQL, HTTP clients + performance + docs
+9. ~~Execute Phase 6 Wave 1: Express~~ → **Done** (2025-11-07)
+   - ✅ Express middleware, routing, error handling patterns (I1)
+   - ✅ Express async handling patterns (I2)
+   - ✅ Express configuration & environment patterns (I3)
+   - ✅ Mongoose ODM integration (schema, model, query) (I4)
+   - ✅ Validation sweep, documentation, M3 artifacts (I5)
+   - ✅ **Results:** 1155 tests passing, 51/51 lexicon validator green, all gates PASS
+   - ✅ **Handoff materials:** Lessons doc, coverage matrix, release notes complete
+   - 🟡 **Deferred to Wave 2:** Accuracy harness scripts, benchmark scripts (Agent 6)
+
+### 📋 Next (Phase 6 Wave 1 Continuation)
+- **React/Redux/GraphQL/HTTP agents:** Begin pattern implementations using Express lessons
+- **Agent 6 (Wave 2):** Implement accuracy harness and benchmark scripts after Wave 1 complete
 
 ---
 

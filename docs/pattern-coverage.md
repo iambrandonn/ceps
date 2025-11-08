@@ -1,6 +1,6 @@
 # Pattern Coverage Matrix
 
-**Version:** Phase 6 I4
+**Version:** Phase 6 I5 (Final)
 **Last Updated:** 2025-11-07
 **Purpose:** Document supported framework patterns, confidence expectations, and known gaps
 
@@ -158,6 +158,68 @@ This document tracks which framework-specific behaviors ceps can automatically d
 - Mongoose queries detected in Express route handlers (router constants)
 - Queries linked to models, models linked to schemas
 - Full chain: Route → Query → Model → Schema → Fields
+
+---
+
+## Phase 6 Express Workstream Summary (I1-I5 Complete)
+
+**Completion Date:** 2025-11-07
+**Status:** ✅ Ready for handoff to React/Redux/GraphQL/HTTP agents
+
+### Overall Coverage
+
+| Pattern Area | Supported Behaviors | Confidence | Test Coverage | Notes |
+|--------------|-------------------|------------|---------------|-------|
+| **Middleware** | Standard (3-param) middleware detection | High (≥70) | Unit + Integration | Signature-based detection |
+| **Routing** | Router initialization, HTTP method detection | High | Unit + Integration | Limited by parser facts for paths |
+| **Error Handling** | Error middleware (4-param) detection | High | Unit + Integration | Signature-based detection |
+| **Async** | async/Promise-based flow detection | High/Medium | Unit + Integration | Depends on parser facts |
+| **Configuration** | app.set/get, process.env reads | High | Unit + Integration | Parser limitation documented |
+| **Mongoose Schema** | Field extraction, required, references | High | Unit + Integration | Complex schemas → Medium |
+| **Mongoose Model** | Model registration, schema linking | High | Unit + Integration | Unresolved refs → Medium |
+| **Mongoose Query** | Read/write queries, model linking | High/Med/Low | Unit + Integration | Confidence varies by resolution |
+
+### Key Achievements
+
+1. **Pattern Architecture:** Established `PatternModule` contract with priority system, error handling, and precedence rules
+2. **Lexicon Foundation:** 49 approved terms + 15 anti-patterns validated with 51/51 passing tests
+3. **Integration:** Full Express ↔ Mongoose linking (routes → queries → models → schemas → fields)
+4. **Validation:** Golden specs, KB chunk assertions, finalization compatibility, LLM-off determinism
+5. **Documentation:** Coverage matrix, lessons learned, internal API docs, decision log
+
+### Lessons for Future Agents
+
+See `docs/internal/PHASE6_EXPRESS_LESSONS.md` for detailed guidance on:
+- Phase -1 analysis workflow
+- Fixture strategy (polluted datasets)
+- Accuracy harness mechanics
+- Lexicon testing checklist
+- Benchmark integration
+- Cross-workstream DoD compliance
+
+### Known Limitations
+
+**Parser-Dependent:**
+- Individual route handler signatures not extracted (parser limitation per Phase -1)
+- `process.env` reads may not emit facts in all cases (documented in integration tests)
+- Dynamic patterns (computed paths, conditional routes) → Open Questions
+
+**Mongoose Scope:**
+- Virtuals, discriminators, advanced validators deferred to post-M3
+- Aggregation pipelines, populate chains not supported
+- Schema options (timestamps, versionKey) not captured
+
+**Future Enhancements:**
+- Middleware ordering and dependency tracking
+- Error propagation chains
+- Query argument analysis (filter objects, sort/limit/skip)
+
+### Metrics (To Be Confirmed in Validation Sweep)
+
+- **Accuracy:** Target F1 ≥0.90 (precision ≥0.88, recall ≥0.88)
+- **Test Coverage:** 1155+ tests passing, ≥80% branch coverage
+- **Benchmark:** <10% regression from I4 baseline
+- **Gates:** Coverage/Link/Grounding/Confidence/Monorepo all green
 
 ---
 

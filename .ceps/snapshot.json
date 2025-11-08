@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "b774d24cb9ed988d3aefe4d438c0335631d9bb2bdc94f27e2133935b90ac4945",
-  "generatedAt": "2025-11-08T02:10:02.403Z",
+  "rootHash": "16cca78fb5473ba9df64719e861e8ea7b9931c021efe3a45074074be15942bce",
+  "generatedAt": "2025-11-08T04:16:44.602Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -13,6 +13,11 @@
       "path": "AGENTS.md",
       "hash": "4df4900c8ec599e4b653bb48ff9e794680ec6f9c9e4d374ae46f88a94b734373",
       "bytes": 19309
+    },
+    {
+      "path": "benchmarks/README.md",
+      "hash": "8a99f37536cddbba58de7f20e33f44a0bd4d8dbbffd39799f9d0e86c4a348327",
+      "bytes": 2422
     },
     {
       "path": "CLAUDE.md",
@@ -61,8 +66,8 @@
     },
     {
       "path": "DECISIONS.md",
-      "hash": "c9e36eae8bcb8cde4f72167862201b056141af80253df3b33081cb8547ac4e78",
-      "bytes": 5844
+      "hash": "e7c4806b8fce204b07c3efe278eeb3492da3105f1893b5cc68ad4682f19464be",
+      "bytes": 8876
     },
     {
       "path": "docs/API.md",
@@ -90,9 +95,14 @@
       "bytes": 12673
     },
     {
+      "path": "docs/internal/PHASE6_EXPRESS_LESSONS.md",
+      "hash": "e7cd312e2b32b1ef23983a78de0f68f2b191d0ee027c36023cbeb20040740c0e",
+      "bytes": 15828
+    },
+    {
       "path": "docs/lexicon.md",
-      "hash": "9aab3ada6a081d04eff747bb4fd796c90e60b701f1dcce5c67a6585b5f0b1742",
-      "bytes": 13071
+      "hash": "e3cb4580ae22ba06f6e9fc9c054492270a2508e9a9a0bd295f57859e7bb1a045",
+      "bytes": 13267
     },
     {
       "path": "docs/PARSER_ERROR_HANDLING.md",
@@ -101,8 +111,8 @@
     },
     {
       "path": "docs/pattern-coverage.md",
-      "hash": "873bd4ad0b9ef4caa56619118225076f04c1ff47a99cd5699863103b12ae8b73",
-      "bytes": 9607
+      "hash": "d3de8f9e84e7ba901010e1773c59019e310aa913eda295f9d53467875b01217a",
+      "bytes": 12704
     },
     {
       "path": "docs/phase5-finalization-architecture.md",
@@ -125,6 +135,16 @@
       "bytes": 5047
     },
     {
+      "path": "docs/RELEASE_NOTES_PHASE6.md",
+      "hash": "c6acf3998d0d3dd3a16c8090901c0c016055cd804e2c5b2f1b7d1a70a19bd9a9",
+      "bytes": 9528
+    },
+    {
+      "path": "docs/reviews/M3_EXPRESS_CONTRIBUTION.md",
+      "hash": "11da7f60aba42ee2ae1504b421a53a605dcec6486742b2239259897f60201c0f",
+      "bytes": 10349
+    },
+    {
       "path": "docs/testing-real-providers.md",
       "hash": "465814296dde9fc77ec71da0a76460dfc020c32b12c3b138db8c6c672d4ed3fb",
       "bytes": 8690
@@ -138,6 +158,11 @@
       "path": "docs/ws-f2-telemetry.md",
       "hash": "3ac777dc50b995f0d32745da18f6d672d6dc9a42844dcda34d9de484517aa6c0",
       "bytes": 6555
+    },
+    {
+      "path": "EXPRESS_I5_MINOR_ENHANCEMENTS.md",
+      "hash": "b262f407dcba3c5745d5328345f3a92ef52f05046ac7cdcf3fdd8b1081b7ea72",
+      "bytes": 8359
     },
     {
       "path": "FEEDBACK_I3_EXPRESS_CONFIG_FINAL_REVIEW.md",
@@ -155,6 +180,11 @@
       "bytes": 4726
     },
     {
+      "path": "FEEDBACK_I4_MONGOOSE_FINAL_INDEPENDENT_REVIEW.md",
+      "hash": "72eceb3ba929e7f0359ca271b60954a6171a12271778a09cfb5fc43ba38fb142",
+      "bytes": 21558
+    },
+    {
       "path": "FEEDBACK_I4_MONGOOSE_FIXES_COMPLETE.md",
       "hash": "9cccabe15d1b5e35a34934a2281a9042da06d54e6ed8c1aaa81d5d4c4cbddf7e",
       "bytes": 13424
@@ -163,6 +193,11 @@
       "path": "FEEDBACK_I4_MONGOOSE_INDEPENDENT_REVIEW.md",
       "hash": "2c2458561da8c1075f9ea2fa8c10bb9c8624757b907da9573f3375014685eb8c",
       "bytes": 29137
+    },
+    {
+      "path": "FEEDBACK-EXPRESS-I5-1.md",
+      "hash": "ee6374321691e042731db2f0d29a0d5ab7899a0be04568158c077edfade62647",
+      "bytes": 22645
     },
     {
       "path": "fixtures/adversarial/phase4/backtick-extraction/scenario.json",
@@ -450,6 +485,11 @@
       "bytes": 11894
     },
     {
+      "path": "IMPLEMENTATION_PLAN_PHASE6_WS_D_EXPRESS_I5.md",
+      "hash": "c0119f845c9770381ed90df75724be972d8433a18b1fc912dd1614c61af7c69e",
+      "bytes": 7285
+    },
+    {
       "path": "IMPLEMENTATION_PLAN_PHASE6_WS_D_EXPRESS.md",
       "hash": "a8b552a2bea4b2f5055486b11b52859abf9f00e5d3ad1395f39dd23920830a0f",
       "bytes": 16998
@@ -553,6 +593,11 @@
       "path": "PHASE6_EXPRESS_I4_PHASE_MINUS_ONE.md",
       "hash": "48f65078872474c39209e1327cb9cb2269d2ecef13eb4c98516cb5b8d998fae8",
       "bytes": 23120
+    },
+    {
+      "path": "PHASE6_EXPRESS_I5_COMPLETION.md",
+      "hash": "a4a5f8fc6397ff9a76c74bd2d42f75f26b29f633b91d5e651af6fd1f8aafda4e",
+      "bytes": 9695
     },
     {
       "path": "PHASE6_EXPRESS_PHASE_MINUS_ONE.md",

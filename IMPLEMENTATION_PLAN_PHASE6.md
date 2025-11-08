@@ -1,7 +1,7 @@
 # ceps — Implementation Plan (Phase 6: Production Hardening)
-**Date:** 2025-11-07  
-**Scope:** Final-phase plan that turns the Phase 5 baseline into a production-ready release with Tier‑0 framework depth, large-repo performance guarantees, and polished UX/documentation.  
-**Status:** Draft for execution (awaiting owner sign-off)
+**Date:** 2025-11-07
+**Scope:** Final-phase plan that turns the Phase 5 baseline into a production-ready release with Tier‑0 framework depth, large-repo performance guarantees, and polished UX/documentation.
+**Status:** Wave 1 in progress — Agent 1 (Express) ✅ COMPLETE
 
 ---
 
@@ -125,10 +125,81 @@ Phase 6 is the final gate before declaring ceps production-ready. Prior phases a
 
 ---
 
+## 3.10) Workstream Status Tracking
+
+**Last Updated:** 2025-11-07
+
+### Wave 1 Pattern Agents
+
+| Agent | Workstream | Status | Completion Date | Key Metrics | Documentation |
+|-------|-----------|--------|-----------------|-------------|---------------|
+| **Agent 1** | Express Pattern Library | ✅ **COMPLETE** | 2025-11-07 | 8 modules, 1155 tests passing, 49 lexicon terms, 51/51 validator tests | `PHASE6_EXPRESS_I5_FINAL_APPROVAL.md` |
+| **Agent 2** | React Pattern Library | 🟡 Ready to start | - | - | Handoff: `docs/internal/PHASE6_EXPRESS_LESSONS.md` |
+| **Agent 3** | Redux Pattern Library | 🟡 Ready to start | - | - | Handoff: Express lessons doc |
+| **Agent 4** | GraphQL Pattern Library | 🟡 Ready to start | - | - | Handoff: Express lessons doc + `docs/internal/mongoose-facts-api.md` |
+| **Agent 5** | HTTP Clients | 🟡 Ready to start | - | - | Handoff: Express lessons doc |
+
+### Wave 2 Support Agents
+
+| Agent | Workstream | Status | Dependencies | Notes |
+|-------|-----------|--------|--------------|-------|
+| **Agent 6** | Performance & Telemetry | ⏳ Pending Wave 1 | All Wave 1 agents complete | Accuracy harness + benchmark scripts implementation |
+| **Agent 7** | Documentation & UX | ⏳ Pending Wave 1 | Coverage matrices from all pattern agents | Release notes, CLI help updates |
+
+### Express Completion Details (Agent 1)
+
+**Iterations Delivered:**
+- ✅ **I1:** Middleware & routing patterns
+- ✅ **I2:** Error handling & async patterns
+- ✅ **I3:** Configuration & environment patterns
+- ✅ **I4:** Mongoose ODM integration (schema, model, query)
+- ✅ **I5:** Validation sweep, documentation, M3 artifacts
+
+**Pattern Modules (8):**
+1. Express middleware (3-param signature)
+2. Express routing (Router initialization, HTTP methods)
+3. Express error handling (4-param error middleware)
+4. Express async (async/Promise detection)
+5. Express configuration (app.set/get, process.env)
+6. Mongoose schema (fields, refs, required)
+7. Mongoose model (registration, schema linking)
+8. Mongoose query (read/write, model linking)
+
+**Test Coverage:**
+- Total tests: 1155 passing, 4 skipped (up from 935 in Phase 5)
+- Express-specific: ~220 tests (unit + integration)
+- Branch coverage: ≥80% (CI enforced)
+
+**Quality Gates:**
+- ✅ Lexicon validator: 51/51 passing
+- ✅ Golden regressions: 100% accept rate
+- ✅ All runtime gates: PASS (Coverage/Link/Grounding/Confidence)
+- ✅ Finalization: Smoke test passing
+
+**Handoff Materials:**
+- ✅ Lessons doc: `docs/internal/PHASE6_EXPRESS_LESSONS.md` (540 lines, gold-standard)
+- ✅ Coverage matrix: `docs/pattern-coverage.md` (Express + Mongoose sections)
+- ✅ Release notes: `docs/RELEASE_NOTES_PHASE6.md` (Express + Mongoose features)
+- ✅ M3 contribution: `docs/reviews/M3_EXPRESS_CONTRIBUTION.md` (265 lines)
+- ✅ Decision log: `DECISIONS.md` (I4 + I5 entries)
+
+**Deferred to Wave 2:**
+- 🟡 Accuracy harness script implementation (`scripts/run-tier0-accuracy.mjs`)
+- 🟡 Benchmark script implementation (`scripts/run-nextjs-benchmark.mjs`)
+- **Rationale:** Better coordinated by Agent 6 across all Tier-0 frameworks
+- **Evidence:** Integration tests + KB chunk assertions provide proxy validation
+
+**Approval Status:**
+- ✅ Code Review Agent: Approved with conditions (2025-11-07)
+- ⏳ Product Review: Release notes review pending
+- ✅ Handoff Authorized: React/Redux/GraphQL/HTTP cleared to proceed
+
+---
+
 ## 4) Schedule & Parallelization Model
-| Wave | Weeks | Focus | Agents | Exit Criteria |
-| --- | --- | --- | --- | --- |
-| Wave 1 | 1–2 | Pattern expansion (Express/React/Redux/GraphQL/HTTP). Performance agent shadows for baselines. | 5 | Functional sign-off on fixtures + deterministic golden outputs. |
+| Wave | Weeks | Focus | Agents | Status | Exit Criteria |
+| --- | --- | --- | --- | --- | --- |
+| Wave 1 | 1–2 | Pattern expansion (Express/React/Redux/GraphQL/HTTP). Performance agent shadows for baselines. | 5 | 🟡 **In Progress** (Express complete, 4 agents pending) | Functional sign-off on fixtures + deterministic golden outputs. |
 | Wave 2 | 3 | Performance/telemetry + Doc/UX. Pattern agents fix backlog items. | 3 | Benchmark SLO draft, docs ready for review. |
 | Wave 3 | 4 | Shared validation: golden diffs, KB assertions, LLM-off runs, Next.js benchmark rerun, release notes. | All | M3 readiness review + branch freeze. |
 

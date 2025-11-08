@@ -123,6 +123,70 @@ This document tracks key architectural decisions made during Phase 6 (Production
 
 ---
 
+## I4 Mongoose Integration Completion
+
+**Date:** 2025-11-07
+**Decision:** Express I4 (Mongoose auxiliary patterns) approved with critical fixes
+**Rationale:**
+- Word-boundary anti-pattern logic fixed (regex now handles compound words correctly)
+- Full test suite validation required before iteration sign-off (1155+ tests)
+- Cross-workstream DoD enforced (lexicon validator, golden specs, KB chunk assertions)
+- Mongoose schema/model/query patterns deliver full Express ↔ Mongoose linking
+
+**Owner:** Agent 1 (Express)
+**Approver:** Code Review Agent
+**Status:** ✅ Approved
+**Impact:** Establishes pattern for future auxiliary integrations (Apollo Client, styled-components, etc.)
+**Reference:** FEEDBACK_I4_MONGOOSE_FIXES_COMPLETE.md, PHASE6_EXPRESS_I4_COMPLETION.md
+
+**Metrics:**
+- Test count: 1155+ passing (up from 935 in Phase 5)
+- Lexicon: 49 terms + 15 anti-patterns, 51/51 validator tests green
+- Coverage: Express middleware, routing, error handling, async, config, Mongoose schema/model/query
+
+---
+
+## I5 Validation Sweep & Handoff (Complete)
+
+**Date:** 2025-11-07
+**Decision:** I5 is polish iteration (no new patterns), focused on validation sweep + lessons doc + M3 prep
+**Rationale:**
+- All Express/Mongoose patterns complete (I1-I4)
+- I5 validates gates (all green), full test suite, and produces handoff artifacts
+- Accuracy harness and benchmark scripts deferred to Agent 6 (Performance) Wave 2 for coordinated Tier-0 implementation
+- Lessons doc (`PHASE6_EXPRESS_LESSONS.md`) seeds React/Redux/GraphQL/HTTP agents with workflows and pitfalls
+- M3 artifacts prepared for Agent 6 to assemble master gate review
+
+**Owner:** Agent 1 (Express)
+**Approver:** Pending (Architect + Product)
+**Status:** ✅ Complete — Awaiting Architect Review
+**Reference:** IMPLEMENTATION_PLAN_PHASE6_WS_D_EXPRESS_I5.md
+
+**Exit Criteria (Completed):**
+- [x] Lexicon validator 51/51 green ✅
+- [x] Full test suite passing (1155 tests, 4 skipped) ✅
+- [x] Golden regressions passing (included in integration tests) ✅
+- [x] Finalization scenario green (smoke test passing) ✅
+- [x] Coverage matrix updated (I5 summary section added) ✅
+- [x] Release notes drafted (docs/RELEASE_NOTES_PHASE6.md) ✅
+- [x] Lessons doc complete (docs/internal/PHASE6_EXPRESS_LESSONS.md) ✅
+- [x] Decision log updated (I4 + I5 entries) ✅
+- [x] M3 artifacts prepared (docs/reviews/M3_EXPRESS_CONTRIBUTION.md) ✅
+
+**Deferred to Wave 2 (Agent 6):**
+- Accuracy harness script implementation + F1 measurement
+- Benchmark script implementation + performance metrics
+- Rationale: Better coordinated across all Tier-0 frameworks by Performance agent
+
+**Final Metrics:**
+- **Tests:** 1155 passing, 4 skipped (+220 from Phase 5)
+- **Lexicon:** 49 terms + 15 anti-patterns, 51/51 validator tests green
+- **Patterns:** 8 modules (middleware, routing, error, async, config, Mongoose schema/model/query)
+- **Coverage:** Express + Mongoose Tier-0 support complete
+- **Integration:** Full route → query → model → schema → fields linking validated
+
+---
+
 ## Future Decisions
 
 Add new decisions below as they are made during Phase 6 iterations.
