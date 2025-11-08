@@ -46,6 +46,42 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
+## Project Status Tracking
+
+**STATUS.md** — A lightweight, workflow-aware status file that tracks:
+- **Current workflow step** (Plan → Review → Iterate → Implement → Code Review)
+- **Active task and agent role** (Planning Agent, Implementation Agent, Code Review Agent)
+- **Progress across parallel workstreams** (Wave 1: 5 agents)
+- **Recent decisions and blockers**
+
+### When to Update STATUS.md
+
+**Agents should update STATUS.md when:**
+1. **Starting a new workflow step** — Update "Current Step" section with new agent role and deliverable
+2. **Completing a workflow step** — Update progress table (checkmarks) and move to next step
+3. **Making decisions that affect scope** — Add to "Recent Decisions / Context" (e.g., deferred features)
+4. **Encountering blockers** — Document in "Blockers / Open Questions"
+5. **Completing a full workstream** — Mark as complete in progress table, update "Last Completed"
+
+### Workflow Steps (Agent Process)
+
+This project follows a **5-step agent workflow**:
+1. **Plan** — Planning Agent develops implementation plan (deliverable: `docs/planning/active/phase{n}/*.md`)
+2. **Review Plan** — Code Review Agent reviews plan against architecture and prior work
+3. **Iterate** — Planning Agent updates plan based on feedback (repeat steps 2-3 until approved)
+4. **Implement** — Implementation Agent executes approved plan (deliverable: code + tests)
+5. **Review Code** — Code Review Agent reviews implementation (iterate step 4-5 until approved)
+
+**STATUS.md tracks which step is active** so incoming agents know their role (planner, reviewer, implementer) and what deliverable is expected.
+
+### Lifecycle
+
+- **Created:** At the start of each phase (or when resuming after a break)
+- **Updated:** After each workflow step completes
+- **Archived:** When phase completes, move to `docs/internal/announcements/phase{n}-status-final.md` and delete from root
+
+---
+
 ## Key Design Documents
 
 ### Implementation Plans
@@ -523,9 +559,10 @@ Keep the repository root **minimal** and **action-oriented**:
 - `AGENTS.md`, `SADS.md`, `IMPLEMENTATION_PLAN.md`
 - `CTS-*.md` (7 Component Technical Specs)
 - `PRD2.md`, `README.md`
+- `STATUS.md` - Current workflow step and progress tracking (active phases only)
 
 **Temporarily in root (1-2 weeks max):**
-- `STATUS_UPDATE_*.md` - Current status broadcasts
+- Old-style `STATUS_UPDATE_*.md` files (deprecated in favor of STATUS.md)
 
 **Never in root:**
 - Completed phase plans → `docs/planning/archive/`
