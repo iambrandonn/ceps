@@ -118,7 +118,7 @@ export class ExpressErrorHandlerPattern implements PatternModule {
   confidenceAdjustments(kb: KnowledgeBase, entity: Entity): ConfidenceDelta {
     // +10 for Express error handler detection
     return {
-      delta: 10,
+      adjustment: 10,
       reason: 'Express error handler (4-param middleware)',
     };
   }

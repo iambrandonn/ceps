@@ -27,10 +27,13 @@ export class LexiconValidator {
         let inAntiPatternsSection = false;
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
-            // Detect framework sections (e.g., "### Express.js (Iteration I1 Complete)")
-            // Must NOT match "### Express Anti-Patterns"
-            if (line.startsWith('### ') && line.includes('Express') && !line.includes('Anti-Patterns')) {
-                currentFramework = 'express';
+            // Detect framework sections
+            // Express: "### Express.js (Iteration I1 Complete)" - level 3 header
+            // Mongoose: "## Mongoose ODM (Iteration I4 Complete)" - level 2 header
+            // Must NOT match anti-patterns sections
+            if ((line.startsWith('### ') && line.includes('Express') && !line.includes('Anti-Patterns')) ||
+                (line.startsWith('## ') && line.includes('Mongoose') && !line.includes('Anti-Patterns'))) {
+                currentFramework = line.includes('Express') ? 'express' : 'mongoose';
                 this.rules.set(currentFramework, {
                     framework: currentFramework,
                     approvedTerms: new Set(),
@@ -47,6 +50,7 @@ export class LexiconValidator {
                 // DON'T reset currentFramework - we'll set it in the subsection
                 continue;
             }
+            // Detect Express anti-patterns
             if (line.startsWith('### Express Anti-Patterns')) {
                 currentFramework = 'express';
                 inAntiPatternsSection = true;
@@ -61,14 +65,34 @@ export class LexiconValidator {
                 }
                 continue;
             }
+            // Detect Mongoose anti-patterns
+            if (line.startsWith('### Mongoose Anti-Patterns')) {
+                currentFramework = 'mongoose';
+                inAntiPatternsSection = true;
+                inApprovedTermsSection = false;
+                // Ensure mongoose rule exists (it should from approved terms section)
+                if (!this.rules.has(currentFramework)) {
+                    this.rules.set(currentFramework, {
+                        framework: currentFramework,
+                        approvedTerms: new Set(),
+                        antiPatterns: new Map(),
+                    });
+                }
+                continue;
+            }
             // Detect section transitions
-            if (line.startsWith('#### ')) {
+            // Express uses #### (level 4) headers, Mongoose uses ### (level 3) headers
+            if (line.startsWith('#### ') || (line.startsWith('### ') && !line.includes('Anti-Patterns'))) {
                 inApprovedTermsSection = false;
                 inAntiPatternsSection = false;
+                // Express subsections (level 4)
                 if (line.includes('Middleware') || line.includes('HTTP Methods') || line.includes('Special Markers') || line.includes('Error Handling') || line.includes('Async Handling') || line.includes('Configuration')) {
                     inApprovedTermsSection = true;
-                    // Debug
-                    // console.log(`Section "${line}" -> inApprovedTermsSection = true, currentFramework=${currentFramework}`);
+                }
+                // Mongoose subsections (level 3, but NOT anti-patterns or Future Iterations)
+                if (currentFramework === 'mongoose' &&
+                    (line.includes('Schema') || line.includes('Query Operations') || line.includes('Integration Terms'))) {
+                    inApprovedTermsSection = true;
                 }
                 continue;
             }
@@ -136,8 +160,17 @@ export class LexiconValidator {
             const sortedAntiPatterns = Array.from(rule.antiPatterns.entries())
                 .sort((a, b) => b[0].length - a[0].length);
             for (const [antiPattern, alternative] of sortedAntiPatterns) {
-                // Case-insensitive substring match
-                if (draftText.toLowerCase().includes(antiPattern.toLowerCase())) {
+                // Match anti-patterns with flexible boundaries:
+                // - Must have word boundary OR uppercase letter OR start/end of string on left
+                // - Must have word boundary OR start/end of string on right
+                // This catches: "ORM model", "UserDAO", "@ConfigurationProperties"
+                // But NOT: "Performs" (ORM inside word)
+                const escapedPattern = antiPattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                // Allow @ prefix for annotations like @ConfigurationProperties
+                const leftBoundary = `(?:^|\\s|\\b|[A-Z@])`;
+                const rightBoundary = `(?:\\b|\\s|$)`;
+                const pattern = new RegExp(`${leftBoundary}${escapedPattern}${rightBoundary}`, 'i');
+                if (pattern.test(draftText)) {
                     diagnostics.push({
                         chunkId: metadata.chunkId,
                         rule: 'lexicon',

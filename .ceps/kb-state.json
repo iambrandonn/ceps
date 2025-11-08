@@ -3120,7 +3120,7 @@
       "visibility": "internal"
     },
     {
-      "id": "Td6nXeqULS",
+      "id": "mKc5U6frNm",
       "kind": "constant",
       "name": "errorHandlerPattern",
       "path": "src/patterns/express/error-handler.ts",
@@ -3208,7 +3208,7 @@
       }
     },
     {
-      "id": "aT1ITvYSFY",
+      "id": "SZs9uFlRtu",
       "kind": "class",
       "name": "ExpressConfigPattern",
       "path": "src/reasoning/patterns/express/config.ts",
@@ -3244,7 +3244,7 @@
       }
     },
     {
-      "id": "ygXoYW8136",
+      "id": "srqc4PsXER",
       "kind": "method",
       "name": "confidenceAdjustments",
       "path": "src/reasoning/patterns/express/config.ts",
@@ -3257,7 +3257,7 @@
       }
     },
     {
-      "id": "vRE0pYC2Y5",
+      "id": "77LTewOyj5",
       "kind": "class",
       "name": "ExpressErrorHandlerPattern",
       "path": "src/reasoning/patterns/express/error-handler.ts",
@@ -3293,7 +3293,7 @@
       }
     },
     {
-      "id": "WJbhEKx5PZ",
+      "id": "amdATEcq3Z",
       "kind": "method",
       "name": "confidenceAdjustments",
       "path": "src/reasoning/patterns/express/error-handler.ts",
@@ -42166,17 +42166,17 @@
       "evidenceScore": 60
     },
     {
-      "id": "Td6nXeqULS-facts",
+      "id": "mKc5U6frNm-facts",
       "facts": [
         {
-          "subjectId": "Td6nXeqULS",
+          "subjectId": "mKc5U6frNm",
           "predicate": "is-constant",
           "object": true
         },
         {
-          "subjectId": "Td6nXeqULS",
+          "subjectId": "mKc5U6frNm",
           "predicate": "initializer",
-          "object": "{\n  id: 'express.error-handler',\n  priority: 2,\n\n  matches(kb: KnowledgeBase, entity: Entity): boolean {\n    try {\n      // Must be a function\n      if (entity.kind !== 'function') {\n        return false;\n      }\n\n      // Must have exactly 4 parameters\n      const paramCount = getParameterCount(kb, entity);\n      if (paramCount !== 4) {\n        return false;\n      }\n\n      // Check parameter names match Express error handler signature\n      const paramNames = getParameterNames(kb, entity);\n      if (paramNames.length !== 4) {\n        return false;\n      }\n\n      // Express error middleware: (err, req, res, next)\n      // Allow common variations: error/err, request/req, response/res\n      const [param0, param1, param2, param3] = paramNames;\n      const isErrorParam = /^(err|error)$/i.test(param0);\n      const isReqParam = /^(req|request)$/i.test(param1);\n      const isResParam = /^(res|response)$/i.test(param2);\n      const isNextParam = /^next$/i.test(param3);\n\n      return isErrorParam && isReqParam && isResParam && isNextParam;\n    } catch {\n      // Error handling contract: never throw\n      return false;\n    }\n  },\n\n  describe(kb: KnowledgeBase, entity: Entity): BehaviorChunk[] {\n    try {\n      // Verify pattern still matches\n      if (!this.matches(kb, entity)) {\n        // Emit diagnostic Open Question for malformed entity\n        return [\n          {\n            entityId: entity.id,\n            confidence: 'Low',\n            textDraft: `**${entity.name}** has 4 parameters but doesn't match Express error handler signature.`,\n            factSetIds: [`${entity.id}:param-count`],\n            chunkId: `chunk_${entity.id}_error_handler_unknown`,\n          },\n        ];\n      }\n\n      // Generate behavior description\n      const description = `**${entity.name}** is an Express error handler (4-param middleware) that catches errors from the middleware chain.`;\n\n      return [\n        {\n          entityId: entity.id,\n          confidence: 'High',\n          textDraft: description,\n          factSetIds: [`${entity.id}:param-count`],\n          chunkId: `chunk_${entity.id}_error_handler`,\n        },\n      ];\n    } catch {\n      // Error handling contract: never throw, emit Low confidence chunk\n      return [\n        {\n          entityId: entity.id,\n          confidence: 'Low',\n          textDraft: `**${entity.name}** could not be analyzed (unexpected structure).`,\n          factSetIds: [],\n          chunkId: `chunk_${entity.id}_error_handler_error`,\n        },\n      ];\n    }\n  },\n\n  confidenceAdjustments(kb: KnowledgeBase, entity: Entity): ConfidenceDelta {\n    // +10 for Express error handler detection\n    return {\n      delta: 10,\n      reason: 'Express error handler (4-param middleware)',\n    };\n  },\n}"
+          "object": "{\n  id: 'express.error-handler',\n  priority: 2,\n\n  matches(kb: KnowledgeBase, entity: Entity): boolean {\n    try {\n      // Must be a function\n      if (entity.kind !== 'function') {\n        return false;\n      }\n\n      // Must have exactly 4 parameters\n      const paramCount = getParameterCount(kb, entity);\n      if (paramCount !== 4) {\n        return false;\n      }\n\n      // Check parameter names match Express error handler signature\n      const paramNames = getParameterNames(kb, entity);\n      if (paramNames.length !== 4) {\n        return false;\n      }\n\n      // Express error middleware: (err, req, res, next)\n      // Allow common variations: error/err, request/req, response/res\n      const [param0, param1, param2, param3] = paramNames;\n      const isErrorParam = /^(err|error)$/i.test(param0);\n      const isReqParam = /^(req|request)$/i.test(param1);\n      const isResParam = /^(res|response)$/i.test(param2);\n      const isNextParam = /^next$/i.test(param3);\n\n      return isErrorParam && isReqParam && isResParam && isNextParam;\n    } catch {\n      // Error handling contract: never throw\n      return false;\n    }\n  },\n\n  describe(kb: KnowledgeBase, entity: Entity): BehaviorChunk[] {\n    try {\n      // Verify pattern still matches\n      if (!this.matches(kb, entity)) {\n        // Emit diagnostic Open Question for malformed entity\n        return [\n          {\n            id: `chunk_${entity.id}_error_handler_unknown`,\n            targetEntityId: entity.id,\n            confidence: 'Low',\n            textDraft: `**${entity.name}** has 4 parameters but doesn't match Express error handler signature.`,\n            factSetIds: [`${entity.id}:param-count`],\n          },\n        ];\n      }\n\n      // Generate behavior description\n      const description = `**${entity.name}** is an Express error handler (4-param middleware) that catches errors from the middleware chain.`;\n\n      return [\n        {\n          id: `chunk_${entity.id}_error_handler`,\n          targetEntityId: entity.id,\n          confidence: 'High',\n          textDraft: description,\n          factSetIds: [`${entity.id}:param-count`],\n        },\n      ];\n    } catch {\n      // Error handling contract: never throw, emit Low confidence chunk\n      return [\n        {\n          id: `chunk_${entity.id}_error_handler_error`,\n          targetEntityId: entity.id,\n          confidence: 'Low',\n          textDraft: `**${entity.name}** could not be analyzed (unexpected structure).`,\n          factSetIds: [],\n        },\n      ];\n    }\n  },\n\n  confidenceAdjustments(kb: KnowledgeBase, entity: Entity): ConfidenceDelta {\n    // +10 for Express error handler detection\n    return {\n      adjustment: 10,\n      reason: 'Express error handler (4-param middleware)',\n    };\n  },\n}"
         }
       ],
       "sources": [
@@ -42487,10 +42487,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "aT1ITvYSFY-facts",
+      "id": "SZs9uFlRtu-facts",
       "facts": [
         {
-          "subjectId": "aT1ITvYSFY",
+          "subjectId": "SZs9uFlRtu",
           "predicate": "is-class",
           "object": true
         }
@@ -42768,25 +42768,25 @@
       "evidenceScore": 90
     },
     {
-      "id": "ygXoYW8136-facts",
+      "id": "srqc4PsXER-facts",
       "facts": [
         {
-          "subjectId": "ygXoYW8136",
+          "subjectId": "srqc4PsXER",
           "predicate": "is-method",
           "object": true
         },
         {
-          "subjectId": "ygXoYW8136",
+          "subjectId": "srqc4PsXER",
           "predicate": "has-signature",
           "object": "(kb: KnowledgeBase, entity: Entity): ConfidenceDelta"
         },
         {
-          "subjectId": "ygXoYW8136",
+          "subjectId": "srqc4PsXER",
           "predicate": "param-count",
           "object": 2
         },
         {
-          "subjectId": "ygXoYW8136",
+          "subjectId": "srqc4PsXER",
           "predicate": "param-names",
           "object": "kb,entity"
         }
@@ -42800,10 +42800,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "vRE0pYC2Y5-facts",
+      "id": "77LTewOyj5-facts",
       "facts": [
         {
-          "subjectId": "vRE0pYC2Y5",
+          "subjectId": "77LTewOyj5",
           "predicate": "is-class",
           "object": true
         }
@@ -42951,25 +42951,25 @@
       "evidenceScore": 90
     },
     {
-      "id": "WJbhEKx5PZ-facts",
+      "id": "amdATEcq3Z-facts",
       "facts": [
         {
-          "subjectId": "WJbhEKx5PZ",
+          "subjectId": "amdATEcq3Z",
           "predicate": "is-method",
           "object": true
         },
         {
-          "subjectId": "WJbhEKx5PZ",
+          "subjectId": "amdATEcq3Z",
           "predicate": "has-signature",
           "object": "(kb: KnowledgeBase, entity: Entity): ConfidenceDelta"
         },
         {
-          "subjectId": "WJbhEKx5PZ",
+          "subjectId": "amdATEcq3Z",
           "predicate": "param-count",
           "object": 2
         },
         {
-          "subjectId": "WJbhEKx5PZ",
+          "subjectId": "amdATEcq3Z",
           "predicate": "param-names",
           "object": "kb,entity"
         }
@@ -52344,11 +52344,11 @@
     },
     {
       "id": "LGvxMSBr4L",
-      "targetEntityId": "Td6nXeqULS",
+      "targetEntityId": "mKc5U6frNm",
       "textDraft": "Constant errorHandlerPattern (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "Td6nXeqULS-facts"
+        "mKc5U6frNm-facts"
       ]
     },
     {
@@ -52416,11 +52416,11 @@
     },
     {
       "id": "xxP4O0TSyU",
-      "targetEntityId": "aT1ITvYSFY",
+      "targetEntityId": "SZs9uFlRtu",
       "textDraft": "Class ExpressConfigPattern (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "aT1ITvYSFY-facts"
+        "SZs9uFlRtu-facts"
       ]
     },
     {
@@ -52443,20 +52443,20 @@
     },
     {
       "id": "70YwzLrbBE",
-      "targetEntityId": "ygXoYW8136",
+      "targetEntityId": "srqc4PsXER",
       "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "ygXoYW8136-facts"
+        "srqc4PsXER-facts"
       ]
     },
     {
       "id": "SLTYmJmGcL",
-      "targetEntityId": "vRE0pYC2Y5",
+      "targetEntityId": "77LTewOyj5",
       "textDraft": "Class ExpressErrorHandlerPattern (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "vRE0pYC2Y5-facts"
+        "77LTewOyj5-facts"
       ]
     },
     {
@@ -52479,11 +52479,11 @@
     },
     {
       "id": "QS7ydwFhfl",
-      "targetEntityId": "WJbhEKx5PZ",
+      "targetEntityId": "amdATEcq3Z",
       "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "WJbhEKx5PZ-facts"
+        "amdATEcq3Z-facts"
       ]
     },
     {
@@ -55001,11 +55001,11 @@
     },
     {
       "qid": "q:IEwzSBl2k7",
-      "entityId": "Td6nXeqULS",
+      "entityId": "mKc5U6frNm",
       "question": "What is the purpose of constant `errorHandlerPattern` at src/patterns/express/error-handler.ts?",
       "confidence": 20,
       "factSetIds": [
-        "Td6nXeqULS-facts"
+        "mKc5U6frNm-facts"
       ]
     },
     {
@@ -55055,11 +55055,11 @@
     },
     {
       "qid": "q:ytkPswduXN",
-      "entityId": "aT1ITvYSFY",
+      "entityId": "SZs9uFlRtu",
       "question": "What are the responsibilities and contract of class `ExpressConfigPattern` at src/reasoning/patterns/express/config.ts?",
       "confidence": 25,
       "factSetIds": [
-        "aT1ITvYSFY-facts"
+        "SZs9uFlRtu-facts"
       ]
     },
     {
@@ -55082,20 +55082,20 @@
     },
     {
       "qid": "q:m02tacu9fd",
-      "entityId": "ygXoYW8136",
+      "entityId": "srqc4PsXER",
       "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/config.ts?",
       "confidence": 35,
       "factSetIds": [
-        "ygXoYW8136-facts"
+        "srqc4PsXER-facts"
       ]
     },
     {
       "qid": "q:awecJ84JhJ",
-      "entityId": "vRE0pYC2Y5",
+      "entityId": "77LTewOyj5",
       "question": "What are the responsibilities and contract of class `ExpressErrorHandlerPattern` at src/reasoning/patterns/express/error-handler.ts?",
       "confidence": 25,
       "factSetIds": [
-        "vRE0pYC2Y5-facts"
+        "77LTewOyj5-facts"
       ]
     },
     {
@@ -55118,11 +55118,11 @@
     },
     {
       "qid": "q:X14KkPrnDV",
-      "entityId": "WJbhEKx5PZ",
+      "entityId": "amdATEcq3Z",
       "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/express/error-handler.ts?",
       "confidence": 35,
       "factSetIds": [
-        "WJbhEKx5PZ-facts"
+        "amdATEcq3Z-facts"
       ]
     },
     {

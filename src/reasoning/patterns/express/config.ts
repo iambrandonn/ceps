@@ -150,7 +150,7 @@ export class ExpressConfigPattern implements PatternModule {
     kb: KnowledgeBase,
     entity: Entity
   ): ConfidenceDelta {
-    return { delta: 0, reason: '' };
+    return { adjustment: 0, reason: '' };
   }
 
   /**
@@ -158,7 +158,7 @@ export class ExpressConfigPattern implements PatternModule {
    */
   private generateChunkId(entity: Entity): string {
     const baseId = `${this.id}-${entity.id}`;
-    const anchor = generateAnchor(baseId);
+    const anchor = generateAnchor(baseId, entity.name, this.chunkIds);
 
     // Ensure uniqueness within this pattern instance
     let finalId = anchor;

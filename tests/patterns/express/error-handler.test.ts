@@ -246,7 +246,7 @@ describe('Express Error Handler Pattern', () => {
 
       // Check confidence adjustment
       const adjustments = pattern.confidenceAdjustments?.(kb, errorHandler);
-      expect(adjustments).toEqual({ delta: 10, reason: 'Express error handler (4-param middleware)' });
+      expect(adjustments).toEqual({ adjustment: 10, reason: 'Express error handler (4-param middleware)' });
     });
   });
 
@@ -301,8 +301,8 @@ describe('Express Error Handler Pattern', () => {
       const adjustments = pattern.confidenceAdjustments?.(kb, errorHandler);
 
       expect(adjustments).toBeDefined();
-      expect(adjustments!.delta).toBeGreaterThanOrEqual(5);
-      expect(adjustments!.delta).toBeLessThanOrEqual(15);
+      expect(adjustments!.adjustment).toBeGreaterThanOrEqual(5);
+      expect(adjustments!.adjustment).toBeLessThanOrEqual(15);
       expect(adjustments!.reason).toContain('Express');
     });
   });

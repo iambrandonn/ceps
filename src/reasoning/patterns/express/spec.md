@@ -4,7 +4,7 @@
 
 ## config.ts
 
-<a id="aT1ITvYSFY"></a>
+<a id="SZs9uFlRtu"></a>
 
 ### ExpressConfigPattern
 
@@ -50,7 +50,7 @@
 **Open Questions:**
 - q:jqiT3JwrwX: What is the behavior of method `describe` at src/reasoning/patterns/express/config.ts?
 
-<a id="ygXoYW8136"></a>
+<a id="srqc4PsXER"></a>
 
 ### confidenceAdjustments
 
@@ -67,7 +67,7 @@
 
 ## error-handler.ts
 
-<a id="vRE0pYC2Y5"></a>
+<a id="77LTewOyj5"></a>
 
 ### ExpressErrorHandlerPattern
 
@@ -113,7 +113,7 @@
 **Open Questions:**
 - q:QZtCxxr7ck: What is the behavior of method `describe` at src/reasoning/patterns/express/error-handler.ts?
 
-<a id="WJbhEKx5PZ"></a>
+<a id="amdATEcq3Z"></a>
 
 ### confidenceAdjustments
 

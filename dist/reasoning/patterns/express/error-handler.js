@@ -93,7 +93,7 @@ export class ExpressErrorHandlerPattern {
     confidenceAdjustments(kb, entity) {
         // +10 for Express error handler detection
         return {
-            delta: 10,
+            adjustment: 10,
             reason: 'Express error handler (4-param middleware)',
         };
     }

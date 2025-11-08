@@ -114,14 +114,14 @@ export class ExpressConfigPattern {
      * Express config patterns have strong signals, so no adjustments needed.
      */
     confidenceAdjustments(kb, entity) {
-        return { delta: 0, reason: '' };
+        return { adjustment: 0, reason: '' };
     }
     /**
      * Generate deterministic chunk ID based on entity.
      */
     generateChunkId(entity) {
         const baseId = `${this.id}-${entity.id}`;
-        const anchor = generateAnchor(baseId);
+        const anchor = generateAnchor(baseId, entity.name, this.chunkIds);
         // Ensure uniqueness within this pattern instance
         let finalId = anchor;
         let counter = 0;

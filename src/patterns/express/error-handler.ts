@@ -56,11 +56,11 @@ export const errorHandlerPattern: PatternModule = {
         // Emit diagnostic Open Question for malformed entity
         return [
           {
-            entityId: entity.id,
+            id: `chunk_${entity.id}_error_handler_unknown`,
+            targetEntityId: entity.id,
             confidence: 'Low',
             textDraft: `**${entity.name}** has 4 parameters but doesn't match Express error handler signature.`,
             factSetIds: [`${entity.id}:param-count`],
-            chunkId: `chunk_${entity.id}_error_handler_unknown`,
           },
         ];
       }
@@ -70,22 +70,22 @@ export const errorHandlerPattern: PatternModule = {
 
       return [
         {
-          entityId: entity.id,
+          id: `chunk_${entity.id}_error_handler`,
+          targetEntityId: entity.id,
           confidence: 'High',
           textDraft: description,
           factSetIds: [`${entity.id}:param-count`],
-          chunkId: `chunk_${entity.id}_error_handler`,
         },
       ];
     } catch {
       // Error handling contract: never throw, emit Low confidence chunk
       return [
         {
-          entityId: entity.id,
+          id: `chunk_${entity.id}_error_handler_error`,
+          targetEntityId: entity.id,
           confidence: 'Low',
           textDraft: `**${entity.name}** could not be analyzed (unexpected structure).`,
           factSetIds: [],
-          chunkId: `chunk_${entity.id}_error_handler_error`,
         },
       ];
     }
@@ -94,7 +94,7 @@ export const errorHandlerPattern: PatternModule = {
   confidenceAdjustments(kb: KnowledgeBase, entity: Entity): ConfidenceDelta {
     // +10 for Express error handler detection
     return {
-      delta: 10,
+      adjustment: 10,
       reason: 'Express error handler (4-param middleware)',
     };
   },
