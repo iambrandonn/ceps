@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "ea1a03cde3ae5ed67299a47405383682542e7c9dfb681fbe6816f2cd5ef31cef",
-  "generatedAt": "2025-11-08T22:34:34.258Z",
+  "rootHash": "f2cc1580a8ee2e910f1c59f08fff48a4e2088d087f94ae740b94e8cb317318da",
+  "generatedAt": "2025-11-09T00:03:40.016Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -88,6 +88,11 @@
       "path": "docs/examples/validator-diagnostics.json",
       "hash": "05009b4629e61bcc92f7588bf9b6de8a164a461b6c63e235e4e93032fb826cad",
       "bytes": 1932
+    },
+    {
+      "path": "docs/internal/analysis/BUG_EXPRESS_ROUTER_PATTERN_MATCH_FAILURE.md",
+      "hash": "10af74c789d2072e4009b3e2c1013dcb06d0bf5c61a900ba23df2081dcac522e",
+      "bytes": 23938
     },
     {
       "path": "docs/internal/analysis/critical-process-failure.md",
@@ -480,6 +485,16 @@
       "bytes": 9516
     },
     {
+      "path": "docs/reviews/phase6/express-router-bug-fix-review-updated.md",
+      "hash": "cd81ce773a2566daa6547ad6de2b6f724d11d8423da43b1248b266dfaf6801f9",
+      "bytes": 13464
+    },
+    {
+      "path": "docs/reviews/phase6/express-router-bug-fix-review.md",
+      "hash": "86fadf16ad8822390994992d9a703e93e467d01d2844cb6dc59e8512194dbdea",
+      "bytes": 26054
+    },
+    {
       "path": "docs/reviews/phase6/express/i3-config-final.md",
       "hash": "a871ec179667d3a92b39a03a6f476089f08396e9cbe0c3606ba3751583d80ed9",
       "bytes": 21239
@@ -728,21 +743,6 @@
       "path": "IMPLEMENTATION_PLAN.md",
       "hash": "32a9e4a84c87425789eb9434a90080a05cdd22f6b8908f0f7ab5bdd29161a248",
       "bytes": 47300
-    },
-    {
-      "path": "output-test/kb-dump-new.json",
-      "hash": "228f0165a9cdb36fb43b1f4ba16c268437fadc7c87042ce7d001c1468dd3f313",
-      "bytes": 1020
-    },
-    {
-      "path": "output-test/kb-dump.json",
-      "hash": "d12d953f4bf797d995da4ba6173cde69061073186cad96250f397060a7a0dba8",
-      "bytes": 224307
-    },
-    {
-      "path": "output-test/routes.js",
-      "hash": "068715e545a1188aaca298113428261e85eaa1217fbc1a0012c780156e6a89c4",
-      "bytes": 88828
     },
     {
       "path": "package-lock.json",
@@ -1141,8 +1141,8 @@
     },
     {
       "path": "src/reasoning/patterns/express/router.ts",
-      "hash": "7dc6993a9fbfd5d4ceefc480581392f1b162f07e8b3f5dbb82f71962d3734398",
-      "bytes": 6003
+      "hash": "3444249c4bb7d6975a0e358d5c4da7d6c34d27db58be5cc41f4dcc1b6c9d2b82",
+      "bytes": 6082
     },
     {
       "path": "src/reasoning/patterns/pattern-registry.ts",
@@ -1580,6 +1580,11 @@
       "bytes": 12595
     },
     {
+      "path": "tests/integration/express-router-qualified-import.test.ts",
+      "hash": "e9a42e2ba22b298116101db11a7ca13bdfcc7efd697b88287907af02a1f3f7de",
+      "bytes": 5338
+    },
+    {
       "path": "tests/integration/finalize-answers.test.ts",
       "hash": "6772917a8a849be3b552b40363fef72d87bc9a41e2a8ad94ebb5ba858c08342b",
       "bytes": 1768
@@ -1681,8 +1686,8 @@
     },
     {
       "path": "tests/reasoning/express-router-pattern.test.ts",
-      "hash": "ef9b71780c393f199a92906b364e4d23c3ee46e0eb130bc55040a0fe6c97cbec",
-      "bytes": 9291
+      "hash": "c8687c21da211c5d018a3242d6097d36189047236d22241026c15fcb5b47db65",
+      "bytes": 12632
     },
     {
       "path": "tests/reasoning/mongoose-schema.test.ts",

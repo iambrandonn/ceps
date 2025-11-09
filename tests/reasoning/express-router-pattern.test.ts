@@ -315,4 +315,115 @@ describe('ExpressRouterPattern', () => {
       expect(delta?.reason).toContain('Express');
     });
   });
+
+  describe('import style variations', () => {
+    it('should match router with qualified import (express.Router)', () => {
+      // ARRANGE: Create test fixture with qualified import
+      // Simulates what parser emits for:
+      // import express from 'express';
+      // const router = express.Router();
+      const routerEntity: Entity = {
+        id: 'test-router-qualified',
+        kind: 'constant',
+        name: 'router',
+        path: 'test-qualified.js',
+        exported: false,
+      };
+
+      kb.insertEntity(routerEntity);
+
+      // Critical: Use 'express.Router' not 'Router'
+      const factSet: FactSet = {
+        id: 'test-router-qualified-facts',
+        facts: [
+          { subjectId: routerEntity.id, predicate: 'is-constant', object: true },
+          {
+            subjectId: routerEntity.id,
+            predicate: 'initializer-call',
+            object: 'express.Router', // <-- Qualified name
+          },
+          {
+            subjectId: routerEntity.id,
+            predicate: 'calls-expression',
+            object: 'router.get',
+          },
+        ],
+        sources: [{ kind: 'ast', file: 'test-qualified.js' }],
+        evidenceScore: 100,
+      };
+
+      kb.insertFactSet(factSet);
+
+      // ACT
+      const matches = pattern.matches(kb, routerEntity);
+
+      // ASSERT
+      expect(matches).toBe(true); // Will FAIL with current code
+    });
+
+    it('should match router with aliased import (myExpress.Router)', () => {
+      // Test for: import * as myExpress from 'express'
+      const routerEntity: Entity = {
+        id: 'test-router-alias',
+        kind: 'constant',
+        name: 'router',
+        path: 'test-alias.js',
+        exported: false,
+      };
+
+      kb.insertEntity(routerEntity);
+
+      const factSet: FactSet = {
+        id: 'test-router-alias-facts',
+        facts: [
+          { subjectId: routerEntity.id, predicate: 'is-constant', object: true },
+          {
+            subjectId: routerEntity.id,
+            predicate: 'initializer-call',
+            object: 'myExpress.Router', // <-- Aliased
+          },
+        ],
+        sources: [{ kind: 'ast', file: 'test-alias.js' }],
+        evidenceScore: 100,
+      };
+
+      kb.insertFactSet(factSet);
+
+      const matches = pattern.matches(kb, routerEntity);
+      expect(matches).toBe(true); // Will FAIL
+    });
+
+    it('should still match router with bare import (Router)', () => {
+      // Regression test: ensure original case still works
+      // Test for: import { Router } from 'express'
+      const routerEntity: Entity = {
+        id: 'test-router-bare',
+        kind: 'constant',
+        name: 'router',
+        path: 'test-bare.js',
+        exported: false,
+      };
+
+      kb.insertEntity(routerEntity);
+
+      const factSet: FactSet = {
+        id: 'test-router-bare-facts',
+        facts: [
+          { subjectId: routerEntity.id, predicate: 'is-constant', object: true },
+          {
+            subjectId: routerEntity.id,
+            predicate: 'initializer-call',
+            object: 'Router', // <-- Bare name (original test case)
+          },
+        ],
+        sources: [{ kind: 'ast', file: 'test-bare.js' }],
+        evidenceScore: 100,
+      };
+
+      kb.insertFactSet(factSet);
+
+      const matches = pattern.matches(kb, routerEntity);
+      expect(matches).toBe(true); // Should PASS
+    });
+  });
 });

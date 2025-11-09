@@ -398,7 +398,7 @@ Register all Express pattern modules with the given registry.
 
 ## router.ts
 
-<a id="7vk3LhVEf2"></a>
+<a id="Fk7OSSzdro"></a>
 
 ### ExpressRouterPattern
 
@@ -411,7 +411,7 @@ Register all Express pattern modules with the given registry.
 **Open Questions:**
 - q:PBbpLVyRwf: What are the responsibilities and contract of class `ExpressRouterPattern` at src/reasoning/patterns/express/router.ts?
 
-<a id="y1zRZHEc3R"></a>
+<a id="6lmM3zHjN6"></a>
 
 ### matches
 

@@ -20,8 +20,9 @@ export class ExpressRouterPattern {
             if (entity.kind !== 'constant') {
                 return false;
             }
-            // Must have initializer-call fact with value 'Router'
-            return hasFact(kb, entity, 'initializer-call', 'Router');
+            // Must have initializer-call fact with value matching Router
+            // Matches: 'Router', 'express.Router', 'myExpress.Router', etc.
+            return hasFact(kb, entity, 'initializer-call', /Router$/);
         }
         catch (error) {
             // Error handling contract: never throw
