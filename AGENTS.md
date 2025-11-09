@@ -310,6 +310,22 @@ ceps finalize --answers ./answers.md
 
 ## Fixture & Snapshot Discipline (Phase 5)
 
+### ⚠️ CRITICAL: Never Run `ceps` on Fixture Directories
+
+**Fixture directories are READ-ONLY test assets.** Running `ceps` on them will corrupt golden outputs and break tests.
+
+**Protected fixtures:**
+- `tests/fixtures/phase5/baseline/tiny-react/` — Contains golden baseline for finalization tests
+- Any directory under `tests/fixtures/` with `.ceps/` subdirectory
+
+**If you accidentally run `ceps` on a fixture:**
+1. **DO NOT COMMIT** the changes
+2. Restore from the last known good commit (see fixture's README.md)
+3. Run affected tests to verify restoration
+4. Review git status to ensure no fixture files are staged
+
+### When Adding or Updating Golden Files
+
 When adding or updating golden files in `tests/fixtures/phase5/baseline/tiny-react`:
 
 1. **Place files correctly**
