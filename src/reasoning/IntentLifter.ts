@@ -128,6 +128,9 @@ export class IntentLifter {
   /**
    * Build generic text description when no pattern matches.
    * Falls back to JSDoc or generic placeholder.
+   *
+   * Enhancement (Phase 6 Wave 2): Infers behavior from call patterns when JSDoc absent.
+   * This significantly reduces "intent unclear" fallback by detecting common utility patterns.
    */
   private buildGenericText(entity: Entity, factSet: FactSet): string {
     const jsDoc = factSet.facts.find(f => f.predicate === 'has-jsdoc');
@@ -137,8 +140,122 @@ export class IntentLifter {
       return `${this.getEntityKindLabel(entity.kind)} ${entity.name}: ${summary}`;
     }
 
-    // No JSDoc - return generic description
+    // Try to infer from call patterns before falling back to "intent unclear"
+    const inferredBehavior = this.inferFromCallPatterns(entity, factSet);
+    if (inferredBehavior) {
+      return `${this.getEntityKindLabel(entity.kind)} ${entity.name}: ${inferredBehavior}`;
+    }
+
+    // No JSDoc or patterns - return generic description
     return `${this.getEntityKindLabel(entity.kind)} ${entity.name} (intent unclear from static analysis)`;
+  }
+
+  /**
+   * Infer behavioral description from call patterns and parameter names.
+   *
+   * Phase 6 Wave 2 Enhancement: This lightweight heuristic system provides basic
+   * behavioral descriptions when JSDoc is absent and no framework patterns match.
+   *
+   * Detected Patterns:
+   * - Array operations: filter, map, reduce, find, some, every, sort
+   * - Comparison functions: parameter names like (previous, current) or (old, new)
+   * - Validation functions: boolean return + is/has/validate/check prefix
+   * - Getter/setter patterns: get*, set*, update*, with*, create* prefixes
+   * - Iteration: forEach loops
+   * - Object operations: assign, merge
+   *
+   * Priority: Checks parameter-based patterns first (more specific), then call-based.
+   *
+   * @param entity - Entity being analyzed
+   * @param factSet - Facts about the entity
+   * @returns Inferred description or null if no patterns detected
+   */
+  private inferFromCallPatterns(entity: Entity, factSet: FactSet): string | null {
+    // Extract calls and parameters
+    const calls = factSet.facts
+      .filter(f => f.predicate === 'calls-expression')
+      .map(f => String(f.object));
+
+    const paramNames = factSet.facts.find(f => f.predicate === 'param-names');
+    const params = paramNames ? String(paramNames.object).toLowerCase() : '';
+
+    // Pattern 1: Comparison/diffing functions (HIGHEST PRIORITY - more specific than array ops)
+    // Check parameter names first as this is highly indicative of comparison logic
+    if ((params.includes('prev') && params.includes('current')) ||
+        (params.includes('old') && params.includes('new')) ||
+        (params.includes('previous') && params.includes('current'))) {
+      return 'Compares data between versions or states';
+    }
+
+    // Pattern 2: Array transformation patterns (most common in utility code)
+    if (calls.includes('filter') && calls.includes('map')) {
+      return 'Filters and transforms array data';
+    }
+    if (calls.includes('map') && calls.includes('flatMap')) {
+      return 'Transforms and flattens nested array data';
+    }
+    if (calls.includes('map')) {
+      return 'Transforms array elements';
+    }
+    if (calls.includes('filter')) {
+      return 'Filters array based on criteria';
+    }
+    if (calls.includes('reduce')) {
+      return 'Aggregates array data into a single value';
+    }
+    if (calls.includes('find')) {
+      return 'Searches for matching element in collection';
+    }
+    if (calls.includes('some')) {
+      return 'Checks if any elements match criteria';
+    }
+    if (calls.includes('every')) {
+      return 'Checks if all elements match criteria';
+    }
+
+    // Pattern 3: Sorting and ordering
+    if (calls.includes('sort') || calls.includes('orderBy')) {
+      return 'Sorts collection by criteria';
+    }
+
+    // Pattern 4: Validation functions (boolean return + validation-y names)
+    const paramCount = factSet.facts.find(f => f.predicate === 'param-count');
+    const isReturningBool = entity.signature?.includes(': boolean') ||
+                            entity.signature?.includes(': any'); // any might be bool
+    if (isReturningBool && (
+        entity.name.startsWith('is') ||
+        entity.name.startsWith('has') ||
+        entity.name.startsWith('validate') ||
+        entity.name.startsWith('check'))) {
+      return 'Validates or checks a condition';
+    }
+
+    // Pattern 5: Getter/setter/with patterns (common functional patterns)
+    if (entity.name.startsWith('get') && paramCount && Number(paramCount.object) <= 2) {
+      return 'Retrieves data or value';
+    }
+    if (entity.name.startsWith('set') || entity.name.startsWith('update')) {
+      return 'Updates or modifies data';
+    }
+    if (entity.name.startsWith('with')) {
+      return 'Enhances or augments data with additional information';
+    }
+    if (entity.name.startsWith('create')) {
+      return 'Creates or constructs a new instance';
+    }
+
+    // Pattern 6: forEach/iteration patterns (side-effect operations)
+    if (calls.includes('forEach')) {
+      return 'Iterates over collection and performs operations';
+    }
+
+    // Pattern 7: Object merging/assignment
+    if (calls.includes('assign') || calls.includes('merge')) {
+      return 'Merges or combines objects';
+    }
+
+    // No recognizable patterns
+    return null;
   }
 
   /**

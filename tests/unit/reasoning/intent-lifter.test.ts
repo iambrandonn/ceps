@@ -474,4 +474,251 @@ describe('IntentLifter', () => {
       expect(finalScore).toBeGreaterThan(baseScore);
     });
   });
+
+  describe('Generic Call Pattern Inference (PROTOTYPE)', () => {
+    it('should infer "Filters and transforms array data" from filter+map calls', () => {
+      const entity: Entity = {
+        id: 'func-transform',
+        kind: 'function',
+        name: 'getFederalProjects',
+        path: 'src/utils.ts',
+        exported: true,
+        signature: '(projects, options): any[]',
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-filter-map',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          { subjectId: entity.id, predicate: 'has-signature', object: '(projects, options): any[]' },
+          { subjectId: entity.id, predicate: 'calls-expression', object: 'filter' },
+          { subjectId: entity.id, predicate: 'calls-expression', object: 'map' },
+          { subjectId: entity.id, predicate: 'param-count', object: 2 },
+          { subjectId: entity.id, predicate: 'param-names', object: 'projects,options' },
+        ],
+        sources: [{ kind: 'ast', file: 'src/utils.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('Filters and transforms array data');
+      expect(chunk.textDraft).not.toContain('intent unclear');
+    });
+
+    it('should infer "Transforms array elements" from map call', () => {
+      const entity: Entity = {
+        id: 'func-map',
+        kind: 'function',
+        name: 'formatUsers',
+        path: 'src/utils.ts',
+        exported: true,
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-map',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          { subjectId: entity.id, predicate: 'calls-expression', object: 'map' },
+        ],
+        sources: [{ kind: 'ast', file: 'src/utils.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('Transforms array elements');
+    });
+
+    it('should infer "Compares data between versions" from parameter names', () => {
+      const entity: Entity = {
+        id: 'func-compare',
+        kind: 'function',
+        name: 'findChangedData',
+        path: 'src/diff.ts',
+        exported: true,
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-compare',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          { subjectId: entity.id, predicate: 'param-count', object: 2 },
+          { subjectId: entity.id, predicate: 'param-names', object: 'previousVersion,currentVersion' },
+          { subjectId: entity.id, predicate: 'calls-expression', object: 'find' },
+        ],
+        sources: [{ kind: 'ast', file: 'src/diff.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('Compares data between versions');
+    });
+
+    it('should infer "Retrieves data or value" from get prefix', () => {
+      const entity: Entity = {
+        id: 'func-getter',
+        kind: 'function',
+        name: 'getUserById',
+        path: 'src/utils.ts',
+        exported: true,
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-getter',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          { subjectId: entity.id, predicate: 'param-count', object: 1 },
+        ],
+        sources: [{ kind: 'ast', file: 'src/utils.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('Retrieves data or value');
+    });
+
+    it('should infer "Validates or checks a condition" from validation patterns', () => {
+      const entity: Entity = {
+        id: 'func-validator',
+        kind: 'function',
+        name: 'isValidEmail',
+        path: 'src/validation.ts',
+        exported: true,
+        signature: '(email: string): boolean',
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-validator',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          { subjectId: entity.id, predicate: 'has-signature', object: '(email: string): boolean' },
+        ],
+        sources: [{ kind: 'ast', file: 'src/validation.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('Validates or checks a condition');
+    });
+
+    it('should infer "Enhances or augments data" from with prefix', () => {
+      const entity: Entity = {
+        id: 'func-with',
+        kind: 'function',
+        name: 'withSettings',
+        path: 'src/utils.ts',
+        exported: true,
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-with',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+        ],
+        sources: [{ kind: 'ast', file: 'src/utils.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('Enhances or augments data with additional information');
+    });
+
+    it('should infer "Sorts collection by criteria" from sort calls', () => {
+      const entity: Entity = {
+        id: 'func-sort',
+        kind: 'function',
+        name: 'sortProjects',
+        path: 'src/utils.ts',
+        exported: true,
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-sort',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          { subjectId: entity.id, predicate: 'calls-expression', object: 'sort' },
+        ],
+        sources: [{ kind: 'ast', file: 'src/utils.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('Sorts collection by criteria');
+    });
+
+    it('should still show "intent unclear" when no patterns match', () => {
+      const entity: Entity = {
+        id: 'func-unknown',
+        kind: 'function',
+        name: 'mysteryFunction',
+        path: 'src/mystery.ts',
+        exported: true,
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-unknown',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          // No recognizable patterns
+        ],
+        sources: [{ kind: 'ast', file: 'src/mystery.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      expect(chunk.textDraft).toContain('intent unclear from static analysis');
+    });
+
+    it('should prefer JSDoc over inferred patterns', () => {
+      const entity: Entity = {
+        id: 'func-jsdoc-priority',
+        kind: 'function',
+        name: 'processData',
+        path: 'src/utils.ts',
+        exported: true,
+      };
+      kb.insertEntity(entity);
+
+      const factSet: FactSet = {
+        id: 'fs-jsdoc-priority',
+        facts: [
+          { subjectId: entity.id, predicate: 'is-function', object: true },
+          { subjectId: entity.id, predicate: 'has-jsdoc', object: 'Processes user data with validation' },
+          { subjectId: entity.id, predicate: 'calls-expression', object: 'map' }, // Would trigger pattern
+        ],
+        sources: [{ kind: 'ast', file: 'src/utils.ts' }],
+        evidenceScore: 90,
+      };
+      kb.insertFactSet(factSet);
+
+      const chunk = lifter.liftIntent([factSet.id]);
+
+      // JSDoc should be used, not the inferred pattern
+      expect(chunk.textDraft).toContain('Processes user data with validation');
+      expect(chunk.textDraft).not.toContain('Transforms array elements');
+    });
+  });
 });
