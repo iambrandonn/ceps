@@ -248,5 +248,55 @@ export const APP_NAME = 'Test App';
         const status = orchestrator.getStatus();
         expect(status.startTime).toBeInstanceOf(Date);
     });
+    it('should emit progressUpdate events during parsing', async () => {
+        const srcDir = path.join(testDir, 'src');
+        fs.mkdirSync(srcDir, { recursive: true });
+        // Create multiple files to trigger progress events
+        for (let i = 0; i < 10; i++) {
+            fs.writeFileSync(path.join(srcDir, `file${i}.ts`), `
+export function func${i}() { return ${i}; }
+      `.trim());
+        }
+        const orchestrator = new Orchestrator(testDir);
+        const progressEvents = [];
+        orchestrator.on('progressUpdate', (update) => {
+            progressEvents.push(update);
+        });
+        await orchestrator.runUntil(PipelinePhase.PARSING);
+        // Should have at least 2 progress events (every 5 files + final)
+        expect(progressEvents.length).toBeGreaterThanOrEqual(2);
+        expect(progressEvents[0].phase).toBe(PipelinePhase.PARSING);
+        expect(progressEvents[0].unit).toBe('files');
+        // Last event should show completion
+        const lastEvent = progressEvents[progressEvents.length - 1];
+        expect(lastEvent.current).toBe(lastEvent.total);
+        expect(lastEvent.total).toBe(10);
+    });
+    it('should emit progressUpdate events during reasoning', async () => {
+        const srcDir = path.join(testDir, 'src');
+        fs.mkdirSync(srcDir, { recursive: true });
+        // Create multiple files to generate entities
+        for (let i = 0; i < 15; i++) {
+            fs.writeFileSync(path.join(srcDir, `module${i}.ts`), `
+export function func${i}() { return ${i}; }
+export const const${i} = ${i};
+      `.trim());
+        }
+        const orchestrator = new Orchestrator(testDir);
+        const progressEvents = [];
+        orchestrator.on('progressUpdate', (update) => {
+            if (update.phase === PipelinePhase.REASONING) {
+                progressEvents.push(update);
+            }
+        });
+        await orchestrator.runUntil(PipelinePhase.REASONING);
+        // Should have progress events for reasoning phase
+        expect(progressEvents.length).toBeGreaterThan(0);
+        expect(progressEvents[0].phase).toBe(PipelinePhase.REASONING);
+        expect(progressEvents[0].unit).toBe('entities');
+        // Last event should show completion
+        const lastEvent = progressEvents[progressEvents.length - 1];
+        expect(lastEvent.current).toBe(lastEvent.total);
+    });
 });
 //# sourceMappingURL=orchestrator.test.js.map

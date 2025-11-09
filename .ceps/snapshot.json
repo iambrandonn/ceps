@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "d4cebfc34d6f4c346c04d8124e8534485328d2f57fdd307f10d2488b4f6ecc2c",
-  "generatedAt": "2025-11-09T05:13:47.661Z",
+  "rootHash": "b359c4394ee7415ff4b67193528d8d7b504fa46a190a9be696e1e2aef385c603",
+  "generatedAt": "2025-11-09T15:25:24.427Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -951,8 +951,8 @@
     },
     {
       "path": "src/generator/spec-generator.ts",
-      "hash": "f5ee90c1c7b6e7f4f025000c8d8f82121d7cabcf69203ba293d29e986103de82",
-      "bytes": 14553
+      "hash": "61d58a4c7e4d3464fc9880475cea90e9c8061f0601456462d2f293dffe3f26eb",
+      "bytes": 16173
     },
     {
       "path": "src/generator/style-kit.ts",
@@ -1051,8 +1051,8 @@
     },
     {
       "path": "src/orchestrator/__tests__/orchestrator.test.ts",
-      "hash": "8542a88c414a4f3a1a236832b2b7f35afb9dfb37632e376562bfd7dfe2a8c884",
-      "bytes": 9824
+      "hash": "bbfe33e716035c97f718bb510ef6e3b0469aaf8369d836c12339c97b924d49a6",
+      "bytes": 12020
     },
     {
       "path": "src/orchestrator/__tests__/run-summary-renderer.test.ts",
@@ -1086,8 +1086,8 @@
     },
     {
       "path": "src/orchestrator/index.ts",
-      "hash": "8193c01845738043eae9bcf123e5eb20ae55b0ac061f32a596df252a8e96e41a",
-      "bytes": 5948
+      "hash": "6358f67454d319decac9af00ec488ea1c5b759b8ca02ac60d0cf489faea26040",
+      "bytes": 6613
     },
     {
       "path": "src/orchestrator/mocks/mock-gate-evaluators.ts",
@@ -1096,8 +1096,8 @@
     },
     {
       "path": "src/orchestrator/orchestrator.ts",
-      "hash": "1e21d78abf4eb05748fd0d2b5ff851137c25e7834326c9e5f43a796c3db27cab",
-      "bytes": 24988
+      "hash": "99f6e534e237cea8eb0df471c242972990ff8a34a81755b02cc388bc9600514a",
+      "bytes": 26140
     },
     {
       "path": "src/orchestrator/rendering/run-summary-renderer.ts",

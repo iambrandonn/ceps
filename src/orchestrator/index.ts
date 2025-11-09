@@ -150,6 +150,23 @@ export async function run(argv: string[]): Promise<number> {
       console.log(`  ✓ ${label} complete`);
     });
 
+    // Add progress updates to stderr
+    orchestrator.on('progressUpdate', (update) => {
+      const label = phaseNames[update.phase as PipelinePhase] ?? update.phase;
+      const unitLabel = update.unit === 'files' ? 'files'
+        : update.unit === 'entities' ? 'entities'
+        : update.unit === 'chunks' ? 'chunks'
+        : update.unit;
+
+      // Use \r to overwrite previous line (carriage return without newline)
+      process.stderr.write(`\r  [${label}] Processing ${update.current}/${update.total} ${unitLabel}...`);
+
+      // Add newline when complete
+      if (update.current === update.total) {
+        process.stderr.write('\n');
+      }
+    });
+
     await orchestrator.run();
 
     const runSummary = orchestrator.getRunSummary();

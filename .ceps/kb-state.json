@@ -773,7 +773,7 @@
       }
     },
     {
-      "id": "sgv9ad9rMF",
+      "id": "ZD2HWcWTLG",
       "kind": "class",
       "name": "SpecGenerator",
       "path": "src/generator/spec-generator.ts",
@@ -820,7 +820,7 @@
       }
     },
     {
-      "id": "SyCQscVRDk",
+      "id": "S47S2ojWoz",
       "kind": "method",
       "name": "generateDirectorySpecsAsync",
       "path": "src/generator/spec-generator.ts",
@@ -2443,7 +2443,7 @@
       }
     },
     {
-      "id": "KBQdzuBw6V",
+      "id": "y6iWEPRQSr",
       "kind": "function",
       "name": "run",
       "path": "src/orchestrator/index.ts",
@@ -2466,9 +2466,9 @@
       "visibility": "internal"
     },
     {
-      "id": "WrnGBNtmCV",
+      "id": "kLH9R2Q44W",
       "kind": "constant",
-      "name": "module::src/orchestrator/index.ts#L169",
+      "name": "module::src/orchestrator/index.ts#L186",
       "path": "src/orchestrator/index.ts",
       "exported": false,
       "visibility": "internal",
@@ -2819,7 +2819,7 @@
       }
     },
     {
-      "id": "FCrE1XioNj",
+      "id": "uCriIGRqFO",
       "kind": "class",
       "name": "Orchestrator",
       "path": "src/orchestrator/orchestrator.ts",
@@ -11240,7 +11240,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11253,7 +11253,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11266,7 +11266,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11279,7 +11279,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11287,51 +11287,12 @@
         "file": "src/generator/spec-generator.ts"
       },
       "details": {
-        "originalExpression": "this.groupByFile",
+        "originalExpression": "allEntities.push",
         "resolved": false
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/generator/spec-generator.ts"
-      },
-      "details": {
-        "originalExpression": "Object.entries",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "SyCQscVRDk",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/generator/spec-generator.ts"
-      },
-      "details": {
-        "originalExpression": "path.basename",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "SyCQscVRDk",
-      "predicate": "calls",
-      "objectId": null,
-      "source": {
-        "kind": "ast",
-        "file": "src/generator/spec-generator.ts"
-      },
-      "details": {
-        "originalExpression": "this.renderEntityWithLLM",
-        "resolved": false
-      }
-    },
-    {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11344,7 +11305,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11357,7 +11318,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11370,7 +11331,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11383,7 +11344,46 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "allEntities.push",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.kb.listExported().filter",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.kb.listExported",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11396,7 +11396,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11409,7 +11409,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11422,7 +11422,7 @@
       }
     },
     {
-      "subjectId": "SyCQscVRDk",
+      "subjectId": "S47S2ojWoz",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -11431,6 +11431,136 @@
       },
       "details": {
         "originalExpression": "this.renderEntityWithLLM",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.progressCallback",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.getDirectories",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.kb.listExported().filter",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.kb.listExported",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "path.dirname",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.groupByFile",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "Object.entries",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "path.basename",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.renderEntityWithLLM",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S47S2ojWoz",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/generator/spec-generator.ts"
+      },
+      "details": {
+        "originalExpression": "this.progressCallback",
         "resolved": false
       }
     },
@@ -16123,7 +16253,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": "ZteukfxsXo",
       "source": {
@@ -16136,7 +16266,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": "AkzwdkSpC8",
       "source": {
@@ -16149,7 +16279,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16162,7 +16292,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": "komzCYtZpT",
       "source": {
@@ -16175,7 +16305,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16188,7 +16318,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16201,7 +16331,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16214,7 +16344,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16227,7 +16357,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16240,7 +16370,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16253,7 +16383,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16266,7 +16396,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16279,7 +16409,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16292,7 +16422,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16305,7 +16435,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16318,7 +16448,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16331,7 +16461,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16344,7 +16474,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16357,7 +16487,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16370,7 +16500,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16383,7 +16513,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16396,7 +16526,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16409,7 +16539,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16422,7 +16552,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16435,7 +16565,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16448,7 +16578,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16461,7 +16591,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16474,7 +16604,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16487,7 +16617,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16500,7 +16630,46 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/orchestrator/index.ts"
+      },
+      "details": {
+        "originalExpression": "orchestrator.on",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "y6iWEPRQSr",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/orchestrator/index.ts"
+      },
+      "details": {
+        "originalExpression": "process.stderr.write",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "y6iWEPRQSr",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/orchestrator/index.ts"
+      },
+      "details": {
+        "originalExpression": "process.stderr.write",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16513,7 +16682,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16526,7 +16695,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": "tPuMAfBJPz",
       "source": {
@@ -16539,7 +16708,7 @@
       }
     },
     {
-      "subjectId": "KBQdzuBw6V",
+      "subjectId": "y6iWEPRQSr",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -16615,7 +16784,7 @@
       }
     },
     {
-      "subjectId": "WrnGBNtmCV",
+      "subjectId": "kLH9R2Q44W",
       "predicate": "calls",
       "objectId": null,
       "source": {
@@ -37192,10 +37361,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "sgv9ad9rMF-facts",
+      "id": "ZD2HWcWTLG-facts",
       "facts": [
         {
-          "subjectId": "sgv9ad9rMF",
+          "subjectId": "ZD2HWcWTLG",
           "predicate": "is-class",
           "object": true
         }
@@ -37400,102 +37569,152 @@
       "evidenceScore": 90
     },
     {
-      "id": "SyCQscVRDk-facts",
+      "id": "S47S2ojWoz-facts",
       "facts": [
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "is-method",
           "object": true
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "has-signature",
           "object": "(projectRoot: string): Promise<Record<string, string>>"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "param-names",
           "object": "projectRoot"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.generateDirectorySpecs"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.kb.listExported().filter"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.kb.listExported"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
-          "object": "this.groupByFile"
+          "object": "allEntities.push"
         },
         {
-          "subjectId": "SyCQscVRDk",
-          "predicate": "calls-expression",
-          "object": "Object.entries"
-        },
-        {
-          "subjectId": "SyCQscVRDk",
-          "predicate": "calls-expression",
-          "object": "path.basename"
-        },
-        {
-          "subjectId": "SyCQscVRDk",
-          "predicate": "calls-expression",
-          "object": "this.renderEntityWithLLM"
-        },
-        {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.getDirectories"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.kb.listExported().filter"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.kb.listExported"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "path.dirname"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "allEntities.push"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.kb.listExported().filter"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.kb.listExported"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.groupByFile"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "Object.entries"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "path.basename"
         },
         {
-          "subjectId": "SyCQscVRDk",
+          "subjectId": "S47S2ojWoz",
           "predicate": "calls-expression",
           "object": "this.renderEntityWithLLM"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.progressCallback"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.getDirectories"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.kb.listExported().filter"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.kb.listExported"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "path.dirname"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.groupByFile"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "Object.entries"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "path.basename"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.renderEntityWithLLM"
+        },
+        {
+          "subjectId": "S47S2ojWoz",
+          "predicate": "calls-expression",
+          "object": "this.progressCallback"
         }
       ],
       "sources": [
@@ -43273,240 +43492,265 @@
       "evidenceScore": 90
     },
     {
-      "id": "KBQdzuBw6V-facts",
+      "id": "y6iWEPRQSr-facts",
       "facts": [
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "is-function",
           "object": true
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "has-signature",
           "object": "(argv: string[]): Promise<number>"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "param-count",
           "object": 1
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "param-names",
           "object": "argv"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "is-async",
           "object": "true"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "returns-promise",
           "object": "true"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "parseArgs"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "printHelp"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "validateArgs"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "Mode: Dry-run (preview only)\\n"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "orchestrator.runFinalize"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "'='.repeat"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "60"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "Finalization Summary"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "'='.repeat"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "60"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "Math.round"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "'='.repeat"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "60"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "orchestrator.on"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "phaseStart"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "orchestrator.on"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "phaseComplete"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.log"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
+          "predicate": "calls-expression",
+          "object": "orchestrator.on"
+        },
+        {
+          "subjectId": "y6iWEPRQSr",
+          "predicate": "call-arg-0",
+          "object": "progressUpdate"
+        },
+        {
+          "subjectId": "y6iWEPRQSr",
+          "predicate": "calls-expression",
+          "object": "process.stderr.write"
+        },
+        {
+          "subjectId": "y6iWEPRQSr",
+          "predicate": "calls-expression",
+          "object": "process.stderr.write"
+        },
+        {
+          "subjectId": "y6iWEPRQSr",
+          "predicate": "call-arg-0",
+          "object": "\\n"
+        },
+        {
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "orchestrator.run"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "orchestrator.getRunSummary"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "emitRunSummary"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "calls-expression",
           "object": "console.error"
         },
         {
-          "subjectId": "KBQdzuBw6V",
+          "subjectId": "y6iWEPRQSr",
           "predicate": "call-arg-0",
           "object": "Error:"
         }
@@ -43542,25 +43786,25 @@
       "evidenceScore": 60
     },
     {
-      "id": "WrnGBNtmCV-facts",
+      "id": "kLH9R2Q44W-facts",
       "facts": [
         {
-          "subjectId": "WrnGBNtmCV",
+          "subjectId": "kLH9R2Q44W",
           "predicate": "is-constant",
           "object": true
         },
         {
-          "subjectId": "WrnGBNtmCV",
+          "subjectId": "kLH9R2Q44W",
           "predicate": "calls-expression",
           "object": "process.exit"
         },
         {
-          "subjectId": "WrnGBNtmCV",
+          "subjectId": "kLH9R2Q44W",
           "predicate": "call-scope",
           "object": "scope:module"
         },
         {
-          "subjectId": "WrnGBNtmCV",
+          "subjectId": "kLH9R2Q44W",
           "predicate": "call-arg-0",
           "object": "code"
         }
@@ -44444,10 +44688,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "FCrE1XioNj-facts",
+      "id": "uCriIGRqFO-facts",
       "facts": [
         {
-          "subjectId": "FCrE1XioNj",
+          "subjectId": "uCriIGRqFO",
           "predicate": "is-class",
           "object": true
         }
@@ -59684,11 +59928,11 @@
     },
     {
       "id": "btFcyfn9y0",
-      "targetEntityId": "sgv9ad9rMF",
+      "targetEntityId": "ZD2HWcWTLG",
       "textDraft": "Class SpecGenerator (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "sgv9ad9rMF-facts"
+        "ZD2HWcWTLG-facts"
       ]
     },
     {
@@ -59720,11 +59964,11 @@
     },
     {
       "id": "YQFOcLcN5f",
-      "targetEntityId": "SyCQscVRDk",
+      "targetEntityId": "S47S2ojWoz",
       "textDraft": "Method generateDirectorySpecsAsync (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "SyCQscVRDk-facts"
+        "S47S2ojWoz-facts"
       ]
     },
     {
@@ -60881,11 +61125,11 @@
     },
     {
       "id": "NnftUG9OzD",
-      "targetEntityId": "KBQdzuBw6V",
+      "targetEntityId": "y6iWEPRQSr",
       "textDraft": "Function run (intent unclear from static analysis)",
       "confidence": "Medium",
       "factSetIds": [
-        "KBQdzuBw6V-facts"
+        "y6iWEPRQSr-facts"
       ]
     },
     {
@@ -60898,12 +61142,12 @@
       ]
     },
     {
-      "id": "MFt3gcqQc9",
-      "targetEntityId": "WrnGBNtmCV",
-      "textDraft": "Constant module::src/orchestrator/index.ts#L169 (intent unclear from static analysis)",
+      "id": "RrJTOoqvfI",
+      "targetEntityId": "kLH9R2Q44W",
+      "textDraft": "Constant module::src/orchestrator/index.ts#L186 (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "WrnGBNtmCV-facts"
+        "kLH9R2Q44W-facts"
       ]
     },
     {
@@ -61178,11 +61422,11 @@
     },
     {
       "id": "oHSxUmgl8w",
-      "targetEntityId": "FCrE1XioNj",
+      "targetEntityId": "uCriIGRqFO",
       "textDraft": "Class Orchestrator (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "FCrE1XioNj-facts"
+        "uCriIGRqFO-facts"
       ]
     },
     {
@@ -63637,11 +63881,11 @@
     },
     {
       "qid": "q:mwavKYEJ9e",
-      "entityId": "sgv9ad9rMF",
+      "entityId": "ZD2HWcWTLG",
       "question": "What are the responsibilities and contract of class `SpecGenerator` at src/generator/spec-generator.ts?",
       "confidence": 25,
       "factSetIds": [
-        "sgv9ad9rMF-facts"
+        "ZD2HWcWTLG-facts"
       ]
     },
     {
@@ -63673,11 +63917,11 @@
     },
     {
       "qid": "q:If83OtSTF0",
-      "entityId": "SyCQscVRDk",
+      "entityId": "S47S2ojWoz",
       "question": "What is the behavior of method `generateDirectorySpecsAsync` at src/generator/spec-generator.ts?",
       "confidence": 35,
       "factSetIds": [
-        "SyCQscVRDk-facts"
+        "S47S2ojWoz-facts"
       ]
     },
     {
@@ -64545,12 +64789,12 @@
       ]
     },
     {
-      "qid": "q:LeAHiFjU6E",
-      "entityId": "WrnGBNtmCV",
-      "question": "What is the purpose of constant `module::src/orchestrator/index.ts#L169` at src/orchestrator/index.ts?",
+      "qid": "q:vKAePkfXhK",
+      "entityId": "kLH9R2Q44W",
+      "question": "What is the purpose of constant `module::src/orchestrator/index.ts#L186` at src/orchestrator/index.ts?",
       "confidence": 20,
       "factSetIds": [
-        "WrnGBNtmCV-facts"
+        "kLH9R2Q44W-facts"
       ]
     },
     {
@@ -64663,11 +64907,11 @@
     },
     {
       "qid": "q:hs52xPNjsK",
-      "entityId": "FCrE1XioNj",
+      "entityId": "uCriIGRqFO",
       "question": "What are the responsibilities and contract of class `Orchestrator` at src/orchestrator/orchestrator.ts?",
       "confidence": 25,
       "factSetIds": [
-        "FCrE1XioNj-facts"
+        "uCriIGRqFO-facts"
       ]
     },
     {

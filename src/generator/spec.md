@@ -34,7 +34,7 @@
 
 ## spec-generator.ts
 
-<a id="sgv9ad9rMF"></a>
+<a id="ZD2HWcWTLG"></a>
 
 ### SpecGenerator
 
@@ -92,7 +92,7 @@
 **Open Questions:**
 - q:gsnYBRr5EB: What is the behavior of method `generateDirectorySpecs` at src/generator/spec-generator.ts?
 
-<a id="SyCQscVRDk"></a>
+<a id="S47S2ojWoz"></a>
 
 ### generateDirectorySpecsAsync
 

@@ -48,6 +48,12 @@ export interface PipelineError {
     message: string;
     details?: unknown;
 }
+export interface ProgressUpdate {
+    phase: PipelinePhase;
+    current: number;
+    total: number;
+    unit: 'files' | 'entities' | 'directories' | 'chunks';
+}
 export interface OrchestratorOptions {
     projectRoot: string;
     llm?: 'on' | 'off';

@@ -73,6 +73,13 @@ export interface PipelineError {
   details?: unknown;
 }
 
+export interface ProgressUpdate {
+  phase: PipelinePhase;
+  current: number;
+  total: number;
+  unit: 'files' | 'entities' | 'directories' | 'chunks';
+}
+
 export interface OrchestratorOptions {
   projectRoot: string;
   llm?: 'on' | 'off';
@@ -221,10 +228,22 @@ export class Orchestrator extends EventEmitter {
       moduleScopeCalls: this.options.moduleScopeCalls ?? true,
     });
     const codeFiles = this.fileIndex.entries.filter(e => e.kind === 'code');
+    const totalFiles = codeFiles.length;
 
-    for (const entry of codeFiles) {
+    for (let i = 0; i < codeFiles.length; i++) {
+      const entry = codeFiles[i];
       const source = fs.readFileSync(entry.absolutePath, 'utf8');
       await parser.parseAndStore(entry.path, source, this.kb);
+
+      // Emit progress every 5 files or on last file
+      if ((i + 1) % 5 === 0 || i === codeFiles.length - 1) {
+        this.emit('progressUpdate', {
+          phase: PipelinePhase.PARSING,
+          current: i + 1,
+          total: totalFiles,
+          unit: 'files'
+        });
+      }
     }
 
     this.status.statistics.entitiesFound = this.kb.getAllEntities().length;
@@ -261,13 +280,25 @@ export class Orchestrator extends EventEmitter {
     // Pass both matcher (Phase 3) and registry (Phase 6) to lifter
     const lifter = new IntentLifter(this.kb, matcher, registry);
     const entities = this.kb.getAllEntities();
+    const totalEntities = entities.length;
 
-    for (const entity of entities) {
+    for (let i = 0; i < entities.length; i++) {
+      const entity = entities[i];
       // Get factSets for this entity
       const factSets = this.kb.getFactSetsBySubject(entity.id);
       if (factSets.length > 0) {
         const chunk = lifter.liftIntent(factSets.map(fs => fs.id));
         this.kb.insertChunk(chunk);
+      }
+
+      // Emit progress every 10 entities or on last entity
+      if ((i + 1) % 10 === 0 || i === entities.length - 1) {
+        this.emit('progressUpdate', {
+          phase: PipelinePhase.REASONING,
+          current: i + 1,
+          total: totalEntities,
+          unit: 'entities'
+        });
       }
     }
 
@@ -316,7 +347,15 @@ export class Orchestrator extends EventEmitter {
       deterministicMode: this.options.deterministic,
       llmGateway: this.options.llmGateway,
       validator: this.options.validator,
-      budgetTracker: this.options.budgetTracker
+      budgetTracker: this.options.budgetTracker,
+      progressCallback: (current: number, total: number) => {
+        this.emit('progressUpdate', {
+          phase: PipelinePhase.GENERATION,
+          current,
+          total,
+          unit: 'chunks'
+        });
+      }
     };
 
     this.generator = new SpecGenerator(this.kb, this.fileIndex, generatorOptions);

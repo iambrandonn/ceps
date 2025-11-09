@@ -26,6 +26,7 @@ export class SpecGenerator {
     llmEnabled;
     deterministicMode;
     metrics;
+    progressCallback;
     constructor(kb, fileIndex, options) {
         this.kb = kb;
         this.renderer = new MarkdownRenderer();
@@ -35,6 +36,7 @@ export class SpecGenerator {
         this.budgetTracker = options?.budgetTracker;
         this.llmEnabled = options?.llmEnabled ?? false;
         this.deterministicMode = options?.deterministicMode ?? false;
+        this.progressCallback = options?.progressCallback;
         this.metrics = {
             llmPolished: 0,
             templateFallback: 0,
@@ -177,6 +179,26 @@ export class SpecGenerator {
             return this.generateDirectorySpecs(projectRoot);
         }
         const specs = {};
+        // Collect all entities to process for progress tracking
+        const allEntities = [];
+        // Monorepo: collect entities from packages
+        if (this.fileIndex?.packages.packages && this.fileIndex.packages.packages.length > 0) {
+            for (const pkg of this.fileIndex.packages.packages) {
+                const pkgEntities = this.kb.listExported().filter(e => e.packageId === pkg.id);
+                allEntities.push(...pkgEntities);
+            }
+        }
+        else {
+            // Non-monorepo: collect entities from directories
+            const directories = this.getDirectories();
+            for (const dir of directories) {
+                const entities = this.kb.listExported().filter(e => path.dirname(e.path) === dir);
+                allEntities.push(...entities);
+            }
+        }
+        const totalEntities = allEntities.length;
+        let processedCount = 0;
+        // Now generate with progress tracking
         // Monorepo: Generate per-package specs
         if (this.fileIndex?.packages.packages && this.fileIndex.packages.packages.length > 0) {
             for (const pkg of this.fileIndex.packages.packages) {
@@ -193,6 +215,11 @@ export class SpecGenerator {
                     md += `## ${path.basename(file)}\n\n`;
                     for (const entity of fileEntities) {
                         md += await this.renderEntityWithLLM(entity);
+                        processedCount++;
+                        // Report progress every 5 entities or on last entity
+                        if (this.progressCallback && (processedCount % 5 === 0 || processedCount === totalEntities)) {
+                            this.progressCallback(processedCount, totalEntities);
+                        }
                     }
                 }
                 specs[`${pkg.path}/spec.md`] = md;
@@ -213,6 +240,11 @@ export class SpecGenerator {
                     md += `## ${path.basename(file)}\n\n`;
                     for (const entity of fileEntities) {
                         md += await this.renderEntityWithLLM(entity);
+                        processedCount++;
+                        // Report progress every 5 entities or on last entity
+                        if (this.progressCallback && (processedCount % 5 === 0 || processedCount === totalEntities)) {
+                            this.progressCallback(processedCount, totalEntities);
+                        }
                     }
                 }
                 specs[`${dir}/spec.md`] = md;

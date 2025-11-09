@@ -24,6 +24,7 @@ export interface GeneratorOptions {
     llmGateway?: LLMGateway;
     validator?: Validator;
     budgetTracker?: BudgetTracker;
+    progressCallback?: (current: number, total: number) => void;
 }
 export interface GeneratorMetrics {
     llmPolished: number;
@@ -42,6 +43,7 @@ export declare class SpecGenerator {
     private llmEnabled;
     private deterministicMode;
     private metrics;
+    private progressCallback?;
     constructor(kb: KnowledgeBase, fileIndex?: FileIndex, options?: GeneratorOptions);
     /**
      * Get generator metrics
