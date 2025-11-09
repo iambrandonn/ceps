@@ -77,7 +77,7 @@ Caches loaded lexicon for performance.
 
 **Behavior:**
 
-- Method getCanonicals (intent unclear from static analysis)
+- Method getCanonicals: Retrieves data or value
 
 **Open Questions:**
 - q:LMBm2SqbfV: What is the behavior of method `getCanonicals` at src/validation/lexicon/lexicon-loader.ts?
@@ -92,7 +92,7 @@ Caches loaded lexicon for performance.
 
 **Behavior:**
 
-- Method isLoaded (intent unclear from static analysis)
+- Method isLoaded: Validates or checks a condition
 
 **Open Questions:**
 - q:GQvJxmF1yB: What is the behavior of method `isLoaded` at src/validation/lexicon/lexicon-loader.ts?

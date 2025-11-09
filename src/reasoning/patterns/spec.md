@@ -76,7 +76,7 @@
 
 **Behavior:**
 
-- Method getConfidenceAdjustments (intent unclear from static analysis)
+- Method getConfidenceAdjustments: Retrieves data or value
 
 **Open Questions:**
 - q:6lkhGR8C2Z: What is the behavior of method `getConfidenceAdjustments` at src/reasoning/patterns/pattern-registry.ts?

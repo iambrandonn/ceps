@@ -57,7 +57,7 @@
 
 **Behavior:**
 
-- Method getMetrics (intent unclear from static analysis)
+- Method getMetrics: Retrieves data or value
 
 **Open Questions:**
 - q:fv6Noms0KN: What is the behavior of method `getMetrics` at src/generator/spec-generator.ts?

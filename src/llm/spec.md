@@ -77,7 +77,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method checkBudget (intent unclear from static analysis)
+- Method checkBudget: Validates or checks a condition
 
 **Open Questions:**
 - q:ExgNUb3mpg: What is the behavior of method `checkBudget` at src/llm/budget.ts?
@@ -107,7 +107,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getUsage (intent unclear from static analysis)
+- Method getUsage: Retrieves data or value
 
 **Open Questions:**
 - q:01o3saVudQ: What is the behavior of method `getUsage` at src/llm/budget.ts?
@@ -122,7 +122,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getRemainingBudget (intent unclear from static analysis)
+- Method getRemainingBudget: Retrieves data or value
 
 **Open Questions:**
 - q:lKHcbTSZPy: What is the behavior of method `getRemainingBudget` at src/llm/budget.ts?
@@ -182,7 +182,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method get (intent unclear from static analysis)
+- Method get: Retrieves data or value
 
 <a id="uJTsONQZyq"></a>
 
@@ -194,7 +194,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method set (intent unclear from static analysis)
+- Method set: Updates or modifies data
 
 **Open Questions:**
 - q:bznhrcicg4: What is the behavior of method `set` at src/llm/cache.ts?
@@ -209,7 +209,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method has (intent unclear from static analysis)
+- Method has: Validates or checks a condition
 
 <a id="iuF1hynvIG"></a>
 
@@ -251,7 +251,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getStats (intent unclear from static analysis)
+- Method getStats: Retrieves data or value
 
 **Open Questions:**
 - q:haL7MrO2l1: What is the behavior of method `getStats` at src/llm/cache.ts?
@@ -266,7 +266,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getEntry (intent unclear from static analysis)
+- Method getEntry: Retrieves data or value
 
 **Open Questions:**
 - q:JEvKMl99k8: What is the behavior of method `getEntry` at src/llm/cache.ts?
@@ -296,7 +296,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getCurrentProvider (intent unclear from static analysis)
+- Method getCurrentProvider: Retrieves data or value
 
 **Open Questions:**
 - q:yQOB0yFN7H: What is the behavior of method `getCurrentProvider` at src/llm/gateway.ts?
@@ -311,7 +311,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method setProvider (intent unclear from static analysis)
+- Method setProvider: Updates or modifies data
 
 **Errors thrown:**
 - new Error(`Provider ${provider} is not configured`);
@@ -341,7 +341,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method checkBudget (intent unclear from static analysis)
+- Method checkBudget: Validates or checks a condition
 
 **Open Questions:**
 - q:DtuNM60uxp: What is the behavior of method `checkBudget` at src/llm/gateway.ts?
@@ -356,7 +356,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getRemainingBudget (intent unclear from static analysis)
+- Method getRemainingBudget: Retrieves data or value
 
 **Open Questions:**
 - q:OkIFxTg0fe: What is the behavior of method `getRemainingBudget` at src/llm/gateway.ts?
@@ -371,7 +371,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getUsage (intent unclear from static analysis)
+- Method getUsage: Retrieves data or value
 
 **Open Questions:**
 - q:HUyW4oOuCc: What is the behavior of method `getUsage` at src/llm/gateway.ts?
@@ -386,7 +386,7 @@ Validate that token usage meets cost gate threshold
 
 **Behavior:**
 
-- Method getCacheStats (intent unclear from static analysis)
+- Method getCacheStats: Retrieves data or value
 
 **Open Questions:**
 - q:J9D4aCHzbw: What is the behavior of method `getCacheStats` at src/llm/gateway.ts?

@@ -73,7 +73,7 @@ Gate registry for evaluating all gates and producing run summary.
 
 **Behavior:**
 
-- Method getFailedRuntimeGates (intent unclear from static analysis)
+- Method getFailedRuntimeGates: Retrieves data or value
 
 **Open Questions:**
 - q:OOdAedWkhL: What is the behavior of method `getFailedRuntimeGates` at src/orchestrator/gates/gate-registry.ts?
@@ -88,7 +88,7 @@ Gate registry for evaluating all gates and producing run summary.
 
 **Behavior:**
 
-- Method getFailedGatesExitCode2 (intent unclear from static analysis)
+- Method getFailedGatesExitCode2: Retrieves data or value
 
 **Open Questions:**
 - q:zcbFKdmGrO: What is the behavior of method `getFailedGatesExitCode2` at src/orchestrator/gates/gate-registry.ts?
@@ -103,7 +103,7 @@ Gate registry for evaluating all gates and producing run summary.
 
 **Behavior:**
 
-- Method getFailedValidationGates (intent unclear from static analysis)
+- Method getFailedValidationGates: Retrieves data or value
 
 **Open Questions:**
 - q:frGfDdn3te: What is the behavior of method `getFailedValidationGates` at src/orchestrator/gates/gate-registry.ts?

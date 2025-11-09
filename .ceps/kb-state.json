@@ -3268,7 +3268,7 @@
       }
     },
     {
-      "id": "YmXRvW64TR",
+      "id": "EzJg98ytun",
       "kind": "class",
       "name": "IntentLifter",
       "path": "src/reasoning/IntentLifter.ts",
@@ -45115,10 +45115,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "YmXRvW64TR-facts",
+      "id": "EzJg98ytun-facts",
       "facts": [
         {
-          "subjectId": "YmXRvW64TR",
+          "subjectId": "EzJg98ytun",
           "predicate": "is-class",
           "object": true
         }
@@ -54138,7 +54138,7 @@
     {
       "id": "uAkZlp3ARQ",
       "targetEntityId": "3S7tn3SezS",
-      "textDraft": "Function updateEntityChunks (intent unclear from static analysis)",
+      "textDraft": "Function updateEntityChunks: Updates or modifies data",
       "confidence": "Medium",
       "factSetIds": [
         "3S7tn3SezS-facts"
@@ -54291,7 +54291,7 @@
     {
       "id": "mATJNzRSVO",
       "targetEntityId": "s6O2VO9LDd",
-      "textDraft": "Method getMetrics (intent unclear from static analysis)",
+      "textDraft": "Method getMetrics: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "s6O2VO9LDd-facts"
@@ -54417,7 +54417,7 @@
     {
       "id": "CcD0F0L13s",
       "targetEntityId": "vUseOXd4Dh",
-      "textDraft": "Method updateEntity (intent unclear from static analysis)",
+      "textDraft": "Method updateEntity: Updates or modifies data",
       "confidence": "Medium",
       "factSetIds": [
         "vUseOXd4Dh-facts"
@@ -54426,7 +54426,7 @@
     {
       "id": "b0v0SnEzfM",
       "targetEntityId": "z9DK4gI6Aw",
-      "textDraft": "Method getEntity (intent unclear from static analysis)",
+      "textDraft": "Method getEntity: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "z9DK4gI6Aw-facts"
@@ -54462,7 +54462,7 @@
     {
       "id": "BjqXOBzfk1",
       "targetEntityId": "QIowuZrw6p",
-      "textDraft": "Method getFactSet (intent unclear from static analysis)",
+      "textDraft": "Method getFactSet: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "QIowuZrw6p-facts"
@@ -54471,7 +54471,7 @@
     {
       "id": "nMLYkEoEzm",
       "targetEntityId": "3zFh0XtB1X",
-      "textDraft": "Method getFactSetsBySubject (intent unclear from static analysis)",
+      "textDraft": "Method getFactSetsBySubject: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "3zFh0XtB1X-facts"
@@ -54489,7 +54489,7 @@
     {
       "id": "2VOPHiHv6k",
       "targetEntityId": "737wRiehGm",
-      "textDraft": "Method getChunk (intent unclear from static analysis)",
+      "textDraft": "Method getChunk: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "737wRiehGm-facts"
@@ -54498,7 +54498,7 @@
     {
       "id": "vXLG5G4bDQ",
       "targetEntityId": "pXM1YRY9rt",
-      "textDraft": "Method getAllChunks (intent unclear from static analysis)",
+      "textDraft": "Method getAllChunks: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "pXM1YRY9rt-facts"
@@ -54507,7 +54507,7 @@
     {
       "id": "FFIZMFjaaj",
       "targetEntityId": "XxC82zDJ7f",
-      "textDraft": "Method getChunksByEntity (intent unclear from static analysis)",
+      "textDraft": "Method getChunksByEntity: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "XxC82zDJ7f-facts"
@@ -54516,7 +54516,7 @@
     {
       "id": "fSMKEcv1nQ",
       "targetEntityId": "DFeVxJzcJc",
-      "textDraft": "Method updateChunk (intent unclear from static analysis)",
+      "textDraft": "Method updateChunk: Updates or modifies data",
       "confidence": "Medium",
       "factSetIds": [
         "DFeVxJzcJc-facts"
@@ -54534,7 +54534,7 @@
     {
       "id": "hCpqpIuGda",
       "targetEntityId": "hUXPFFhkwT",
-      "textDraft": "Method getOpenQuestionsByEntity (intent unclear from static analysis)",
+      "textDraft": "Method getOpenQuestionsByEntity: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "hUXPFFhkwT-facts"
@@ -54543,7 +54543,7 @@
     {
       "id": "s9Z7fIbfD1",
       "targetEntityId": "LO8UwtcUUA",
-      "textDraft": "Method getAllOpenQuestions (intent unclear from static analysis)",
+      "textDraft": "Method getAllOpenQuestions: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "LO8UwtcUUA-facts"
@@ -54552,7 +54552,7 @@
     {
       "id": "AzJqpBGpPj",
       "targetEntityId": "R2FFeSAqZ6",
-      "textDraft": "Method getAnswer (intent unclear from static analysis)",
+      "textDraft": "Method getAnswer: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "R2FFeSAqZ6-facts"
@@ -54561,7 +54561,7 @@
     {
       "id": "lpUE4WVveB",
       "targetEntityId": "Vk515Jq8qV",
-      "textDraft": "Method getAllAnswers (intent unclear from static analysis)",
+      "textDraft": "Method getAllAnswers: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "Vk515Jq8qV-facts"
@@ -54597,7 +54597,7 @@
     {
       "id": "XfW2oVId32",
       "targetEntityId": "IDKlQhvNB9",
-      "textDraft": "Method getRelations (intent unclear from static analysis)",
+      "textDraft": "Method getRelations: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "IDKlQhvNB9-facts"
@@ -54615,7 +54615,7 @@
     {
       "id": "YkrmumtqRN",
       "targetEntityId": "aYh0gG993Q",
-      "textDraft": "Method getConfidenceScore (intent unclear from static analysis)",
+      "textDraft": "Method getConfidenceScore: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "aYh0gG993Q-facts"
@@ -54660,7 +54660,7 @@
     {
       "id": "AoruN9bylU",
       "targetEntityId": "ru1eRgbcPl",
-      "textDraft": "Method getAllEntities (intent unclear from static analysis)",
+      "textDraft": "Method getAllEntities: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "ru1eRgbcPl-facts"
@@ -54669,7 +54669,7 @@
     {
       "id": "Tw83Yl6tnN",
       "targetEntityId": "3sbIbSqnUZ",
-      "textDraft": "Method getAllFactSets (intent unclear from static analysis)",
+      "textDraft": "Method getAllFactSets: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "3sbIbSqnUZ-facts"
@@ -54687,7 +54687,7 @@
     {
       "id": "F3r3Wuf50F",
       "targetEntityId": "tLrcVQtNqW",
-      "textDraft": "Method validateQIDUniqueness (intent unclear from static analysis)",
+      "textDraft": "Method validateQIDUniqueness: Validates or checks a condition",
       "confidence": "Low",
       "factSetIds": [
         "tLrcVQtNqW-facts"
@@ -54732,7 +54732,7 @@
     {
       "id": "XfEIuOHtkj",
       "targetEntityId": "O8vUjATUDX",
-      "textDraft": "Method getCallGraph (intent unclear from static analysis)",
+      "textDraft": "Method getCallGraph: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "O8vUjATUDX-facts"
@@ -54741,7 +54741,7 @@
     {
       "id": "iPQoqlxvRU",
       "targetEntityId": "ewsWmKwQvj",
-      "textDraft": "Method getImportGraph (intent unclear from static analysis)",
+      "textDraft": "Method getImportGraph: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "ewsWmKwQvj-facts"
@@ -54750,7 +54750,7 @@
     {
       "id": "P1lT7ARNwA",
       "targetEntityId": "ZDva24Vg5q",
-      "textDraft": "Method getReverseDeps (intent unclear from static analysis)",
+      "textDraft": "Method getReverseDeps: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "ZDva24Vg5q-facts"
@@ -54795,7 +54795,7 @@
     {
       "id": "3KvnpvwvSY",
       "targetEntityId": "QRiSS0HEp0",
-      "textDraft": "Function createEntity (intent unclear from static analysis)",
+      "textDraft": "Function createEntity: Creates or constructs a new instance",
       "confidence": "Medium",
       "factSetIds": [
         "QRiSS0HEp0-facts"
@@ -54804,7 +54804,7 @@
     {
       "id": "klWYPu2wel",
       "targetEntityId": "zdCuwU3086",
-      "textDraft": "Function createFactSet (intent unclear from static analysis)",
+      "textDraft": "Function createFactSet: Creates or constructs a new instance",
       "confidence": "Medium",
       "factSetIds": [
         "zdCuwU3086-facts"
@@ -54813,7 +54813,7 @@
     {
       "id": "BVU1MOhB8d",
       "targetEntityId": "vQXvV6r0IN",
-      "textDraft": "Function createBehaviorChunk (intent unclear from static analysis)",
+      "textDraft": "Function createBehaviorChunk: Creates or constructs a new instance",
       "confidence": "Medium",
       "factSetIds": [
         "vQXvV6r0IN-facts"
@@ -54831,7 +54831,7 @@
     {
       "id": "9rM5GyKbHs",
       "targetEntityId": "mxn0Ysj4sF",
-      "textDraft": "Method getDefaultModel (intent unclear from static analysis)",
+      "textDraft": "Method getDefaultModel: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "mxn0Ysj4sF-facts"
@@ -54867,7 +54867,7 @@
     {
       "id": "Zb5dfFUDCM",
       "targetEntityId": "UIE6RLiET8",
-      "textDraft": "Method getLastUsage (intent unclear from static analysis)",
+      "textDraft": "Method getLastUsage: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "UIE6RLiET8-facts"
@@ -54894,7 +54894,7 @@
     {
       "id": "vaedZktfh3",
       "targetEntityId": "1XljSHeaCO",
-      "textDraft": "Method getDefaultModel (intent unclear from static analysis)",
+      "textDraft": "Method getDefaultModel: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "1XljSHeaCO-facts"
@@ -54930,7 +54930,7 @@
     {
       "id": "Q9yarHqUMI",
       "targetEntityId": "Sb5yer4Kz4",
-      "textDraft": "Method getLastUsage (intent unclear from static analysis)",
+      "textDraft": "Method getLastUsage: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "Sb5yer4Kz4-facts"
@@ -54993,7 +54993,7 @@
     {
       "id": "8SGnfhFveR",
       "targetEntityId": "sgrJWlJtTn",
-      "textDraft": "Method checkBudget (intent unclear from static analysis)",
+      "textDraft": "Method checkBudget: Validates or checks a condition",
       "confidence": "Low",
       "factSetIds": [
         "sgrJWlJtTn-facts"
@@ -55011,7 +55011,7 @@
     {
       "id": "mTroQSWEBA",
       "targetEntityId": "cmxXtK2EN8",
-      "textDraft": "Method getUsage (intent unclear from static analysis)",
+      "textDraft": "Method getUsage: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "cmxXtK2EN8-facts"
@@ -55020,7 +55020,7 @@
     {
       "id": "U0FRa7AtBm",
       "targetEntityId": "JWAHUwFqRr",
-      "textDraft": "Method getRemainingBudget (intent unclear from static analysis)",
+      "textDraft": "Method getRemainingBudget: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "JWAHUwFqRr-facts"
@@ -55056,7 +55056,7 @@
     {
       "id": "IvPi4PWDT7",
       "targetEntityId": "klsyebpWFX",
-      "textDraft": "Method get (intent unclear from static analysis)",
+      "textDraft": "Method get: Retrieves data or value",
       "confidence": "Medium",
       "factSetIds": [
         "klsyebpWFX-facts"
@@ -55065,7 +55065,7 @@
     {
       "id": "6RVvbDuk50",
       "targetEntityId": "uJTsONQZyq",
-      "textDraft": "Method set (intent unclear from static analysis)",
+      "textDraft": "Method set: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "uJTsONQZyq-facts"
@@ -55074,7 +55074,7 @@
     {
       "id": "fAT7wvDvWk",
       "targetEntityId": "b82TxVurGM",
-      "textDraft": "Method has (intent unclear from static analysis)",
+      "textDraft": "Method has: Validates or checks a condition",
       "confidence": "Medium",
       "factSetIds": [
         "b82TxVurGM-facts"
@@ -55101,7 +55101,7 @@
     {
       "id": "TbqzugvXut",
       "targetEntityId": "oc2FP5SCRz",
-      "textDraft": "Method getStats (intent unclear from static analysis)",
+      "textDraft": "Method getStats: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "oc2FP5SCRz-facts"
@@ -55110,7 +55110,7 @@
     {
       "id": "eE8AN4T9au",
       "targetEntityId": "B1i9vgD20U",
-      "textDraft": "Method getEntry (intent unclear from static analysis)",
+      "textDraft": "Method getEntry: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "B1i9vgD20U-facts"
@@ -55128,7 +55128,7 @@
     {
       "id": "EZygCFIDHm",
       "targetEntityId": "0hOehMGYiz",
-      "textDraft": "Method getCurrentProvider (intent unclear from static analysis)",
+      "textDraft": "Method getCurrentProvider: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "0hOehMGYiz-facts"
@@ -55137,7 +55137,7 @@
     {
       "id": "yxQNoiUpZm",
       "targetEntityId": "0im59AJxog",
-      "textDraft": "Method setProvider (intent unclear from static analysis)",
+      "textDraft": "Method setProvider: Updates or modifies data",
       "confidence": "Medium",
       "factSetIds": [
         "0im59AJxog-facts"
@@ -55155,7 +55155,7 @@
     {
       "id": "ZjUoMJhH0c",
       "targetEntityId": "K70akaAa45",
-      "textDraft": "Method checkBudget (intent unclear from static analysis)",
+      "textDraft": "Method checkBudget: Validates or checks a condition",
       "confidence": "Low",
       "factSetIds": [
         "K70akaAa45-facts"
@@ -55164,7 +55164,7 @@
     {
       "id": "fYKZksKvJP",
       "targetEntityId": "JckVEyAiV3",
-      "textDraft": "Method getRemainingBudget (intent unclear from static analysis)",
+      "textDraft": "Method getRemainingBudget: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "JckVEyAiV3-facts"
@@ -55173,7 +55173,7 @@
     {
       "id": "T3IY3tUVY1",
       "targetEntityId": "RuEGj2Ywom",
-      "textDraft": "Method getUsage (intent unclear from static analysis)",
+      "textDraft": "Method getUsage: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "RuEGj2Ywom-facts"
@@ -55182,7 +55182,7 @@
     {
       "id": "ujXNcFGg8z",
       "targetEntityId": "5QpNC8Kv3L",
-      "textDraft": "Method getCacheStats (intent unclear from static analysis)",
+      "textDraft": "Method getCacheStats: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "5QpNC8Kv3L-facts"
@@ -55272,7 +55272,7 @@
     {
       "id": "poZNmBQjWs",
       "targetEntityId": "60E4XLLzVV",
-      "textDraft": "Method getFailedRuntimeGates (intent unclear from static analysis)",
+      "textDraft": "Method getFailedRuntimeGates: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "60E4XLLzVV-facts"
@@ -55281,7 +55281,7 @@
     {
       "id": "uCsDFimoB0",
       "targetEntityId": "kghernsxnH",
-      "textDraft": "Method getFailedGatesExitCode2 (intent unclear from static analysis)",
+      "textDraft": "Method getFailedGatesExitCode2: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "kghernsxnH-facts"
@@ -55290,7 +55290,7 @@
     {
       "id": "pW6oh6gLOM",
       "targetEntityId": "fszmWPzpKL",
-      "textDraft": "Method getFailedValidationGates (intent unclear from static analysis)",
+      "textDraft": "Method getFailedValidationGates: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "fszmWPzpKL-facts"
@@ -55515,7 +55515,7 @@
     {
       "id": "lWJgOyswc8",
       "targetEntityId": "8z7tTr0OgK",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "8z7tTr0OgK-facts"
@@ -55542,7 +55542,7 @@
     {
       "id": "qaDYPalWJgOyswc8",
       "targetEntityId": "li3DX2YXja",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "li3DX2YXja-facts"
@@ -55569,7 +55569,7 @@
     {
       "id": "qaDYPalWJgOyswc8-2",
       "targetEntityId": "HJVnMDe6xo",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "HJVnMDe6xo-facts"
@@ -55596,7 +55596,7 @@
     {
       "id": "qaDYPalWJgOyswc8-3",
       "targetEntityId": "yI4SW8U7CI",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "yI4SW8U7CI-facts"
@@ -55623,7 +55623,7 @@
     {
       "id": "qaDYPalWJgOyswc8-4",
       "targetEntityId": "gLA8Bk26MZ",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "gLA8Bk26MZ-facts"
@@ -55650,7 +55650,7 @@
     {
       "id": "qaDYPalWJgOyswc8-5",
       "targetEntityId": "YUruqb2ihC",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "YUruqb2ihC-facts"
@@ -55677,7 +55677,7 @@
     {
       "id": "qaDYPalWJgOyswc8-6",
       "targetEntityId": "nH686iBDUg",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "nH686iBDUg-facts"
@@ -55704,7 +55704,7 @@
     {
       "id": "qaDYPalWJgOyswc8-7",
       "targetEntityId": "IYEnhIkCsL",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "IYEnhIkCsL-facts"
@@ -55731,7 +55731,7 @@
     {
       "id": "qaDYPalWJgOyswc8-8",
       "targetEntityId": "ljW8PzjIkK",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "ljW8PzjIkK-facts"
@@ -55758,7 +55758,7 @@
     {
       "id": "qaDYPalWJgOyswc8-9",
       "targetEntityId": "9MiXdgcGHC",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Low",
       "factSetIds": [
         "9MiXdgcGHC-facts"
@@ -55803,7 +55803,7 @@
     {
       "id": "t54aL0NX6E",
       "targetEntityId": "GHRwJlWdUe",
-      "textDraft": "Method getKnowledgeBase (intent unclear from static analysis)",
+      "textDraft": "Method getKnowledgeBase: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "GHRwJlWdUe-facts"
@@ -55812,7 +55812,7 @@
     {
       "id": "R3lk9J94vQ",
       "targetEntityId": "2lDjctGoZ7",
-      "textDraft": "Method getStatus (intent unclear from static analysis)",
+      "textDraft": "Method getStatus: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "2lDjctGoZ7-facts"
@@ -55821,7 +55821,7 @@
     {
       "id": "hI6d0pao9F",
       "targetEntityId": "4JYM9algAR",
-      "textDraft": "Method getRunSummary (intent unclear from static analysis)",
+      "textDraft": "Method getRunSummary: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "4JYM9algAR-facts"
@@ -56100,7 +56100,7 @@
     {
       "id": "LRBvOE7stl",
       "targetEntityId": "8B5rnEONBA",
-      "textDraft": "Method getAmbiguityQueue (intent unclear from static analysis)",
+      "textDraft": "Method getAmbiguityQueue: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "8B5rnEONBA-facts"
@@ -56108,11 +56108,11 @@
     },
     {
       "id": "hPOORRuX4H",
-      "targetEntityId": "YmXRvW64TR",
+      "targetEntityId": "EzJg98ytun",
       "textDraft": "Class IntentLifter (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "YmXRvW64TR-facts"
+        "EzJg98ytun-facts"
       ]
     },
     {
@@ -56460,7 +56460,7 @@
     {
       "id": "EhQ5uv8Eth",
       "targetEntityId": "rDTnAHZ2CK",
-      "textDraft": "Method getConfidenceAdjustments (intent unclear from static analysis)",
+      "textDraft": "Method getConfidenceAdjustments: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "rDTnAHZ2CK-facts"
@@ -57009,7 +57009,7 @@
     {
       "id": "qliSK1lMio",
       "targetEntityId": "wCnxpxcWZ3",
-      "textDraft": "Method getRules (intent unclear from static analysis)",
+      "textDraft": "Method getRules: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "wCnxpxcWZ3-facts"
@@ -57072,7 +57072,7 @@
     {
       "id": "xvqTYbib9b",
       "targetEntityId": "IsXQlCpvcC",
-      "textDraft": "Method getCanonicals (intent unclear from static analysis)",
+      "textDraft": "Method getCanonicals: Retrieves data or value",
       "confidence": "Low",
       "factSetIds": [
         "IsXQlCpvcC-facts"
@@ -57081,7 +57081,7 @@
     {
       "id": "1cR8M2y6Tk",
       "targetEntityId": "YeuPtdUvWN",
-      "textDraft": "Method isLoaded (intent unclear from static analysis)",
+      "textDraft": "Method isLoaded: Validates or checks a condition",
       "confidence": "Low",
       "factSetIds": [
         "YeuPtdUvWN-facts"
@@ -57108,7 +57108,7 @@
     {
       "id": "G8ZPq0JUHt",
       "targetEntityId": "DRZIUtKLA4",
-      "textDraft": "Method setNextResult (intent unclear from static analysis)",
+      "textDraft": "Method setNextResult: Updates or modifies data",
       "confidence": "Medium",
       "factSetIds": [
         "DRZIUtKLA4-facts"
@@ -57171,7 +57171,7 @@
     {
       "id": "pTAyQC46rB",
       "targetEntityId": "yqKryJCU0p",
-      "textDraft": "Function createApp (intent unclear from static analysis)",
+      "textDraft": "Function createApp: Creates or constructs a new instance",
       "confidence": "Medium",
       "factSetIds": [
         "yqKryJCU0p-facts"
@@ -57288,7 +57288,7 @@
     {
       "id": "wMUzXAEawm",
       "targetEntityId": "jLpGbCHr9G",
-      "textDraft": "Function createApp (intent unclear from static analysis)",
+      "textDraft": "Function createApp: Creates or constructs a new instance",
       "confidence": "Medium",
       "factSetIds": [
         "jLpGbCHr9G-facts"
@@ -57387,7 +57387,7 @@
     {
       "id": "lbLBxbcolM",
       "targetEntityId": "So4c4oZiNA",
-      "textDraft": "Function getDb (intent unclear from static analysis)",
+      "textDraft": "Function getDb: Retrieves data or value",
       "confidence": "Medium",
       "factSetIds": [
         "So4c4oZiNA-facts"
@@ -57450,7 +57450,7 @@
     {
       "id": "DlgFb4FCwd",
       "targetEntityId": "MChrPM9ZC7",
-      "textDraft": "Function validateInput (intent unclear from static analysis)",
+      "textDraft": "Function validateInput: Validates or checks a condition",
       "confidence": "Medium",
       "factSetIds": [
         "MChrPM9ZC7-facts"
@@ -58909,11 +58909,11 @@
     },
     {
       "qid": "q:xkVaq7elmb",
-      "entityId": "YmXRvW64TR",
+      "entityId": "EzJg98ytun",
       "question": "What are the responsibilities and contract of class `IntentLifter` at src/reasoning/IntentLifter.ts?",
       "confidence": 25,
       "factSetIds": [
-        "YmXRvW64TR-facts"
+        "EzJg98ytun-facts"
       ]
     },
     {

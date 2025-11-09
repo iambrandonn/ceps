@@ -14,5 +14,5 @@
 
 **Behavior:**
 
-- Function getDb (intent unclear from static analysis)
+- Function getDb: Retrieves data or value
 

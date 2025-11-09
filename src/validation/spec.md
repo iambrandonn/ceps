@@ -331,7 +331,7 @@ IdentifierValidator validates identifiers against KB.
 
 **Behavior:**
 
-- Method getRules (intent unclear from static analysis)
+- Method getRules: Retrieves data or value
 
 **Open Questions:**
 - q:80n3zri1nf: What is the behavior of method `getRules` at src/validation/lexicon-validator.ts?
@@ -379,7 +379,7 @@ Use setNextResult() to simulate retry/fallback scenarios in tests.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 **Errors thrown:**
 - new Error(

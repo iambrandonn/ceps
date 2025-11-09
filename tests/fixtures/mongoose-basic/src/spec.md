@@ -14,5 +14,5 @@
 
 **Behavior:**
 
-- Function createApp (intent unclear from static analysis)
+- Function createApp: Creates or constructs a new instance
 

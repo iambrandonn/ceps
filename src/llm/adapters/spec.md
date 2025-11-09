@@ -27,7 +27,7 @@
 
 **Behavior:**
 
-- Method getDefaultModel (intent unclear from static analysis)
+- Method getDefaultModel: Retrieves data or value
 
 **Open Questions:**
 - q:uGSlo7BG67: What is the behavior of method `getDefaultModel` at src/llm/adapters/anthropic.ts?
@@ -90,7 +90,7 @@
 
 **Behavior:**
 
-- Method getLastUsage (intent unclear from static analysis)
+- Method getLastUsage: Retrieves data or value
 
 **Open Questions:**
 - q:FwO6JrNgfd: What is the behavior of method `getLastUsage` at src/llm/adapters/anthropic.ts?
@@ -120,7 +120,7 @@
 
 **Behavior:**
 
-- Method getDefaultModel (intent unclear from static analysis)
+- Method getDefaultModel: Retrieves data or value
 
 **Open Questions:**
 - q:adkSCAJZPA: What is the behavior of method `getDefaultModel` at src/llm/adapters/openai.ts?
@@ -183,7 +183,7 @@
 
 **Behavior:**
 
-- Method getLastUsage (intent unclear from static analysis)
+- Method getLastUsage: Retrieves data or value
 
 **Open Questions:**
 - q:TZSnZsVqcx: What is the behavior of method `getLastUsage` at src/llm/adapters/openai.ts?

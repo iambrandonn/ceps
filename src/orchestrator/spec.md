@@ -147,7 +147,7 @@ See SADS.md §6.2 for authoritative flag list.
 
 **Behavior:**
 
-- Method getKnowledgeBase (intent unclear from static analysis)
+- Method getKnowledgeBase: Retrieves data or value
 
 **Open Questions:**
 - q:z1TPWNP40y: What is the behavior of method `getKnowledgeBase` at src/orchestrator/orchestrator.ts?
@@ -162,7 +162,7 @@ See SADS.md §6.2 for authoritative flag list.
 
 **Behavior:**
 
-- Method getStatus (intent unclear from static analysis)
+- Method getStatus: Retrieves data or value
 
 **Open Questions:**
 - q:CqdE37anuV: What is the behavior of method `getStatus` at src/orchestrator/orchestrator.ts?
@@ -177,7 +177,7 @@ See SADS.md §6.2 for authoritative flag list.
 
 **Behavior:**
 
-- Method getRunSummary (intent unclear from static analysis)
+- Method getRunSummary: Retrieves data or value
 
 **Open Questions:**
 - q:ExDdIUB9pM: What is the behavior of method `getRunSummary` at src/orchestrator/orchestrator.ts?

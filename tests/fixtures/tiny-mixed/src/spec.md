@@ -80,5 +80,5 @@ Multiplies two numbers
 
 **Behavior:**
 
-- Function validateInput (intent unclear from static analysis)
+- Function validateInput: Validates or checks a condition
 

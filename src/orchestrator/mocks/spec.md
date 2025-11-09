@@ -29,7 +29,7 @@ Default behavior: pass if all exported entities documented or have QIDs.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="8T0VDeLgtf"></a>
 
@@ -68,7 +68,7 @@ Default behavior: pass if no broken links.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="eeRIQzINlt"></a>
 
@@ -107,7 +107,7 @@ Default behavior: pass if all chunks have factSetIds and (validated or fallback)
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="3CCHwZEej9"></a>
 
@@ -146,7 +146,7 @@ Default behavior: pass if no diffs, skip if not enabled.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="qFEAKnzTPc"></a>
 
@@ -185,7 +185,7 @@ Default behavior: always pass (Low confidence → Open Questions is acceptable).
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="m6obSAwFI9"></a>
 
@@ -224,7 +224,7 @@ Default behavior: pass if root spec exists and no broken package links.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="E89eRjDowH"></a>
 
@@ -263,7 +263,7 @@ Default behavior: pass if under budget.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="rAWbZPWrA4"></a>
 
@@ -302,7 +302,7 @@ Default behavior: pass if all adversarial cases rejected.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="uGHbRBh7pD"></a>
 
@@ -341,7 +341,7 @@ Default behavior: pass if coverage meets threshold.
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 <a id="LLJ7qGWSxj"></a>
 
@@ -380,7 +380,7 @@ Default behavior: skip (manual review optional).
 
 **Behavior:**
 
-- Method setNextResult (intent unclear from static analysis)
+- Method setNextResult: Updates or modifies data
 
 **Open Questions:**
 - q:wmtLWvKdUP: What is the behavior of method `setNextResult` at src/orchestrator/mocks/mock-gate-evaluators.ts?

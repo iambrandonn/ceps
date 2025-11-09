@@ -39,14 +39,14 @@
 
 **Behavior:**
 
-- Method getAmbiguityQueue (intent unclear from static analysis)
+- Method getAmbiguityQueue: Retrieves data or value
 
 **Open Questions:**
 - q:8tY2wTt4d7: What is the behavior of method `getAmbiguityQueue` at src/reasoning/ambiguity-resolver.ts?
 
 ## IntentLifter.ts
 
-<a id="YmXRvW64TR"></a>
+<a id="EzJg98ytun"></a>
 
 ### IntentLifter
 

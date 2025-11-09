@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "471f2bb2a2690d8c363c805bd5d76af2a7c4d8455c3a6d6d5849cc9afa34abd1",
-  "generatedAt": "2025-11-09T00:58:52.544Z",
+  "rootHash": "f75fb928f032d5f5efc91fa6818ef355064940ac4c4cb9d854d9f5de8379f247",
+  "generatedAt": "2025-11-09T03:08:52.899Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -545,6 +545,11 @@
       "bytes": 22645
     },
     {
+      "path": "docs/reviews/phase6/features/default-export-detection-implementation-review.md",
+      "hash": "4bed1a38f82b3005b638e5b1e602d737f17f78887b298242db4d8c251ab1a9fd",
+      "bytes": 15704
+    },
+    {
       "path": "docs/reviews/phase6/features/default-export-detection-plan-review.md",
       "hash": "4081b5712e19edbd53e4b3c406b31f83e2924e31035f85c46a56504cd3c71665",
       "bytes": 7889
@@ -558,6 +563,11 @@
       "path": "docs/reviews/phase6/features/help-flag-plan-review.md",
       "hash": "49526a82dbdee1345e6bcd13a20bc7c3f402ae47dafb658699a9c1f031ade61f",
       "bytes": 19724
+    },
+    {
+      "path": "docs/reviews/phase6/generic-pattern-inference-review.md",
+      "hash": "556372f137a941c16da5a59c112e7f6f5a385433a2f0b003d308abc70359f24b",
+      "bytes": 12892
     },
     {
       "path": "docs/reviews/phase6/plan-revision-review.md",
@@ -1111,8 +1121,8 @@
     },
     {
       "path": "src/reasoning/IntentLifter.ts",
-      "hash": "a758d3d9a11625e1a24f97cec465bf474486a443def39f990b6e2c38638ac709",
-      "bytes": 6047
+      "hash": "5e73b485ed54f2dab99468fd1bd13ae0edc5d80425c70235ac14ea96a792bc10",
+      "bytes": 10838
     },
     {
       "path": "src/reasoning/PatternMatcher.ts",
@@ -1881,8 +1891,8 @@
     },
     {
       "path": "tests/unit/reasoning/intent-lifter.test.ts",
-      "hash": "887cbc9cab408518bf60bcd5d53cf415020754d621a34efb5ff5dd57e71bddc5",
-      "bytes": 17231
+      "hash": "2646fb9d85078a475141412a7694710b27e2c5ee615dee19e0e7cd52087b630c",
+      "bytes": 25370
     },
     {
       "path": "tests/unit/reasoning/pattern-matcher.test.ts",

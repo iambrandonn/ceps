@@ -99,7 +99,7 @@
 
 **Behavior:**
 
-- Method updateEntity (intent unclear from static analysis)
+- Method updateEntity: Updates or modifies data
 
 **Errors thrown:**
 - new KBError(`Entity not found: ${id}`);
@@ -114,7 +114,7 @@
 
 **Behavior:**
 
-- Method getEntity (intent unclear from static analysis)
+- Method getEntity: Retrieves data or value
 
 **Open Questions:**
 - q:2K0rmU0mWH: What is the behavior of method `getEntity` at src/kb/knowledge-base.ts?
@@ -174,7 +174,7 @@
 
 **Behavior:**
 
-- Method getFactSet (intent unclear from static analysis)
+- Method getFactSet: Retrieves data or value
 
 **Open Questions:**
 - q:HySXOiNgS2: What is the behavior of method `getFactSet` at src/kb/knowledge-base.ts?
@@ -189,7 +189,7 @@
 
 **Behavior:**
 
-- Method getFactSetsBySubject (intent unclear from static analysis)
+- Method getFactSetsBySubject: Retrieves data or value
 
 **Open Questions:**
 - q:BG7iWvuCWI: What is the behavior of method `getFactSetsBySubject` at src/kb/knowledge-base.ts?
@@ -219,7 +219,7 @@
 
 **Behavior:**
 
-- Method getChunk (intent unclear from static analysis)
+- Method getChunk: Retrieves data or value
 
 **Open Questions:**
 - q:q9pcNFU3zC: What is the behavior of method `getChunk` at src/kb/knowledge-base.ts?
@@ -234,7 +234,7 @@
 
 **Behavior:**
 
-- Method getAllChunks (intent unclear from static analysis)
+- Method getAllChunks: Retrieves data or value
 
 **Open Questions:**
 - q:C5KRx7sMkv: What is the behavior of method `getAllChunks` at src/kb/knowledge-base.ts?
@@ -249,7 +249,7 @@
 
 **Behavior:**
 
-- Method getChunksByEntity (intent unclear from static analysis)
+- Method getChunksByEntity: Retrieves data or value
 
 **Open Questions:**
 - q:ddg1D3sfHo: What is the behavior of method `getChunksByEntity` at src/kb/knowledge-base.ts?
@@ -264,7 +264,7 @@
 
 **Behavior:**
 
-- Method updateChunk (intent unclear from static analysis)
+- Method updateChunk: Updates or modifies data
 
 **Errors thrown:**
 - new KBError(`Chunk ${id} not found`);
@@ -294,7 +294,7 @@
 
 **Behavior:**
 
-- Method getOpenQuestionsByEntity (intent unclear from static analysis)
+- Method getOpenQuestionsByEntity: Retrieves data or value
 
 **Open Questions:**
 - q:CnFwqU3pcM: What is the behavior of method `getOpenQuestionsByEntity` at src/kb/knowledge-base.ts?
@@ -309,7 +309,7 @@
 
 **Behavior:**
 
-- Method getAllOpenQuestions (intent unclear from static analysis)
+- Method getAllOpenQuestions: Retrieves data or value
 
 **Open Questions:**
 - q:rtjdQdIFI8: What is the behavior of method `getAllOpenQuestions` at src/kb/knowledge-base.ts?
@@ -324,7 +324,7 @@
 
 **Behavior:**
 
-- Method getAnswer (intent unclear from static analysis)
+- Method getAnswer: Retrieves data or value
 
 **Open Questions:**
 - q:pFwCN1WCa6: What is the behavior of method `getAnswer` at src/kb/knowledge-base.ts?
@@ -339,7 +339,7 @@
 
 **Behavior:**
 
-- Method getAllAnswers (intent unclear from static analysis)
+- Method getAllAnswers: Retrieves data or value
 
 **Open Questions:**
 - q:1Cy7ndG3oM: What is the behavior of method `getAllAnswers` at src/kb/knowledge-base.ts?
@@ -399,7 +399,7 @@
 
 **Behavior:**
 
-- Method getRelations (intent unclear from static analysis)
+- Method getRelations: Retrieves data or value
 
 **Open Questions:**
 - q:Vd4enU0wnF: What is the behavior of method `getRelations` at src/kb/knowledge-base.ts?
@@ -429,7 +429,7 @@
 
 **Behavior:**
 
-- Method getConfidenceScore (intent unclear from static analysis)
+- Method getConfidenceScore: Retrieves data or value
 
 **Open Questions:**
 - q:rwAcJdRvHD: What is the behavior of method `getConfidenceScore` at src/kb/knowledge-base.ts?
@@ -504,7 +504,7 @@
 
 **Behavior:**
 
-- Method getAllEntities (intent unclear from static analysis)
+- Method getAllEntities: Retrieves data or value
 
 **Open Questions:**
 - q:0oAOzdwOju: What is the behavior of method `getAllEntities` at src/kb/knowledge-base.ts?
@@ -519,7 +519,7 @@
 
 **Behavior:**
 
-- Method getAllFactSets (intent unclear from static analysis)
+- Method getAllFactSets: Retrieves data or value
 
 **Open Questions:**
 - q:jpDajts0pB: What is the behavior of method `getAllFactSets` at src/kb/knowledge-base.ts?
@@ -549,7 +549,7 @@
 
 **Behavior:**
 
-- Method validateQIDUniqueness (intent unclear from static analysis)
+- Method validateQIDUniqueness: Validates or checks a condition
 
 **Open Questions:**
 - q:1iyjmuB9wL: What is the behavior of method `validateQIDUniqueness` at src/kb/knowledge-base.ts?
@@ -624,7 +624,7 @@
 
 **Behavior:**
 
-- Method getCallGraph (intent unclear from static analysis)
+- Method getCallGraph: Retrieves data or value
 
 **Open Questions:**
 - q:CGZ72HMLAk: What is the behavior of method `getCallGraph` at src/kb/knowledge-base.ts?
@@ -639,7 +639,7 @@
 
 **Behavior:**
 
-- Method getImportGraph (intent unclear from static analysis)
+- Method getImportGraph: Retrieves data or value
 
 **Open Questions:**
 - q:6yMt5lEYHc: What is the behavior of method `getImportGraph` at src/kb/knowledge-base.ts?
@@ -654,7 +654,7 @@
 
 **Behavior:**
 
-- Method getReverseDeps (intent unclear from static analysis)
+- Method getReverseDeps: Retrieves data or value
 
 **Open Questions:**
 - q:g4PHU9zXAn: What is the behavior of method `getReverseDeps` at src/kb/knowledge-base.ts?
@@ -737,7 +737,7 @@
 
 **Behavior:**
 
-- Function createEntity (intent unclear from static analysis)
+- Function createEntity: Creates or constructs a new instance
 
 **Errors thrown:**
 - new Error(`Invalid entity kind: ${data.kind}`);
@@ -757,7 +757,7 @@
 
 **Behavior:**
 
-- Function createFactSet (intent unclear from static analysis)
+- Function createFactSet: Creates or constructs a new instance
 
 **Errors thrown:**
 - new Error('evidenceScore must be between 0 and 100');
@@ -772,7 +772,7 @@
 
 **Behavior:**
 
-- Function createBehaviorChunk (intent unclear from static analysis)
+- Function createBehaviorChunk: Creates or constructs a new instance
 
 **Errors thrown:**
 - new Error('BehaviorChunk must reference at least one factSet');
