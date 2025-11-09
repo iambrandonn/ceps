@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "f2cc1580a8ee2e910f1c59f08fff48a4e2088d087f94ae740b94e8cb317318da",
-  "generatedAt": "2025-11-09T00:03:40.016Z",
+  "rootHash": "471f2bb2a2690d8c363c805bd5d76af2a7c4d8455c3a6d6d5849cc9afa34abd1",
+  "generatedAt": "2025-11-09T00:58:52.544Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -46,8 +46,8 @@
     },
     {
       "path": "CTS-05_Static_Analysis_and_Pattern_Detection.md",
-      "hash": "b5148692f7a477d53fc0e793cc6e29f58e33f20e4918e7bdd2c21db7324e0ff1",
-      "bytes": 6597
+      "hash": "1f46a416c3f15b40cd3d3d361959c47fb4679dbd07a843c8fa7cd84c486199d6",
+      "bytes": 8515
     },
     {
       "path": "CTS-05a_Scanner_and_Loader.md",
@@ -290,6 +290,11 @@
       "bytes": 20417
     },
     {
+      "path": "docs/planning/active/features/default-export-detection.md",
+      "hash": "adcacf7c537bc512459df435a2db6538d9a434aba54136fb6c854ef0de865745",
+      "bytes": 17461
+    },
+    {
       "path": "docs/planning/active/features/help-flag.md",
       "hash": "063582a95bd8c829e4d8e4bbe2c498bf613ec6c701cb4a796f43d11707e02afb",
       "bytes": 20650
@@ -495,6 +500,11 @@
       "bytes": 26054
     },
     {
+      "path": "docs/reviews/phase6/express/bug-express-router-qualified-import-review.md",
+      "hash": "9a88413d7c63d74eba8a44e5931b457682c28bdf924e9d0fd089148d0eb3019b",
+      "bytes": 17478
+    },
+    {
       "path": "docs/reviews/phase6/express/i3-config-final.md",
       "hash": "a871ec179667d3a92b39a03a6f476089f08396e9cbe0c3606ba3751583d80ed9",
       "bytes": 21239
@@ -533,6 +543,11 @@
       "path": "docs/reviews/phase6/express/i5-review-1.md",
       "hash": "ee6374321691e042731db2f0d29a0d5ab7899a0be04568158c077edfade62647",
       "bytes": 22645
+    },
+    {
+      "path": "docs/reviews/phase6/features/default-export-detection-plan-review.md",
+      "hash": "4081b5712e19edbd53e4b3c406b31f83e2924e31035f85c46a56504cd3c71665",
+      "bytes": 7889
     },
     {
       "path": "docs/reviews/phase6/features/help-flag-implementation-review.md",
@@ -1066,8 +1081,8 @@
     },
     {
       "path": "src/parser/fact-extractor.ts",
-      "hash": "964605d6b65d3f20292933f698377e22e1f18f2b7cf343f9e9442445050ed487",
-      "bytes": 25757
+      "hash": "efbd4fd051f2ed53ce70814f6d96255a45d2634dc8f9ef4b532b3779905f10df",
+      "bytes": 27886
     },
     {
       "path": "src/parser/parser.ts",
@@ -1495,6 +1510,11 @@
       "bytes": 452
     },
     {
+      "path": "tests/fixtures/tiny-express/src/routes/api.ts",
+      "hash": "dcc4c09373a7b7d15ba1d0046e3661b1a9bbc8aca81c564e8bb0828398cb1a73",
+      "bytes": 266
+    },
+    {
       "path": "tests/fixtures/tiny-express/src/routes/posts.ts",
       "hash": "de6b681524c7b3c830ba6bedb4ae0ba89d10dd42e32a9914f478e9ecd006a5d9",
       "bytes": 286
@@ -1578,6 +1598,11 @@
       "path": "tests/integration/express-patterns-integration.test.ts",
       "hash": "157366745c06e579f0f582686bcd972a1e1e3de97431ea6fd231de9672549ab9",
       "bytes": 12595
+    },
+    {
+      "path": "tests/integration/express-router-export.test.ts",
+      "hash": "e4b6dda9199ad7c4ac3fc7e4827528aaa71539fa155895d743d998e14d0ed9a9",
+      "bytes": 5051
     },
     {
       "path": "tests/integration/express-router-qualified-import.test.ts",
@@ -1806,8 +1831,8 @@
     },
     {
       "path": "tests/unit/parser/fact-extractor.test.ts",
-      "hash": "70b8700f9031bcbb48911045bb76c9ae3b2cf10aa09f6003cbbd9c643bafab08",
-      "bytes": 5871
+      "hash": "06c664a69da428035e9549c8b14667312a3e83c6173ed4747c9ebd68624381a6",
+      "bytes": 9391
     },
     {
       "path": "tests/unit/parser/module-scope-calls.test.ts",

@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 322 exported entities.
+This project contains 324 exported entities.
 
 ## Conventions
 
@@ -49,6 +49,7 @@ Per-directory specifications:
 - [tests/fixtures/mongoose-basic/src](./tests/fixtures/mongoose-basic/src/spec.md)
 - [tests/fixtures/mongoose-basic/src/models](./tests/fixtures/mongoose-basic/src/models/spec.md)
 - [tests/fixtures/mongoose-basic/src/routes](./tests/fixtures/mongoose-basic/src/routes/spec.md)
+- [tests/fixtures/phase6/express-finalization-smoke/src](./tests/fixtures/phase6/express-finalization-smoke/src/spec.md)
 - [tests/fixtures/tiny-express/src](./tests/fixtures/tiny-express/src/spec.md)
 - [tests/fixtures/tiny-express/src/middleware](./tests/fixtures/tiny-express/src/middleware/spec.md)
 - [tests/fixtures/tiny-express/src/routes](./tests/fixtures/tiny-express/src/routes/spec.md)

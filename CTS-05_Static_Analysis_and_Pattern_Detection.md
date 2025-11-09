@@ -33,6 +33,23 @@ Collect all structural facts needed for behavioral documentation, and flag areas
 - **Compatibility & parity:** Predicate names remain unchanged (`calls-expression`, `call-arg-{n}`, etc.), so existing tests only gain additional facts. The Babel fallback mirrors the same module-scope traversal behind the `parser.experimentalModuleScope` feature flag for staged rollout.
 - **Performance guardrails:** Benchmarks on ≥5k LOC fixtures must show ≤10% slowdown versus the Phase 5 baseline. The walker short-circuits nodes already visited via other scopes to avoid quadratic AST walks.
 
+### 3.2 Phase 6 Amendment — Separate Export Detection
+- **Motivation:** Real-world Express applications commonly separate entity declarations from their exports (e.g., `const router = Router(); ... export default router;`). The parser initially only detected inline exports (`export const router = ...`), causing the primary API surface to be omitted from generated specs.
+- **Export Detection Strategies:** The parser now uses multiple complementary strategies to mark entities as exported:
+  1. **Inline exports** (at declaration): `export function foo() {}`, `export const bar = 1`
+     - Detected via `isExported()` method on AST nodes during entity extraction
+  2. **Separate default exports**: `const x = 1; export default x;`
+     - Detected via `getExportAssignments()` post-processing pass
+     - Adds `is-default-export` fact to the entity's factSet
+  3. **Separate named exports**: `const x = 1; export { x, y };`
+     - Detected via `getExportDeclarations()` post-processing pass (local exports only)
+     - Skips re-exports (`export { foo } from './bar'`) which create relations but don't mark entities as exported
+  4. **Re-exports**: `export { foo } from './bar';`
+     - Creates import/export relations (tracked separately from entity export status)
+- **Implementation:** Post-processing passes run after entity extraction (before the `extract()` return statement). Entities are looked up by name and marked with `exported: true` and `visibility: 'public'`. See `src/parser/fact-extractor.ts`, lines 640-696.
+- **Entity Schema:** The `exported` field (syntactic) and `visibility` field (semantic) are set together. An entity with `exported: true, visibility: 'public'` represents a documented API surface.
+- **Pattern Impact:** Framework patterns (Express, React, etc.) now correctly match and document exported routers, components, and other primary artifacts that use the separate export pattern.
+
 ---
 
 ## 4) Dynamic Pattern Detector (per-file, co-located)

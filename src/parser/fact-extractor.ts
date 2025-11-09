@@ -637,6 +637,63 @@ export class FactExtractor {
       });
     }
 
+    // Process default exports (export default X)
+    // Inline exports (e.g., "export default function foo() {}") are already
+    // handled by isExported() checks during entity extraction.
+    sourceFile.getExportAssignments().forEach((assignment) => {
+      if (!assignment.isExportEquals()) {
+        const expr = assignment.getExpression();
+
+        // Only handle identifier exports (e.g., "export default router")
+        // Inline exports (e.g., "export default function foo() {}")
+        // are already handled by isExported() checks
+        if (Node.isIdentifier(expr)) {
+          const exportedName = expr.getText();
+
+          // Find the entity in already-extracted entities
+          const entity = entities.find((e) => e.name === exportedName);
+
+          if (entity) {
+            // Mark as exported
+            entity.exported = true;
+            entity.visibility = 'public';
+
+            // Add a fact indicating this is the default export
+            // Naming convention verified: follows existing boolean patterns
+            // (is-function, is-class, is-method, is-constant, is-async)
+            const entityFactSet = factSets.find((fs) => fs.id === `${entity.id}-facts`);
+            if (entityFactSet) {
+              entityFactSet.facts.push({
+                subjectId: entity.id,
+                predicate: 'is-default-export',
+                object: true,
+              });
+            }
+          }
+        }
+      }
+    });
+
+    // Also process named exports (export { foo, bar })
+    sourceFile.getExportDeclarations().forEach((exportDecl) => {
+      // Skip re-exports (export { foo } from './bar')
+      // These create relations but don't mark entities as exported
+      if (exportDecl.getModuleSpecifier()) {
+        return;
+      }
+
+      // Process local named exports (export { foo, bar })
+      exportDecl.getNamedExports().forEach((namedExport) => {
+        const name = namedExport.getName();
+        const entity = entities.find((e) => e.name === name);
+
+        if (entity) {
+          entity.exported = true;
+          entity.visibility = 'public';
+        }
+      });
+    });
+
     return { entities, relations, factSets };
   }
 

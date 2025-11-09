@@ -175,4 +175,102 @@ describe('Fact Extractor', () => {
     expect(factSet?.facts.some((f) => f.predicate === 'is-constant')).toBe(true);
     expect(factSet?.facts.some((f) => f.predicate === 'initializer')).toBe(true);
   });
+
+  // Step 1: Test for separate default exports
+  it('should mark separate default exports as exported', () => {
+    const project = new Project({ useInMemoryFileSystem: true });
+    const sourceFile = project.createSourceFile(
+      'test.ts',
+      `
+      const router = express.Router();
+      export default router;
+      `
+    );
+
+    const extractor = new FactExtractor();
+    const result = extractor.extract(sourceFile, 'test.ts');
+
+    const routerEntity = result.entities.find((e) => e.name === 'router');
+    expect(routerEntity).toBeDefined();
+    expect(routerEntity?.exported).toBe(true);
+    expect(routerEntity?.visibility).toBe('public');
+
+    // Verify the is-default-export fact was added
+    const routerFactSet = result.factSets.find((fs) => fs.id === `${routerEntity!.id}-facts`);
+    expect(routerFactSet).toBeDefined();
+    const defaultExportFact = routerFactSet?.facts.find((f) => f.predicate === 'is-default-export');
+    expect(defaultExportFact).toBeDefined();
+    expect(defaultExportFact?.object).toBe(true);
+  });
+
+  // Step 2: Test for separate named exports
+  it('should mark separate named exports as exported', () => {
+    const project = new Project({ useInMemoryFileSystem: true });
+    const sourceFile = project.createSourceFile(
+      'test.ts',
+      `
+      const helper = () => 'test';
+      const utils = { foo: 1 };
+      export { helper, utils };
+      `
+    );
+
+    const extractor = new FactExtractor();
+    const result = extractor.extract(sourceFile, 'test.ts');
+
+    const helperEntity = result.entities.find((e) => e.name === 'helper');
+    const utilsEntity = result.entities.find((e) => e.name === 'utils');
+
+    expect(helperEntity?.exported).toBe(true);
+    expect(helperEntity?.visibility).toBe('public');
+    expect(utilsEntity?.exported).toBe(true);
+    expect(utilsEntity?.visibility).toBe('public');
+  });
+
+  // Additional test: Mixed exports (both named and default)
+  it('should handle mixed exports in the same file', () => {
+    const project = new Project({ useInMemoryFileSystem: true });
+    const sourceFile = project.createSourceFile(
+      'test.ts',
+      `
+      const router = express.Router();
+      const middleware = () => {};
+      export { middleware };
+      export default router;
+      `
+    );
+
+    const extractor = new FactExtractor();
+    const result = extractor.extract(sourceFile, 'test.ts');
+
+    const routerEntity = result.entities.find((e) => e.name === 'router');
+    const middlewareEntity = result.entities.find((e) => e.name === 'middleware');
+
+    expect(routerEntity?.exported).toBe(true);
+    expect(middlewareEntity?.exported).toBe(true);
+  });
+
+  // Regression test: Inline exports should still work
+  it('should not break inline export detection', () => {
+    const project = new Project({ useInMemoryFileSystem: true });
+    const sourceFile = project.createSourceFile(
+      'test.ts',
+      `
+      export const usersRouter = Router();
+      export function handler() {}
+      export class UserService {}
+      `
+    );
+
+    const extractor = new FactExtractor();
+    const result = extractor.extract(sourceFile, 'test.ts');
+
+    const routerEntity = result.entities.find((e) => e.name === 'usersRouter');
+    const functionEntity = result.entities.find((e) => e.name === 'handler');
+    const classEntity = result.entities.find((e) => e.name === 'UserService');
+
+    expect(routerEntity?.exported).toBe(true);
+    expect(functionEntity?.exported).toBe(true);
+    expect(classEntity?.exported).toBe(true);
+  });
 });

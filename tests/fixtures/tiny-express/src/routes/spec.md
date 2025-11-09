@@ -1,6 +1,18 @@
 # tests/fixtures/tiny-express/src/routes
 
-**Directory Overview:** This directory contains 2 entities.
+**Directory Overview:** This directory contains 3 entities.
+
+## api.ts
+
+<a id="fQP5HuBXk7"></a>
+
+### apiRouter
+
+**Visibility:** Public (exported)
+
+**Behavior:**
+
+- Express Router apiRouter that defines HTTP route handlers. Routes: GET /status, GET /health.
 
 ## posts.ts
 
