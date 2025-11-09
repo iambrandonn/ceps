@@ -1,7 +1,7 @@
 # ceps — Current Status
 
 **Last Updated:** 2025-11-08
-**Phase:** 6 (Production Hardening) Wave 1
+**Phase:** 6 (Production Hardening) Wave 1A (Backend Validation Track)
 **Last Completed:** Express pattern library (Agent 1, I1-I5 approved)
 
 ---
@@ -19,34 +19,48 @@ This project follows a **5-step agent workflow**:
 
 ## Current Step
 
-**Step:** 1 (Plan Development)
-**Task:** React pattern library implementation plan
+**Step:** Pre-Planning (Strategy Validation)
+**Task:** Backend-first validation track - preparing for HTTP Clients (Agent 5)
 **Agent Role:** Planning Agent
-**Deliverable:** Implementation plan for React patterns (components, hooks, context, side effects)
+**Deliverable:** HTTP Clients implementation plan
 
 **Context:**
-- Express workstream (Agent 1) completed all 5 steps and is approved
-- React is Agent 2 in Wave 1 parallelization strategy
-- Use Express lessons doc as reference: `docs/internal/PHASE6_EXPRESS_LESSONS.md`
+- Phase 6 strategy revised to **backend-first validation** approach
+- Express patterns (Agent 1) complete; validated on test output
+- Next: HTTP Clients (Agent 5) to complete backend request/response cycle
+- Then: Real-world validation on 2-3 backend projects before frontend expansion
+- Frontend agents (React/Redux/GraphQL) on hold pending Wave 1A validation
 
-**Output Location:** `docs/planning/active/phase6/react-plan.md`
+**Output Location:** `docs/planning/active/phase6/http-clients-plan.md` (to be created)
 
 ---
 
-## Wave 1 Progress (5 agents)
+## Wave 1 Progress (Revised: Backend-First Strategy)
+
+### Wave 1A: Backend Validation Track
 
 | Agent | Framework | Plan | Review | Implement | Code Review | Status |
 |-------|-----------|------|--------|-----------|-------------|--------|
 | 1 | Express | ✅ | ✅ | ✅ | ✅ | **Complete** |
-| 2 | React | 🔄 | - | - | - | **Plan in progress** |
-| 3 | Redux | - | - | - | - | Waiting |
-| 4 | GraphQL | - | - | - | - | Waiting |
-| 5 | HTTP | - | - | - | - | Waiting |
+| 5 | HTTP Clients | - | - | - | - | **Ready to start** |
+| Validation | Backend Projects | - | - | - | - | Pending Agent 5 |
+
+### Wave 1B: Frontend Expansion (On Hold)
+
+| Agent | Framework | Status | Blocked By |
+|-------|-----------|--------|------------|
+| 2 | React | ⏸️ **ON HOLD** | Wave 1A validation |
+| 3 | Redux | ⏸️ **ON HOLD** | Wave 1A validation |
+| 4 | GraphQL | ⏸️ **ON HOLD** | Wave 1A validation |
 
 ---
 
 ## Recent Decisions / Context
 
+- **Backend-first validation track adopted** (2025-11-08) - Conservative approach to validate architecture on real code before frontend expansion
+- **Frontend agents deferred** - React/Redux/GraphQL on hold until HTTP Clients complete + validation passes
+- **Real-world validation planned** - Will run ceps on 2-3 backend projects (Express + Mongoose + HTTP clients)
+- **Timeline extended** - Phase 6 now 7-8 weeks (was 4 weeks) to reduce rework risk
 - **Accuracy harness deferred to Wave 2** (Agent 6) per Express code review
 - **Benchmark scripts deferred to Wave 2** (Agent 6)
 - **Mongoose integration added** during Express work (not originally scoped)
@@ -55,7 +69,8 @@ This project follows a **5-step agent workflow**:
 
 ## Blockers / Open Questions
 
-None currently.
+- **Validation target selection** - Need to identify 2-3 backend projects for testing (due 2025-11-09)
+- **Product timeline approval** - 7-8 week Phase 6 timeline pending explicit sign-off
 
 ---
 
