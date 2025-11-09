@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "f75fb928f032d5f5efc91fa6818ef355064940ac4c4cb9d854d9f5de8379f247",
-  "generatedAt": "2025-11-09T03:08:52.899Z",
+  "rootHash": "d4cebfc34d6f4c346c04d8124e8534485328d2f57fdd307f10d2488b4f6ecc2c",
+  "generatedAt": "2025-11-09T05:13:47.661Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -140,6 +140,11 @@
       "bytes": 8835
     },
     {
+      "path": "docs/internal/analysis/phase6-http-clients-phase-minus-one.md",
+      "hash": "7f4893f527faa7aa2e856e77536170c6bdde36c292813756abba578a037ca58e",
+      "bytes": 7783
+    },
+    {
       "path": "docs/internal/analysis/phase6-routing-parser-fix-readme.md",
       "hash": "16f7726c29ddf8a33874d6d0f8cbea97ab1bbd831a9889edad036f7107cd541e",
       "bytes": 12451
@@ -168,6 +173,11 @@
       "path": "docs/internal/announcements/express-i5.md",
       "hash": "149b24681eaeba698f8ae30cbd6e586108e78d3d5742f6912b46073b50fa7adf",
       "bytes": 4641
+    },
+    {
+      "path": "docs/internal/announcements/http-clients-plan-approved.md",
+      "hash": "c1cb5208f8878df10f91856b05fca33968ce93f3f82273a66223aa8c6e6ea674",
+      "bytes": 4020
     },
     {
       "path": "docs/internal/approval/phase6-express-i5.md",
@@ -230,6 +240,16 @@
       "bytes": 9695
     },
     {
+      "path": "docs/internal/completion/phase6-http-clients-i1-complete.md",
+      "hash": "ae221a50da9246f6d1e2c3efbf898b50bbb61213b183d134a7934b64899057af",
+      "bytes": 9882
+    },
+    {
+      "path": "docs/internal/completion/phase6-http-clients-release-notes.md",
+      "hash": "37d2c9469b1fc67d409c23526c4b0631b2a03338fc310b011f1d1ecf78c56554",
+      "bytes": 11463
+    },
+    {
       "path": "docs/internal/completion/phase6-i1-merge-blockers.md",
       "hash": "601fd7599001f02c3fcacdc390079e6f16bb94e9bbb0b9d28ff243ed4be22b6d",
       "bytes": 8708
@@ -255,6 +275,11 @@
       "bytes": 4483
     },
     {
+      "path": "docs/internal/lessons/phase6-http-clients-lessons.md",
+      "hash": "7e026c76020e6a73192e10be2d19f9961f827a9688fac71c8cc516f4f3a87499",
+      "bytes": 20377
+    },
+    {
       "path": "docs/internal/mongoose-facts-api.md",
       "hash": "b1cc6ec8b22a147403b28a848e6824141eadd3c15f87f1088cc324e127b418c5",
       "bytes": 12673
@@ -271,8 +296,8 @@
     },
     {
       "path": "docs/lexicon.md",
-      "hash": "e3cb4580ae22ba06f6e9fc9c054492270a2508e9a9a0bd295f57859e7bb1a045",
-      "bytes": 13267
+      "hash": "c96e75e6b61c94c0f4e8523d9d822634bcee5c91255bf856aff686f25443e929",
+      "bytes": 17706
     },
     {
       "path": "docs/PARSER_ERROR_HANDLING.md",
@@ -281,8 +306,8 @@
     },
     {
       "path": "docs/pattern-coverage.md",
-      "hash": "d3de8f9e84e7ba901010e1773c59019e310aa913eda295f9d53467875b01217a",
-      "bytes": 12704
+      "hash": "0ce80f685e4c4f8c98031ed5cbf8ef913903f80142903af40ed3a4a9d1c28152",
+      "bytes": 20108
     },
     {
       "path": "docs/phase5-finalization-architecture.md",
@@ -298,6 +323,11 @@
       "path": "docs/planning/active/features/help-flag.md",
       "hash": "063582a95bd8c829e4d8e4bbe2c498bf613ec6c701cb4a796f43d11707e02afb",
       "bytes": 20650
+    },
+    {
+      "path": "docs/planning/active/phase6/http-clients-plan.md",
+      "hash": "b4c10a8b33b29c37bd504b01e1f15d29377e6ef1c36b859521016d025bc99399",
+      "bytes": 48471
     },
     {
       "path": "docs/planning/active/phase6/investigation-instructions.md",
@@ -568,6 +598,16 @@
       "path": "docs/reviews/phase6/generic-pattern-inference-review.md",
       "hash": "556372f137a941c16da5a59c112e7f6f5a385433a2f0b003d308abc70359f24b",
       "bytes": 12892
+    },
+    {
+      "path": "docs/reviews/phase6/http-clients/code-review-i1-complete.md",
+      "hash": "0b4a1fb1e37cb0ae9b4b747d0cf51d2b4f42b16675673b68c9388b9e49a50f27",
+      "bytes": 26674
+    },
+    {
+      "path": "docs/reviews/phase6/http-clients/plan-review.md",
+      "hash": "706facf1eb6d8ec19bc4e9d63994163c27c66e6ddaf16a8dec25383c56fbe57a",
+      "bytes": 19349
     },
     {
       "path": "docs/reviews/phase6/plan-revision-review.md",
@@ -1056,8 +1096,8 @@
     },
     {
       "path": "src/orchestrator/orchestrator.ts",
-      "hash": "3768bdf48fe0b3dcdca0ea88880b2f1cc00c56d3e036b0065b352cea93c79660",
-      "bytes": 24854
+      "hash": "1e21d78abf4eb05748fd0d2b5ff851137c25e7834326c9e5f43a796c3db27cab",
+      "bytes": 24988
     },
     {
       "path": "src/orchestrator/rendering/run-summary-renderer.ts",
@@ -1168,6 +1208,31 @@
       "path": "src/reasoning/patterns/express/router.ts",
       "hash": "3444249c4bb7d6975a0e358d5c4da7d6c34d27db58be5cc41f4dcc1b6c9d2b82",
       "bytes": 6082
+    },
+    {
+      "path": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "hash": "f596fcc9c78d2a6b8e13d702ff2860bc5473bfddab6297d6112a87d8e0240795",
+      "bytes": 6265
+    },
+    {
+      "path": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "hash": "f38570180300fbaaa614359ab12b52387ff8bb35e34e747c055aa1d8382739ff",
+      "bytes": 5096
+    },
+    {
+      "path": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "hash": "82ff5b4104c3b5c52befee5128873710dbee95279a98ef82e9b84d5a40832170",
+      "bytes": 4753
+    },
+    {
+      "path": "src/reasoning/patterns/http-clients/index.ts",
+      "hash": "de6c5004f8218bb7fc7d2fbdcacfb5098a0bfe2193669e44dfb90b4c458ad95e",
+      "bytes": 1210
+    },
+    {
+      "path": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "hash": "3cf332e1dffdf3edbe6c6f4dee3b9df16aa56fdf69ec558cdae396546072e1f4",
+      "bytes": 5711
     },
     {
       "path": "src/reasoning/patterns/pattern-registry.ts",
@@ -1416,8 +1481,38 @@
     },
     {
       "path": "STATUS.md",
-      "hash": "50c2f221479986d9c845bf6de1236a1a80dab064984c0158019637d51128017c",
-      "bytes": 2021
+      "hash": "31c7cd963bd70448b36b027fb046469d26501a62a18b41ebd826089c44503070",
+      "bytes": 7086
+    },
+    {
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "hash": "49131b3c67978c5d17150e2c71fa97b8002d612b95411f10c0eef6df09479271",
+      "bytes": 1607
+    },
+    {
+      "path": "tests/fixtures/http-clients-analysis/fetch-patterns.ts",
+      "hash": "378ee026ac80b7d9f0315e0b55aa80bfbd112d41403518c8e9bc0bf7abccaddf",
+      "bytes": 1263
+    },
+    {
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "hash": "f9282c8def5cf637b8c7203c3f7eb8b1a7bac1fe8a2ac49016a9c4bdf96b11c9",
+      "bytes": 2314
+    },
+    {
+      "path": "tests/fixtures/http-clients-analysis/retry-patterns.ts",
+      "hash": "017daf85af16dd933d1d7fd9feba787d4da57c986c5564c924e726ad542819ad",
+      "bytes": 1987
+    },
+    {
+      "path": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "hash": "5ac1914144eaa0eb15f2be2e1a469fe7b892b81ec7e57fd5d8663e7c5fb9ce03",
+      "bytes": 1541
+    },
+    {
+      "path": "tests/fixtures/http-clients-integration/api-client.ts",
+      "hash": "915f25a2dda6f7dbb1d7ee6adc8fc5a759ab64de471fd452565a8a813040b6d8",
+      "bytes": 1501
     },
     {
       "path": "tests/fixtures/mongoose-basic/package.json",
@@ -1630,6 +1725,11 @@
       "bytes": 3589
     },
     {
+      "path": "tests/integration/http-clients-integration.test.ts",
+      "hash": "07156b5664470b8dd7a77cb9c97928130ace38d90bd4858a1eb72e4ac54174cf",
+      "bytes": 10184
+    },
+    {
       "path": "tests/integration/mongoose-integration.test.ts",
       "hash": "b5b09a64a94d7a4fc7331831f6a2bc3cb899f64bb9fc6e037297c6de3da7523f",
       "bytes": 21258
@@ -1723,6 +1823,26 @@
       "path": "tests/reasoning/express-router-pattern.test.ts",
       "hash": "c8687c21da211c5d018a3242d6097d36189047236d22241026c15fcb5b47db65",
       "bytes": 12632
+    },
+    {
+      "path": "tests/reasoning/http-clients/axios-client.test.ts",
+      "hash": "cc1376233e194d5c576583359394704a3273f7e26f6a3018e6102302a0de985f",
+      "bytes": 10980
+    },
+    {
+      "path": "tests/reasoning/http-clients/error-handling.test.ts",
+      "hash": "8a0c2a9c8f840c2f4088de5a4cc9d5753b3111b6215f415cf60d291986636088",
+      "bytes": 10875
+    },
+    {
+      "path": "tests/reasoning/http-clients/fetch-patterns.test.ts",
+      "hash": "626712bd8407feec15c73d45ccdefe4b3024317dd63e41b55f97dcbf3b9f77a0",
+      "bytes": 9267
+    },
+    {
+      "path": "tests/reasoning/http-clients/request-response-transform.test.ts",
+      "hash": "beea68c90e58d7947c95e428ad9751e82219505164065f2674c6b12666ed316f",
+      "bytes": 10348
     },
     {
       "path": "tests/reasoning/mongoose-schema.test.ts",
@@ -1843,6 +1963,16 @@
       "path": "tests/unit/parser/fact-extractor.test.ts",
       "hash": "06c664a69da428035e9549c8b14667312a3e83c6173ed4747c9ebd68624381a6",
       "bytes": 9391
+    },
+    {
+      "path": "tests/unit/parser/http-clients-i2-phase-minus-one.test.ts",
+      "hash": "f000c62045577f5856e9c922d02a9586d4044e7f03d1dd262abe7d2e8e89589e",
+      "bytes": 4039
+    },
+    {
+      "path": "tests/unit/parser/http-clients-phase-minus-one.test.ts",
+      "hash": "b90392900817a0ac79f14cd935902ed67de93860cdfcab4d3d8a0d865135b637",
+      "bytes": 8326
     },
     {
       "path": "tests/unit/parser/module-scope-calls.test.ts",

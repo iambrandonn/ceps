@@ -14,8 +14,7 @@
 
 **Behavior:**
 
-- Function validateRunSummary: 
-Validates run summary against JSON Schema.
+- Converts request data to JSON format via `JSON.stringify()` for serialization. Parses JSON response data using `JSON.parse()`.
 
 **Side effects:**
 - filesystem
@@ -36,8 +35,7 @@ Validates run summary against JSON Schema.
 
 **Behavior:**
 
-- Function renderJSON: 
-Renders run summary as formatted JSON string.
+- Converts request data to JSON format via `JSON.stringify()` for serialization.
 
 <a id="aV6FC4c7Fc"></a>
 

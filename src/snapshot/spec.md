@@ -29,8 +29,7 @@ and hashed to produce a Merkle root recorded in the returned document.
 
 **Behavior:**
 
-- Function writeSnapshot: 
-Persist a snapshot document to disk using an atomic write (temp file + rename).
+- Converts request data to JSON format via `JSON.stringify()` for serialization.
 
 **Side effects:**
 - filesystem
@@ -138,10 +137,7 @@ Read a file from disk and return normalized content along with the raw byte size
 
 **Behavior:**
 
-- Function verifySnapshot: 
-Compare the current workspace snapshot with a stored snapshot document.
-Returns a structured result detailing added/removed/changed files.
-
+- Parses JSON response data using `JSON.parse()`.
 
 **Side effects:**
 - filesystem

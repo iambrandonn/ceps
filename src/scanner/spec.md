@@ -44,7 +44,7 @@
 
 **Behavior:**
 
-- Function detectMonorepo (intent unclear from static analysis)
+- Parses JSON response data using `JSON.parse()`.
 
 **Side effects:**
 - filesystem
@@ -59,7 +59,7 @@
 
 **Behavior:**
 
-- Function buildPackageMap (intent unclear from static analysis)
+- Parses JSON response data using `JSON.parse()`.
 
 **Side effects:**
 - filesystem

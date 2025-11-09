@@ -6,7 +6,7 @@
 
 ## System Overview
 
-This project contains 324 exported entities.
+This project contains 370 exported entities.
 
 ## Conventions
 
@@ -40,12 +40,15 @@ Per-directory specifications:
 - [src/reasoning](./src/reasoning/spec.md)
 - [src/reasoning/patterns](./src/reasoning/patterns/spec.md)
 - [src/reasoning/patterns/express](./src/reasoning/patterns/express/spec.md)
+- [src/reasoning/patterns/http-clients](./src/reasoning/patterns/http-clients/spec.md)
 - [src/reasoning/patterns/shared](./src/reasoning/patterns/shared/spec.md)
 - [src/scanner](./src/scanner/spec.md)
 - [src/snapshot](./src/snapshot/spec.md)
 - [src/types](./src/types/spec.md)
 - [src/validation](./src/validation/spec.md)
 - [src/validation/lexicon](./src/validation/lexicon/spec.md)
+- [tests/fixtures/http-clients-analysis](./tests/fixtures/http-clients-analysis/spec.md)
+- [tests/fixtures/http-clients-integration](./tests/fixtures/http-clients-integration/spec.md)
 - [tests/fixtures/mongoose-basic/src](./tests/fixtures/mongoose-basic/src/spec.md)
 - [tests/fixtures/mongoose-basic/src/models](./tests/fixtures/mongoose-basic/src/models/spec.md)
 - [tests/fixtures/mongoose-basic/src/routes](./tests/fixtures/mongoose-basic/src/routes/spec.md)

@@ -2819,7 +2819,7 @@
       }
     },
     {
-      "id": "DN6NUn2jKZ",
+      "id": "FCrE1XioNj",
       "kind": "class",
       "name": "Orchestrator",
       "path": "src/orchestrator/orchestrator.ts",
@@ -3677,6 +3677,219 @@
       "kind": "method",
       "name": "confidenceAdjustments",
       "path": "src/reasoning/patterns/express/router.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "VPtGlTAjJh",
+      "kind": "class",
+      "name": "AxiosClientPattern",
+      "path": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "o0rxteFvkN",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "aejIiEvput",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "13X5KLQKjA",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "vxhh7CuKfo",
+      "kind": "class",
+      "name": "HttpErrorHandlingPattern",
+      "path": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "yjbSvxJX1r",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "ACMzltjpoc",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "s0xJyXYyBb",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "GXGSljArlR",
+      "kind": "class",
+      "name": "FetchPattern",
+      "path": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "32RrgiXM2Z",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "r1Ojc2Nl6M",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "0ZijomEsYB",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): any",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "QCJMx2cY0M",
+      "kind": "function",
+      "name": "registerHttpClientPatterns",
+      "path": "src/reasoning/patterns/http-clients/index.ts",
+      "signature": "(registry: PatternRegistry): void",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "QE61KkMnIi",
+      "kind": "class",
+      "name": "RequestResponseTransformPattern",
+      "path": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "ivqmXBPnZH",
+      "kind": "method",
+      "name": "matches",
+      "path": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): boolean",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "GdeOKBsxlH",
+      "kind": "method",
+      "name": "describe",
+      "path": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "signature": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "filesystem"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "BbdtqEWEfF",
+      "kind": "method",
+      "name": "confidenceAdjustments",
+      "path": "src/reasoning/patterns/http-clients/request-response-transform.ts",
       "signature": "(kb: KnowledgeBase, entity: Entity): any",
       "exported": true,
       "visibility": "public",
@@ -4666,6 +4879,586 @@
       "attributes": {
         "sideEffects": [],
         "errors": []
+      }
+    },
+    {
+      "id": "46xzEhj0ht",
+      "kind": "function",
+      "name": "fetchUsers",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "signature": "(): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "KqNyMYxl1v",
+      "kind": "function",
+      "name": "getUserById",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "signature": "(id: string): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "iM1UqSnb71",
+      "kind": "function",
+      "name": "createUser",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "signature": "(userData: any): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "I5S9vKfv9k",
+      "kind": "function",
+      "name": "fetchWithErrorHandling",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "signature": "(): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": [
+          "error;",
+          "error;"
+        ]
+      }
+    },
+    {
+      "id": "DHEPUfuHJd",
+      "kind": "function",
+      "name": "fetchWithTimeout",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "signature": "(url: string): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "OLQWfbch9f",
+      "kind": "constant",
+      "name": "apiClient",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "x0LI0hctZY",
+      "kind": "constant",
+      "name": "authClient",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "EqCfVptn4T",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/axios-basic.ts#L11",
+      "path": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "axios"
+      }
+    },
+    {
+      "id": "b0Qxhl3CcA",
+      "kind": "function",
+      "name": "fetchData",
+      "path": "tests/fixtures/http-clients-analysis/fetch-patterns.ts",
+      "signature": "(): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "SzhtnYuyXk",
+      "kind": "function",
+      "name": "postData",
+      "path": "tests/fixtures/http-clients-analysis/fetch-patterns.ts",
+      "signature": "(data: any): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "c0gKK53Mxs",
+      "kind": "function",
+      "name": "apiGet",
+      "path": "tests/fixtures/http-clients-analysis/fetch-patterns.ts",
+      "signature": "(url: string): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": [
+          "new Error(`HTTP error! status: ${response.status}`);"
+        ]
+      }
+    },
+    {
+      "id": "IbMaJEj1QZ",
+      "kind": "function",
+      "name": "safeFetch",
+      "path": "tests/fixtures/http-clients-analysis/fetch-patterns.ts",
+      "signature": "(url: string): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": [
+          "new Error(`HTTP ${response.status}: ${response.statusText}`);",
+          "error;"
+        ]
+      }
+    },
+    {
+      "id": "GUjhRORPif",
+      "kind": "function",
+      "name": "setupLoggingInterceptor",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "signature": "(client: typeof axios): void",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "KzB7GmPVuh",
+      "kind": "function",
+      "name": "setupRetryInterceptor",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "signature": "(client: typeof axios): void",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "GXx4jKaoQ7",
+      "kind": "constant",
+      "name": "apiClient",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal"
+    },
+    {
+      "id": "yEoatfTuk7",
+      "kind": "constant",
+      "name": "authClient",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "7TUITZvDBv",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L9",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "axios"
+      }
+    },
+    {
+      "id": "G4rfelGL0F",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L11",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "apiClient.interceptors.request"
+      }
+    },
+    {
+      "id": "vYeQ46G4rfelGL0F",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L11",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "localStorage"
+      }
+    },
+    {
+      "id": "vYeQ46G4rfelGL0F-2",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L11",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "Promise"
+      }
+    },
+    {
+      "id": "S3pV95VuDb",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L23",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "apiClient.interceptors.response"
+      }
+    },
+    {
+      "id": "CNHANfzujG",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L71",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "authClient.interceptors.request"
+      }
+    },
+    {
+      "id": "x5h1xeSRw5",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L77",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "crypto"
+      }
+    },
+    {
+      "id": "WJiLe8GDY6",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L83",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "authClient.interceptors.response"
+      }
+    },
+    {
+      "id": "0W4cEUWJiLe8GDY6",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L83",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "Date"
+      }
+    },
+    {
+      "id": "0W4cEUWJiLe8GDY6-2",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L83",
+      "path": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "console"
+      }
+    },
+    {
+      "id": "lOxtj16uAX",
+      "kind": "function",
+      "name": "fetchWithRetry",
+      "path": "tests/fixtures/http-clients-analysis/retry-patterns.ts",
+      "signature": "(url: string, maxRetries = 3): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": [
+          "lastError;"
+        ]
+      }
+    },
+    {
+      "id": "dMbuAkhBGd",
+      "kind": "function",
+      "name": "fetchWithBackoff",
+      "path": "tests/fixtures/http-clients-analysis/retry-patterns.ts",
+      "signature": "(url: string, maxRetries = 3): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "uZquZcPEcm",
+      "kind": "function",
+      "name": "axiosWithRetry",
+      "path": "tests/fixtures/http-clients-analysis/retry-patterns.ts",
+      "signature": "(): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "E97KEcCEOY",
+      "kind": "function",
+      "name": "retryWithDelay",
+      "path": "tests/fixtures/http-clients-analysis/retry-patterns.ts",
+      "signature": "(fn: () => Promise<any>, retries = 3, delay = 1000): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": [
+          "error;"
+        ]
+      }
+    },
+    {
+      "id": "m7h2dgftHH",
+      "kind": "function",
+      "name": "retryOn5xx",
+      "path": "tests/fixtures/http-clients-analysis/retry-patterns.ts",
+      "signature": "(url: string, maxRetries = 3): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "P2eVbjexDU",
+      "kind": "function",
+      "name": "fetchWithTimeout",
+      "path": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "signature": "(url: string, timeoutMs = 5000): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": [
+          "error;"
+        ]
+      }
+    },
+    {
+      "id": "dOu5r6YbRX",
+      "kind": "function",
+      "name": "fetchWithRaceTimeout",
+      "path": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "signature": "(url: string, timeoutMs = 5000): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "fF9rC8j3t3",
+      "kind": "function",
+      "name": "axiosRequestWithTimeout",
+      "path": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "signature": "(url: string): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "UPh3PdWYNS",
+      "kind": "function",
+      "name": "withTimeout",
+      "path": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "signature": "(promise: Promise<T>, timeoutMs: number): Promise<T>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "xBsXTcvpLa",
+      "kind": "constant",
+      "name": "apiClientWithTimeout",
+      "path": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "zFaKZv35T5",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-analysis/timeout-patterns.ts#L9",
+      "path": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "axios"
+      }
+    },
+    {
+      "id": "MRXkqCpHPj",
+      "kind": "function",
+      "name": "fetchUsers",
+      "path": "tests/fixtures/http-clients-integration/api-client.ts",
+      "signature": "(): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": [
+          "new Error(`HTTP error! status: ${response.status}`);"
+        ]
+      }
+    },
+    {
+      "id": "1BmUECcI15",
+      "kind": "function",
+      "name": "getUserData",
+      "path": "tests/fixtures/http-clients-integration/api-client.ts",
+      "signature": "(userId: string): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "GuRlUTIbMaJEj1QZ",
+      "kind": "function",
+      "name": "safeFetch",
+      "path": "tests/fixtures/http-clients-integration/api-client.ts",
+      "signature": "(url: string): Promise<any>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": [
+          "new Error(`HTTP ${response.status}: ${response.statusText}`);",
+          "error;"
+        ]
+      }
+    },
+    {
+      "id": "MEPKxFdaIr",
+      "kind": "function",
+      "name": "createUser",
+      "path": "tests/fixtures/http-clients-integration/api-client.ts",
+      "signature": "(userData: any): Promise<Response>",
+      "exported": true,
+      "visibility": "public",
+      "attributes": {
+        "sideEffects": [
+          "network"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FkQ0ZnwIod",
+      "kind": "constant",
+      "name": "apiClient",
+      "path": "tests/fixtures/http-clients-integration/api-client.ts",
+      "exported": true,
+      "visibility": "public"
+    },
+    {
+      "id": "2NwSplqA0W",
+      "kind": "constant",
+      "name": "module::tests/fixtures/http-clients-integration/api-client.ts#L9",
+      "path": "tests/fixtures/http-clients-integration/api-client.ts",
+      "exported": false,
+      "visibility": "internal",
+      "metadata": {
+        "synthetic": true,
+        "scope": "module",
+        "objectName": "axios"
       }
     },
     {
@@ -16705,6 +17498,15 @@
     {
       "subjectId": "src/orchestrator/orchestrator.ts",
       "predicate": "imports",
+      "objectId": "../reasoning/patterns/http-clients/index.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/orchestrator/orchestrator.ts"
+      }
+    },
+    {
+      "subjectId": "src/orchestrator/orchestrator.ts",
+      "predicate": "imports",
       "objectId": "../types/index.js",
       "source": {
         "kind": "ast",
@@ -23744,6 +24546,842 @@
       }
     },
     {
+      "subjectId": "o0rxteFvkN",
+      "predicate": "calls",
+      "objectId": "yUaBlQVLrD",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "hasFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": "RDlNbAlvLn",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "getFirstFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "this.parseConfig",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "this.determineConfidence",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "this.buildDescription",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "aejIiEvput",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "13X5KLQKjA",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/axios-client.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+      }
+    },
+    {
+      "subjectId": "yjbSvxJX1r",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "this.detectPatterns",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ACMzltjpoc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ACMzltjpoc",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "ACMzltjpoc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ACMzltjpoc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "this.detectPatterns",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ACMzltjpoc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "this.buildDescription",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ACMzltjpoc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ACMzltjpoc",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "s0xJyXYyBb",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/error-handling.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+      }
+    },
+    {
+      "subjectId": "32RrgiXM2Z",
+      "predicate": "calls",
+      "objectId": "yUaBlQVLrD",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "hasFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": "RDlNbAlvLn",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "getFirstFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "this.detectErrorHandling",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "this.determineConfidence",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "this.buildDescription",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "r1Ojc2Nl6M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "0ZijomEsYB",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/fetch-patterns.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "QCJMx2cY0M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QCJMx2cY0M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QCJMx2cY0M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "QCJMx2cY0M",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      },
+      "details": {
+        "originalExpression": "registry.register",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/index.ts",
+      "predicate": "imports",
+      "objectId": "../pattern-registry.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/index.ts",
+      "predicate": "imports",
+      "objectId": "./axios-client.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/index.ts",
+      "predicate": "imports",
+      "objectId": "./fetch-patterns.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/index.ts",
+      "predicate": "imports",
+      "objectId": "./request-response-transform.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/index.ts",
+      "predicate": "imports",
+      "objectId": "./error-handling.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/index.ts"
+      }
+    },
+    {
+      "subjectId": "ivqmXBPnZH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "transformCalls.some",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "ivqmXBPnZH",
+      "predicate": "calls",
+      "objectId": "yUaBlQVLrD",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "hasFact",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "GdeOKBsxlH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GdeOKBsxlH",
+      "predicate": "calls",
+      "objectId": "TuwqPchsHe",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "getFactSets",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "GdeOKBsxlH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "factSets.map",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GdeOKBsxlH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "this.detectTransforms",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GdeOKBsxlH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "this.buildDescription",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GdeOKBsxlH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "this.generateChunkId",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GdeOKBsxlH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "String",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "BbdtqEWEfF",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      },
+      "details": {
+        "originalExpression": "this.matches",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/knowledge-base.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/models.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "predicate": "imports",
+      "objectId": "../types.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "predicate": "imports",
+      "objectId": "../shared/helpers.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      }
+    },
+    {
+      "subjectId": "src/reasoning/patterns/http-clients/request-response-transform.ts",
+      "predicate": "imports",
+      "objectId": "../../../kb/id-generation.js",
+      "source": {
+        "kind": "ast",
+        "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+      }
+    },
+    {
       "subjectId": "x0wGhynbxw",
       "predicate": "calls",
       "objectId": null,
@@ -28780,6 +30418,1091 @@
       "source": {
         "kind": "ast",
         "file": "src/validation/retry-controller.ts"
+      }
+    },
+    {
+      "subjectId": "46xzEhj0ht",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "axios.get",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "KqNyMYxl1v",
+      "predicate": "calls",
+      "objectId": "klsyebpWFX",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "apiClient.get",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "iM1UqSnb71",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "apiClient.post",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "I5S9vKfv9k",
+      "predicate": "calls",
+      "objectId": "klsyebpWFX",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "apiClient.get",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "I5S9vKfv9k",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "axios.isAxiosError",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "I5S9vKfv9k",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "console.error",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "DHEPUfuHJd",
+      "predicate": "calls",
+      "objectId": "klsyebpWFX",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "apiClient.get",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/http-clients-analysis/axios-basic.ts",
+      "predicate": "imports",
+      "objectId": "axios",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      }
+    },
+    {
+      "subjectId": "EqCfVptn4T",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "axios.create",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "EqCfVptn4T",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+      },
+      "details": {
+        "originalExpression": "axios.create",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "b0Qxhl3CcA",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "b0Qxhl3CcA",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "SzhtnYuyXk",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "SzhtnYuyXk",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "JSON.stringify",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "SzhtnYuyXk",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "c0gKK53Mxs",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "c0gKK53Mxs",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "IbMaJEj1QZ",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "IbMaJEj1QZ",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "IbMaJEj1QZ",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "console.error",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GUjhRORPif",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "client.interceptors.request.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GUjhRORPif",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "console.log",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GUjhRORPif",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "client.interceptors.response.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GUjhRORPif",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "console.log",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "KzB7GmPVuh",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "client.interceptors.response.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "KzB7GmPVuh",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "Promise.reject",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "KzB7GmPVuh",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "setTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "KzB7GmPVuh",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "client.request",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts",
+      "predicate": "imports",
+      "objectId": "axios",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "7TUITZvDBv",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "axios.create",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "G4rfelGL0F",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "apiClient.interceptors.request.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "vYeQ46G4rfelGL0F",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "localStorage.getItem",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "vYeQ46G4rfelGL0F-2",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "Promise.reject",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "S3pV95VuDb",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "apiClient.interceptors.response.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "vYeQ46G4rfelGL0F-2",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "Promise.reject",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "7TUITZvDBv",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "axios.create",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "CNHANfzujG",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "authClient.interceptors.request.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "CNHANfzujG",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "authClient.interceptors.request.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "x5h1xeSRw5",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "crypto.randomUUID",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "WJiLe8GDY6",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "authClient.interceptors.response.use",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "0W4cEUWJiLe8GDY6",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "Date.now",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "0W4cEUWJiLe8GDY6-2",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "console.log",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "lOxtj16uAX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "lOxtj16uAX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dMbuAkhBGd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dMbuAkhBGd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dMbuAkhBGd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "Math.pow",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dMbuAkhBGd",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "setTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "uZquZcPEcm",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "axios.create",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "uZquZcPEcm",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "client.get",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "E97KEcCEOY",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fn",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "E97KEcCEOY",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "setTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "m7h2dgftHH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "m7h2dgftHH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "setTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "m7h2dgftHH",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/http-clients-analysis/retry-patterns.ts",
+      "predicate": "imports",
+      "objectId": "axios",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "P2eVbjexDU",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "setTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "P2eVbjexDU",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "controller.abort",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "P2eVbjexDU",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "P2eVbjexDU",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "clearTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "P2eVbjexDU",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "P2eVbjexDU",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "clearTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dOu5r6YbRX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch(url).then",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dOu5r6YbRX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dOu5r6YbRX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "r.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dOu5r6YbRX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "setTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dOu5r6YbRX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "reject",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "dOu5r6YbRX",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "Promise.race",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "fF9rC8j3t3",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "axios.get",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "UPh3PdWYNS",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "setTimeout",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "UPh3PdWYNS",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "reject",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "UPh3PdWYNS",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "Promise.race",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/http-clients-analysis/timeout-patterns.ts",
+      "predicate": "imports",
+      "objectId": "axios",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      }
+    },
+    {
+      "subjectId": "zFaKZv35T5",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+      },
+      "details": {
+        "originalExpression": "axios.create",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "MRXkqCpHPj",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "MRXkqCpHPj",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "1BmUECcI15",
+      "predicate": "calls",
+      "objectId": "klsyebpWFX",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "apiClient.get",
+        "resolved": true
+      }
+    },
+    {
+      "subjectId": "1BmUECcI15",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GuRlUTIbMaJEj1QZ",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GuRlUTIbMaJEj1QZ",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "response.json",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "GuRlUTIbMaJEj1QZ",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "console.error",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "MEPKxFdaIr",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "fetch",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "MEPKxFdaIr",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "JSON.stringify",
+        "resolved": false
+      }
+    },
+    {
+      "subjectId": "tests/fixtures/http-clients-integration/api-client.ts",
+      "predicate": "imports",
+      "objectId": "axios",
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      }
+    },
+    {
+      "subjectId": "2NwSplqA0W",
+      "predicate": "calls",
+      "objectId": null,
+      "source": {
+        "kind": "ast",
+        "file": "tests/fixtures/http-clients-integration/api-client.ts"
+      },
+      "details": {
+        "originalExpression": "axios.create",
+        "resolved": false
       }
     },
     {
@@ -41721,10 +44444,10 @@
       "evidenceScore": 90
     },
     {
-      "id": "DN6NUn2jKZ-facts",
+      "id": "FCrE1XioNj-facts",
       "facts": [
         {
-          "subjectId": "DN6NUn2jKZ",
+          "subjectId": "FCrE1XioNj",
           "predicate": "is-class",
           "object": true
         }
@@ -46930,6 +49653,765 @@
       "evidenceScore": 90
     },
     {
+      "id": "VPtGlTAjJh-facts",
+      "facts": [
+        {
+          "subjectId": "VPtGlTAjJh",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "o0rxteFvkN-facts",
+      "facts": [
+        {
+          "subjectId": "o0rxteFvkN",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "o0rxteFvkN",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "o0rxteFvkN",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "o0rxteFvkN",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "o0rxteFvkN",
+          "predicate": "calls-expression",
+          "object": "hasFact"
+        },
+        {
+          "subjectId": "o0rxteFvkN",
+          "predicate": "call-arg-2",
+          "object": "initializer-call"
+        },
+        {
+          "subjectId": "o0rxteFvkN",
+          "predicate": "call-arg-3",
+          "object": "axios.create"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "aejIiEvput-facts",
+      "facts": [
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "getFirstFact"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "call-arg-2",
+          "object": "initializer"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "this.parseConfig"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "this.determineConfidence"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "this.buildDescription"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        },
+        {
+          "subjectId": "aejIiEvput",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "13X5KLQKjA-facts",
+      "facts": [
+        {
+          "subjectId": "13X5KLQKjA",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "13X5KLQKjA",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): any"
+        },
+        {
+          "subjectId": "13X5KLQKjA",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "13X5KLQKjA",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "13X5KLQKjA",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/axios-client.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "vxhh7CuKfo-facts",
+      "facts": [
+        {
+          "subjectId": "vxhh7CuKfo",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "yjbSvxJX1r-facts",
+      "facts": [
+        {
+          "subjectId": "yjbSvxJX1r",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "yjbSvxJX1r",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "yjbSvxJX1r",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "yjbSvxJX1r",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "yjbSvxJX1r",
+          "predicate": "calls-expression",
+          "object": "this.detectPatterns"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "ACMzltjpoc-facts",
+      "facts": [
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "calls-expression",
+          "object": "this.detectPatterns"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "calls-expression",
+          "object": "this.buildDescription"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        },
+        {
+          "subjectId": "ACMzltjpoc",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "s0xJyXYyBb-facts",
+      "facts": [
+        {
+          "subjectId": "s0xJyXYyBb",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "s0xJyXYyBb",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): any"
+        },
+        {
+          "subjectId": "s0xJyXYyBb",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "s0xJyXYyBb",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "s0xJyXYyBb",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/error-handling.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "GXGSljArlR-facts",
+      "facts": [
+        {
+          "subjectId": "GXGSljArlR",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "32RrgiXM2Z-facts",
+      "facts": [
+        {
+          "subjectId": "32RrgiXM2Z",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "32RrgiXM2Z",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "32RrgiXM2Z",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "32RrgiXM2Z",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "32RrgiXM2Z",
+          "predicate": "calls-expression",
+          "object": "hasFact"
+        },
+        {
+          "subjectId": "32RrgiXM2Z",
+          "predicate": "call-arg-2",
+          "object": "calls-expression"
+        },
+        {
+          "subjectId": "32RrgiXM2Z",
+          "predicate": "call-arg-3",
+          "object": "fetch"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "r1Ojc2Nl6M-facts",
+      "facts": [
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "getFirstFact"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "call-arg-2",
+          "object": "call-arg-0"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "String"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "this.detectErrorHandling"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "this.determineConfidence"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "this.buildDescription"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        },
+        {
+          "subjectId": "r1Ojc2Nl6M",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "0ZijomEsYB-facts",
+      "facts": [
+        {
+          "subjectId": "0ZijomEsYB",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "0ZijomEsYB",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): any"
+        },
+        {
+          "subjectId": "0ZijomEsYB",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "0ZijomEsYB",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "0ZijomEsYB",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "QCJMx2cY0M-facts",
+      "facts": [
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "has-signature",
+          "object": "(registry: PatternRegistry): void"
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "has-jsdoc",
+          "object": "\nRegister all HTTP client pattern modules with the given registry.\n"
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "param-names",
+          "object": "registry"
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        },
+        {
+          "subjectId": "QCJMx2cY0M",
+          "predicate": "calls-expression",
+          "object": "registry.register"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/index.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "QE61KkMnIi-facts",
+      "facts": [
+        {
+          "subjectId": "QE61KkMnIi",
+          "predicate": "is-class",
+          "object": true
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+        }
+      ],
+      "evidenceScore": 75
+    },
+    {
+      "id": "ivqmXBPnZH-facts",
+      "facts": [
+        {
+          "subjectId": "ivqmXBPnZH",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "ivqmXBPnZH",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): boolean"
+        },
+        {
+          "subjectId": "ivqmXBPnZH",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "ivqmXBPnZH",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "ivqmXBPnZH",
+          "predicate": "calls-expression",
+          "object": "transformCalls.some"
+        },
+        {
+          "subjectId": "ivqmXBPnZH",
+          "predicate": "calls-expression",
+          "object": "hasFact"
+        },
+        {
+          "subjectId": "ivqmXBPnZH",
+          "predicate": "call-arg-2",
+          "object": "calls-expression"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "GdeOKBsxlH-facts",
+      "facts": [
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): import(\"/src/kb/models\").BehaviorChunk[]"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "calls-expression",
+          "object": "getFactSets"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "calls-expression",
+          "object": "factSets.map"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "calls-expression",
+          "object": "this.detectTransforms"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "calls-expression",
+          "object": "this.buildDescription"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "calls-expression",
+          "object": "this.generateChunkId"
+        },
+        {
+          "subjectId": "GdeOKBsxlH",
+          "predicate": "calls-expression",
+          "object": "String"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "BbdtqEWEfF-facts",
+      "facts": [
+        {
+          "subjectId": "BbdtqEWEfF",
+          "predicate": "is-method",
+          "object": true
+        },
+        {
+          "subjectId": "BbdtqEWEfF",
+          "predicate": "has-signature",
+          "object": "(kb: KnowledgeBase, entity: Entity): any"
+        },
+        {
+          "subjectId": "BbdtqEWEfF",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "BbdtqEWEfF",
+          "predicate": "param-names",
+          "object": "kb,entity"
+        },
+        {
+          "subjectId": "BbdtqEWEfF",
+          "predicate": "calls-expression",
+          "object": "this.matches"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "src/reasoning/patterns/http-clients/request-response-transform.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
       "id": "qzrItKqOH9-facts",
       "facts": [
         {
@@ -51601,6 +55083,1927 @@
       "evidenceScore": 90
     },
     {
+      "id": "46xzEhj0ht-facts",
+      "facts": [
+        {
+          "subjectId": "46xzEhj0ht",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "46xzEhj0ht",
+          "predicate": "has-signature",
+          "object": "(): Promise<any>"
+        },
+        {
+          "subjectId": "46xzEhj0ht",
+          "predicate": "param-count",
+          "object": 0
+        },
+        {
+          "subjectId": "46xzEhj0ht",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "46xzEhj0ht",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "46xzEhj0ht",
+          "predicate": "calls-expression",
+          "object": "axios.get"
+        },
+        {
+          "subjectId": "46xzEhj0ht",
+          "predicate": "call-arg-0",
+          "object": "https://api.example.com/users"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "KqNyMYxl1v-facts",
+      "facts": [
+        {
+          "subjectId": "KqNyMYxl1v",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "KqNyMYxl1v",
+          "predicate": "has-signature",
+          "object": "(id: string): Promise<any>"
+        },
+        {
+          "subjectId": "KqNyMYxl1v",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "KqNyMYxl1v",
+          "predicate": "param-names",
+          "object": "id"
+        },
+        {
+          "subjectId": "KqNyMYxl1v",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "KqNyMYxl1v",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "KqNyMYxl1v",
+          "predicate": "calls-expression",
+          "object": "apiClient.get"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "iM1UqSnb71-facts",
+      "facts": [
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "has-signature",
+          "object": "(userData: any): Promise<any>"
+        },
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "param-names",
+          "object": "userData"
+        },
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "calls-expression",
+          "object": "apiClient.post"
+        },
+        {
+          "subjectId": "iM1UqSnb71",
+          "predicate": "call-arg-0",
+          "object": "/users"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "I5S9vKfv9k-facts",
+      "facts": [
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "has-signature",
+          "object": "(): Promise<any>"
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "param-count",
+          "object": 0
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "calls-expression",
+          "object": "apiClient.get"
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "call-arg-0",
+          "object": "/data"
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "calls-expression",
+          "object": "axios.isAxiosError"
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "calls-expression",
+          "object": "console.error"
+        },
+        {
+          "subjectId": "I5S9vKfv9k",
+          "predicate": "call-arg-0",
+          "object": "Axios error:"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "DHEPUfuHJd-facts",
+      "facts": [
+        {
+          "subjectId": "DHEPUfuHJd",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "DHEPUfuHJd",
+          "predicate": "has-signature",
+          "object": "(url: string): Promise<any>"
+        },
+        {
+          "subjectId": "DHEPUfuHJd",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "DHEPUfuHJd",
+          "predicate": "param-names",
+          "object": "url"
+        },
+        {
+          "subjectId": "DHEPUfuHJd",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "DHEPUfuHJd",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "DHEPUfuHJd",
+          "predicate": "calls-expression",
+          "object": "apiClient.get"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "OLQWfbch9f-facts",
+      "facts": [
+        {
+          "subjectId": "OLQWfbch9f",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "OLQWfbch9f",
+          "predicate": "initializer",
+          "object": "axios.create({\n  baseURL: 'https://api.example.com',\n  timeout: 5000,\n  headers: {\n    'Content-Type': 'application/json',\n    'Authorization': 'Bearer token123'\n  }\n})"
+        },
+        {
+          "subjectId": "OLQWfbch9f",
+          "predicate": "initializer-call",
+          "object": "axios.create"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "x0LI0hctZY-facts",
+      "facts": [
+        {
+          "subjectId": "x0LI0hctZY",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "x0LI0hctZY",
+          "predicate": "initializer",
+          "object": "axios.create({\n  baseURL: 'https://auth.example.com',\n  timeout: 3000\n})"
+        },
+        {
+          "subjectId": "x0LI0hctZY",
+          "predicate": "initializer-call",
+          "object": "axios.create"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "EqCfVptn4T-facts",
+      "facts": [
+        {
+          "subjectId": "EqCfVptn4T",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "EqCfVptn4T",
+          "predicate": "calls-expression",
+          "object": "axios.create"
+        },
+        {
+          "subjectId": "EqCfVptn4T",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        },
+        {
+          "subjectId": "EqCfVptn4T",
+          "predicate": "calls-expression",
+          "object": "axios.create"
+        },
+        {
+          "subjectId": "EqCfVptn4T",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/axios-basic.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "b0Qxhl3CcA-facts",
+      "facts": [
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "has-signature",
+          "object": "(): Promise<any>"
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "has-jsdoc",
+          "object": "\nPhase -1 Analysis: Fetch API patterns for parser instrumentation"
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "param-count",
+          "object": 0
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "call-arg-0",
+          "object": "https://api.example.com/data"
+        },
+        {
+          "subjectId": "b0Qxhl3CcA",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "SzhtnYuyXk-facts",
+      "facts": [
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "has-signature",
+          "object": "(data: any): Promise<any>"
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "param-names",
+          "object": "data"
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "call-arg-0",
+          "object": "https://api.example.com/data"
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "calls-expression",
+          "object": "JSON.stringify"
+        },
+        {
+          "subjectId": "SzhtnYuyXk",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "c0gKK53Mxs-facts",
+      "facts": [
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "has-signature",
+          "object": "(url: string): Promise<any>"
+        },
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "param-names",
+          "object": "url"
+        },
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "c0gKK53Mxs",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "IbMaJEj1QZ-facts",
+      "facts": [
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "has-signature",
+          "object": "(url: string): Promise<any>"
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "param-names",
+          "object": "url"
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "calls-expression",
+          "object": "console.error"
+        },
+        {
+          "subjectId": "IbMaJEj1QZ",
+          "predicate": "call-arg-0",
+          "object": "Fetch failed:"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/fetch-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "GUjhRORPif-facts",
+      "facts": [
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "has-signature",
+          "object": "(client: typeof axios): void"
+        },
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "param-names",
+          "object": "client"
+        },
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "calls-expression",
+          "object": "client.interceptors.request.use"
+        },
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "calls-expression",
+          "object": "console.log"
+        },
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "calls-expression",
+          "object": "client.interceptors.response.use"
+        },
+        {
+          "subjectId": "GUjhRORPif",
+          "predicate": "calls-expression",
+          "object": "console.log"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "KzB7GmPVuh-facts",
+      "facts": [
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "has-signature",
+          "object": "(client: typeof axios): void"
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "param-names",
+          "object": "client"
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "calls-expression",
+          "object": "client.interceptors.response.use"
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "calls-expression",
+          "object": "Promise.reject"
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "calls-expression",
+          "object": "setTimeout"
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "call-arg-1",
+          "object": "1000"
+        },
+        {
+          "subjectId": "KzB7GmPVuh",
+          "predicate": "calls-expression",
+          "object": "client.request"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "GXx4jKaoQ7-facts",
+      "facts": [
+        {
+          "subjectId": "GXx4jKaoQ7",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "GXx4jKaoQ7",
+          "predicate": "initializer",
+          "object": "axios.create({ baseURL: 'https://api.example.com' })"
+        },
+        {
+          "subjectId": "GXx4jKaoQ7",
+          "predicate": "initializer-call",
+          "object": "axios.create"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "yEoatfTuk7-facts",
+      "facts": [
+        {
+          "subjectId": "yEoatfTuk7",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "yEoatfTuk7",
+          "predicate": "initializer",
+          "object": "axios.create()"
+        },
+        {
+          "subjectId": "yEoatfTuk7",
+          "predicate": "initializer-call",
+          "object": "axios.create"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "7TUITZvDBv-facts",
+      "facts": [
+        {
+          "subjectId": "7TUITZvDBv",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "7TUITZvDBv",
+          "predicate": "calls-expression",
+          "object": "axios.create"
+        },
+        {
+          "subjectId": "7TUITZvDBv",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        },
+        {
+          "subjectId": "7TUITZvDBv",
+          "predicate": "calls-expression",
+          "object": "axios.create"
+        },
+        {
+          "subjectId": "7TUITZvDBv",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "G4rfelGL0F-facts",
+      "facts": [
+        {
+          "subjectId": "G4rfelGL0F",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "G4rfelGL0F",
+          "predicate": "calls-expression",
+          "object": "apiClient.interceptors.request.use"
+        },
+        {
+          "subjectId": "G4rfelGL0F",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "vYeQ46G4rfelGL0F-facts",
+      "facts": [
+        {
+          "subjectId": "vYeQ46G4rfelGL0F",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F",
+          "predicate": "calls-expression",
+          "object": "localStorage.getItem"
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F",
+          "predicate": "call-arg-0",
+          "object": "auth_token"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "vYeQ46G4rfelGL0F-2-facts",
+      "facts": [
+        {
+          "subjectId": "vYeQ46G4rfelGL0F-2",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F-2",
+          "predicate": "calls-expression",
+          "object": "Promise.reject"
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F-2",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F-2",
+          "predicate": "call-arg-0",
+          "object": "error"
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F-2",
+          "predicate": "calls-expression",
+          "object": "Promise.reject"
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F-2",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        },
+        {
+          "subjectId": "vYeQ46G4rfelGL0F-2",
+          "predicate": "call-arg-0",
+          "object": "error"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "S3pV95VuDb-facts",
+      "facts": [
+        {
+          "subjectId": "S3pV95VuDb",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "S3pV95VuDb",
+          "predicate": "calls-expression",
+          "object": "apiClient.interceptors.response.use"
+        },
+        {
+          "subjectId": "S3pV95VuDb",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "CNHANfzujG-facts",
+      "facts": [
+        {
+          "subjectId": "CNHANfzujG",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "CNHANfzujG",
+          "predicate": "calls-expression",
+          "object": "authClient.interceptors.request.use"
+        },
+        {
+          "subjectId": "CNHANfzujG",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        },
+        {
+          "subjectId": "CNHANfzujG",
+          "predicate": "calls-expression",
+          "object": "authClient.interceptors.request.use"
+        },
+        {
+          "subjectId": "CNHANfzujG",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "x5h1xeSRw5-facts",
+      "facts": [
+        {
+          "subjectId": "x5h1xeSRw5",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "x5h1xeSRw5",
+          "predicate": "calls-expression",
+          "object": "crypto.randomUUID"
+        },
+        {
+          "subjectId": "x5h1xeSRw5",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "WJiLe8GDY6-facts",
+      "facts": [
+        {
+          "subjectId": "WJiLe8GDY6",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "WJiLe8GDY6",
+          "predicate": "calls-expression",
+          "object": "authClient.interceptors.response.use"
+        },
+        {
+          "subjectId": "WJiLe8GDY6",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "0W4cEUWJiLe8GDY6-facts",
+      "facts": [
+        {
+          "subjectId": "0W4cEUWJiLe8GDY6",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "0W4cEUWJiLe8GDY6",
+          "predicate": "calls-expression",
+          "object": "Date.now"
+        },
+        {
+          "subjectId": "0W4cEUWJiLe8GDY6",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "0W4cEUWJiLe8GDY6-2-facts",
+      "facts": [
+        {
+          "subjectId": "0W4cEUWJiLe8GDY6-2",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "0W4cEUWJiLe8GDY6-2",
+          "predicate": "calls-expression",
+          "object": "console.log"
+        },
+        {
+          "subjectId": "0W4cEUWJiLe8GDY6-2",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/interceptor-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "lOxtj16uAX-facts",
+      "facts": [
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "has-signature",
+          "object": "(url: string, maxRetries = 3): Promise<any>"
+        },
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "param-names",
+          "object": "url,maxRetries"
+        },
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "lOxtj16uAX",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "dMbuAkhBGd-facts",
+      "facts": [
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "has-signature",
+          "object": "(url: string, maxRetries = 3): Promise<any>"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "param-names",
+          "object": "url,maxRetries"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "calls-expression",
+          "object": "Math.pow"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "call-arg-0",
+          "object": "2"
+        },
+        {
+          "subjectId": "dMbuAkhBGd",
+          "predicate": "calls-expression",
+          "object": "setTimeout"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "uZquZcPEcm-facts",
+      "facts": [
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "has-signature",
+          "object": "(): Promise<any>"
+        },
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "param-count",
+          "object": 0
+        },
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "calls-expression",
+          "object": "axios.create"
+        },
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "calls-expression",
+          "object": "client.get"
+        },
+        {
+          "subjectId": "uZquZcPEcm",
+          "predicate": "call-arg-0",
+          "object": "/api/data"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "E97KEcCEOY-facts",
+      "facts": [
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "has-signature",
+          "object": "(fn: () => Promise<any>, retries = 3, delay = 1000): Promise<any>"
+        },
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "param-count",
+          "object": 3
+        },
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "param-names",
+          "object": "fn,retries,delay"
+        },
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "calls-expression",
+          "object": "fn"
+        },
+        {
+          "subjectId": "E97KEcCEOY",
+          "predicate": "calls-expression",
+          "object": "setTimeout"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "m7h2dgftHH-facts",
+      "facts": [
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "has-signature",
+          "object": "(url: string, maxRetries = 3): Promise<any>"
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "param-names",
+          "object": "url,maxRetries"
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "calls-expression",
+          "object": "setTimeout"
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "call-arg-1",
+          "object": "1000"
+        },
+        {
+          "subjectId": "m7h2dgftHH",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/retry-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "P2eVbjexDU-facts",
+      "facts": [
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "has-signature",
+          "object": "(url: string, timeoutMs = 5000): Promise<any>"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "param-names",
+          "object": "url,timeoutMs"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "calls-expression",
+          "object": "setTimeout"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "calls-expression",
+          "object": "controller.abort"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "calls-expression",
+          "object": "clearTimeout"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        },
+        {
+          "subjectId": "P2eVbjexDU",
+          "predicate": "calls-expression",
+          "object": "clearTimeout"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "dOu5r6YbRX-facts",
+      "facts": [
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "has-signature",
+          "object": "(url: string, timeoutMs = 5000): Promise<any>"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "param-names",
+          "object": "url,timeoutMs"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "calls-expression",
+          "object": "fetch(url).then"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "calls-expression",
+          "object": "r.json"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "calls-expression",
+          "object": "setTimeout"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "calls-expression",
+          "object": "reject"
+        },
+        {
+          "subjectId": "dOu5r6YbRX",
+          "predicate": "calls-expression",
+          "object": "Promise.race"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "fF9rC8j3t3-facts",
+      "facts": [
+        {
+          "subjectId": "fF9rC8j3t3",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "fF9rC8j3t3",
+          "predicate": "has-signature",
+          "object": "(url: string): Promise<any>"
+        },
+        {
+          "subjectId": "fF9rC8j3t3",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "fF9rC8j3t3",
+          "predicate": "param-names",
+          "object": "url"
+        },
+        {
+          "subjectId": "fF9rC8j3t3",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "fF9rC8j3t3",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "fF9rC8j3t3",
+          "predicate": "calls-expression",
+          "object": "axios.get"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "UPh3PdWYNS-facts",
+      "facts": [
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "has-signature",
+          "object": "(promise: Promise<T>, timeoutMs: number): Promise<T>"
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "param-count",
+          "object": 2
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "param-names",
+          "object": "promise,timeoutMs"
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "calls-expression",
+          "object": "setTimeout"
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "calls-expression",
+          "object": "reject"
+        },
+        {
+          "subjectId": "UPh3PdWYNS",
+          "predicate": "calls-expression",
+          "object": "Promise.race"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "xBsXTcvpLa-facts",
+      "facts": [
+        {
+          "subjectId": "xBsXTcvpLa",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "xBsXTcvpLa",
+          "predicate": "initializer",
+          "object": "axios.create({\n  baseURL: 'https://api.example.com',\n  timeout: 5000,\n})"
+        },
+        {
+          "subjectId": "xBsXTcvpLa",
+          "predicate": "initializer-call",
+          "object": "axios.create"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "zFaKZv35T5-facts",
+      "facts": [
+        {
+          "subjectId": "zFaKZv35T5",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "zFaKZv35T5",
+          "predicate": "calls-expression",
+          "object": "axios.create"
+        },
+        {
+          "subjectId": "zFaKZv35T5",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-analysis/timeout-patterns.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
+      "id": "MRXkqCpHPj-facts",
+      "facts": [
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "has-signature",
+          "object": "(): Promise<any>"
+        },
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "param-count",
+          "object": 0
+        },
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "call-arg-0",
+          "object": "https://api.example.com/users"
+        },
+        {
+          "subjectId": "MRXkqCpHPj",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-integration/api-client.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "1BmUECcI15-facts",
+      "facts": [
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "has-signature",
+          "object": "(userId: string): Promise<any>"
+        },
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "param-names",
+          "object": "userId"
+        },
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "calls-expression",
+          "object": "apiClient.get"
+        },
+        {
+          "subjectId": "1BmUECcI15",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-integration/api-client.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "GuRlUTIbMaJEj1QZ-facts",
+      "facts": [
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "has-signature",
+          "object": "(url: string): Promise<any>"
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "param-names",
+          "object": "url"
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "calls-expression",
+          "object": "response.json"
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "calls-expression",
+          "object": "console.error"
+        },
+        {
+          "subjectId": "GuRlUTIbMaJEj1QZ",
+          "predicate": "call-arg-0",
+          "object": "Fetch failed:"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-integration/api-client.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "MEPKxFdaIr-facts",
+      "facts": [
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "is-function",
+          "object": true
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "has-signature",
+          "object": "(userData: any): Promise<Response>"
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "param-count",
+          "object": 1
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "param-names",
+          "object": "userData"
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "is-async",
+          "object": "true"
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "returns-promise",
+          "object": "true"
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "calls-expression",
+          "object": "fetch"
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "call-arg-0",
+          "object": "https://api.example.com/users"
+        },
+        {
+          "subjectId": "MEPKxFdaIr",
+          "predicate": "calls-expression",
+          "object": "JSON.stringify"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-integration/api-client.ts"
+        }
+      ],
+      "evidenceScore": 90
+    },
+    {
+      "id": "FkQ0ZnwIod-facts",
+      "facts": [
+        {
+          "subjectId": "FkQ0ZnwIod",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "FkQ0ZnwIod",
+          "predicate": "initializer",
+          "object": "axios.create({\n  baseURL: 'https://api.example.com',\n  timeout: 5000,\n  headers: {\n    'Content-Type': 'application/json',\n  },\n})"
+        },
+        {
+          "subjectId": "FkQ0ZnwIod",
+          "predicate": "initializer-call",
+          "object": "axios.create"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-integration/api-client.ts"
+        }
+      ],
+      "evidenceScore": 60
+    },
+    {
+      "id": "2NwSplqA0W-facts",
+      "facts": [
+        {
+          "subjectId": "2NwSplqA0W",
+          "predicate": "is-constant",
+          "object": true
+        },
+        {
+          "subjectId": "2NwSplqA0W",
+          "predicate": "calls-expression",
+          "object": "axios.create"
+        },
+        {
+          "subjectId": "2NwSplqA0W",
+          "predicate": "call-scope",
+          "object": "scope:module"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "ast",
+          "file": "tests/fixtures/http-clients-integration/api-client.ts"
+        }
+      ],
+      "evidenceScore": 50
+    },
+    {
       "id": "yqKryJCU0p-facts",
       "facts": [
         {
@@ -55775,11 +61178,11 @@
     },
     {
       "id": "oHSxUmgl8w",
-      "targetEntityId": "DN6NUn2jKZ",
+      "targetEntityId": "FCrE1XioNj",
       "textDraft": "Class Orchestrator (intent unclear from static analysis)",
       "confidence": "Low",
       "factSetIds": [
-        "DN6NUn2jKZ-facts"
+        "FCrE1XioNj-facts"
       ]
     },
     {
@@ -55837,22 +61240,22 @@
       ]
     },
     {
-      "id": "Eac1syoizx",
+      "id": "S5hDpIwZEL",
       "targetEntityId": "PROwSad1Rn",
-      "textDraft": "Function validateRunSummary: \nValidates run summary against JSON Schema.",
-      "confidence": "Medium",
+      "textDraft": "Converts request data to JSON format via `JSON.stringify()` for serialization. Parses JSON response data using `JSON.parse()`.",
       "factSetIds": [
         "PROwSad1Rn-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
-      "id": "CpCqdUsgLU",
+      "id": "RW1WOMCDKW",
       "targetEntityId": "7XacG8Xny7",
-      "textDraft": "Function renderJSON: \nRenders run summary as formatted JSON string.",
-      "confidence": "Medium",
+      "textDraft": "Converts request data to JSON format via `JSON.stringify()` for serialization.",
       "factSetIds": [
         "7XacG8Xny7-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
       "id": "JiyLaInazb",
@@ -56422,6 +61825,159 @@
       ]
     },
     {
+      "id": "0oYn3CvFw6",
+      "targetEntityId": "VPtGlTAjJh",
+      "textDraft": "Class AxiosClientPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "VPtGlTAjJh-facts"
+      ]
+    },
+    {
+      "id": "s13S49sGkJ",
+      "targetEntityId": "o0rxteFvkN",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "o0rxteFvkN-facts"
+      ]
+    },
+    {
+      "id": "9nhG6Rq8zr",
+      "targetEntityId": "aejIiEvput",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "aejIiEvput-facts"
+      ]
+    },
+    {
+      "id": "q7bEjq1Qrn",
+      "targetEntityId": "13X5KLQKjA",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "13X5KLQKjA-facts"
+      ]
+    },
+    {
+      "id": "2YbDPms1tE",
+      "targetEntityId": "vxhh7CuKfo",
+      "textDraft": "Class HttpErrorHandlingPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "vxhh7CuKfo-facts"
+      ]
+    },
+    {
+      "id": "gthe0iULO9",
+      "targetEntityId": "yjbSvxJX1r",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "yjbSvxJX1r-facts"
+      ]
+    },
+    {
+      "id": "Q1HkRL5kmJ",
+      "targetEntityId": "ACMzltjpoc",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "ACMzltjpoc-facts"
+      ]
+    },
+    {
+      "id": "nUfc2qqu5j",
+      "targetEntityId": "s0xJyXYyBb",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "s0xJyXYyBb-facts"
+      ]
+    },
+    {
+      "id": "k3dYnZAUmE",
+      "targetEntityId": "GXGSljArlR",
+      "textDraft": "Class FetchPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "GXGSljArlR-facts"
+      ]
+    },
+    {
+      "id": "4RJX45eP1u",
+      "targetEntityId": "32RrgiXM2Z",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "32RrgiXM2Z-facts"
+      ]
+    },
+    {
+      "id": "yaDUbkKNsB",
+      "targetEntityId": "r1Ojc2Nl6M",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "r1Ojc2Nl6M-facts"
+      ]
+    },
+    {
+      "id": "OkQyomuBeJ",
+      "targetEntityId": "0ZijomEsYB",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "0ZijomEsYB-facts"
+      ]
+    },
+    {
+      "id": "1xihb1fPgy",
+      "targetEntityId": "QCJMx2cY0M",
+      "textDraft": "Function registerHttpClientPatterns: \nRegister all HTTP client pattern modules with the given registry.\n",
+      "confidence": "Medium",
+      "factSetIds": [
+        "QCJMx2cY0M-facts"
+      ]
+    },
+    {
+      "id": "6wCcplFAIj",
+      "targetEntityId": "QE61KkMnIi",
+      "textDraft": "Class RequestResponseTransformPattern (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "QE61KkMnIi-facts"
+      ]
+    },
+    {
+      "id": "8AKfow5Vtb",
+      "targetEntityId": "ivqmXBPnZH",
+      "textDraft": "Method matches (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "ivqmXBPnZH-facts"
+      ]
+    },
+    {
+      "id": "oVwBtWPLpj",
+      "targetEntityId": "GdeOKBsxlH",
+      "textDraft": "Method describe (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "GdeOKBsxlH-facts"
+      ]
+    },
+    {
+      "id": "xGNdwCaQak",
+      "targetEntityId": "BbdtqEWEfF",
+      "textDraft": "Method confidenceAdjustments (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "BbdtqEWEfF-facts"
+      ]
+    },
+    {
       "id": "KLlOyDZCAN",
       "targetEntityId": "qzrItKqOH9",
       "textDraft": "Class PatternRegistry (intent unclear from static analysis)",
@@ -56611,22 +62167,22 @@
       ]
     },
     {
-      "id": "ofEivYuILI",
+      "id": "gFiOwUFSrT",
       "targetEntityId": "2PIFqjoZzf",
-      "textDraft": "Function detectMonorepo (intent unclear from static analysis)",
-      "confidence": "Medium",
+      "textDraft": "Parses JSON response data using `JSON.parse()`.",
       "factSetIds": [
         "2PIFqjoZzf-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
-      "id": "iqBI4GNy8H",
+      "id": "FHDz52hEfL",
       "targetEntityId": "LKvEuRF2BD",
-      "textDraft": "Function buildPackageMap (intent unclear from static analysis)",
-      "confidence": "Medium",
+      "textDraft": "Parses JSON response data using `JSON.parse()`.",
       "factSetIds": [
         "LKvEuRF2BD-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
       "id": "lCYbeDtv2X",
@@ -56665,13 +62221,13 @@
       ]
     },
     {
-      "id": "Ibe9nBm5kR",
+      "id": "vmqbVeAjfa",
       "targetEntityId": "mYnxVmiIN9",
-      "textDraft": "Function writeSnapshot: \nPersist a snapshot document to disk using an atomic write (temp file + rename).",
-      "confidence": "Medium",
+      "textDraft": "Converts request data to JSON format via `JSON.stringify()` for serialization.",
       "factSetIds": [
         "mYnxVmiIN9-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
       "id": "vfiUXA2k0z",
@@ -56746,13 +62302,13 @@
       ]
     },
     {
-      "id": "RP8XtpLtRm",
+      "id": "KTx4h8FqtW",
       "targetEntityId": "2CpbJfpI2T",
-      "textDraft": "Function verifySnapshot: \nCompare the current workspace snapshot with a stored snapshot document.\nReturns a structured result detailing added/removed/changed files.\n",
-      "confidence": "Medium",
+      "textDraft": "Parses JSON response data using `JSON.parse()`.",
       "factSetIds": [
         "2CpbJfpI2T-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
       "id": "cREUUVbus7",
@@ -56827,22 +62383,22 @@
       ]
     },
     {
-      "id": "zYQ4qYxzvB",
+      "id": "Q8TDiyTSGI",
       "targetEntityId": "O67Ba3B4GT",
-      "textDraft": "Function renderJSON: \nRender diagnostics as JSON.\n",
-      "confidence": "Medium",
+      "textDraft": "Converts request data to JSON format via `JSON.stringify()` for serialization.",
       "factSetIds": [
         "O67Ba3B4GT-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
-      "id": "BnZJYSUmtk",
+      "id": "FH2nInOt44",
       "targetEntityId": "FOdodbbboI",
-      "textDraft": "Function renderText: \nRender diagnostics as human-readable text.\n",
-      "confidence": "Medium",
+      "textDraft": "Converts request data to JSON format via `JSON.stringify()` for serialization.",
       "factSetIds": [
         "FOdodbbboI-facts"
-      ]
+      ],
+      "confidence": "High"
     },
     {
       "id": "mS6xSIPACh",
@@ -57167,6 +62723,393 @@
       "factSetIds": [
         "rchFZJu5n1-facts"
       ]
+    },
+    {
+      "id": "UoDlZRWlhe",
+      "targetEntityId": "46xzEhj0ht",
+      "textDraft": "Function fetchUsers (intent unclear from static analysis)",
+      "confidence": "Medium",
+      "factSetIds": [
+        "46xzEhj0ht-facts"
+      ]
+    },
+    {
+      "id": "Yj5PkLYqqh",
+      "targetEntityId": "KqNyMYxl1v",
+      "textDraft": "Function getUserById: Retrieves data or value",
+      "confidence": "Medium",
+      "factSetIds": [
+        "KqNyMYxl1v-facts"
+      ]
+    },
+    {
+      "id": "VnUM0KAnev",
+      "targetEntityId": "iM1UqSnb71",
+      "textDraft": "Function createUser: Creates or constructs a new instance",
+      "confidence": "Medium",
+      "factSetIds": [
+        "iM1UqSnb71-facts"
+      ]
+    },
+    {
+      "id": "jl9f6DSrH1",
+      "targetEntityId": "I5S9vKfv9k",
+      "textDraft": "Function fetchWithErrorHandling (intent unclear from static analysis)",
+      "confidence": "Medium",
+      "factSetIds": [
+        "I5S9vKfv9k-facts"
+      ]
+    },
+    {
+      "id": "HTpIuQ1l0F",
+      "targetEntityId": "DHEPUfuHJd",
+      "textDraft": "Function fetchWithTimeout (intent unclear from static analysis)",
+      "confidence": "Medium",
+      "factSetIds": [
+        "DHEPUfuHJd-facts"
+      ]
+    },
+    {
+      "id": "UsNfWA7E8U",
+      "targetEntityId": "OLQWfbch9f",
+      "textDraft": "Creates Axios client `apiClient`. with base URL `https://api.example.com`. Configures 5000ms timeout for requests. Includes default headers in all requests.",
+      "factSetIds": [
+        "OLQWfbch9f-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "REH6k88ZyW",
+      "targetEntityId": "x0LI0hctZY",
+      "textDraft": "Creates Axios client `authClient`. with base URL `https://auth.example.com`. Configures 3000ms timeout for requests.",
+      "factSetIds": [
+        "x0LI0hctZY-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "0HNOCbSZcQ",
+      "targetEntityId": "EqCfVptn4T",
+      "textDraft": "Performs Mongoose write query (create): axios (model not resolved).",
+      "factSetIds": [
+        "EqCfVptn4T-facts"
+      ],
+      "confidence": "Low"
+    },
+    {
+      "id": "sJ3IMkDFhe",
+      "targetEntityId": "b0Qxhl3CcA",
+      "textDraft": "Makes HTTP request using Fetch API in `fetchData`. Calls `fetch()` with URL `https://api.example.com/data`.",
+      "factSetIds": [
+        "b0Qxhl3CcA-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "6So9j16xbD",
+      "targetEntityId": "SzhtnYuyXk",
+      "textDraft": "Makes HTTP request using Fetch API in `postData`. Calls `fetch()` with URL `https://api.example.com/data`.",
+      "factSetIds": [
+        "SzhtnYuyXk-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "WVzaiAV4MW",
+      "targetEntityId": "c0gKK53Mxs",
+      "textDraft": "Makes HTTP request using Fetch API in `apiGet`. Calls `fetch()` with dynamic URL.",
+      "factSetIds": [
+        "c0gKK53Mxs-facts"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "id": "j0HxPxN3sW",
+      "targetEntityId": "IbMaJEj1QZ",
+      "textDraft": "Makes HTTP request using Fetch API in `safeFetch`. Calls `fetch()` with URL `Fetch failed:`.",
+      "factSetIds": [
+        "IbMaJEj1QZ-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "dIEZXBV3xS",
+      "targetEntityId": "GUjhRORPif",
+      "textDraft": "Function setupLoggingInterceptor: Updates or modifies data",
+      "confidence": "Medium",
+      "factSetIds": [
+        "GUjhRORPif-facts"
+      ]
+    },
+    {
+      "id": "mMbmo2V8Zk",
+      "targetEntityId": "KzB7GmPVuh",
+      "textDraft": "Function setupRetryInterceptor: Updates or modifies data",
+      "confidence": "Medium",
+      "factSetIds": [
+        "KzB7GmPVuh-facts"
+      ]
+    },
+    {
+      "id": "VvreRm1Vgi",
+      "targetEntityId": "GXx4jKaoQ7",
+      "textDraft": "Creates Axios client `apiClient`. with base URL `https://api.example.com`.",
+      "factSetIds": [
+        "GXx4jKaoQ7-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "fS2qxVMbrs",
+      "targetEntityId": "yEoatfTuk7",
+      "textDraft": "Creates Axios client `authClient` with dynamic configuration. Configuration details are determined at runtime.",
+      "factSetIds": [
+        "yEoatfTuk7-facts"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "id": "uM15M5S3wT",
+      "targetEntityId": "7TUITZvDBv",
+      "textDraft": "Performs Mongoose write query (create): axios (model not resolved).",
+      "factSetIds": [
+        "7TUITZvDBv-facts"
+      ],
+      "confidence": "Low"
+    },
+    {
+      "id": "8czlGBA0mP",
+      "targetEntityId": "G4rfelGL0F",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L11 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "G4rfelGL0F-facts"
+      ]
+    },
+    {
+      "id": "BgQRBr8czlGBA0mP",
+      "targetEntityId": "vYeQ46G4rfelGL0F",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L11 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "vYeQ46G4rfelGL0F-facts"
+      ]
+    },
+    {
+      "id": "BgQRBr8czlGBA0mP-2",
+      "targetEntityId": "vYeQ46G4rfelGL0F-2",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L11 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "vYeQ46G4rfelGL0F-2-facts"
+      ]
+    },
+    {
+      "id": "BAed9NZku7",
+      "targetEntityId": "S3pV95VuDb",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L23 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "S3pV95VuDb-facts"
+      ]
+    },
+    {
+      "id": "bDBy4KWz9V",
+      "targetEntityId": "CNHANfzujG",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L71 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "CNHANfzujG-facts"
+      ]
+    },
+    {
+      "id": "cwzD5tQAC5",
+      "targetEntityId": "x5h1xeSRw5",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L77 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "x5h1xeSRw5-facts"
+      ]
+    },
+    {
+      "id": "O0hDq3yQw4",
+      "targetEntityId": "WJiLe8GDY6",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L83 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "WJiLe8GDY6-facts"
+      ]
+    },
+    {
+      "id": "skxJ7DO0hDq3yQw4",
+      "targetEntityId": "0W4cEUWJiLe8GDY6",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L83 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "0W4cEUWJiLe8GDY6-facts"
+      ]
+    },
+    {
+      "id": "skxJ7DO0hDq3yQw4-2",
+      "targetEntityId": "0W4cEUWJiLe8GDY6-2",
+      "textDraft": "Constant module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L83 (intent unclear from static analysis)",
+      "confidence": "Low",
+      "factSetIds": [
+        "0W4cEUWJiLe8GDY6-2-facts"
+      ]
+    },
+    {
+      "id": "Zfj1mUN6os",
+      "targetEntityId": "lOxtj16uAX",
+      "textDraft": "Makes HTTP request using Fetch API in `fetchWithRetry`. Calls `fetch()` with dynamic URL.",
+      "factSetIds": [
+        "lOxtj16uAX-facts"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "id": "ZU8NXrK1NL",
+      "targetEntityId": "dMbuAkhBGd",
+      "textDraft": "Makes HTTP request using Fetch API in `fetchWithBackoff`. Calls `fetch()` with URL `2`.",
+      "factSetIds": [
+        "dMbuAkhBGd-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "co5cfKg5ha",
+      "targetEntityId": "uZquZcPEcm",
+      "textDraft": "Performs Mongoose write query (create): axios (model not resolved).",
+      "factSetIds": [
+        "uZquZcPEcm-facts"
+      ],
+      "confidence": "Low"
+    },
+    {
+      "id": "WHm4D9T6yz",
+      "targetEntityId": "E97KEcCEOY",
+      "textDraft": "Function retryWithDelay (intent unclear from static analysis)",
+      "confidence": "Medium",
+      "factSetIds": [
+        "E97KEcCEOY-facts"
+      ]
+    },
+    {
+      "id": "ylDxiFiu5F",
+      "targetEntityId": "m7h2dgftHH",
+      "textDraft": "Makes HTTP request using Fetch API in `retryOn5xx`. Calls `fetch()` with dynamic URL.",
+      "factSetIds": [
+        "m7h2dgftHH-facts"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "id": "SoCNlOevIP",
+      "targetEntityId": "P2eVbjexDU",
+      "textDraft": "Makes HTTP request using Fetch API in `fetchWithTimeout`. Calls `fetch()` with dynamic URL.",
+      "factSetIds": [
+        "P2eVbjexDU-facts"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "id": "xcpxBQTDaA",
+      "targetEntityId": "dOu5r6YbRX",
+      "textDraft": "Makes HTTP request using Fetch API in `fetchWithRaceTimeout`. Calls `fetch()` with dynamic URL.",
+      "factSetIds": [
+        "dOu5r6YbRX-facts"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "id": "TnMfU9eJUY",
+      "targetEntityId": "fF9rC8j3t3",
+      "textDraft": "Function axiosRequestWithTimeout (intent unclear from static analysis)",
+      "confidence": "Medium",
+      "factSetIds": [
+        "fF9rC8j3t3-facts"
+      ]
+    },
+    {
+      "id": "E1x9NJQjTF",
+      "targetEntityId": "UPh3PdWYNS",
+      "textDraft": "Function withTimeout: Enhances or augments data with additional information",
+      "confidence": "Medium",
+      "factSetIds": [
+        "UPh3PdWYNS-facts"
+      ]
+    },
+    {
+      "id": "Xg0o9dZqmd",
+      "targetEntityId": "xBsXTcvpLa",
+      "textDraft": "Creates Axios client `apiClientWithTimeout`. with base URL `https://api.example.com`. Configures 5000ms timeout for requests.",
+      "factSetIds": [
+        "xBsXTcvpLa-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "Z3cFl6TP2p",
+      "targetEntityId": "zFaKZv35T5",
+      "textDraft": "Performs Mongoose write query (create): axios (model not resolved).",
+      "factSetIds": [
+        "zFaKZv35T5-facts"
+      ],
+      "confidence": "Low"
+    },
+    {
+      "id": "rsC4j81sbW",
+      "targetEntityId": "MRXkqCpHPj",
+      "textDraft": "Makes HTTP request using Fetch API in `fetchUsers`. Calls `fetch()` with URL `https://api.example.com/users`.",
+      "factSetIds": [
+        "MRXkqCpHPj-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "4c4EI9LrN7",
+      "targetEntityId": "1BmUECcI15",
+      "textDraft": "Parses JSON response data in `getUserData` using `response.json()`.",
+      "factSetIds": [
+        "1BmUECcI15-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "LDvK97TwNG",
+      "targetEntityId": "GuRlUTIbMaJEj1QZ",
+      "textDraft": "Makes HTTP request using Fetch API in `safeFetch`. Calls `fetch()` with URL `Fetch failed:`.",
+      "factSetIds": [
+        "GuRlUTIbMaJEj1QZ-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "GeK014IjAE",
+      "targetEntityId": "MEPKxFdaIr",
+      "textDraft": "Makes HTTP request using Fetch API in `createUser`. Calls `fetch()` with URL `https://api.example.com/users`.",
+      "factSetIds": [
+        "MEPKxFdaIr-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "wFH1QZUS83",
+      "targetEntityId": "FkQ0ZnwIod",
+      "textDraft": "Creates Axios client `apiClient`. with base URL `https://api.example.com`. Configures 5000ms timeout for requests. Includes default headers in all requests.",
+      "factSetIds": [
+        "FkQ0ZnwIod-facts"
+      ],
+      "confidence": "High"
+    },
+    {
+      "id": "L1n2FtoGZB",
+      "targetEntityId": "2NwSplqA0W",
+      "textDraft": "Performs Mongoose write query (create): axios (model not resolved).",
+      "factSetIds": [
+        "2NwSplqA0W-facts"
+      ],
+      "confidence": "Low"
     },
     {
       "id": "pTAyQC46rB",
@@ -58720,11 +64663,11 @@
     },
     {
       "qid": "q:hs52xPNjsK",
-      "entityId": "DN6NUn2jKZ",
+      "entityId": "FCrE1XioNj",
       "question": "What are the responsibilities and contract of class `Orchestrator` at src/orchestrator/orchestrator.ts?",
       "confidence": 25,
       "factSetIds": [
-        "DN6NUn2jKZ-facts"
+        "FCrE1XioNj-facts"
       ]
     },
     {
@@ -59205,6 +65148,150 @@
       ]
     },
     {
+      "qid": "q:chVihJy9Fq",
+      "entityId": "VPtGlTAjJh",
+      "question": "What are the responsibilities and contract of class `AxiosClientPattern` at src/reasoning/patterns/http-clients/axios-client.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "VPtGlTAjJh-facts"
+      ]
+    },
+    {
+      "qid": "q:S7FQEm1stZ",
+      "entityId": "o0rxteFvkN",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/http-clients/axios-client.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "o0rxteFvkN-facts"
+      ]
+    },
+    {
+      "qid": "q:5JsCfZiYdw",
+      "entityId": "aejIiEvput",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/http-clients/axios-client.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "aejIiEvput-facts"
+      ]
+    },
+    {
+      "qid": "q:JN6u0SO78D",
+      "entityId": "13X5KLQKjA",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/http-clients/axios-client.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "13X5KLQKjA-facts"
+      ]
+    },
+    {
+      "qid": "q:sLZ6tOHpa9",
+      "entityId": "vxhh7CuKfo",
+      "question": "What are the responsibilities and contract of class `HttpErrorHandlingPattern` at src/reasoning/patterns/http-clients/error-handling.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "vxhh7CuKfo-facts"
+      ]
+    },
+    {
+      "qid": "q:p9yZnrjVii",
+      "entityId": "yjbSvxJX1r",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/http-clients/error-handling.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "yjbSvxJX1r-facts"
+      ]
+    },
+    {
+      "qid": "q:59VuCnYvT8",
+      "entityId": "ACMzltjpoc",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/http-clients/error-handling.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "ACMzltjpoc-facts"
+      ]
+    },
+    {
+      "qid": "q:I8j5JTKsGa",
+      "entityId": "s0xJyXYyBb",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/http-clients/error-handling.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "s0xJyXYyBb-facts"
+      ]
+    },
+    {
+      "qid": "q:7OGrzhw1Fh",
+      "entityId": "GXGSljArlR",
+      "question": "What are the responsibilities and contract of class `FetchPattern` at src/reasoning/patterns/http-clients/fetch-patterns.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "GXGSljArlR-facts"
+      ]
+    },
+    {
+      "qid": "q:AqDCtyOc3m",
+      "entityId": "32RrgiXM2Z",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/http-clients/fetch-patterns.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "32RrgiXM2Z-facts"
+      ]
+    },
+    {
+      "qid": "q:MdJhCB9Km6",
+      "entityId": "r1Ojc2Nl6M",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/http-clients/fetch-patterns.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "r1Ojc2Nl6M-facts"
+      ]
+    },
+    {
+      "qid": "q:MhOW1GxYvM",
+      "entityId": "0ZijomEsYB",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/http-clients/fetch-patterns.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "0ZijomEsYB-facts"
+      ]
+    },
+    {
+      "qid": "q:84gREycNuz",
+      "entityId": "QE61KkMnIi",
+      "question": "What are the responsibilities and contract of class `RequestResponseTransformPattern` at src/reasoning/patterns/http-clients/request-response-transform.ts?",
+      "confidence": 25,
+      "factSetIds": [
+        "QE61KkMnIi-facts"
+      ]
+    },
+    {
+      "qid": "q:888dK540vh",
+      "entityId": "ivqmXBPnZH",
+      "question": "What is the behavior of method `matches` at src/reasoning/patterns/http-clients/request-response-transform.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "ivqmXBPnZH-facts"
+      ]
+    },
+    {
+      "qid": "q:mM6J7FyKPG",
+      "entityId": "GdeOKBsxlH",
+      "question": "What is the behavior of method `describe` at src/reasoning/patterns/http-clients/request-response-transform.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "GdeOKBsxlH-facts"
+      ]
+    },
+    {
+      "qid": "q:iNr99yTlO0",
+      "entityId": "BbdtqEWEfF",
+      "question": "What is the behavior of method `confidenceAdjustments` at src/reasoning/patterns/http-clients/request-response-transform.ts?",
+      "confidence": 35,
+      "factSetIds": [
+        "BbdtqEWEfF-facts"
+      ]
+    },
+    {
       "qid": "q:UWBGed3TJs",
       "entityId": "qzrItKqOH9",
       "question": "What are the responsibilities and contract of class `PatternRegistry` at src/reasoning/patterns/pattern-registry.ts?",
@@ -59643,6 +65730,96 @@
       "confidence": 35,
       "factSetIds": [
         "rchFZJu5n1-facts"
+      ]
+    },
+    {
+      "qid": "q:yZig4hm70z",
+      "entityId": "EqCfVptn4T",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/axios-basic.ts#L11` at tests/fixtures/http-clients-analysis/axios-basic.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "EqCfVptn4T-facts"
+      ]
+    },
+    {
+      "qid": "q:TEignLmvhf",
+      "entityId": "7TUITZvDBv",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L9` at tests/fixtures/http-clients-analysis/interceptor-patterns.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "7TUITZvDBv-facts"
+      ]
+    },
+    {
+      "qid": "q:LL1PBrajKo",
+      "entityId": "vYeQ46G4rfelGL0F-2",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L11` at tests/fixtures/http-clients-analysis/interceptor-patterns.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "vYeQ46G4rfelGL0F-2-facts"
+      ]
+    },
+    {
+      "qid": "q:flyMrECuF9",
+      "entityId": "S3pV95VuDb",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L23` at tests/fixtures/http-clients-analysis/interceptor-patterns.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "S3pV95VuDb-facts"
+      ]
+    },
+    {
+      "qid": "q:Cv7I9vMBDn",
+      "entityId": "CNHANfzujG",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L71` at tests/fixtures/http-clients-analysis/interceptor-patterns.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "CNHANfzujG-facts"
+      ]
+    },
+    {
+      "qid": "q:dRWtgcTw6n",
+      "entityId": "x5h1xeSRw5",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L77` at tests/fixtures/http-clients-analysis/interceptor-patterns.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "x5h1xeSRw5-facts"
+      ]
+    },
+    {
+      "qid": "q:fLbBbLXncR",
+      "entityId": "0W4cEUWJiLe8GDY6-2",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/interceptor-patterns.ts#L83` at tests/fixtures/http-clients-analysis/interceptor-patterns.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "0W4cEUWJiLe8GDY6-2-facts"
+      ]
+    },
+    {
+      "qid": "q:qqovuBkKKj",
+      "entityId": "uZquZcPEcm",
+      "question": "What is the purpose and behavior of function `axiosWithRetry` at tests/fixtures/http-clients-analysis/retry-patterns.ts?",
+      "confidence": 40,
+      "factSetIds": [
+        "uZquZcPEcm-facts"
+      ]
+    },
+    {
+      "qid": "q:03A1h0kz8z",
+      "entityId": "zFaKZv35T5",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-analysis/timeout-patterns.ts#L9` at tests/fixtures/http-clients-analysis/timeout-patterns.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "zFaKZv35T5-facts"
+      ]
+    },
+    {
+      "qid": "q:qyB89kq1St",
+      "entityId": "2NwSplqA0W",
+      "question": "What is the purpose of constant `module::tests/fixtures/http-clients-integration/api-client.ts#L9` at tests/fixtures/http-clients-integration/api-client.ts?",
+      "confidence": 20,
+      "factSetIds": [
+        "2NwSplqA0W-facts"
       ]
     },
     {
