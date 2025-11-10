@@ -81,6 +81,28 @@ export declare class LLMGateway {
      */
     summarize(factSets: FactSet[], style: string, options?: SummarizeOptions): Promise<string>;
     /**
+     * Polish a low-confidence chunk using LLM assistance (Phase 6 Quality Improvement)
+     *
+     * Takes a template-generated description and enhances it with LLM-based inference
+     * while staying grounded in the provided factSets.
+     *
+     * @param draftText - Template-generated text (e.g., "Function foo (intent unclear from static analysis)")
+     * @param entity - The entity being described
+     * @param factSets - Array of factSets providing evidence
+     * @returns Promise resolving to polished, meaningful description
+     */
+    polish(draftText: string, entity: {
+        id: string;
+        kind: string;
+        name: string;
+        path: string;
+    }, factSets: FactSet[]): Promise<string>;
+    /**
+     * Build prompt for polish() operation
+     * @private
+     */
+    private buildPolishPrompt;
+    /**
      * Build prompt for summarize() operation
      * Differentiates prompts based on promptKey (O/R1/R2) per CTS-02 §4.4
      * @private

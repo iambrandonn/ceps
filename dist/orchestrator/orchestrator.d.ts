@@ -23,6 +23,7 @@ export declare enum PipelinePhase {
     RELATION_RESOLUTION = "relation-resolution",
     GRAPH_BUILDING = "graph-building",
     REASONING = "reasoning",
+    POLISHING = "polishing",
     AMBIGUITY_RESOLUTION = "ambiguity-resolution",
     VALIDATION_PRE = "validation-pre",
     GENERATION = "generation",
@@ -85,6 +86,7 @@ export declare class Orchestrator extends EventEmitter {
     private runRelationResolution;
     private runGraphBuilding;
     private runReasoning;
+    private runPolishing;
     private runAmbiguityResolution;
     private runPreValidation;
     private runGeneration;

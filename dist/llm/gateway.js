@@ -150,6 +150,65 @@ export class LLMGateway {
         return this.completions(prompt, completionOptions);
     }
     /**
+     * Polish a low-confidence chunk using LLM assistance (Phase 6 Quality Improvement)
+     *
+     * Takes a template-generated description and enhances it with LLM-based inference
+     * while staying grounded in the provided factSets.
+     *
+     * @param draftText - Template-generated text (e.g., "Function foo (intent unclear from static analysis)")
+     * @param entity - The entity being described
+     * @param factSets - Array of factSets providing evidence
+     * @returns Promise resolving to polished, meaningful description
+     */
+    async polish(draftText, entity, factSets) {
+        // Build prompt for polishing
+        const prompt = this.buildPolishPrompt(draftText, entity, factSets);
+        // Use Haiku model for cost-efficiency (polishing is high-volume)
+        const completionOptions = {
+            model: 'claude-3-5-haiku-20241022',
+            temperature: 0.3,
+        };
+        // Get polished text from LLM
+        return this.completions(prompt, completionOptions);
+    }
+    /**
+     * Build prompt for polish() operation
+     * @private
+     */
+    buildPolishPrompt(draftText, entity, factSets) {
+        // Format factSets as structured evidence
+        const factsText = factSets
+            .map((fs, idx) => {
+            const factsFormatted = fs.facts
+                .map((f) => `  - ${f.subjectId} ${f.predicate}${f.object !== undefined ? ` ${JSON.stringify(f.object)}` : ''}`)
+                .join('\n');
+            return `FactSet ${idx + 1} (evidence: ${fs.evidenceScore}):\n${factsFormatted}`;
+        })
+            .join('\n\n');
+        return `You are improving a code specification description that lacks detail.
+
+Entity: ${entity.kind} "${entity.name}" at ${entity.path}
+Current description: "${draftText}"
+
+Your task: Generate a more meaningful description based on the available evidence.
+
+Guidelines:
+- Use present tense, active voice (e.g., "validates", "returns", "emits")
+- Focus on behavioral intent and outcomes, not algorithms
+- Stay grounded in the facts provided - do not invent behavior
+- If the facts don't provide enough context, infer reasonable intent from:
+  * Function/variable names (semantic hints)
+  * Parameter types and return values
+  * Common patterns for this entity type
+- Keep it concise (1-2 sentences)
+- Avoid phrases like "intent unclear" - provide your best inference
+
+Available evidence:
+${factsText}
+
+Output (improved description only, no preamble):`;
+    }
+    /**
      * Build prompt for summarize() operation
      * Differentiates prompts based on promptKey (O/R1/R2) per CTS-02 §4.4
      * @private

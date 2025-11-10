@@ -37,6 +37,7 @@ export var PipelinePhase;
     PipelinePhase["RELATION_RESOLUTION"] = "relation-resolution";
     PipelinePhase["GRAPH_BUILDING"] = "graph-building";
     PipelinePhase["REASONING"] = "reasoning";
+    PipelinePhase["POLISHING"] = "polishing";
     PipelinePhase["AMBIGUITY_RESOLUTION"] = "ambiguity-resolution";
     PipelinePhase["VALIDATION_PRE"] = "validation-pre";
     PipelinePhase["GENERATION"] = "generation";
@@ -88,6 +89,7 @@ export class Orchestrator extends EventEmitter {
             PipelinePhase.RELATION_RESOLUTION,
             PipelinePhase.GRAPH_BUILDING,
             PipelinePhase.REASONING,
+            PipelinePhase.POLISHING,
             PipelinePhase.AMBIGUITY_RESOLUTION,
             PipelinePhase.VALIDATION_PRE,
             PipelinePhase.GENERATION,
@@ -131,6 +133,9 @@ export class Orchestrator extends EventEmitter {
                     break;
                 case PipelinePhase.REASONING:
                     await this.runReasoning();
+                    break;
+                case PipelinePhase.POLISHING:
+                    await this.runPolishing();
                     break;
                 case PipelinePhase.AMBIGUITY_RESOLUTION:
                     await this.runAmbiguityResolution();
@@ -230,6 +235,62 @@ export class Orchestrator extends EventEmitter {
             }
         }
         this.status.statistics.chunksGenerated = this.kb.getAllChunks().length;
+    }
+    async runPolishing() {
+        // Skip if LLM is disabled or no gateway configured
+        if (this.options.llm !== 'on' || !this.options.llmGateway) {
+            return;
+        }
+        const chunks = this.kb.getAllChunks();
+        // Selective polishing: Low confidence OR Medium with "intent unclear"
+        const candidateChunks = chunks.filter(chunk => chunk.confidence === 'Low' ||
+            (chunk.confidence === 'Medium' && chunk.textDraft.includes('intent unclear')));
+        if (candidateChunks.length === 0) {
+            return; // No chunks need polishing
+        }
+        const totalCandidates = candidateChunks.length;
+        let polished = 0;
+        for (let i = 0; i < candidateChunks.length; i++) {
+            const chunk = candidateChunks[i];
+            // Check budget before polishing
+            if (this.options.budgetTracker && !this.options.budgetTracker.checkBudget()) {
+                console.warn(`Budget exhausted after polishing ${polished}/${totalCandidates} chunks`);
+                break;
+            }
+            try {
+                const entity = this.kb.getEntity(chunk.targetEntityId);
+                if (!entity) {
+                    continue; // Skip if entity not found
+                }
+                const factSets = chunk.factSetIds
+                    .map(id => this.kb.getFactSet(id))
+                    .filter(fs => fs !== undefined);
+                if (factSets.length === 0) {
+                    continue; // Skip if no factSets
+                }
+                // Polish the chunk using LLM
+                const polishedText = await this.options.llmGateway.polish(chunk.textDraft, entity, factSets);
+                // Update chunk in KB with polished text and upgraded confidence
+                this.kb.updateChunk(chunk.id, {
+                    textDraft: polishedText,
+                    confidence: chunk.confidence === 'Low' ? 'Medium' : 'High'
+                });
+                polished++;
+                // Emit progress every 5 chunks or on last chunk
+                if ((i + 1) % 5 === 0 || i === candidateChunks.length - 1) {
+                    this.emit('progressUpdate', {
+                        phase: PipelinePhase.POLISHING,
+                        current: i + 1,
+                        total: totalCandidates,
+                        unit: 'chunks'
+                    });
+                }
+            }
+            catch (error) {
+                // Log error but continue with other chunks
+                console.warn(`Failed to polish chunk ${chunk.id}:`, error instanceof Error ? error.message : String(error));
+            }
+        }
     }
     async runAmbiguityResolution() {
         const resolver = new AmbiguityResolver(this.kb);
