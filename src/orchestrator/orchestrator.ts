@@ -28,6 +28,7 @@ import { PatternMatcher } from '../reasoning/PatternMatcher.js';
 import { PatternRegistry } from '../reasoning/patterns/pattern-registry.js';
 import { registerExpressPatterns } from '../reasoning/patterns/express/index.js';
 import { registerHttpClientPatterns } from '../reasoning/patterns/http-clients/index.js';
+import { registerSharedPatterns } from '../reasoning/patterns/shared/index.js';
 import { FileIndex } from '../types/index.js';
 import { GateRegistry } from './gates/gate-registry.js';
 import { emitRunSummary } from './rendering/run-summary-renderer.js';
@@ -274,6 +275,7 @@ export class Orchestrator extends EventEmitter {
 
     // Phase 6: Initialize PatternRegistry with framework patterns
     const registry = new PatternRegistry();
+    registerSharedPatterns(registry); // Quality improvement: constant inlining, etc.
     registerExpressPatterns(registry);
     registerHttpClientPatterns(registry);
 

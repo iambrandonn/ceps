@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "algorithm": "sha256",
-  "rootHash": "b359c4394ee7415ff4b67193528d8d7b504fa46a190a9be696e1e2aef385c603",
-  "generatedAt": "2025-11-09T15:25:24.427Z",
+  "rootHash": "2e161956997a4da56ba9d54842a2ef081e3927630a333ba786fdec729f307faf",
+  "generatedAt": "2025-11-09T15:36:40.721Z",
   "files": [
     {
       "path": ".github/workflows/ci.yml",
@@ -323,6 +323,11 @@
       "path": "docs/planning/active/features/help-flag.md",
       "hash": "063582a95bd8c829e4d8e4bbe2c498bf613ec6c701cb4a796f43d11707e02afb",
       "bytes": 20650
+    },
+    {
+      "path": "docs/planning/active/fix-phase5-fixtures.md",
+      "hash": "0ee64fd5fff76081497eaa975ed157f64c6f3d1a33912c62bf51af1a2b9932d4",
+      "bytes": 4974
     },
     {
       "path": "docs/planning/active/phase6/http-clients-plan.md",

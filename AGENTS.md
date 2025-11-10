@@ -306,6 +306,26 @@ ceps finalize --answers ./answers.md
 
 **CI enforcement:** Tests must pass, coverage must not drop, linting/typecheck must succeed
 
+### Quality Improvement Workflow (Phase 6+)
+
+**Real-world testing fixture:** `output-test/research-coi` (Kuali COI backend application)
+
+When improving pattern matching or reasoning quality:
+
+1. **Check current baseline:** Run `./check-quality.sh` in `output-test/research-coi`
+2. **Write unit tests:** Test new pattern in isolation (TDD)
+3. **Implement pattern:** Add to reasoning engine with 80%+ coverage
+4. **Validate on real code:** Re-run ceps on research-coi fixture
+5. **Measure improvement:** Check progress with `./check-quality.sh`
+6. **Spot-check entities:** Manually verify 2-3 sample entities improved
+
+**See:** `docs/process/quality-improvement-workflow.md` for detailed steps
+
+**Baseline metrics (research-coi):**
+- High: 31 (7%) → **Target: 280+ (63%)**
+- Low: 235 (53%) → **Target: <25 (5%)**
+- Primary issues: 209 constants "intent unclear", 70 functions "intent unclear"
+
 ---
 
 ## Fixture & Snapshot Discipline (Phase 5)
