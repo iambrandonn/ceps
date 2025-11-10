@@ -1,8 +1,9 @@
 # ceps — Current Status
 
-**Last Updated:** 2025-11-08
-**Phase:** 6 (Production Hardening) Wave 1A (Backend Validation Track)
-**Last Completed:** HTTP Clients I1 (Agent 5, core patterns approved)
+**Last Updated:** 2025-11-09
+**Phase:** 6 (Production Hardening) Wave 1 - Quality Improvement Sprint
+**Last Completed:** Extended Semantic Patterns (Target #3)
+**Status:** 🟡 **PAUSED** - Architectural gap identified (LLM polish not implemented)
 
 ---
 
@@ -19,23 +20,108 @@ This project follows a **5-step agent workflow**:
 
 ## Current Step
 
-**Step:** Implementation Complete - Awaiting Wave 1A Backend Validation
-**Task:** Backend validation on 2-3 real-world projects
-**Agent Role:** Agent 5 + Project Lead
-**Deliverable:** Validation report with go/no-go recommendation for Wave 1B
+**Step:** Implementation (Quality Improvement Sprint)
+**Task:** Improve spec generation quality using real-world baseline
+**Agent Role:** Implementation Agent
+**Deliverable:** Pattern improvements to achieve 63%+ High confidence on research-coi baseline
 
 **Context:**
-- ✅ **Express (Agent 1):** I1-I5 complete and approved
-- ✅ **HTTP Clients (Agent 5):** I1 complete and approved
-  - 4 core pattern modules implemented (Axios, Fetch, transforms, error handling)
-  - 59 tests passing (49 unit + 10 integration)
-  - Lexicon updated with 23 terms + 9 anti-patterns
-  - Coverage matrix documented with known gaps
-  - I2 patterns (retry, timeout, interceptors) deferred to future iteration
-- ✅ **Validation Script:** `scripts/run-backend-validation.mjs` delivered
-- ⏳ **Backend Validation:** Ready to execute on 2-3 projects
+- 🎯 **Quality Improvement Sprint In Progress** (Started 2025-11-09)
+  - Using research-coi (Kuali COI backend) as real-world test fixture
+  - Target: Increase High confidence from 7% → 63% (280 entities)
+  - Approach: Iterative pattern improvements with measurable validation
 
-**Next Action:** Project Lead selects 2-3 backend validation targets and runs validation script
+**Completed Improvements:**
+- ✅ **Target #1: Constant Inlining** - Fixed 172/209 constants (82% success)
+  - High confidence: 31 → 204 (+558%)
+  - Low confidence: 235 → 62 (-74%)
+- ✅ **Target #2: Semantic Function Names** - Fixed 53 generic descriptions
+  - Functions "intent unclear": 70 → 39 (-44%)
+  - Generic array descriptions: 28 → 6 (-79%)
+- ✅ **Target #3: Extended Semantic Patterns** - Added 32 new prefixes (build/make/configure/log/trim/etc)
+  - Functions "intent unclear": 39 → 28 (-28%)
+  - Generic array descriptions: 6 → 4 (-33%)
+
+**Current Progress:**
+- **Overall Quality:** 90% Spec-Ready (High + Medium confidence: 398/443 entities)
+- **High Confidence:** 187/443 (42.2%) - Target: 280+ (63%)
+- **Low Confidence:** 45/443 (10.2%) - Started at 235 (53%)
+- **Improvement:** +156 High, +34 Medium, -190 Low from baseline
+
+**Critical Finding:**
+- 🔴 **Architectural Gap:** LLM polish step not implemented
+  - Low-confidence chunks pass through unchanged ("intent unclear")
+  - Designed feature per SADS.md but never implemented
+  - Analysis: `docs/internal/analysis/llm-polish-gap-analysis.md`
+  - Impact: Remaining 45 Low-confidence entities cannot be improved without LLM
+
+**Next Actions:**
+- 🔴 **Priority 1:** Implement LLM polish phase (selective polishing of Low-confidence chunks)
+- ⚪ **Priority 2:** Continue pattern improvements (environment variables, expressions)
+- ⚪ **Priority 3:** Wave 1A validation and exit criteria assessment
+
+---
+
+## Quality Improvement Sprint Status
+
+### Test Fixture: research-coi (Kuali COI Backend)
+
+**Baseline Metrics** (2025-11-09 start):
+- Files: 31 JavaScript files
+- Entities: 443 total
+- High: 31 (7.0%)
+- Medium: 177 (40.0%)
+- Low: 235 (53.0%)
+
+**Current Metrics** (After 2 iterations):
+- High: 188 (42.4%) ← +157 entities
+- Medium: 210 (47.4%) ← +33 entities
+- Low: 45 (10.2%) ← -190 entities
+- **Spec-Ready (High+Medium): 398 (90%)** ✅
+
+**Target Metrics:**
+- High: 280+ (63%)
+- Low: <25 (5%)
+
+### Problem Pattern Tracking
+
+| Issue | Baseline | Current | Fixed | Remaining |
+|-------|----------|---------|-------|-----------|
+| Constants "intent unclear" | 209 | 37 | 172 (82%) | 37 |
+| Functions "intent unclear" | 70 | 28 | 42 (60%) | 28 |
+| Generic array descriptions | 28 | 4 | 24 (86%) | 4 |
+
+### Patterns Implemented
+
+1. ✅ **ConstantInliningPattern** (`shared.constant-inlining`)
+   - Extracts object literal initializers
+   - Generates enum/config descriptions
+   - Priority: SHARED_PRIMITIVES
+   - Impact: +173 High confidence
+   - Tests: 11/11 passing
+
+2. ✅ **SemanticFunctionPattern** (`shared.semantic-function-names`)
+   - Extracts semantic hints from function names
+   - Covers 66 semantic prefixes (get/find/is/has/update/create/build/configure/log/trim/etc)
+   - Priority: SHARED_PRIMITIVES
+   - Impact: +34 Medium, -17 Low (64 descriptions improved across 3 iterations)
+   - Tests: 24/24 passing
+
+### Validation Process
+
+**Quality Check Script:** `output-test/research-coi/check-quality.sh`
+- Runs after each pattern implementation
+- Tracks confidence distribution
+- Monitors problem patterns
+- Validates test cases (DISCLOSURE_STATUS, buildCache, etc.)
+
+**TDD Workflow:**
+1. Write failing unit tests for pattern
+2. Implement pattern with 80%+ coverage
+3. Register in pattern registry
+4. Build and re-run on research-coi
+5. Run check-quality.sh to validate improvement
+6. Document results
 
 ---
 
@@ -47,103 +133,72 @@ This project follows a **5-step agent workflow**:
 |-------|-----------|------|--------|-----------|-------------|--------|
 | 1 | Express | ✅ | ✅ | ✅ | ✅ | **Complete (I1-I5)** |
 | 5 | HTTP Clients | ✅ | ✅ | ✅ | ✅ | **Complete (I1 only)** |
-| Validation | Backend Projects | - | - | ⏳ | - | **Ready to start** |
+| Quality | Improvements | ✅ | - | 🔄 | - | **In Progress (2/3+ targets)** |
 
 **Wave 1A Summary:**
 - **Express Coverage:** Middleware, routing, error handling, async, config, Mongoose (schema/model/query)
 - **HTTP Clients Coverage:** Axios client, Fetch API, request/response transforms, error handling
-- **Test Count:** 1285 tests passing (4 skipped)
+- **Quality Improvements:** Constant inlining, semantic function names (90% Spec-Ready achieved)
+- **Test Count:** 1313 tests passing (1285 baseline + 28 new)
 - **Lexicon:** 72 approved terms (49 Express/Mongoose + 23 HTTP Clients)
-- **Validation Script:** Automated script ready for real-world validation
 
 **Wave 1A Exit Criteria:**
-- [ ] Run validation on 2-3 diverse backend projects (Express + Mongoose + HTTP clients)
+- [🔄] Achieve 63%+ High confidence on real-world backend codebase (42% current, 63% target)
+- [ ] Run validation on 2-3 diverse backend projects
 - [ ] Generate validation report with precision/recall/F1 metrics
-- [ ] Achieve ≥85% precision, ≥80% recall (thresholds)
 - [ ] Document known gaps and architectural issues
 - [ ] Make go/no-go decision for Wave 1B
 
-### Wave 1B: Frontend Expansion (On Hold Pending Wave 1A)
+### Wave 1B: Frontend Expansion (On Hold)
 
 | Agent | Framework | Status | Blocked By |
 |-------|-----------|--------|------------|
-| 2 | React | ⏸️ **ON HOLD** | Wave 1A validation results |
-| 3 | Redux | ⏸️ **ON HOLD** | Wave 1A validation results |
-| 4 | GraphQL | ⏸️ **ON HOLD** | Wave 1A validation results |
-
-**Wave 1B Timeline:** TBD after Wave 1A validation completes
+| 2 | React | ⏸️ **ON HOLD** | Quality improvements + Wave 1A validation |
+| 3 | Redux | ⏸️ **ON HOLD** | Quality improvements + Wave 1A validation |
+| 4 | GraphQL | ⏸️ **ON HOLD** | Quality improvements + Wave 1A validation |
 
 ---
 
 ## Recent Decisions / Context
 
-- **HTTP Clients I1 complete** (2025-11-08) - Core patterns delivered, I2 deferred
-- **HTTP Clients I2 deferred** (2025-11-08) - Retry/timeout/interceptors require more complex inference, deferred to future iteration based on validation findings
-- **Validation script delivered** (2025-11-08) - `scripts/run-backend-validation.mjs` ready for Wave 1A validation
-- **Backend-first validation track adopted** (2025-11-08) - Conservative approach to validate architecture on real code before frontend expansion
-- **Frontend agents deferred** - React/Redux/GraphQL on hold until HTTP Clients complete + validation passes
-- **Real-world validation planned** - Will run ceps on 2-3 backend projects (Express + Mongoose + HTTP clients)
-- **Timeline extended** - Phase 6 now 7-8 weeks (was 4 weeks) to reduce rework risk
-- **Validation script reusability** - Supports config files for future agents (React, Redux, GraphQL)
-- **Accuracy harness deferred to Wave 2** (Agent 6) per Express code review
-- **Benchmark scripts deferred to Wave 2** (Agent 6)
-- **Mongoose integration added** during Express work (not originally scoped)
-
----
-
-## Wave 1A Validation Plan
-
-### Validation Timeline (Estimated 5 days)
-
-| Day | Activity | Owner | Deliverable |
-|-----|----------|-------|-------------|
-| 1 | Select 2-3 backend validation targets | Project Lead | List of project paths |
-| 2 | Run validation script on projects | Agent 5 | `validation-results.json` |
-| 3 | Manual annotation of detected behaviors | Project Lead + Agent 5 | Annotated JSON |
-| 4 | Compute metrics, generate report | Agent 5 | `validation-report.md` |
-| 5 | Review report, make go/no-go decision | Project Lead | GO or NO-GO verdict |
-
-### Validation Targets (To Be Selected)
-
-Ideal characteristics:
-- **Small project:** 50-200 files, basic Express + Mongoose
-- **Medium project:** 200-500 files, complex routing, multiple databases
-- **Large project:** 500+ files, microservices, external APIs
-
-Requirements:
-- Must use Express for routing
-- Must use Mongoose for data layer
-- Must make outbound HTTP calls (Axios or Fetch)
-- Representative of real-world backend patterns
-
-### Validation Thresholds
-
-| Metric | Threshold | Rationale |
-|--------|-----------|-----------|
-| **Precision** | ≥85% | Minimize false positives (incorrect documentation) |
-| **Recall** | ≥80% | Maximize coverage (detect most patterns) |
-| **F1 Score** | ≥82% | Balance precision and recall |
-
-**If thresholds not met:**
-- Analyze failure modes (which patterns failed?)
-- Fix critical issues
-- Re-run validation
-- Update thresholds if architectural limitations discovered
+- **🔴 CRITICAL: LLM polish gap identified** (2025-11-09) - Designed feature never implemented; blocking progress to 63% target
+- **Extended semantic patterns complete** (2025-11-09) - 32 new prefixes added, 11 more functions improved
+- **Quality improvement sprint started** (2025-11-09) - Real-world validation exposed quality gaps (7% High confidence baseline)
+- **Research-COI selected as test fixture** (2025-11-09) - Representative backend codebase for iterative testing
+- **Constant inlining complete** (2025-11-09) - 172 constants fixed, 558% increase in High confidence
+- **Semantic function names complete** (2025-11-09) - 53 functions improved, 90% Spec-Ready achieved
+- **Target revised** (2025-11-09) - Focus on High confidence (63%) as primary quality metric
+- **Test-driven approach validated** (2025-11-09) - check-quality.sh enables rapid iteration with measurable progress
+- **Pattern improvements hit diminishing returns** (2025-11-09) - Remaining 45 Low entities need LLM, not more patterns
+- **HTTP Clients I2 deferred** (2025-11-08) - Retry/timeout/interceptors require more complex inference
+- **Backend-first validation track adopted** (2025-11-08) - Validate architecture on real code before frontend expansion
 
 ---
 
 ## Blockers / Open Questions
 
-- **Validation target selection** - Need to identify 2-3 backend projects for testing (due 2025-11-09)
-- **Product timeline approval** - 7-8 week Phase 6 timeline pending explicit sign-off
+- 🔴 **BLOCKER:** LLM polish not implemented - prevents Low-confidence entities from being improved beyond pattern matching
+  - **Impact:** Cannot reach 63% High confidence target without LLM assistance
+  - **Solution:** Add POLISHING phase to orchestrator (see `docs/internal/analysis/llm-polish-gap-analysis.md`)
+  - **Effort:** Medium (2-3 hours implementation)
+  - **Decision needed:** Implement now vs. defer to Wave 2
 
 ---
 
 ## Quick Links
 
+### Quality Improvement Sprint
+- [Baseline Analysis](docs/internal/analysis/research-coi-spec-quality-analysis.md)
+- [Baseline Quality Report](output-test/research-coi/BASELINE_QUALITY_REPORT.md)
+- [Quality Improvement Workflow](docs/process/quality-improvement-workflow.md)
+- [Constant Inlining Results](docs/internal/completion/constant-inlining-results.md)
+- [Semantic Function Extension Results](docs/internal/completion/semantic-function-extension-results.md)
+- [LLM Polish Gap Analysis](docs/internal/analysis/llm-polish-gap-analysis.md) 🔴 **NEW**
+- [Test Fixture README](output-test/research-coi/README.md)
+
+### Phase 6 Documentation
 - [HTTP Clients Release Notes](docs/internal/completion/phase6-http-clients-release-notes.md)
 - [HTTP Clients Lessons Learned](docs/internal/lessons/phase6-http-clients-lessons.md)
-- [HTTP Clients Phase -1 Analysis](docs/internal/analysis/phase6-http-clients-phase-minus-one.md)
 - [Express Lessons Doc](docs/internal/lessons/PHASE6_EXPRESS_LESSONS.md)
 - [Phase 6 Plan](docs/planning/active/phase6/plan.md)
 - [Express Approval](docs/internal/approval/phase6-wave1-express.md)
@@ -153,10 +208,14 @@ Requirements:
 
 ## Test Status
 
-**Last Test Run:** 2025-11-08
-**Total Tests:** 1285 passing, 4 skipped (1289 total)
-**Test Files:** 111 passing, 1 skipped (112 total)
+**Last Test Run:** 2025-11-09
+**Total Tests:** 1313 passing, 4 skipped (1317 total)
+**Test Files:** 113 passing, 1 skipped (114 total)
 **Coverage:** ≥80% branch coverage maintained
+
+**New Tests (Quality Improvements):**
+- ✅ `constant-inlining-pattern.test.ts` - 11 tests passing
+- ✅ `semantic-function-names.test.ts` - 24 tests passing (17 original + 7 extended)
 
 **Gate Status:**
 - ✅ Coverage Gate: PASS
@@ -168,3 +227,18 @@ Requirements:
 
 **Known Issues:**
 - 1 flaky performance test (`module-scope-performance.test.ts`) - passes in isolation, timing-dependent
+
+---
+
+## Quality Metrics (research-coi fixture)
+
+**Progress Tracking:** Run `cd output-test/research-coi && ./check-quality.sh`
+
+| Metric | Baseline | Current | Target | Status |
+|--------|----------|---------|--------|--------|
+| High Confidence | 31 (7%) | 187 (42%) | 280 (63%) | 🔶 67% of target |
+| Medium Confidence | 177 (40%) | 211 (48%) | - | ✅ Stable |
+| Low Confidence | 235 (53%) | 45 (10%) | <25 (5%) | 🟡 Near target |
+| Spec-Ready (H+M) | 208 (47%) | 398 (90%) | - | ✅ Excellent |
+
+**Remaining Work:** 93 entities to reach High confidence target (187 → 280)

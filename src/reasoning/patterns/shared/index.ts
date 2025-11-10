@@ -7,6 +7,7 @@
 
 import { PatternRegistry } from '../pattern-registry.js';
 import { ConstantInliningPattern } from './constant-inlining.js';
+import { SemanticFunctionPattern } from './semantic-function-names.js';
 
 /**
  * Register all shared pattern modules with the given registry.
@@ -17,14 +18,17 @@ export function registerSharedPatterns(registry: PatternRegistry): void {
   // Quality improvement: Constant value inlining
   registry.register(new ConstantInliningPattern());
 
+  // Quality improvement: Semantic function name hints
+  registry.register(new SemanticFunctionPattern());
+
   // Future shared patterns:
   // - Factory pattern detection
   // - Service client patterns
   // - Logging patterns
-  // - Configuration object patterns
 }
 
 // Export pattern modules for direct use if needed
 export {
   ConstantInliningPattern,
+  SemanticFunctionPattern,
 };

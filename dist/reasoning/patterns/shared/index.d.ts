@@ -6,11 +6,12 @@
  */
 import { PatternRegistry } from '../pattern-registry.js';
 import { ConstantInliningPattern } from './constant-inlining.js';
+import { SemanticFunctionPattern } from './semantic-function-names.js';
 /**
  * Register all shared pattern modules with the given registry.
  *
  * @param registry - Pattern registry to register modules with
  */
 export declare function registerSharedPatterns(registry: PatternRegistry): void;
-export { ConstantInliningPattern, };
+export { ConstantInliningPattern, SemanticFunctionPattern, };
 //# sourceMappingURL=index.d.ts.map
